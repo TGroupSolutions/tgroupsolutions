@@ -47,11 +47,22 @@
         .servico-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; }
         .servico-card p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
 
-        /* Estilos HOME CLUB T */
-        .lp-homeclubt { display: none; background-color: #f8faf9; color: #2c3e50; padding: 80px 60px; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.08); border: 1px solid #e9ecef; animation: fadeIn 0.8s ease; }
-        .lp-homeclubt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
-        .lp-homeclubt h2 span { color: var(--cor-primaria); }
-        .lp-homeclubt p.wellness-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; border-left: 4px solid var(--cor-primaria); padding-left: 20px; }
+        /* NOVA ESTRUTURA HOME CLUB T (Página do Meio + Cards) */
+        .lp-homeclubt { display: none; margin: 0 60px 60px 60px; animation: fadeIn 0.8s ease; }
+        
+        /* A Página do Meio */
+        .middle-hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-bottom: 80px; }
+        .middle-hero-text { flex: 1; }
+        .middle-hero-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; color: var(--cor-texto); text-transform: uppercase; }
+        .middle-hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; }
+        .middle-hero-image { flex: 1; text-align: right; }
+        .middle-hero-image img { width: 100%; max-width: 550px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        /* A Área de Conversão com os Cards */
+        .homeclubt-cards-box { background-color: #f8faf9; padding: 60px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.08); border: 1px solid #e9ecef; }
+        .homeclubt-cards-box h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
+        .homeclubt-cards-box h3 span { color: var(--cor-primaria); }
+        .wellness-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; border-left: 4px solid var(--cor-primaria); padding-left: 20px; }
 
         .homeclubt-card { background: #ffffff; border: 1px solid #eef2f5; padding: 30px; border-radius: 15px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
         .homeclubt-card:hover { border-color: var(--cor-primaria); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 132, 61, 0.1); }
@@ -63,7 +74,6 @@
         .btn-urgente { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 40px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); }
         .btn-urgente:hover { background-color: #006b31; transform: scale(1.05); }
 
-        /* Botão Verde Bandeira (HOME CLUB T) */
         .btn-wellness { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 50px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.3); border: none; }
         .btn-wellness:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
 
@@ -86,6 +96,7 @@
             body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid var(--cor-borda); z-index: 1; }
             .main-content { margin-left: 0; } .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; } .hero-text { padding-right: 0; }
             .hero-image-container { justify-content: center; } .hero-image-container img { height: 350px; } .lp-imobt, .lp-homeclubt { margin: 0 20px 40px 20px; padding: 40px 20px; }
+            .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
             .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
         }
     </style>
@@ -120,32 +131,46 @@
         </section>
 
         <section class="lp-homeclubt" id="lp-homeclubt-section">
-            <h2>A Evolução do <span>Wellness Corporativo</span></h2>
-            <p class="wellness-text"><strong>O Fim do Turnover:</strong> Benefícios genéricos já não seguram os melhores talentos. O estresse doméstico drena silenciosamente a produtividade da sua equipe. A <strong>HOME CLUB T</strong> redefine o conceito de benefícios corporativos ancorando o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa. Quando o lar funciona em harmonia, a mente performa em alto nível.</p>
-
-            <div class="servicos-grid">
-                <div class="homeclubt-card">
-                    <i class="fas fa-spa"></i>
-                    <h4>Wellness Integrado</h4>
-                    <p>Um clube de assinaturas sofisticado entregando cuidados pessoais, manutenção e comodidade. O verdadeiro bem-estar começa no alívio da carga mental diária.</p>
+            
+            <div class="middle-hero">
+                <div class="middle-hero-text">
+                    <h2>A EVOLUÇÃO DO <br><span style="color:var(--cor-primaria)">WELLNESS CORPORATIVO</span></h2>
+                    <p>A <strong>HOME CLUB T</strong> redefine o conceito de benefícios corporativos. Através de um clube de assinaturas de conveniência residencial, aumentamos a retenção de talentos e o engajamento de equipes de alta performance.</p>
                 </div>
-                <div class="homeclubt-card">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h4>Lealdade e Retenção</h4>
-                    <p>O benefício que a sua concorrência não tem. Crie uma barreira de saída emocional poderosíssima abraçando não apenas o funcionário, mas toda a sua família.</p>
-                </div>
-                <div class="homeclubt-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Zero Atrito para o RH</h4>
-                    <p>Plataforma intuitiva, gestão automatizada e repasse direto. Implemente o benefício corporativo mais cobiçado da atualidade sem burocracia para o seu setor.</p>
+                <div class="middle-hero-image">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="Wellness Corporativo">
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="http://homeclubt.com" target="_blank" class="btn-wellness">
-                    <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> ACESSAR PORTAL HOME CLUB T
-                </a>
+            <div class="homeclubt-cards-box">
+                <h3>O Fim do Turnover: Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></h3>
+                <p class="wellness-text"><strong>O Novo Padrão de Retenção:</strong> Benefícios genéricos já não seguram os melhores talentos. O estresse doméstico drena silenciosamente a produtividade da sua equipe. A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa. Quando o lar funciona em harmonia, a mente performa em alto nível.</p>
+
+                <div class="servicos-grid">
+                    <div class="homeclubt-card">
+                        <i class="fas fa-spa"></i>
+                        <h4>Wellness Integrado</h4>
+                        <p>Um clube de assinaturas sofisticado entregando cuidados pessoais, manutenção e comodidade. O verdadeiro bem-estar começa no alívio da carga mental diária.</p>
+                    </div>
+                    <div class="homeclubt-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h4>Lealdade e Retenção</h4>
+                        <p>O benefício que a sua concorrência não tem. Crie uma barreira de saída emocional poderosíssima abraçando não apenas o funcionário, mas toda a sua família.</p>
+                    </div>
+                    <div class="homeclubt-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Zero Atrito para o RH</h4>
+                        <p>Plataforma intuitiva, gestão automatizada e repasse direto. Implemente o benefício corporativo mais cobiçado da atualidade sem burocracia para o seu setor.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="http://homeclubt.com" target="_blank" class="btn-wellness">
+                        <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> ACESSAR PORTAL HOME CLUB T
+                    </a>
+                </div>
             </div>
+
         </section>
 
         <footer class="footer">
@@ -188,7 +213,6 @@
                 imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
             },
             homeclubt: {
-                // A CAPA ORIGINAL VOLTOU PARA CÁ COM A FOTO DO SOFÁ
                 titulo: "Clube de Assinaturas e <span style='color:var(--cor-primaria)'>Conveniência Residencial</span>",
                 texto: "A <span class='marca-destaque'>HOME CLUB T</span> é nosso e-commerce distribuidor sob modelo de clube de assinaturas. Focado em decoração, cuidados pessoais e linha pet, provemos manutenção residencial contínua com itens de alta recorrência. Garantimos receita previsível e expansão orgânica integrando nossos clientes ao consumo de todo o ecossistema.",
                 imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
