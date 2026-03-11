@@ -3,164 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGROUP SOLUTIONS | Matriz Tecnológica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>TGROUP SOLUTIONS | Ecossistema Tecnológico</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* Paleta de Cores e Variáveis */
         :root {
-            --primary: #00843D; /* Verde Bandeira */
-            --dark: #000000;
-            --light: #ffffff;
-            --gray: #f4f7f6;
-            --text: #333;
+            --cor-primaria: #00843D; /* Verde Bandeira Oficial */
+            --cor-fundo: #ffffff;
+            --cor-texto: #1a1a1a;
+            --cor-texto-secundario: #555555;
+            --cor-sidebar: #fbfbfb;
+            --cor-borda: #eeeeee;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
 
-        /* Sidebar Profissional */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Destaque Padrão para Nomes de Marcas */
+        .marca-destaque {
+            color: var(--cor-primaria) !important;
+            text-transform: uppercase !important;
+            font-weight: 800 !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Sidebar / Navegação Lateral */
         .sidebar {
-            width: 320px; background: var(--dark); color: white; padding: 60px 40px;
-            position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 100;
+            width: 320px;
+            background-color: var(--cor-sidebar);
+            border-right: 1px solid var(--cor-borda);
+            padding: 60px 40px;
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
         }
-        .sidebar h2 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: var(--primary); margin-bottom: 50px; text-transform: uppercase; }
+
+        .sidebar h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: #888;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
         .nav-list { list-style: none; flex-grow: 1; }
-        .nav-item { margin-bottom: 25px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.3s; opacity: 0.6; text-transform: uppercase; }
-        .nav-item:hover, .nav-item.active { opacity: 1; color: var(--primary); transform: translateX(10px); }
-
-        /* Conteúdo Principal */
-        .main { margin-left: 320px; flex: 1; display: flex; flex-direction: column; }
         
-        .section-hero { 
-            padding: 80px; display: flex; align-items: center; justify-content: space-between; min-height: 85vh;
-            background: linear-gradient(135deg, #fff 60%, var(--gray) 100%);
+        .nav-item {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
         }
-        .hero-text { flex: 1; padding-right: 50px; }
-        .hero-image { flex: 1; text-align: right; animation: fadeIn 1s ease; }
-        .hero-image img { width: 100%; max-width: 550px; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); object-fit: cover; height: 400px; }
 
-        .brand-name { font-family: 'Montserrat', sans-serif; color: var(--primary); font-size: 1rem; font-weight: 800; margin-bottom: 10px; display: block; }
-        h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; color: var(--dark); }
-        h1 span { color: var(--primary); }
-        .desc { font-size: 1.2rem; line-height: 1.8; color: #555; font-weight: 300; margin-bottom: 30px; }
+        .nav-item:hover, .nav-item.active {
+            color: var(--cor-primaria);
+            transform: translateX(8px);
+        }
+
+        /* Área Principal de Conteúdo */
+        .main-content {
+            flex: 1;
+            margin-left: 320px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Seção Dinâmica (Hero) */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: calc(100vh - 80px); /* Deixa espaço pro rodapé */
+            padding: 80px 60px;
+            gap: 60px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            color: var(--cor-texto);
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--cor-texto-secundario);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            max-width: 650px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            transition: opacity 0.5s ease;
+        }
 
         /* Rodapé Institucional */
-        footer { background: var(--dark); color: white; padding: 40px 80px; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-left: 320px; }
-        .footer-links a { color: #888; text-decoration: none; margin-left: 20px; transition: 0.3s; }
-        .footer-links a:hover { color: var(--primary); }
-
-        /* Botão WhatsApp */
-        .btn-whatsapp {
-            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
-            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); text-decoration: none; z-index: 1000; transition: 0.3s;
+        .footer {
+            background-color: var(--cor-fundo);
+            border-top: 1px solid var(--cor-borda);
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #777;
         }
-        .btn-whatsapp:hover { transform: scale(1.1); }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .footer-links a {
+            color: #777;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
 
+        .footer-links a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* Botão Flutuante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modais (Janelas de Política/Termos/Contato) */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+            display: none; justify-content: center; align-items: center; z-index: 1000;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--cor-fundo); width: 90%; max-width: 700px;
+            padding: 50px; border-radius: 20px; position: relative;
+            max-height: 80vh; overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute; top: 25px; right: 30px; font-size: 25px;
+            cursor: pointer; color: #999; transition: 0.3s;
+        }
+
+        .close-modal:hover { color: var(--cor-texto); }
+
+        .modal-content h3 {
+            font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto);
+        }
+
+        /* Responsividade */
         @media (max-width: 1100px) {
-            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; }
-            .main, footer { margin-left: 0; }
-            .section-hero { flex-direction: column; padding: 40px; text-align: center; }
-            .hero-text { padding-right: 0; margin-bottom: 40px; }
-            h1 { font-size: 2.5rem; }
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid var(--cor-borda); z-index: 1; }
+            .main-content { margin-left: 0; }
+            .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; }
+            .hero-text { padding-right: 0; }
+            .hero-image-container { justify-content: center; }
+            .hero-image-container img { height: 350px; }
+            .footer { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { margin: 0 10px; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <h2>ECOSSISTEMA T</h2>
+        <h2>Ecossistema</h2>
         <ul class="nav-list">
-            <li class="nav-item active" onclick="updateContent('home')">TGROUP SOLUTIONS</li>
-            <li class="nav-item" onclick="updateContent('payt')">PAY T</li>
-            <li class="nav-item" onclick="updateContent('imobt')">IMOB T</li>
-            <li class="nav-item" onclick="updateContent('brandt')">BRAND T</li>
-            <li class="nav-item" onclick="updateContent('construt')">CONSTRU T</li>
-            <li class="nav-item" onclick="updateContent('homeclubt')">HOME CLUB T</li>
+            <li class="nav-item active" onclick="carregarConteudo('home')">TGROUP SOLUTIONS</li>
+            <li class="nav-item" onclick="carregarConteudo('payt')">PAY T</li>
+            <li class="nav-item" onclick="carregarConteudo('imobt')">IMOB T</li>
+            <li class="nav-item" onclick="carregarConteudo('brandt')">BRAND T</li>
+            <li class="nav-item" onclick="carregarConteudo('construt')">CONSTRU T</li>
+            <li class="nav-item" onclick="carregarConteudo('homeclubt')">HOME CLUB T</li>
         </ul>
     </aside>
 
-    <div class="main">
-        <section class="section-hero" id="hero-section">
-            <div class="hero-text">
-                <span class="brand-name" id="content-brand">TGROUP SOLUTIONS</span>
-                <h1 id="content-title">ECOSSISTEMA DE <span>ALTA PERFORMANCE</span></h1>
-                <p class="desc" id="content-desc">
-                    Unificamos inteligência tecnológica e soluções financeiras integradas para escalar negócios globais através de inovação disruptiva.
-                </p>
-            </div>
-            <div class="hero-image">
-                <img id="content-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" alt="Tecnologia">
-            </div>
-        </section>
+    <main class="main-content">
+        <section class="hero-section" id="hero-display">
+            </section>
 
-        <footer>
-            <div>&copy; 2024 TGROUP SOLUTIONS | SÃO PAULO - BRASIL</div>
+        <footer class="footer">
+            <div>&copy; 2026 <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span>. SÃO PAULO, SP. Todos os direitos reservados.</div>
             <div class="footer-links">
-                <a href="#">POLÍTICA DE PRIVACIDADE</a>
-                <a href="#">TERMOS DE USO</a>
-                <a href="mailto:tgroupsolutions.br@gmail.com">CONTATO</a>
+                <a onclick="abrirModal('modal-termos')">Termos de Uso</a>
+                <a onclick="abrirModal('modal-privacidade')">Política de Privacidade</a>
+                <a onclick="abrirModal('modal-contato')">Contato</a>
             </div>
         </footer>
-    </div>
+    </main>
 
-    <a href="https://wa.me/5511947879779" class="btn-whatsapp" target="_blank">
+    <a href="https://wa.me/5511947879779" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="document.getElementById('modal-termos').style.display='none'">&times;</span>
+            <h3>Termos e Condições de Uso</h3>
+            <p style="color:#555; line-height: 1.8;">Bem-vindo ao ecossistema da <span class="marca-destaque">TGROUP SOLUTIONS</span>. Ao acessar nossas plataformas, você concorda com nossos termos de governança corporativa e diretrizes de uso da matriz tecnológica. Nossas startups operam sob as mais rigorosas normas de compliance do mercado corporativo, garantindo segurança, escalabilidade e transparência em todas as operações B2B e B2C.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="document.getElementById('modal-privacidade').style.display='none'">&times;</span>
+            <h3>Política de Privacidade</h3>
+            <p style="color:#555; line-height: 1.8;">A <span class="marca-destaque">TGROUP SOLUTIONS</span> leva a segurança dos seus dados a sério. Em conformidade com a LGPD e regulamentações internacionais de proteção de dados, garantimos que as informações transacionadas em nosso ecossistema de startups são criptografadas e utilizadas exclusivamente para otimizar as operações sistêmicas. Não comercializamos dados de clientes, parceiros ou fornecedores.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-modal" onclick="document.getElementById('modal-contato').style.display='none'">&times;</span>
+            <h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
+            <p style="color:#555; line-height: 1.8; margin-bottom: 30px;">Nosso time executivo está à disposição para estruturar operações e alavancar o seu negócio em nosso ecossistema.</p>
+            <div style="font-size: 1.2rem; margin-bottom: 15px;">
+                <i class="fas fa-envelope" style="color:var(--cor-primaria); margin-right: 10px;"></i>
+                <a href="mailto:tgroupsolutions.br@gmail.com" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">tgroupsolutions.br@gmail.com</a>
+            </div>
+            <div style="font-size: 1.2rem;">
+                <i class="fab fa-whatsapp" style="color:var(--cor-primaria); margin-right: 10px;"></i>
+                <a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9rem; color: #999;">São Paulo, SP - Brasil</p>
+        </div>
+    </div>
+
     <script>
-        const data = {
+        // Banco de Dados Dinâmico do Ecossistema
+        const dadosEcossistema = {
             home: {
-                brand: "TGROUP SOLUTIONS",
-                title: "ECOSSISTEMA DE <span>ALTA PERFORMANCE</span>",
-                desc: "A TGROUP SOLUTIONS é uma matriz tecnológica que integra startups líderes. Unificamos a inteligência para otimizar resultados em escala global com foco em sustentabilidade e inovação.",
-                img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
+                titulo: "Inovação e <span style='color:var(--cor-primaria)'>Gestão Integrada</span>",
+                texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores do mercado, oferecendo soluções tecnológicas avançadas e serviços financeiros. Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C, com o propósito maior de desenvolvimento econômico e social global.",
+                // Imagem corporativa de tecnologia abstrata de alta qualidade
+                imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
             },
             payt: {
-                brand: "PAY T",
-                title: "GESTÃO FINANCEIRA <span>DISRUPTIVA</span>",
-                desc: "A PAY T é a fintech do grupo, atuando como matriz de pagamentos e gestão B2B. Oferecemos ferramentas comerciais que elevam a rentabilidade de pequenas e médias empresas.",
-                img: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800"
+                titulo: "Matriz Financeira e <span style='color:var(--cor-primaria)'>Gateway de Pagamentos</span>",
+                texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira do Ecossistema. Atua como a matriz financeira e API de pagamentos integrada, gerenciando plataformas e oferecendo ferramentas comerciais robustas. Nosso diferencial é a capacidade de integrar toda a operação, consolidando-se como o gateway oficial de pequenas e médias empresas.",
+                // Imagem de finanças/dashboard executivo
+                imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
             },
             imobt: {
-                brand: "IMOB T",
-                title: "INTELIGÊNCIA EM <span>ATIVOS IMOBILIÁRIOS</span>",
-                desc: "Operações completas com ativos imobiliários. Utilizamos IA para análise de viabilidade e gestão de vendas, transformando o mercado de loteamentos e flipping house.",
-                img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"
+                titulo: "Inteligência e Gestão em <span style='color:var(--cor-primaria)'>Ativos Imobiliários</span>",
+                texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa para operações com ativos imobiliários, englobando implantação e comercialização de empreendimentos. Nosso diferencial competitivo reside na integração de Inteligência Artificial para análise de viabilidade, captação de glebas, consultoria jurídica e solução completa de flipping house em um único dashboard.",
+                // Imagem de arquitetura/imóveis de luxo
+                imagem: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
             },
             brandt: {
-                brand: "BRAND T",
-                title: "MARKETING COM <span>IA INTEGRADA</span>",
-                desc: "Gestão estratégica de branding e vendas. Automatizamos jornadas de compra e potencializamos a carreira de creators através de análise de dados avançada.",
-                img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
+                titulo: "Gestão Estratégica e <span style='color:var(--cor-primaria)'>Branding com IA</span>",
+                texto: "A <span class='marca-destaque'>BRAND T</span> é nossa plataforma de IA focada em gestão de branding, marketing, vendas, estratégia digital e carreiras de creators e palestrantes. Centralizamos dados de todo o ecossistema para criar estratégias personalizadas, automatizar campanhas e utilizar a Inteligência Artificial para otimizar vendas e reter o cliente na jornada de compra.",
+                // Imagem de estratégia de marketing digital/código
+                imagem: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop"
             },
             construt: {
-                brand: "CONSTRU T",
-                title: "MARKETPLACE DA <span>CONSTRUÇÃO CIVIL</span>",
-                desc: "E-commerce e clube distribuidor B2B2C. Conectamos fornecedores e clientes finais com uma rede de distribuição robusta e automatizada.",
-                img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800"
+                titulo: "Clube Distribuidor e <span style='color:var(--cor-primaria)'>Marketplace de Construção</span>",
+                texto: "A <span class='marca-destaque'>CONSTRU T</span> opera como e-commerce e clube distribuidor B2B2C focado no mercado da Construção Civil. Das fundações aos itens de paisagismo, oferecemos um marketplace com rede de distribuição robusta, gestão de fornecedores e forte expansão com clube de compras programadas e lojas automatizadas.",
+                // Imagem de construção/obras de alto padrão
+                imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
             },
             homeclubt: {
-                brand: "HOME CLUB T",
-                title: "RECORRÊNCIA E <span>CUIDADO RESIDENCIAL</span>",
-                desc: "Clube de assinaturas focado em manutenção e consumo doméstico. Fidelizamos clientes através de um modelo de conveniência e alta recorrência.",
-                img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
+                titulo: "Clube de Assinaturas e <span style='color:var(--cor-primaria)'>Conveniência Residencial</span>",
+                texto: "A <span class='marca-destaque'>HOME CLUB T</span> é nosso e-commerce distribuidor sob modelo de clube de assinaturas. Focado em decoração, cuidados pessoais e linha pet, provemos manutenção residencial contínua com itens de alta recorrência. Garantimos receita previsível e expansão orgânica integrando nossos clientes ao consumo de todo o ecossistema.",
+                // Imagem de interior de casa/decoração sofisticada
+                imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
             }
         };
 
-        function updateContent(id) {
-            const item = data[id];
-            document.getElementById('content-brand').innerText = item.brand;
-            document.getElementById('content-title').innerHTML = item.title;
-            document.getElementById('content-desc').innerText = item.desc;
-            document.getElementById('content-img').src = item.img;
+        // Função que troca o conteúdo na tela
+        function carregarConteudo(chave) {
+            const section = document.getElementById('hero-display');
+            const dados = dadosEcossistema[chave];
 
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
+            // Efeito de fade-out rápido
+            section.style.opacity = 0;
+
+            setTimeout(() => {
+                section.innerHTML = `
+                    <div class="hero-text">
+                        <h1>${dados.titulo}</h1>
+                        <p>${dados.texto}</p>
+                    </div>
+                    <div class="hero-image-container">
+                        <img src="${dados.imagem}" alt="Ilustração ${chave}">
+                    </div>
+                `;
+                // Efeito de fade-in
+                section.style.opacity = 1;
+            }, 300);
+
+            // Atualiza os botões laterais (marcando qual está ativo)
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            event.currentTarget.classList.add('active');
         }
+
+        // Funções dos Modais
+        function abrirModal(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'flex';
+            setTimeout(() => modal.style.opacity = 1, 10);
+        }
+
+        function fecharModal(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.opacity = 0;
+                setTimeout(() => event.target.style.display = 'none', 300);
+            }
+        }
+
+        // Carrega a tela inicial da TGROUP ao abrir o site
+        window.onload = () => carregarConteudo('home');
     </script>
+
 </body>
 </html>
