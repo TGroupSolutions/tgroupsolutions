@@ -3,332 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGROUP Solutions | Ecossistema T</title>
-    <!-- Fontes modernas e elegantes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
-    
+    <title>TGROUP SOLUTIONS | Matriz Tecnológica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Variáveis de Cores e Layout */
         :root {
-            --bg-dark: #050505;
-            --bg-light: #ffffff;
-            --text-dark: #1a1a1a;
-            --text-light: #f4f4f4;
-            --green-flag: #009b3a; /* Verde Bandeira */
-            --green-glow: #00c74a;
+            --primary: #00843D; /* Verde Bandeira */
+            --dark: #000000;
+            --light: #ffffff;
+            --gray: #f4f7f6;
+            --text: #333;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--text); display: flex; min-height: 100vh; overflow-x: hidden; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            transition: background-color 0.5s ease, color 0.5s ease;
-            overflow-x: hidden;
-        }
-
-        body.light-mode {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
-
-        /* Layout Principal */
-        .container {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: row;
-        }
-
-        /* Área de Conteúdo Central/Esquerda */
-        .main-content {
-            flex: 7;
-            padding: 6rem 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: opacity 0.3s ease;
-        }
-
-        /* Tipografia */
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            display: inline-block;
-            border-bottom: 3px solid var(--green-flag);
-            padding-bottom: 5px;
-        }
-
-        .title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .title span {
-            color: var(--green-flag);
-        }
-
-        .description {
-            font-size: 1.25rem;
-            font-weight: 300;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-bottom: 2rem;
-        }
-
-        .features {
-            margin-top: 2rem;
-            border-left: 2px solid var(--green-flag);
-            padding-left: 1.5rem;
-        }
-
-        .features h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--green-flag);
-        }
-
-        .features p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Menu Lateral Direita */
+        /* Sidebar Profissional */
         .sidebar {
-            flex: 3;
-            background-color: rgba(0, 0, 0, 0.03);
-            border-left: 1px solid rgba(128, 128, 128, 0.2);
-            padding: 4rem 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            width: 320px; background: var(--dark); color: white; padding: 60px 40px;
+            position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 100;
         }
+        .sidebar h2 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: var(--primary); margin-bottom: 50px; text-transform: uppercase; }
+        .nav-list { list-style: none; flex-grow: 1; }
+        .nav-item { margin-bottom: 25px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.3s; opacity: 0.6; text-transform: uppercase; }
+        .nav-item:hover, .nav-item.active { opacity: 1; color: var(--primary); transform: translateX(10px); }
 
-        body:not(.light-mode) .sidebar {
-            background-color: rgba(255, 255, 255, 0.02);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        /* Conteúdo Principal */
+        .main { margin-left: 320px; flex: 1; display: flex; flex-direction: column; }
+        
+        .section-hero { 
+            padding: 80px; display: flex; align-items: center; justify-content: space-between; min-height: 85vh;
+            background: linear-gradient(135deg, #fff 60%, var(--gray) 100%);
         }
+        .hero-text { flex: 1; padding-right: 50px; }
+        .hero-image { flex: 1; text-align: right; animation: fadeIn 1s ease; }
+        .hero-image img { width: 100%; max-width: 550px; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); object-fit: cover; height: 400px; }
 
-        .sidebar h3 {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--green-flag);
+        .brand-name { font-family: 'Montserrat', sans-serif; color: var(--primary); font-size: 1rem; font-weight: 800; margin-bottom: 10px; display: block; }
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; color: var(--dark); }
+        h1 span { color: var(--primary); }
+        .desc { font-size: 1.2rem; line-height: 1.8; color: #555; font-weight: 300; margin-bottom: 30px; }
+
+        /* Rodapé Institucional */
+        footer { background: var(--dark); color: white; padding: 40px 80px; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-left: 320px; }
+        .footer-links a { color: #888; text-decoration: none; margin-left: 20px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
+
+        /* Botão WhatsApp */
+        .btn-whatsapp {
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); text-decoration: none; z-index: 1000; transition: 0.3s;
         }
+        .btn-whatsapp:hover { transform: scale(1.1); }
 
-        .nav-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .nav-item {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
-            color: inherit;
-            opacity: 0.5;
-        }
-
-        .nav-item:hover {
-            opacity: 1;
-            transform: translateX(-10px);
-            color: var(--green-flag);
-        }
-
-        .nav-item.active {
-            opacity: 1;
-            color: var(--green-flag);
-        }
-
-        .nav-item.active::after {
-            content: '';
-            position: absolute;
-            right: -3rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 2px;
-            background-color: var(--green-flag);
-        }
-
-        /* Responsividade */
-        @media (max-width: 1024px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar {
-                border-left: none;
-                border-top: 1px solid rgba(128, 128, 128, 0.2);
-                padding: 3rem;
-            }
-            .main-content {
-                padding: 3rem;
-            }
-            .nav-item.active::after {
-                display: none;
-            }
-            .nav-item:hover {
-                transform: translateX(10px);
-            }
+        @media (max-width: 1100px) {
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; }
+            .main, footer { margin-left: 0; }
+            .section-hero { flex-direction: column; padding: 40px; text-align: center; }
+            .hero-text { padding-right: 0; margin-bottom: 40px; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Conteúdo Principal -->
-        <main class="main-content" id="content-area">
-            <!-- O conteúdo será injetado aqui via JS -->
-        </main>
+    <aside class="sidebar">
+        <h2>ECOSSISTEMA T</h2>
+        <ul class="nav-list">
+            <li class="nav-item active" onclick="updateContent('home')">TGROUP SOLUTIONS</li>
+            <li class="nav-item" onclick="updateContent('payt')">PAY T</li>
+            <li class="nav-item" onclick="updateContent('imobt')">IMOB T</li>
+            <li class="nav-item" onclick="updateContent('brandt')">BRAND T</li>
+            <li class="nav-item" onclick="updateContent('construt')">CONSTRU T</li>
+            <li class="nav-item" onclick="updateContent('homeclubt')">HOME CLUB T</li>
+        </ul>
+    </aside>
 
-        <!-- Menu Lateral Direita -->
-        <aside class="sidebar">
-            <h3>Soluções do Ecossistema</h3>
-            <ul class="nav-list" id="nav-list">
-                <li class="nav-item active" data-id="home">TGROUP Home</li>
-                <li class="nav-item" data-id="payt">PAY T</li>
-                <li class="nav-item" data-id="imobt">IMOB T</li>
-                <li class="nav-item" data-id="construt">CONSTRU T</li>
-                <li class="nav-item" data-id="homeclubt">HOMECLUB T</li>
-                <li class="nav-item" data-id="brandt">BRAND T</li>
-            </ul>
-        </aside>
+    <div class="main">
+        <section class="section-hero" id="hero-section">
+            <div class="hero-text">
+                <span class="brand-name" id="content-brand">TGROUP SOLUTIONS</span>
+                <h1 id="content-title">ECOSSISTEMA DE <span>ALTA PERFORMANCE</span></h1>
+                <p class="desc" id="content-desc">
+                    Unificamos inteligência tecnológica e soluções financeiras integradas para escalar negócios globais através de inovação disruptiva.
+                </p>
+            </div>
+            <div class="hero-image">
+                <img id="content-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" alt="Tecnologia">
+            </div>
+        </section>
+
+        <footer>
+            <div>&copy; 2024 TGROUP SOLUTIONS | SÃO PAULO - BRASIL</div>
+            <div class="footer-links">
+                <a href="#">POLÍTICA DE PRIVACIDADE</a>
+                <a href="#">TERMOS DE USO</a>
+                <a href="mailto:tgroupsolutions.br@gmail.com">CONTATO</a>
+            </div>
+        </footer>
     </div>
 
+    <a href="https://wa.me/5511947879779" class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        // Banco de Dados Dinâmico baseado nas informações do documento
-        const contentData = {
+        const data = {
             home: {
-                title: "Expertise em Gestão, <span>SAAS e Automação</span>",
-                description: "O grupo TGROUP solutions (Ecossistema T) representa uma proposta inovadora que integra startups em diferentes setores do mercado, oferecendo soluções tecnológicas avançadas e serviços financeiros integrados [1]. Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C [1-3].",
-                features: [
-                    { title: "Inovação Integrada", text: "Compartilhamento de tecnologia e IA para reduzir custos unitários e antecipar as necessidades dos clientes [3, 4]." },
-                    { title: "Propósito Maior", text: "Todas as plataformas possuem o objetivo de desenvolvimento econômico, social e financiamento do evangelho pelo mundo [5]." }
-                ],
-                theme: "dark" // Fundo Preto
+                brand: "TGROUP SOLUTIONS",
+                title: "ECOSSISTEMA DE <span>ALTA PERFORMANCE</span>",
+                desc: "A TGROUP SOLUTIONS é uma matriz tecnológica que integra startups líderes. Unificamos a inteligência para otimizar resultados em escala global com foco em sustentabilidade e inovação.",
+                img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
             },
             payt: {
-                title: "PAY <span>T</span>",
-                description: "Fintech de Gestão Financeira do Ecossistema e API de pagamentos integrada. Atua como a matriz do ecossistema, gateway de pagamentos e gestão financeira B2B [2].",
-                features: [
-                    { title: "O que fazemos", text: "Gerenciamos financeiramente plataformas e oferecemos ferramentas comerciais para aumento da rentabilidade [6]. Consolidamo-nos como gateway de pagamentos e plataforma de folha de pagamentos de pequenas e médias empresas [6, 7]." },
-                    { title: "Diferencial Competitivo", text: "Capacidade de integrar e gerenciar todas as plataformas do ecossistema, preenchendo a lacuna de busca de benefícios pelas empresas [6, 7]." }
-                ],
-                theme: "light" // Fundo Branco
+                brand: "PAY T",
+                title: "GESTÃO FINANCEIRA <span>DISRUPTIVA</span>",
+                desc: "A PAY T é a fintech do grupo, atuando como matriz de pagamentos e gestão B2B. Oferecemos ferramentas comerciais que elevam a rentabilidade de pequenas e médias empresas.",
+                img: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800"
             },
             imobt: {
-                title: "IMOB <span>T</span>",
-                description: "Gestão completa para operações com ativos imobiliários, englobando implantação e comercialização de empreendimentos [8].",
-                features: [
-                    { title: "O que fazemos", text: "Análise de viabilidade, captação de glebas através de API de IA, consultoria jurídica, acompanhamento de obras e gestão das vendas dos lotes [8, 9]." },
-                    { title: "Diferencial Competitivo", text: "Integração de IA com dados de leilões e solução completa de flipping house, concentrando em um só dashboard toda a operação do loteador [10, 11]." }
-                ],
-                theme: "dark" // Fundo Preto
-            },
-            construt: {
-                title: "CONSTRU <span>T</span>",
-                description: "E-commerce e clube distribuidor B2B2C focado no mercado da Construção Civil [12].",
-                features: [
-                    { title: "O que fazemos", text: "Vendas de produtos desde insumos básicos a itens de paisagismo, com gestão de vendas de fornecedores e produtos próprios (white label) [12, 13]." },
-                    { title: "Diferencial Competitivo", text: "Marketplace com clube de compras programadas, rede de distribuição robusta e planos futuros de implantação de lojas físicas automatizadas [14, 15]." }
-                ],
-                theme: "light" // Fundo Branco
-            },
-            homeclubt: {
-                title: "HOMECLUB <span>T</span>",
-                description: "E-commerce distribuidor focado em itens de decoração, cuidados pessoais, infantil e pet, operando sob o perfil de clube de assinaturas [16].",
-                features: [
-                    { title: "O que fazemos", text: "Suporte à manutenção de instalações residenciais com assinaturas mensais de alto consumo (low ticket), fidelizando o cliente e levando ao consumo de produtos da plataforma [16, 17]." },
-                    { title: "Diferencial Competitivo", text: "Integra e-commerce com clube de assinatura, garantindo receita recorrente e expansão orgânica via programas de afiliados [18]." }
-                ],
-                theme: "dark" // Fundo Preto
+                brand: "IMOB T",
+                title: "INTELIGÊNCIA EM <span>ATIVOS IMOBILIÁRIOS</span>",
+                desc: "Operações completas com ativos imobiliários. Utilizamos IA para análise de viabilidade e gestão de vendas, transformando o mercado de loteamentos e flipping house.",
+                img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"
             },
             brandt: {
-                title: "BRAND <span>T</span>",
-                description: "Plataforma de IA focada em gestão de branding, marketing, vendas, estratégia digital e carreiras de creators e palestrantes [19].",
-                features: [
-                    { title: "O que fazemos", text: "Automatizamos campanhas, criamos sites/áreas de membros, fornecemos consultoria de carreira e integramos atendimento multicanal via IA [20, 21]." },
-                    { title: "Diferencial Competitivo", text: "Centralização de dados de todo o ecossistema, criação de estratégias personalizadas e uso de Inteligência Artificial para otimizar vendas e reter o cliente na jornada de compra [21-23]." }
-                ],
-                theme: "light" // Fundo Branco
+                brand: "BRAND T",
+                title: "MARKETING COM <span>IA INTEGRADA</span>",
+                desc: "Gestão estratégica de branding e vendas. Automatizamos jornadas de compra e potencializamos a carreira de creators através de análise de dados avançada.",
+                img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
+            },
+            construt: {
+                brand: "CONSTRU T",
+                title: "MARKETPLACE DA <span>CONSTRUÇÃO CIVIL</span>",
+                desc: "E-commerce e clube distribuidor B2B2C. Conectamos fornecedores e clientes finais com uma rede de distribuição robusta e automatizada.",
+                img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800"
+            },
+            homeclubt: {
+                brand: "HOME CLUB T",
+                title: "RECORRÊNCIA E <span>CUIDADO RESIDENCIAL</span>",
+                desc: "Clube de assinaturas focado em manutenção e consumo doméstico. Fidelizamos clientes através de um modelo de conveniência e alta recorrência.",
+                img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
             }
         };
 
-        const contentArea = document.getElementById('content-area');
-        const navItems = document.querySelectorAll('.nav-item');
+        function updateContent(id) {
+            const item = data[id];
+            document.getElementById('content-brand').innerText = item.brand;
+            document.getElementById('content-title').innerHTML = item.title;
+            document.getElementById('content-desc').innerText = item.desc;
+            document.getElementById('content-img').src = item.img;
 
-        // Função para renderizar conteúdo
-        function renderContent(id) {
-            const data = contentData[id];
-            
-            // Alternar Tema (Preto / Branco)
-            if(data.theme === 'light') {
-                document.body.classList.add('light-mode');
-            } else {
-                document.body.classList.remove('light-mode');
-            }
-
-            // Montar HTML Interno
-            let featuresHtml = '';
-            if (data.features && data.features.length > 0) {
-                featuresHtml = '<div class="features">';
-                data.features.forEach(feat => {
-                    featuresHtml += `<h4>${feat.title}</h4><p>${feat.text}</p>`;
-                });
-                featuresHtml += '</div>';
-            }
-
-            // Animação suave de fade
-            contentArea.style.opacity = 0;
-            
-            setTimeout(() => {
-                contentArea.innerHTML = `
-                    <div class="brand-logo">TGROUP Solutions</div>
-                    <h1 class="title">${data.title}</h1>
-                    <p class="description">${data.description}</p>
-                    ${featuresHtml}
-                `;
-                contentArea.style.opacity = 1;
-            }, 300);
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
         }
-
-        // Event Listeners para o Menu Lateral
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                // Remover classe active de todos
-                navItems.forEach(nav => nav.classList.remove('active'));
-                // Adicionar no clicado
-                e.target.classList.add('active');
-                
-                // Renderizar a tela correspondente
-                renderContent(e.target.dataset.id);
-            });
-        });
-
-        // Inicializar a home
-        renderContent('home');
-
     </script>
 </body>
 </html>
