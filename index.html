@@ -27,12 +27,20 @@
         .hero-text { flex: 1; max-width: 600px; }
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; color: var(--cor-texto); }
         .hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; margin-bottom: 30px; }
+        
         .hero-image-container { flex: 1; display: flex; justify-content: flex-end; position: relative; }
         .hero-image-container img { width: 100%; max-width: 650px; height: 500px; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
 
+        /* GRID INTELIGENTE (4 IMAGENS) */
         .imagem-grid-4 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 500px; animation: fadeIn 0.8s ease; }
         .imagem-grid-4 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
         .imagem-grid-4 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
+
+        /* NOVO GRID INTELIGENTE (3 IMAGENS - BRAND T) */
+        .imagem-grid-3 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 500px; animation: fadeIn 0.8s ease; }
+        .imagem-grid-3 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
+        .imagem-grid-3 img:first-child { grid-row: span 2; } /* A primeira imagem fica altiva à esquerda */
+        .imagem-grid-3 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
         .btn-urgente { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 40px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); border: none; cursor: pointer; }
@@ -67,27 +75,36 @@
         .homeclubt-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #1a1a1a; }
         .homeclubt-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
 
-        /* ==================== LP PAY T (SUPER AGRESSIVA/FINTECH BLACK) ==================== */
+        /* ==================== LP PAY T ==================== */
         .lp-payt { display: none; background-color: #050505; color: #ffffff; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; animation: fadeIn 0.8s ease; overflow: hidden; }
-        
         .payt-header { padding: 80px 60px 40px 60px; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border-bottom: 1px solid #1a1a1a; }
         .payt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
         .payt-header h2 span { color: var(--cor-primaria); }
         .payt-header p { font-size: 1.2rem; line-height: 1.8; color: #aaaaaa; max-width: 800px; margin: 0 auto; font-weight: 300; }
-        
         .payt-body { padding: 60px; }
         .payt-alerta { font-size: 1.15rem; line-height: 1.8; color: #eeeeee; margin-bottom: 50px; border-left: 4px solid #ff3333; padding-left: 20px; background: rgba(255, 51, 51, 0.05); padding: 20px; border-radius: 0 10px 10px 0; }
-        
         .servico-card-payt { background: #0a0a0a; border: 1px solid #222; padding: 40px 30px; border-radius: 15px; transition: 0.4s; text-align: left; }
         .servico-card-payt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.15); background: #0d0d0d; }
         .servico-card-payt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
         .servico-card-payt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
         .servico-card-payt p { font-size: 1rem; color: #888; line-height: 1.6; }
-
         .payt-metrics { display: flex; justify-content: center; gap: 40px; margin-top: 50px; margin-bottom: 60px; flex-wrap: wrap; }
         .metric-box { text-align: center; }
         .metric-box h5 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 5px; }
         .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ==================== LP BRAND T (NOVA - LUXO E AUTORIDADE) ==================== */
+        .lp-brandt { display: none; background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; animation: fadeIn 0.8s ease; }
+        .brandt-header { text-align: center; margin-bottom: 60px; }
+        .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
+        .brandt-header h2 span { color: var(--cor-primaria); }
+        .brandt-alerta { font-size: 1.2rem; line-height: 1.8; color: #444; max-width: 900px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-left: 5px solid var(--cor-primaria); }
+        
+        .servico-card-brandt { background: #ffffff; border: 1px solid #eee; padding: 40px 30px; border-radius: 15px; transition: 0.4s; }
+        .servico-card-brandt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.1); }
+        .servico-card-brandt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
+        .servico-card-brandt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a; text-transform: uppercase; }
+        .servico-card-brandt p { font-size: 1rem; color: #666; line-height: 1.6; }
 
         /* FIM ESTILOS ESPECÍFICOS */
 
@@ -101,14 +118,16 @@
         .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
         .close-modal:hover { color: var(--cor-texto); }
         .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
+        
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 1100px) {
             body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid var(--cor-borda); z-index: 1; }
             .main-content { margin-left: 0; } .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; } .hero-text { padding-right: 0; }
-            .hero-image-container { justify-content: center; } .hero-image-container img { height: 350px; } .lp-imobt, .lp-homeclubt, .lp-payt { margin: 0 20px 40px 20px; padding: 40px 20px; }
-            .payt-header { padding: 40px 20px; } .payt-body { padding: 30px 20px; }
+            .hero-image-container { justify-content: center; } .hero-image-container img { height: 350px; } .lp-imobt, .lp-homeclubt, .lp-payt, .lp-brandt { margin: 0 20px 40px 20px; padding: 40px 20px; }
+            .payt-header, .brandt-header { padding: 40px 20px; } .payt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
             .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+            .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; }
         }
     </style>
 </head>
@@ -130,6 +149,42 @@
         <section class="hero-section" id="hero-display">
             </section>
 
+        <section class="lp-brandt" id="lp-brandt-section">
+            <div class="brandt-header">
+                <h2>Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></h2>
+                <p class="brandt-alerta"><strong>O Fim da Fadiga Digital:</strong> Chega de comprar "ferramentas milagrosas" de IA e perder noites tentando conectá-las. Chega de pagar cursos infindáveis sobre como mexer em plataformas. A <strong>BRAND T</strong> absorve 100% do seu gargalo técnico. Da concepção do seu posicionamento até o controle do dinheiro na sua conta, nós assumimos a operação para você focar no que faz de melhor: ser a autoridade.</p>
+            </div>
+
+            <div class="servicos-grid">
+                <div class="servico-card-brandt">
+                    <i class="fas fa-chess-knight"></i>
+                    <h4>Posicionamento & Campanhas</h4>
+                    <p>Definição cirúrgica de marca pessoal ou corporativa. Criação de conteúdo estratégico, gestão profissional de redes sociais e estruturação de campanhas projetadas exclusivamente para conversão de vendas.</p>
+                </div>
+                <div class="servico-card-brandt">
+                    <i class="fas fa-video"></i>
+                    <h4>Live Shop & Área de Membros</h4>
+                    <p>Hospedagem em plataforma proprietária padrão Netflix para sua audiência. Cenários e infraestrutura de Live Commerce integrados para que você venda ao vivo com fluidez e alto impacto audiovisual.</p>
+                </div>
+                <div class="servico-card-brandt">
+                    <i class="fas fa-wallet"></i>
+                    <h4>Financeiro Integrado (PAY T)</h4>
+                    <p>O ecossistema trabalha a seu favor. Gestão financeira inteligente com dashboard em tempo real, controle de conta digital completa e links de pagamento diretos, sem fricção e sem intermediários.</p>
+                </div>
+                <div class="servico-card-brandt">
+                    <i class="fas fa-globe-americas"></i>
+                    <h4>Projeção Internacional</h4>
+                    <p>Por que limitar sua autoridade geograficamente? Através de nossa rede de parceiros corporativos estratégicos, preparamos e lançamos sua voz e seus produtos para o mercado global.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://wa.me/5511947879779?text=Olá! Sou Empresa/Creator e quero terceirizar toda a minha operação digital com o ecossistema da BRAND T." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> DELEGAR MINHA OPERAÇÃO E ESCALAR
+                </a>
+            </div>
+        </section>
+
         <section class="lp-payt" id="lp-payt-section">
             <div class="payt-header">
                 <h2>Pare de Deixar Milhões na Mesa com <span>Gateways Genéricos</span></h2>
@@ -137,26 +192,12 @@
             </div>
             
             <div class="payt-body">
-                <p class="payt-alerta">
-                    <strong>Aversão à Perda - O Risco Oculto do seu Checkout:</strong> Cada 1% de transações legítimas recusadas pelo antifraude mal calibrado do seu gateway atual significa milhares de reais que saíram do seu funil e foram direto para a concorrência. Você comprou o lead, nutriu o cliente e perdeu na hora de passar o cartão. A inércia está corroendo a sua margem de lucro.
-                </p>
+                <p class="payt-alerta"><strong>Aversão à Perda - O Risco Oculto do seu Checkout:</strong> Cada 1% de transações legítimas recusadas pelo antifraude mal calibrado do seu gateway atual significa milhares de reais que saíram do seu funil e foram direto para a concorrência.</p>
 
                 <div class="servicos-grid">
-                    <div class="servico-card-payt">
-                        <i class="fas fa-microchip"></i>
-                        <h4>Roteamento Inteligente (IA)</h4>
-                        <p>Nunca mais perca uma venda por queda de operadora. Nossa Inteligência Artificial tenta automaticamente aprovar o pagamento em múltiplos adquirentes em milissegundos. Aprovação levada ao extremo.</p>
-                    </div>
-                    <div class="servico-card-payt">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Antifraude Cirúrgico</h4>
-                        <p>Bloqueie fraudadores, não clientes reais. Cruzamento de dados de alto nível no ecossistema para garantir que suas vendas sejam aprovadas com segurança absoluta e risco zero de chargeback.</p>
-                    </div>
-                    <div class="servico-card-payt">
-                        <i class="fas fa-bolt"></i>
-                        <h4>Liquidez e Fluxo de Caixa</h4>
-                        <p>Quem escala precisa de oxigênio financeiro. Planos agressivos de antecipação de recebíveis D+1 ou D+0, com as taxas mais competitivas para operações de alto volume. Seu dinheiro onde ele deve estar: na sua mão.</p>
-                    </div>
+                    <div class="servico-card-payt"><i class="fas fa-microchip"></i><h4>Roteamento Inteligente (IA)</h4><p>Nossa IA tenta automaticamente aprovar o pagamento em múltiplos adquirentes em milissegundos. Aprovação levada ao extremo.</p></div>
+                    <div class="servico-card-payt"><i class="fas fa-shield-alt"></i><h4>Antifraude Cirúrgico</h4><p>Bloqueie fraudadores, não clientes reais. Cruzamento de dados de alto nível no ecossistema para garantir que suas vendas sejam seguras.</p></div>
+                    <div class="servico-card-payt"><i class="fas fa-bolt"></i><h4>Liquidez e Fluxo de Caixa</h4><p>Planos agressivos de antecipação de recebíveis D+1 ou D+0. Seu dinheiro onde ele deve estar: na sua mão.</p></div>
                 </div>
 
                 <div class="payt-metrics">
@@ -165,11 +206,7 @@
                     <div class="metric-box"><h5>100%</h5><p>Dashboard White-Label (B2B)</p></div>
                 </div>
 
-                <div style="text-align: center;">
-                    <a href="https://wa.me/5511947879779?text=Olá! Sou gestor de uma operação de vendas e quero parar de deixar dinheiro na mesa. Preciso conhecer a engenharia financeira da PAY T." target="_blank" class="btn-urgente">
-                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> DESTRAVAR MINHA OPERAÇÃO AGORA
-                    </a>
-                </div>
+                <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Sou gestor de uma operação de vendas e quero parar de deixar dinheiro na mesa. Preciso conhecer a engenharia financeira da PAY T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> DESTRAVAR MINHA OPERAÇÃO AGORA</a></div>
             </div>
         </section>
 
@@ -190,9 +227,7 @@
                     <h2>A EVOLUÇÃO DO <br><span style="color:var(--cor-primaria)">WELLNESS CORPORATIVO</span></h2>
                     <p>A <strong>HOME CLUB T</strong> redefine o conceito de benefícios corporativos. Através de um clube de assinaturas de conveniência residencial, aumentamos a retenção de talentos e o engajamento de equipes de alta performance.</p>
                 </div>
-                <div class="middle-hero-image">
-                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="Wellness Corporativo">
-                </div>
+                <div class="middle-hero-image"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="Wellness Corporativo"></div>
             </div>
 
             <div class="homeclubt-cards-box">
@@ -200,28 +235,12 @@
                 <p class="wellness-text"><strong>O Novo Padrão de Retenção:</strong> Benefícios genéricos já não seguram os melhores talentos. O estresse doméstico drena silenciosamente a produtividade da sua equipe. A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa. Quando o lar funciona em harmonia, a mente performa em alto nível.</p>
 
                 <div class="servicos-grid">
-                    <div class="homeclubt-card">
-                        <i class="fas fa-spa"></i>
-                        <h4>Wellness Integrado</h4>
-                        <p>Um clube de assinaturas sofisticado entregando cuidados pessoais, manutenção e comodidade. O verdadeiro bem-estar começa no alívio da carga mental diária.</p>
-                    </div>
-                    <div class="homeclubt-card">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <h4>Lealdade e Retenção</h4>
-                        <p>O benefício que a sua concorrência não tem. Crie uma barreira de saída emocional poderosíssima abraçando não apenas o funcionário, mas toda a sua família.</p>
-                    </div>
-                    <div class="homeclubt-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h4>Zero Atrito para o RH</h4>
-                        <p>Plataforma intuitiva, gestão automatizada e repasse direto. Implemente o benefício corporativo mais cobiçado da atualidade sem burocracia para o seu setor.</p>
-                    </div>
+                    <div class="homeclubt-card"><i class="fas fa-spa"></i><h4>Wellness Integrado</h4><p>Um clube de assinaturas sofisticado entregando cuidados pessoais, manutenção e comodidade.</p></div>
+                    <div class="homeclubt-card"><i class="fas fa-hand-holding-heart"></i><h4>Lealdade e Retenção</h4><p>Crie uma barreira de saída emocional poderosíssima abraçando não apenas o funcionário, mas toda a sua família.</p></div>
+                    <div class="homeclubt-card"><i class="fas fa-chart-line"></i><h4>Zero Atrito para o RH</h4><p>Plataforma intuitiva, gestão automatizada e repasse direto. Implemente sem burocracia para o seu setor.</p></div>
                 </div>
 
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="http://homeclubt.com" target="_blank" class="btn-wellness">
-                        <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> ACESSAR PORTAL HOME CLUB T
-                    </a>
-                </div>
+                <div style="text-align: center; margin-top: 20px;"><a href="http://homeclubt.com" target="_blank" class="btn-wellness"><i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> ACESSAR PORTAL HOME CLUB T</a></div>
             </div>
         </section>
 
@@ -233,8 +252,8 @@
 
     <a href="https://wa.me/5511947879779" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="document.getElementById('modal-termos').style.display='none'">&times;</span><h3>Termos e Condições</h3><p style="color:#555; line-height: 1.8;">Bem-vindo ao ecossistema da <span class="marca-destaque">TGROUP SOLUTIONS</span>. Operamos sob as mais rigorosas normas de compliance corporativo, garantindo segurança, escalabilidade e transparência em todas as operações B2B e B2C.</p></div></div>
-    <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="document.getElementById('modal-privacidade').style.display='none'">&times;</span><h3>Política de Privacidade</h3><p style="color:#555; line-height: 1.8;">A <span class="marca-destaque">TGROUP SOLUTIONS</span> garante conformidade com a LGPD e regulamentações internacionais de proteção de dados. As informações transacionadas em nosso ecossistema são criptografadas e utilizadas exclusivamente para otimizar as operações sistêmicas.</p></div></div>
+    <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="document.getElementById('modal-termos').style.display='none'">&times;</span><h3>Termos e Condições</h3><p style="color:#555; line-height: 1.8;">Bem-vindo ao ecossistema da <span class="marca-destaque">TGROUP SOLUTIONS</span>. Operamos sob as mais rigorosas normas de compliance corporativo.</p></div></div>
+    <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="document.getElementById('modal-privacidade').style.display='none'">&times;</span><h3>Política de Privacidade</h3><p style="color:#555; line-height: 1.8;">A <span class="marca-destaque">TGROUP SOLUTIONS</span> garante conformidade com a LGPD e regulamentações internacionais de proteção de dados.</p></div></div>
     <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)"><div class="modal-content" style="text-align: center;"><span class="close-modal" onclick="document.getElementById('modal-contato').style.display='none'">&times;</span><h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3><p style="color:#555; line-height: 1.8; margin-bottom: 30px;">Nosso time executivo está à disposição.</p><div style="font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-envelope" style="color:var(--cor-primaria); margin-right: 10px;"></i><a href="mailto:tgroupsolutions.br@gmail.com" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">tgroupsolutions.br@gmail.com</a></div><div style="font-size: 1.2rem;"><i class="fab fa-whatsapp" style="color:var(--cor-primaria); margin-right: 10px;"></i><a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a></div><p style="margin-top: 30px; font-size: 0.9rem; color: #999;">São Paulo, SP - Brasil</p></div></div>
 
     <script>
@@ -255,9 +274,14 @@
                 imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
             },
             brandt: {
-                titulo: "Gestão Estratégica e <span style='color:var(--cor-primaria)'>Branding com IA</span>",
-                texto: "A <span class='marca-destaque'>BRAND T</span> é nossa plataforma de IA focada em gestão de branding, marketing, vendas e carreiras de creators e palestrantes.",
-                imagem: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop"
+                titulo: "Gestão Estratégica e <span style='color:var(--cor-primaria)'>Branding Integral</span>",
+                texto: "A <span class='marca-destaque'>BRAND T</span> transcende ferramentas. Somos a gestora operacional da sua marca pessoal ou corporativa. Você foca na sua mensagem e no seu público, nós cuidamos de 100% da engenharia de marketing, vendas, comunidade e infraestrutura digital.",
+                // NOVO: Array com as 3 imagens da BRAND T (Palestrante, Live Shop, Dashboard de Vendas)
+                imagens: [
+                    "https://images.unsplash.com/photo-1475721028314-3950271e514a?q=80&w=800&auto=format&fit=crop", // 1. Palestrante em palco
+                    "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800&auto=format&fit=crop", // 2. Live Commerce / Vendas dinâmicas
+                    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"  // 3. Notificações/Dashboard de Crescimento
+                ]
             },
             construt: {
                 titulo: "Clube Distribuidor e <span style='color:var(--cor-primaria)'>Marketplace</span>",
@@ -273,9 +297,13 @@
 
         function carregarConteudo(chave) {
             const section = document.getElementById('hero-display');
+            
+            // Variáveis das LPs
             const lpPayT = document.getElementById('lp-payt-section');
             const lpImobT = document.getElementById('lp-imobt-section');
             const lpHomeClubT = document.getElementById('lp-homeclubt-section');
+            const lpBrandT = document.getElementById('lp-brandt-section');
+            
             const dados = dadosEcossistema[chave];
 
             window.history.pushState(null, null, '#' + chave);
@@ -284,8 +312,12 @@
 
             setTimeout(() => {
                 let conteudoImagem = '';
-                if (dados.imagens) {
-                    conteudoImagem = `<div class="imagem-grid-4">${dados.imagens.map((img, i) => `<img src="${img}" alt="IMOB T ${i+1}">`).join('')}</div>`;
+                
+                // Inteligência atualizada para ler 4 imagens (IMOB T) ou 3 imagens (BRAND T)
+                if (dados.imagens && dados.imagens.length === 4) {
+                    conteudoImagem = `<div class="imagem-grid-4">${dados.imagens.map((img, i) => `<img src="${img}" alt="Imagem ${i+1}">`).join('')}</div>`;
+                } else if (dados.imagens && dados.imagens.length === 3) {
+                    conteudoImagem = `<div class="imagem-grid-3">${dados.imagens.map((img, i) => `<img src="${img}" alt="Imagem ${i+1}">`).join('')}</div>`;
                 } else {
                     conteudoImagem = `<div class="hero-image-container"><img src="${dados.imagem}" alt="${chave}"></div>`;
                 }
@@ -293,10 +325,11 @@
                 section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${conteudoImagem}`;
                 section.style.opacity = 1;
                 
-                // Mágica das LPs: Mostra apenas a correspondente!
+                // Mágica para exibir a LP correta e ocultar o resto
                 lpPayT.style.display = (chave === 'payt') ? 'block' : 'none';
                 lpImobT.style.display = (chave === 'imobt') ? 'block' : 'none';
                 lpHomeClubT.style.display = (chave === 'homeclubt') ? 'block' : 'none';
+                lpBrandT.style.display = (chave === 'brandt') ? 'block' : 'none';
             }, 300);
 
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
