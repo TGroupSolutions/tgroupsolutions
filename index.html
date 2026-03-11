@@ -77,12 +77,12 @@
     <aside class="sidebar">
         <h2>Ecossistema</h2>
         <ul class="nav-list">
-            <li class="nav-item active" onclick="carregarConteudo('home')">TGROUP SOLUTIONS</li>
-            <li class="nav-item" onclick="carregarConteudo('payt')">PAY T</li>
-            <li class="nav-item" onclick="carregarConteudo('imobt')">IMOB T</li>
-            <li class="nav-item" onclick="carregarConteudo('brandt')">BRAND T</li>
-            <li class="nav-item" onclick="carregarConteudo('construt')">CONSTRU T</li>
-            <li class="nav-item" onclick="carregarConteudo('homeclubt')">HOME CLUB T</li>
+            <li class="nav-item active" id="nav-home" onclick="carregarConteudo('home')">TGROUP SOLUTIONS</li>
+            <li class="nav-item" id="nav-payt" onclick="carregarConteudo('payt')">PAY T</li>
+            <li class="nav-item" id="nav-imobt" onclick="carregarConteudo('imobt')">IMOB T</li>
+            <li class="nav-item" id="nav-brandt" onclick="carregarConteudo('brandt')">BRAND T</li>
+            <li class="nav-item" id="nav-construt" onclick="carregarConteudo('construt')">CONSTRU T</li>
+            <li class="nav-item" id="nav-homeclubt" onclick="carregarConteudo('homeclubt')">HOME CLUB T</li>
         </ul>
     </aside>
 
@@ -154,6 +154,9 @@
             const lpImobT = document.getElementById('lp-imobt-section');
             const dados = dadosEcossistema[chave];
 
+            // A MÁGICA DOS LINKS ACONTECE AQUI: Atualiza a URL sem recarregar a página
+            window.history.pushState(null, null, '#' + chave);
+
             section.style.opacity = 0;
 
             setTimeout(() => {
@@ -169,14 +172,24 @@
                 lpImobT.style.display = (chave === 'imobt') ? 'block' : 'none';
             }, 300);
 
+            // Acende o menu correto baseado na chave
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            if(event) event.currentTarget.classList.add('active');
+            const menuAtivo = document.getElementById('nav-' + chave);
+            if(menuAtivo) menuAtivo.classList.add('active');
         }
 
         function abrirModal(id) { document.getElementById(id).style.display = 'flex'; setTimeout(() => document.getElementById(id).style.opacity = 1, 10); }
         function fecharModal(e) { if (e.target.classList.contains('modal-overlay')) { e.target.style.opacity = 0; setTimeout(() => e.target.style.display = 'none', 300); } }
 
-        window.onload = () => carregarConteudo('home');
+        // MÁGICA DA LEITURA DE LINK NO CARREGAMENTO
+        window.onload = () => {
+            const hashNaUrl = window.location.hash.replace('#', ''); // Pega a palavra depois do #
+            if (hashNaUrl && dadosEcossistema[hashNaUrl]) {
+                carregarConteudo(hashNaUrl); // Carrega direto a startup específica
+            } else {
+                carregarConteudo('home'); // Se não tiver link específico, carrega a TGROUP
+            }
+        };
     </script>
 </body>
 </html>
