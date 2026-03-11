@@ -34,68 +34,79 @@
         .imagem-grid-4 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
         .imagem-grid-4 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
 
-        /* Estilos IMOB T */
+        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        .btn-urgente { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 40px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); border: none; cursor: pointer; }
+        .btn-urgente:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
+
+        /* ==================== LP IMOB T ==================== */
         .lp-imobt { display: none; background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); animation: fadeIn 0.8s ease; }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span { color: #ff3333; }
         .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 40px; border-left: 4px solid #ff3333; padding-left: 20px; }
-        
-        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
-        .servico-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; transition: 0.3s; }
-        .servico-card:hover { border-color: var(--cor-primaria); transform: translateY(-5px); }
-        .servico-card i { font-size: 2rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .servico-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; }
-        .servico-card p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
+        .servico-card-imobt { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; transition: 0.3s; }
+        .servico-card-imobt:hover { border-color: var(--cor-primaria); transform: translateY(-5px); }
+        .servico-card-imobt i { font-size: 2rem; color: var(--cor-primaria); margin-bottom: 20px; }
+        .servico-card-imobt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; }
+        .servico-card-imobt p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
 
-        /* NOVA ESTRUTURA HOME CLUB T (Página do Meio + Cards) */
+        /* ==================== LP HOME CLUB T ==================== */
         .lp-homeclubt { display: none; margin: 0 60px 60px 60px; animation: fadeIn 0.8s ease; }
-        
-        /* A Página do Meio */
         .middle-hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-bottom: 80px; }
         .middle-hero-text { flex: 1; }
         .middle-hero-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; color: var(--cor-texto); text-transform: uppercase; }
         .middle-hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; }
         .middle-hero-image { flex: 1; text-align: right; }
         .middle-hero-image img { width: 100%; max-width: 550px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        /* A Área de Conversão com os Cards */
         .homeclubt-cards-box { background-color: #f8faf9; padding: 60px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.08); border: 1px solid #e9ecef; }
         .homeclubt-cards-box h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
         .homeclubt-cards-box h3 span { color: var(--cor-primaria); }
         .wellness-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; border-left: 4px solid var(--cor-primaria); padding-left: 20px; }
-
         .homeclubt-card { background: #ffffff; border: 1px solid #eef2f5; padding: 30px; border-radius: 15px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
         .homeclubt-card:hover { border-color: var(--cor-primaria); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 132, 61, 0.1); }
         .homeclubt-card i { font-size: 2rem; color: var(--cor-primaria); margin-bottom: 20px; }
         .homeclubt-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #1a1a1a; }
         .homeclubt-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
 
-        /* Botões */
-        .btn-urgente { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 40px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); }
-        .btn-urgente:hover { background-color: #006b31; transform: scale(1.05); }
+        /* ==================== LP PAY T (SUPER AGRESSIVA/FINTECH BLACK) ==================== */
+        .lp-payt { display: none; background-color: #050505; color: #ffffff; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; animation: fadeIn 0.8s ease; overflow: hidden; }
+        
+        .payt-header { padding: 80px 60px 40px 60px; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border-bottom: 1px solid #1a1a1a; }
+        .payt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
+        .payt-header h2 span { color: var(--cor-primaria); }
+        .payt-header p { font-size: 1.2rem; line-height: 1.8; color: #aaaaaa; max-width: 800px; margin: 0 auto; font-weight: 300; }
+        
+        .payt-body { padding: 60px; }
+        .payt-alerta { font-size: 1.15rem; line-height: 1.8; color: #eeeeee; margin-bottom: 50px; border-left: 4px solid #ff3333; padding-left: 20px; background: rgba(255, 51, 51, 0.05); padding: 20px; border-radius: 0 10px 10px 0; }
+        
+        .servico-card-payt { background: #0a0a0a; border: 1px solid #222; padding: 40px 30px; border-radius: 15px; transition: 0.4s; text-align: left; }
+        .servico-card-payt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.15); background: #0d0d0d; }
+        .servico-card-payt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
+        .servico-card-payt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+        .servico-card-payt p { font-size: 1rem; color: #888; line-height: 1.6; }
 
-        .btn-wellness { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 50px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.3); border: none; }
-        .btn-wellness:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
+        .payt-metrics { display: flex; justify-content: center; gap: 40px; margin-top: 50px; margin-bottom: 60px; flex-wrap: wrap; }
+        .metric-box { text-align: center; }
+        .metric-box h5 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 5px; }
+        .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* FIM ESTILOS ESPECÍFICOS */
 
         .footer { background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; }
         .footer-links a { color: #777; text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
         .footer-links a:hover { color: var(--cor-primaria); }
-
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); }
-
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
         .modal-content { background: var(--cor-fundo); width: 90%; max-width: 700px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; }
         .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
         .close-modal:hover { color: var(--cor-texto); }
         .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        
         @media (max-width: 1100px) {
             body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid var(--cor-borda); z-index: 1; }
             .main-content { margin-left: 0; } .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; } .hero-text { padding-right: 0; }
-            .hero-image-container { justify-content: center; } .hero-image-container img { height: 350px; } .lp-imobt, .lp-homeclubt { margin: 0 20px 40px 20px; padding: 40px 20px; }
+            .hero-image-container { justify-content: center; } .hero-image-container img { height: 350px; } .lp-imobt, .lp-homeclubt, .lp-payt { margin: 0 20px 40px 20px; padding: 40px 20px; }
+            .payt-header { padding: 40px 20px; } .payt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
             .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
         }
@@ -119,19 +130,61 @@
         <section class="hero-section" id="hero-display">
             </section>
 
+        <section class="lp-payt" id="lp-payt-section">
+            <div class="payt-header">
+                <h2>Pare de Deixar Milhões na Mesa com <span>Gateways Genéricos</span></h2>
+                <p>Se o seu gateway de pagamento atual te trata como "só mais um cliente", ele não é seu parceiro: ele é um pedágio. Descubra a engenharia financeira desenvolvida para quem não tem tempo para falsas recusas e chargebacks absurdos.</p>
+            </div>
+            
+            <div class="payt-body">
+                <p class="payt-alerta">
+                    <strong>Aversão à Perda - O Risco Oculto do seu Checkout:</strong> Cada 1% de transações legítimas recusadas pelo antifraude mal calibrado do seu gateway atual significa milhares de reais que saíram do seu funil e foram direto para a concorrência. Você comprou o lead, nutriu o cliente e perdeu na hora de passar o cartão. A inércia está corroendo a sua margem de lucro.
+                </p>
+
+                <div class="servicos-grid">
+                    <div class="servico-card-payt">
+                        <i class="fas fa-microchip"></i>
+                        <h4>Roteamento Inteligente (IA)</h4>
+                        <p>Nunca mais perca uma venda por queda de operadora. Nossa Inteligência Artificial tenta automaticamente aprovar o pagamento em múltiplos adquirentes em milissegundos. Aprovação levada ao extremo.</p>
+                    </div>
+                    <div class="servico-card-payt">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Antifraude Cirúrgico</h4>
+                        <p>Bloqueie fraudadores, não clientes reais. Cruzamento de dados de alto nível no ecossistema para garantir que suas vendas sejam aprovadas com segurança absoluta e risco zero de chargeback.</p>
+                    </div>
+                    <div class="servico-card-payt">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Liquidez e Fluxo de Caixa</h4>
+                        <p>Quem escala precisa de oxigênio financeiro. Planos agressivos de antecipação de recebíveis D+1 ou D+0, com as taxas mais competitivas para operações de alto volume. Seu dinheiro onde ele deve estar: na sua mão.</p>
+                    </div>
+                </div>
+
+                <div class="payt-metrics">
+                    <div class="metric-box"><h5>+15%</h5><p>Aumento médio em aprovações</p></div>
+                    <div class="metric-box"><h5>Zero</h5><p>Burocracia na integração API</p></div>
+                    <div class="metric-box"><h5>100%</h5><p>Dashboard White-Label (B2B)</p></div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="https://wa.me/5511947879779?text=Olá! Sou gestor de uma operação de vendas e quero parar de deixar dinheiro na mesa. Preciso conhecer a engenharia financeira da PAY T." target="_blank" class="btn-urgente">
+                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> DESTRAVAR MINHA OPERAÇÃO AGORA
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section class="lp-imobt" id="lp-imobt-section">
             <h2>O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</h2>
             <p class="alerta"><strong>Aversão ao Risco:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias, <strong>embargo imediato das suas instalações</strong> e a recusa sumária de seguradoras em caso de incêndio ou sinistros.</p>
             <div class="servicos-grid">
-                <div class="servico-card"><i class="fas fa-hard-hat"></i><h4>Aprovação e Regularização</h4><p>Documentação técnica completa para loteamentos, fábricas e instalações comerciais.</p></div>
-                <div class="servico-card"><i class="fas fa-file-signature"></i><h4>Licenças de Funcionamento</h4><p>Obtenção e renovação de Alvarás de Funcionamento para comércios e indústrias de todos os portes.</p></div>
-                <div class="servico-card"><i class="fas fa-fire-extinguisher"></i><h4>Conformidade e Segurança</h4><p>Emissão e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4>Aprovação e Regularização</h4><p>Documentação técnica completa para loteamentos, fábricas e instalações comerciais.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-file-signature"></i><h4>Licenças de Funcionamento</h4><p>Obtenção e renovação de Alvarás de Funcionamento para comércios e indústrias de todos os portes.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4>Conformidade e Segurança</h4><p>Emissão e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>.</p></div>
             </div>
             <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Preciso falar com um engenheiro legal da IMOB T urgentemente sobre a regularização do meu negócio." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> BLINDAR MEU NEGÓCIO AGORA</a></div>
         </section>
 
         <section class="lp-homeclubt" id="lp-homeclubt-section">
-            
             <div class="middle-hero">
                 <div class="middle-hero-text">
                     <h2>A EVOLUÇÃO DO <br><span style="color:var(--cor-primaria)">WELLNESS CORPORATIVO</span></h2>
@@ -170,7 +223,6 @@
                     </a>
                 </div>
             </div>
-
         </section>
 
         <footer class="footer">
@@ -194,7 +246,7 @@
             },
             payt: {
                 titulo: "Matriz Financeira e <span style='color:var(--cor-primaria)'>Gateway de Pagamentos</span>",
-                texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira do Ecossistema. Atua como a matriz financeira e API de pagamentos, gerenciando plataformas e oferecendo ferramentas comerciais robustas.",
+                texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira do Ecossistema. Atua como a matriz financeira e API de pagamentos, gerenciando plataformas e oferecendo engenharia comercial para operações que precisam escalar.",
                 imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
             },
             imobt: {
@@ -221,6 +273,7 @@
 
         function carregarConteudo(chave) {
             const section = document.getElementById('hero-display');
+            const lpPayT = document.getElementById('lp-payt-section');
             const lpImobT = document.getElementById('lp-imobt-section');
             const lpHomeClubT = document.getElementById('lp-homeclubt-section');
             const dados = dadosEcossistema[chave];
@@ -240,6 +293,8 @@
                 section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${conteudoImagem}`;
                 section.style.opacity = 1;
                 
+                // Mágica das LPs: Mostra apenas a correspondente!
+                lpPayT.style.display = (chave === 'payt') ? 'block' : 'none';
                 lpImobT.style.display = (chave === 'imobt') ? 'block' : 'none';
                 lpHomeClubT.style.display = (chave === 'homeclubt') ? 'block' : 'none';
             }, 300);
