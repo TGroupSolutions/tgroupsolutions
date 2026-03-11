@@ -234,7 +234,101 @@
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-    </style>
+   /* --- ESTILOS DA LANDING PAGE IMOB T --- */
+        .lp-imobt {
+            display: none; /* Fica escondida até clicarem na IMOB T */
+            background-color: #0a0a0a;
+            color: #ffffff;
+            padding: 80px 60px;
+            border-radius: 20px;
+            margin: 0 60px 60px 60px;
+            box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .lp-imobt h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .lp-imobt h2 span { color: #ff3333; /* Vermelho para alerta/risco */ }
+        
+        .lp-imobt p.alerta {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 40px;
+            border-left: 4px solid #ff3333;
+            padding-left: 20px;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .servico-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .servico-card:hover {
+            border-color: var(--cor-primaria);
+            transform: translateY(-5px);
+        }
+
+        .servico-card i {
+            font-size: 2rem;
+            color: var(--cor-primaria);
+            margin-bottom: 20px;
+        }
+
+        .servico-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .servico-card p {
+            font-size: 0.95rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .btn-urgente {
+            display: inline-block;
+            background-color: var(--cor-primaria);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4);
+        }
+
+        .btn-urgente:hover {
+            background-color: #006b31;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1100px) {
+            .lp-imobt { margin: 0 20px 40px 20px; padding: 40px 20px; }
+            .lp-imobt h2 { font-size: 2rem; }
+        } </style>
 </head>
 <body>
 
@@ -253,6 +347,36 @@
     <main class="main-content">
         <section class="hero-section" id="hero-display">
             </section>
+        <section class="lp-imobt" id="lp-imobt-section">
+            <h2>O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</h2>
+            <p class="alerta">
+                <strong>Aversão ao Risco:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias, <strong>embargo imediato das suas instalações</strong> e a recusa sumária de seguradoras em caso de incêndio ou sinistros. Deixar a engenharia legal para depois é negligência patrimonial.
+            </p>
+
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <i class="fas fa-hard-hat"></i>
+                    <h4>Aprovação e Regularização</h4>
+                    <p>Documentação técnica completa para loteamentos, fábricas e instalações comerciais. Do projeto inicial ao <strong>Habite-se</strong>, garantimos que seu empreendimento opere 100% dentro da lei.</p>
+                </div>
+                <div class="servico-card">
+                    <i class="fas fa-file-signature"></i>
+                    <h4>Licenças de Funcionamento</h4>
+                    <p>Obtenção e renovação de Alvarás de Funcionamento para comércios e indústrias de todos os portes. Evite portas fechadas e paralisação das suas vendas.</p>
+                </div>
+                <div class="servico-card">
+                    <i class="fas fa-fire-extinguisher"></i>
+                    <h4>Conformidade e Segurança</h4>
+                    <p>Emissão e renovação rigorosa de <strong>AVCB</strong> (Auto de Vistoria do Corpo de Bombeiros) e <strong>CLCB</strong>. Blindamos seus edifícios contra interdições e garantimos a segurança do seu ativo.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://wa.me/5511947879779?text=Olá! Preciso falar com um engenheiro legal da IMOB T urgentemente sobre a regularização do meu negócio." target="_blank" class="btn-urgente">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> BLINDAR MEU NEGÓCIO AGORA
+                </a>
+            </div>
+        </section>
 
         <footer class="footer">
             <div>&copy; 2026 <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span>. SÃO PAULO, SP. Todos os direitos reservados.</div>
@@ -343,8 +467,10 @@
         };
 
         // Função que troca o conteúdo na tela
+       // Função que troca o conteúdo na tela e controla a Landing Page da IMOB T
         function carregarConteudo(chave) {
             const section = document.getElementById('hero-display');
+            const lpImobT = document.getElementById('lp-imobt-section');
             const dados = dadosEcossistema[chave];
 
             // Efeito de fade-out rápido
@@ -362,13 +488,22 @@
                 `;
                 // Efeito de fade-in
                 section.style.opacity = 1;
+                
+                // Lógica da Landing Page: Só mostra se for a IMOB T
+                if(chave === 'imobt') {
+                    lpImobT.style.display = 'block';
+                } else {
+                    lpImobT.style.display = 'none';
+                }
+
             }, 300);
 
             // Atualiza os botões laterais (marcando qual está ativo)
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            if(event) {
+                event.currentTarget.classList.add('active');
+            }
         }
-
         // Funções dos Modais
         function abrirModal(id) {
             const modal = document.getElementById(id);
@@ -389,3 +524,4 @@
 
 </body>
 </html>
+
