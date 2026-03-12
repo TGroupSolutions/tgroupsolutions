@@ -16,8 +16,12 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); display: flex; min-height: 100vh; overflow-x: hidden; }
         .marca-destaque { color: var(--cor-primaria) !important; text-transform: uppercase !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif; }
 
-        .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda); padding: 60px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; }
-        .sidebar h2 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: #888; margin-bottom: 50px; text-transform: uppercase; }
+        .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda); padding: 60px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; }
+        
+        /* ESTILO DO NOVO LOGO */
+        .sidebar-logo { width: 100%; max-width: 190px; height: auto; margin-bottom: 40px; display: block; border-radius: 8px; }
+        
+        .sidebar h2 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: #888; margin-bottom: 30px; text-transform: uppercase; }
         .nav-list { list-style: none; flex-grow: 1; }
         .nav-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #a0a0a0; margin-bottom: 25px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase; }
         .nav-item:hover, .nav-item.active { color: var(--cor-primaria); transform: translateX(8px); }
@@ -163,12 +167,15 @@
             .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
             .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; }
             .imobt-auditoria-box, .homeclubt-exclusividade-box, .brandt-investment-box { padding: 30px 20px; }
+            .sidebar-logo { margin: 0 auto 30px auto; }
         }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
+        <img src="TGROUP.jpg" alt="Logo TGROUP SOLUTIONS" class="sidebar-logo">
+        
         <h2>Ecossistema</h2>
         <ul class="nav-list">
             <li class="nav-item active" id="nav-home" onclick="carregarConteudo('home')">TGROUP SOLUTIONS</li>
@@ -308,9 +315,10 @@
 
     <script>
         const dadosEcossistema = {
+            /* AQUI ESTÃO AS DUAS ALTERAÇÕES: TEXTO EM BLOCOS NA HOME E A NOVA FRASE FINAL */
             home: {
                 titulo: "Inovação e <span style='color:var(--cor-primaria)'>Gestão Integrada</span>",
-                texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores. Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.",
+                texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.<br><br><strong style='color: var(--cor-primaria); font-size: 1.15rem;'>Acesse nossas soluções ao lado.</strong>",
                 imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
             },
             payt: {
@@ -338,7 +346,6 @@
                 imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
             },
             homeclubt: {
-                /* AQUI ESTÁ A CORREÇÃO DE PAGINAÇÃO DA HOME CLUB T SEPARADA EM BLOCOS: */
                 titulo: "Clube de Assinaturas, Conveniência e <span style='color:var(--cor-primaria)'>Wellness Residencial</span>",
                 texto: "A <span class='marca-destaque'>HOME CLUB T</span> é nosso e-commerce distribuidor sob modelo de clube de assinaturas focado na evolução do bem-estar.<br><br>Provemos manutenção residencial contínua, cuidados pessoais e linha pet. Garantimos receita previsível integrando clientes ao consumo de todo o ecossistema.<br><br>Operamos com um modelo de negócio absolutamente inédito e com registro de operação patenteado, garantindo exclusividade total e proteção definitiva contra plágios no mercado.",
                 imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
