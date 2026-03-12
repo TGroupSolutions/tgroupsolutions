@@ -11,36 +11,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root { --cor-primaria: #00843D; --cor-fundo: #ffffff; --cor-texto: #1a1a1a; --cor-texto-secundario: #555555; --cor-sidebar: #fbfbfb; --cor-borda: #eeeeee; }
+        :root { 
+            --cor-primaria: #00843D; 
+            --cor-fundo: #ffffff; 
+            --cor-texto: #1a1a1a; 
+            --cor-texto-secundario: #555555; 
+            --cor-sidebar: #000000; /* PRETO ABSOLUTO */
+            --cor-borda: #eeeeee; 
+            --cor-borda-sidebar: #1a1a1a; 
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); display: flex; min-height: 100vh; overflow-x: hidden; }
         .marca-destaque { color: var(--cor-primaria) !important; text-transform: uppercase !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif; }
 
-        .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda); padding: 60px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; }
+        /* ==================== SIDEBAR DARK MODE ==================== */
+        .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda-sidebar); padding: 60px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
         
-        /* ESTILO DO LOGO CORRIGIDO */
+        /* LOGOTIPO FLUTUANTE */
         .sidebar-logo { width: 100%; max-width: 190px; height: auto; margin-bottom: 40px; display: block; border-radius: 8px; }
         
-        .sidebar h2 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: #888; margin-bottom: 30px; text-transform: uppercase; }
+        .sidebar h2 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: #555; margin-bottom: 30px; text-transform: uppercase; }
         .nav-list { list-style: none; flex-grow: 1; }
-        .nav-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #a0a0a0; margin-bottom: 25px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase; }
-        .nav-item:hover, .nav-item.active { color: var(--cor-primaria); transform: translateX(8px); }
+        
+        /* BOTÕES SIDEBAR BRANCOS ACENDENDO EM VERDE */
+        .nav-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #ffffff; margin-bottom: 25px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase; opacity: 0.8; }
+        .nav-item:hover, .nav-item.active { color: var(--cor-primaria); transform: translateX(8px); opacity: 1; text-shadow: 0 0 15px rgba(0, 132, 61, 0.4); } /* Efeito de brilho de alta tecnologia */
 
+        /* Personalizando a barra de rolagem da sidebar */
+        .sidebar::-webkit-scrollbar { width: 6px; }
+        .sidebar::-webkit-scrollbar-track { background: #000; }
+        .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+
+        /* ==================== ÁREA PRINCIPAL ==================== */
         .main-content { flex: 1; margin-left: 320px; display: flex; flex-direction: column; position: relative; }
-        .hero-section { display: flex; align-items: center; justify-content: space-between; min-height: calc(100vh - 80px); padding: 80px 60px; gap: 60px; animation: fadeIn 0.8s ease; }
+        
+        /* HERO SECTION MAIS COMPACTA PARA A LP SUBIR NA TELA */
+        .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px 60px 30px 60px; gap: 60px; animation: slideUpFade 0.8s ease; }
         .hero-text { flex: 1; max-width: 600px; }
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; color: var(--cor-texto); }
         .hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; margin-bottom: 30px; }
         
         .hero-image-container { flex: 1; display: flex; justify-content: flex-end; position: relative; }
-        .hero-image-container img { width: 100%; max-width: 650px; height: 500px; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .hero-image-container img { width: 100%; max-width: 650px; height: 420px; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
 
-        /* GRIDS INTELIGENTES */
-        .imagem-grid-4 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 500px; animation: fadeIn 0.8s ease; }
+        /* GRIDS INTELIGENTES (Ajustados para 420px para não empurrar a página) */
+        .imagem-grid-4 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; animation: slideUpFade 0.8s ease; }
         .imagem-grid-4 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
         .imagem-grid-4 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
 
-        .imagem-grid-3 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 500px; animation: fadeIn 0.8s ease; }
+        .imagem-grid-3 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; animation: slideUpFade 0.8s ease; }
         .imagem-grid-3 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
         .imagem-grid-3 img:first-child { grid-row: span 2; } 
         .imagem-grid-3 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
@@ -55,7 +74,7 @@
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
         /* ==================== LP IMOB T ==================== */
-        .lp-imobt { display: none; background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); animation: fadeIn 0.8s ease; }
+        .lp-imobt { display: none; background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); animation: slideUpFade 0.6s ease; }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span { color: #ff3333; }
         .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 30px; border-left: 4px solid #ff3333; padding-left: 20px; }
@@ -70,7 +89,7 @@
         .servico-card-imobt p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
 
         /* ==================== LP HOME CLUB T ==================== */
-        .lp-homeclubt { display: none; margin: 0 60px 60px 60px; animation: fadeIn 0.8s ease; }
+        .lp-homeclubt { display: none; margin: 20px 60px 60px 60px; animation: slideUpFade 0.6s ease; }
         .middle-hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-bottom: 80px; }
         .middle-hero-text { flex: 1; }
         .middle-hero-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; color: var(--cor-texto); text-transform: uppercase; }
@@ -94,7 +113,7 @@
         .homeclubt-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
 
         /* ==================== LP CONSTRU T ==================== */
-        .lp-construt { display: none; background-color: #f0f2f5; color: #2c3e50; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #d1d9e0; animation: fadeIn 0.8s ease; overflow: hidden; }
+        .lp-construt { display: none; background-color: #f0f2f5; color: #2c3e50; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #d1d9e0; animation: slideUpFade 0.6s ease; overflow: hidden; }
         .construt-header { padding: 80px 60px; text-align: left; background: #ffffff; border-bottom: 1px solid #d1d9e0; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .construt-header-text { flex: 1; }
         .construt-header-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.6rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.2; }
@@ -111,7 +130,7 @@
         .construt-ecosystem p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
 
         /* ==================== LP BRAND T ==================== */
-        .lp-brandt { display: none; background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; animation: fadeIn 0.8s ease; }
+        .lp-brandt { display: none; background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; animation: slideUpFade 0.6s ease; }
         .brandt-header { text-align: center; margin-bottom: 60px; }
         .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
         .brandt-header h2 span { color: var(--cor-primaria); }
@@ -129,7 +148,7 @@
         .servico-card-brandt p { font-size: 1rem; color: #666; line-height: 1.6; }
 
         /* ==================== LP PAY T ==================== */
-        .lp-payt { display: none; background-color: #050505; color: #ffffff; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; animation: fadeIn 0.8s ease; overflow: hidden; }
+        .lp-payt { display: none; background-color: #050505; color: #ffffff; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; animation: slideUpFade 0.6s ease; overflow: hidden; }
         .payt-header { padding: 80px 60px 40px 60px; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border-bottom: 1px solid #1a1a1a; }
         .payt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
         .payt-header h2 span { color: var(--cor-primaria); }
@@ -157,17 +176,30 @@
         .close-modal:hover { color: var(--cor-texto); }
         .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        /* ANIMAÇÃO DE LUXO PARA AS LPs SUBIREM NA TELA */
+        @keyframes slideUpFade { 
+            from { opacity: 0; transform: translateY(40px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        /* RESPONSIVIDADE MOBILE TIPO "APP FINANCEIRO" */
         @media (max-width: 1100px) {
-            body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid var(--cor-borda); z-index: 1; }
-            .main-content { margin-left: 0; } .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; } .hero-text { padding-right: 0; }
-            .hero-image-container { justify-content: center; } .hero-image-container img { height: 350px; } .lp-imobt, .lp-homeclubt, .lp-payt, .lp-brandt, .lp-construt { margin: 0 20px 40px 20px; padding: 40px 20px; }
+            body { flex-direction: column; } 
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #111; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+            .sidebar-logo { margin: 0 auto 20px auto; max-width: 160px; }
+            .sidebar h2 { display: none; } /* Oculta o título "Ecossistema" no celular para ficar clean */
+            .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+            .nav-item { margin-bottom: 0; font-size: 0.95rem; padding: 10px 15px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); opacity: 1; }
+            .nav-item:hover, .nav-item.active { transform: none; background: var(--cor-primaria); color: #fff; text-shadow: none; border-color: var(--cor-primaria); box-shadow: 0 5px 15px rgba(0, 132, 61, 0.4); }
+            
+            .main-content { margin-left: 0; } .hero-section { flex-direction: column; padding: 40px 20px 20px 20px; text-align: center; } .hero-text { padding-right: 0; }
+            .hero-image-container { justify-content: center; } .hero-image-container img { height: 300px; } .imagem-grid-4, .imagem-grid-3 { height: 350px;} 
+            .lp-imobt, .lp-homeclubt, .lp-payt, .lp-brandt, .lp-construt { margin: 20px 20px 40px 20px; padding: 40px 20px; }
             .payt-header, .brandt-header, .construt-header { padding: 40px 20px; flex-direction: column; } .payt-body, .construt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
             .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
             .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; }
             .imobt-auditoria-box, .homeclubt-exclusividade-box, .brandt-investment-box { padding: 30px 20px; }
-            .sidebar-logo { margin: 0 auto 30px auto; }
         }
     </style>
 </head>
@@ -340,8 +372,9 @@
                 ]
             },
             construt: {
+                /* AQUI ESTÁ O BLOCO CORRIGIDO DA CONSTRU T */
                 titulo: "SaaS Distribuidor e <span style='color:var(--cor-primaria)'>Marketplace</span>",
-                texto: "A <span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C focado no mercado da Construção Civil sob modelo de assinatura. Das fundações ao acabamento de alta qualidade, oferecemos uma rede de distribuição robusta com materiais diretos de fábrica e uma linha de marca própria desenhada com a expertise de 15 anos de atuação no setor.",
+                texto: "A <span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C focado no mercado da Construção Civil sob modelo de assinatura.<br><br>Das fundações ao acabamento de alta qualidade, oferecemos uma rede de distribuição robusta com materiais diretos de fábrica.<br><br>A nossa linha de marca própria foi desenhada com a expertise de 15 anos de atuação no setor, garantindo otimização de aplicação e excelência no resultado.",
                 imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
             },
             homeclubt: {
