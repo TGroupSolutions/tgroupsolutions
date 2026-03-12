@@ -50,17 +50,24 @@
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
-        /* LPs EXISTENTES (IMOB, HOME, PAY, BRAND) */
+        /* ==================== LP IMOB T (UPGRADE ESTRATÉGICO) ==================== */
         .lp-imobt { display: none; background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); animation: fadeIn 0.8s ease; }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span { color: #ff3333; }
-        .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 40px; border-left: 4px solid #ff3333; padding-left: 20px; }
+        .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 30px; border-left: 4px solid #ff3333; padding-left: 20px; }
+        
+        .imobt-auditoria-box { background: rgba(255,255,255,0.04); padding: 40px; border-radius: 15px; margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.08); border-left: 5px solid var(--cor-primaria); }
+        .imobt-auditoria-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
+        .imobt-auditoria-box p { font-size: 1.1rem; line-height: 1.7; color: #bbb; }
+        .imobt-auditoria-box strong { color: #fff; }
+
         .servico-card-imobt { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; transition: 0.3s; }
-        .servico-card-imobt:hover { border-color: var(--cor-primaria); transform: translateY(-5px); }
-        .servico-card-imobt i { font-size: 2rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .servico-card-imobt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; }
+        .servico-card-imobt:hover { border-color: var(--cor-primaria); transform: translateY(-5px); background: rgba(0, 132, 61, 0.05); }
+        .servico-card-imobt i { font-size: 2.2rem; color: var(--cor-primaria); margin-bottom: 20px; }
+        .servico-card-imobt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; line-height: 1.3;}
         .servico-card-imobt p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
 
+        /* ==================== OUTRAS LPs (MANTIDAS INTACTAS) ==================== */
         .lp-homeclubt { display: none; margin: 0 60px 60px 60px; animation: fadeIn 0.8s ease; }
         .middle-hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-bottom: 80px; }
         .middle-hero-text { flex: 1; }
@@ -106,23 +113,18 @@
         .servico-card-brandt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a; text-transform: uppercase; }
         .servico-card-brandt p { font-size: 1rem; color: #666; line-height: 1.6; }
 
-        /* ==================== LP CONSTRU T (CORRIGIDA COMPLIANCE) ==================== */
         .lp-construt { display: none; background-color: #f0f2f5; color: #2c3e50; border-radius: 20px; margin: 0 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #d1d9e0; animation: fadeIn 0.8s ease; overflow: hidden; }
-        
         .construt-header { padding: 80px 60px; text-align: left; background: #ffffff; border-bottom: 1px solid #d1d9e0; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .construt-header-text { flex: 1; }
         .construt-header-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.6rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.2; }
         .construt-header-text h2 span { color: var(--cor-primaria); }
         .construt-alerta { font-size: 1.15rem; line-height: 1.8; color: #555; border-left: 4px solid #ff9900; padding-left: 20px; }
-        
         .construt-body { padding: 60px; }
-        
         .servico-card-construt { background: #ffffff; border: 1px solid #e1e5eb; padding: 40px 30px; border-radius: 15px; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
         .servico-card-construt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.1); }
         .servico-card-construt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
         .servico-card-construt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 15px; color: #1a1a1a; text-transform: uppercase; }
         .servico-card-construt p { font-size: 1rem; color: #666; line-height: 1.6; }
-
         .construt-ecosystem { background: var(--cor-primaria); color: #fff; padding: 40px; border-radius: 15px; text-align: center; margin-top: 20px; margin-bottom: 50px; box-shadow: 0 15px 30px rgba(0, 132, 61, 0.3); }
         .construt-ecosystem h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; }
         .construt-ecosystem p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
@@ -149,6 +151,7 @@
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
             .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
             .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; }
+            .imobt-auditoria-box { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -170,6 +173,56 @@
         <section class="hero-section" id="hero-display">
             </section>
 
+        <section class="lp-imobt" id="lp-imobt-section">
+            <h2>O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</h2>
+            
+            <p class="alerta"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</p>
+
+            <div class="imobt-auditoria-box">
+                <h3>O Sangramento Burocrático Invisível</h3>
+                <p>Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela — afinal, o dinheiro da multa não sai do bolso de quem perdeu o prazo —, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos em andamento. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro das multas por perda de prazos de manifestação.</p>
+            </div>
+
+            <div class="servicos-grid">
+                <div class="servico-card-imobt">
+                    <i class="fas fa-hard-hat"></i>
+                    <h4>Aprovação e Regularização</h4>
+                    <p>Documentação técnica completa, do projeto inicial ao <strong>Habite-se</strong>. Garantimos que loteamentos, fábricas e operações logísticas operem 100% dentro da lei, sem surpresas.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-search-dollar"></i>
+                    <h4>Auditoria de Processos Paralisados</h4>
+                    <p>Mapeamento e gestão ativa de <strong>'Comunique-se'</strong>. Resgatamos protocolos engavetados para evitar que você pague as mesmas taxas aos órgãos públicos duas vezes.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Licenciamento Ambiental (IBAMA/CETESB)</h4>
+                    <p>Viabilização de grandes glebas e indústrias junto aos órgãos de maior escrutínio do país. Atuamos com altíssima complexidade ambiental para evitar embargos.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-file-signature"></i>
+                    <h4>Licenças de Funcionamento</h4>
+                    <p>Obtenção e renovação de Alvarás de Funcionamento para comércio e indústria, executados com velocidade para garantir a abertura ininterrupta das suas portas.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-fire-extinguisher"></i>
+                    <h4>Conformidade e Segurança</h4>
+                    <p>Emissão e renovação rigorosa de <strong>AVCB</strong> (Auto de Vistoria do Corpo de Bombeiros) e <strong>CLCB</strong>. Blindamos o seu ativo contra sinistros e multas estatais.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Consultoria Jurídica Imobiliária</h4>
+                    <p>Integração de Inteligência Artificial para análise de viabilidade e mitigação de riscos na captação de glebas e estruturação de <em>Flipping Houses</em>.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira com processos parados e regularizar minha operação." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.15rem;">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO
+                </a>
+            </div>
+        </section>
+
         <section class="lp-construt" id="lp-construt-section">
             <div class="construt-header">
                 <div class="construt-header-text">
@@ -177,7 +230,6 @@
                     <p class="construt-alerta"><strong>A dor do mercado resolvida:</strong> O mercado pune quem depende de amadores. Oscilação absurda de valores, falta de insumos na hora "H" e mão de obra desqualificada destroem a sua margem de lucro e atrasam entregas. A <strong>CONSTRU T</strong> transforma a engenharia de suprimentos em um modelo <strong>SaaS (Assinatura Anual Diluída)</strong>, blindando sua obra contra imprevistos.</p>
                 </div>
             </div>
-
             <div class="construt-body">
                 <div class="servicos-grid">
                     <div class="servico-card-construt">
@@ -196,12 +248,10 @@
                         <p>Toda a nossa linha de produtos foi desenhada com base na sólida expertise adquirida em 15 anos atuando na linha de frente da construção civil. Somado à nossa rede logística robusta, garantimos que o material exato chegue no dia planejado.</p>
                     </div>
                 </div>
-
                 <div class="construt-ecosystem">
                     <h3>O Poder do Ecossistema TGROUP</h3>
                     <p>Ser um assinante CONSTRU T não garante apenas o sucesso da sua obra. Nossos clientes recebem <strong>condições exclusivas e acesso VIP</strong> a todo o ecossistema: integração de pagamentos com a PAY T, regularização com a IMOB T e benefícios residenciais via HOME CLUB T.</p>
                 </div>
-
                 <div style="text-align: center;">
                     <a href="https://wa.me/5511947879779?text=Olá! Quero conhecer o modelo SaaS de assinatura da CONSTRU T para blindar o cronograma e os custos da minha obra." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;">
                         <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> ASSINAR PLATAFORMA E BLINDAR MINHA OBRA
@@ -209,7 +259,7 @@
                 </div>
             </div>
         </section>
-
+        
         <section class="lp-brandt" id="lp-brandt-section">
             <div class="brandt-header">
                 <h2>Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></h2>
@@ -243,17 +293,6 @@
                 </div>
                 <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Sou gestor de uma operação de vendas e quero parar de deixar dinheiro na mesa. Preciso conhecer a engenharia financeira da PAY T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> DESTRAVAR MINHA OPERAÇÃO AGORA</a></div>
             </div>
-        </section>
-
-        <section class="lp-imobt" id="lp-imobt-section">
-            <h2>O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</h2>
-            <p class="alerta"><strong>Aversão ao Risco:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</p>
-            <div class="servicos-grid">
-                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4>Aprovação e Regularização</h4><p>Documentação técnica completa para loteamentos, fábricas e instalações comerciais.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-file-signature"></i><h4>Licenças de Funcionamento</h4><p>Obtenção e renovação de Alvarás de Funcionamento para comércios e indústrias.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4>Conformidade e Segurança</h4><p>Emissão e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>.</p></div>
-            </div>
-            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Preciso falar com um engenheiro legal da IMOB T urgentemente sobre a regularização do meu negócio." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> BLINDAR MEU NEGÓCIO AGORA</a></div>
         </section>
 
         <section class="lp-homeclubt" id="lp-homeclubt-section">
@@ -301,8 +340,9 @@
                 imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
             },
             imobt: {
+                /* AQUI O TEXTO FOI ENCORPADO COMO SOLICITADO */
                 titulo: "Inteligência e Gestão em <span style='color:var(--cor-primaria)'>Ativos Imobiliários</span>",
-                texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa para operações com ativos imobiliários, englobando implantação e regularização. Nosso diferencial competitivo reside na engenharia legal e conformidade técnica.",
+                texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa para operações com ativos imobiliários, da implantação à regularização de altíssima complexidade. Nosso diferencial competitivo reside na engenharia legal estratégica, que vai muito além da blindagem patrimonial. Atuamos ativamente para estancar o sangramento financeiro invisível: o pagamento de taxas e multas geradas pela letargia burocrática e perda de prazos. Enquanto departamentos internos engavetam processos, nossa gestão proativa garante aprovação célere e rentabilidade intocada.",
                 imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
             },
             brandt: {
@@ -316,7 +356,6 @@
             },
             construt: {
                 titulo: "SaaS Distribuidor e <span style='color:var(--cor-primaria)'>Marketplace</span>",
-                // CORREÇÃO COMPLIANCE: "desenhada com a expertise de 15 anos"
                 texto: "A <span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C focado no mercado da Construção Civil sob modelo de assinatura. Das fundações ao acabamento de alta qualidade, oferecemos uma rede de distribuição robusta com materiais diretos de fábrica e uma linha de marca própria desenhada com a expertise de 15 anos de atuação no setor.",
                 imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
             },
