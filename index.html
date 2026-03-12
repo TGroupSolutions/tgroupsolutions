@@ -40,7 +40,6 @@
         .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 
         /* ==================== ÁREA PRINCIPAL ==================== */
-        /* CORREÇÃO DO RODAPÉ: min-height 100vh adicionado aqui */
         .main-content { flex: 1; margin-left: 320px; display: flex; flex-direction: column; position: relative; min-height: 100vh; }
         
         .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px 60px 30px 60px; gap: 60px; animation: slideUpFade 0.8s ease; }
@@ -68,7 +67,7 @@
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
-        /* ==================== LP IMOB T ==================== */
+        /* ==================== LP IMOB T (REVISÃO TÉCNICO-JURÍDICA APLICADA) ==================== */
         .lp-imobt { display: none; background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); animation: slideUpFade 0.6s ease; }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span { color: #ff3333; }
@@ -160,10 +159,7 @@
         .metric-box h5 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 5px; }
         .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* ==================== RODAPÉ COM CORREÇÃO DE POSIÇÃO ==================== */
-        /* margin-top: auto garante que o rodapé desça sempre para o final! */
         .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; }
-        
         .footer-links a { color: #777; text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
         .footer-links a:hover { color: var(--cor-primaria); }
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
@@ -222,17 +218,43 @@
         <section class="lp-imobt" id="lp-imobt-section">
             <h2>O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</h2>
             <p class="alerta"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</p>
+            
             <div class="imobt-auditoria-box">
                 <h3>O Sangramento Burocrático Invisível</h3>
                 <p>Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela — afinal, o dinheiro da multa não sai do bolso de quem perdeu o prazo —, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos em andamento. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro das multas por perda de prazos de manifestação.</p>
             </div>
+            
             <div class="servicos-grid">
-                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4>Aprovação e Regularização</h4><p>Documentação técnica completa, do projeto inicial ao <strong>Habite-se</strong>. Garantimos que loteamentos, fábricas e operações logísticas operem 100% dentro da lei, sem surpresas.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-search-dollar"></i><h4>Auditoria de Processos Paralisados</h4><p>Mapeamento e gestão ativa de <strong>'Comunique-se'</strong>. Resgatamos protocolos engavetados para evitar que você pague as mesmas taxas aos órgãos públicos duas vezes.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-leaf"></i><h4>Licenciamento Ambiental (IBAMA/CETESB)</h4><p>Viabilização de grandes glebas e indústrias junto aos órgãos de maior escrutínio do país. Atuamos com altíssima complexidade ambiental para evitar embargos.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-file-signature"></i><h4>Licenças de Funcionamento</h4><p>Obtenção e renovação de Alvarás de Funcionamento para comércio e indústria, executados com velocidade para garantir a abertura ininterrupta das suas portas.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4>Conformidade e Segurança</h4><p>Emissão e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>. Blindamos o seu ativo contra sinistros e multas estatais.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-balance-scale"></i><h4>Consultoria Jurídica Imobiliária</h4><p>Integração de Inteligência Artificial para análise de viabilidade e mitigação de riscos na captação de glebas e estruturação de <em>Flipping Houses</em>.</p></div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-hard-hat"></i>
+                    <h4>Aprovação e Regularização</h4>
+                    <p>Documentação técnica completa, desde o projeto inicial até o <strong>Habite-se</strong>.<br><br>Elaboração e orientação minuciosa de todas as documentações necessárias para a obtenção do Alvará ou Autorização solicitada.<br><br>Garantimos que projetos de loteamentos, indústrias e operações logísticas operem 100% dentro da legislação vigente, sem surpresas.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-search-dollar"></i>
+                    <h4>Auditoria de Processos Comunicados</h4>
+                    <p>Mapeamento e gestão ativa de exigências, com foco na resolução de <strong>"Comunique-se"</strong>.<br><br>Resgatamos protocolos engavetados e realizamos o levantamento rigoroso das taxas já recolhidas.<br><br>Com isso, evitamos que sua empresa pague guias e impostos em duplicidade aos órgãos públicos.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Licenciamento Ambiental (IBAMA/CETESB)</h4>
+                    <p>Viabilização de grandes glebas e indústrias junto aos órgãos de maior escrutínio do país. Atuamos com altíssima complexidade ambiental para evitar embargos.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-file-signature"></i>
+                    <h4>Licenças de Funcionamento</h4>
+                    <p>Obtenção e renovação de Alvarás e Autos de Licença de Funcionamento para comércio, indústrias e organizações religiosas.<br><br>Processos tramitados com a velocidade e a transparência necessárias para cada projeto.<br><br>Tudo executado de forma estratégica para garantir a abertura ininterrupta das suas portas.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-fire-extinguisher"></i>
+                    <h4>Conformidade, Segurança e Legalidade</h4>
+                    <p>Solicitação, emissão e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>, documentos essenciais exigidos nos demais processos de licenciamento.<br><br>Garantimos a total conformidade legal da sua estrutura.<br><br>Além de evitar multas estatais, blindamos o seu ativo para assegurar que, em eventuais sinistros, os danos estejam integralmente cobertos pelas apólices de seguros.</p>
+                </div>
+                <div class="servico-card-imobt">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Consultoria Jurídica Imobiliária</h4>
+                    <p>Integração de Inteligência Artificial para análise de viabilidade e mitigação de riscos na captação de glebas e estruturação de <em>Flipping Houses</em>.</p>
+                </div>
             </div>
             <div style="text-align: center; margin-top: 20px;"><a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira com processos parados e regularizar minha operação." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.15rem;"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</a></div>
         </section>
