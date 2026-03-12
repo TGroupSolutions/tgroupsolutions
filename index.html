@@ -24,11 +24,12 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); display: flex; min-height: 100vh; overflow-x: hidden; }
         .marca-destaque { color: var(--cor-primaria) !important; text-transform: uppercase !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif; }
 
-        /* ==================== SIDEBAR DARK MODE ==================== */
+        /* ==================== SIDEBAR DARK MODE (ORDEM: MANTIDO E LAPidado) ==================== */
         .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda-sidebar); padding: 60px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
         
         .sidebar-logo { width: 100%; max-width: 190px; height: auto; margin-bottom: 40px; display: block; border-radius: 8px; }
         
+        /* h2 removido do HTML, CSS mantido para garantir integridade se necessário */
         .sidebar h2 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: #555; margin-bottom: 30px; text-transform: uppercase; }
         .nav-list { list-style: none; flex-grow: 1; }
         
@@ -67,7 +68,7 @@
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
-        /* ==================== LP IMOB T (REVISÃO TÉCNICO-JURÍDICA APLICADA) ==================== */
+        /* ==================== LP IMOB T ==================== */
         .lp-imobt { display: none; background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); animation: slideUpFade 0.6s ease; }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span { color: #ff3333; }
@@ -159,7 +160,9 @@
         .metric-box h5 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 5px; }
         .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* ==================== RODAPÉ COM CORREÇÃO DE POSIÇÃO (EFEITO 100vh MANTIDO) ==================== */
         .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; }
+        
         .footer-links a { color: #777; text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
         .footer-links a:hover { color: var(--cor-primaria); }
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
@@ -175,13 +178,16 @@
             to { opacity: 1; transform: translateY(0); } 
         }
         
+        /* ==================== RESPONSIVIDADE MOBILE (TIPO "APP FINANCEIRO" LAPIDADA) ==================== */
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #111; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
             .sidebar-logo { margin: 0 auto 20px auto; max-width: 160px; }
             .sidebar h2 { display: none; } 
-            .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
-            .nav-item { margin-bottom: 0; font-size: 0.95rem; padding: 10px 15px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); opacity: 1; }
+            .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-top: 10px; } /* Gap reduzido para não apertar */
+            
+            /* nav-item mobile lapidado: padding e font-size reduzidos para não quebrar errado ou comer extremidades */
+            .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 8px 10px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); opacity: 1; white-space: normal; text-align: center; }
             .nav-item:hover, .nav-item.active { transform: none; background: var(--cor-primaria); color: #fff; text-shadow: none; border-color: var(--cor-primaria); box-shadow: 0 5px 15px rgba(0, 132, 61, 0.4); }
             
             .main-content { margin-left: 0; } .hero-section { flex-direction: column; padding: 40px 20px 20px 20px; text-align: center; } .hero-text { padding-right: 0; }
@@ -200,9 +206,8 @@
     <aside class="sidebar">
         <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS" class="sidebar-logo">
         
-        <h2>Ecossistema</h2>
         <ul class="nav-list">
-            <li class="nav-item active" id="nav-home" onclick="carregarConteudo('home')">TGROUP SOLUTIONS</li>
+            <li class="nav-item active" id="nav-home" onclick="carregarConteudo('home')">TGROUP SOLUTIONS - ECOSSISTEMA T</li>
             <li class="nav-item" id="nav-payt" onclick="carregarConteudo('payt')">PAY T</li>
             <li class="nav-item" id="nav-imobt" onclick="carregarConteudo('imobt')">IMOB T</li>
             <li class="nav-item" id="nav-brandt" onclick="carregarConteudo('brandt')">BRAND T</li>
@@ -218,43 +223,17 @@
         <section class="lp-imobt" id="lp-imobt-section">
             <h2>O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</h2>
             <p class="alerta"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</p>
-            
             <div class="imobt-auditoria-box">
                 <h3>O Sangramento Burocrático Invisível</h3>
                 <p>Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela — afinal, o dinheiro da multa não sai do bolso de quem perdeu o prazo —, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos em andamento. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro das multas por perda de prazos de manifestação.</p>
             </div>
-            
             <div class="servicos-grid">
-                <div class="servico-card-imobt">
-                    <i class="fas fa-hard-hat"></i>
-                    <h4>Aprovação e Regularização</h4>
-                    <p>Documentação técnica completa, desde o projeto inicial até o <strong>Habite-se</strong>.<br><br>Elaboração e orientação minuciosa de todas as documentações necessárias para a obtenção do Alvará ou Autorização solicitada.<br><br>Garantimos que projetos de loteamentos, indústrias e operações logísticas operem 100% dentro da legislação vigente, sem surpresas.</p>
-                </div>
-                <div class="servico-card-imobt">
-                    <i class="fas fa-search-dollar"></i>
-                    <h4>Auditoria de Processos Comunicados</h4>
-                    <p>Mapeamento e gestão ativa de exigências, com foco na resolução de <strong>"Comunique-se"</strong>.<br><br>Resgatamos protocolos engavetados e realizamos o levantamento rigoroso das taxas já recolhidas.<br><br>Com isso, evitamos que sua empresa pague guias e impostos em duplicidade aos órgãos públicos.</p>
-                </div>
-                <div class="servico-card-imobt">
-                    <i class="fas fa-leaf"></i>
-                    <h4>Licenciamento Ambiental (IBAMA/CETESB)</h4>
-                    <p>Viabilização de grandes glebas e indústrias junto aos órgãos de maior escrutínio do país. Atuamos com altíssima complexidade ambiental para evitar embargos.</p>
-                </div>
-                <div class="servico-card-imobt">
-                    <i class="fas fa-file-signature"></i>
-                    <h4>Licenças de Funcionamento</h4>
-                    <p>Obtenção e renovação de Alvarás e Autos de Licença de Funcionamento para comércio, indústrias e organizações religiosas.<br><br>Processos tramitados com a velocidade e a transparência necessárias para cada projeto.<br><br>Tudo executado de forma estratégica para garantir a abertura ininterrupta das suas portas.</p>
-                </div>
-                <div class="servico-card-imobt">
-                    <i class="fas fa-fire-extinguisher"></i>
-                    <h4>Conformidade, Segurança e Legalidade</h4>
-                    <p>Solicitação, emissão e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>, documentos essenciais exigidos nos demais processos de licenciamento.<br><br>Garantimos a total conformidade legal da sua estrutura.<br><br>Além de evitar multas estatais, blindamos o seu ativo para assegurar que, em eventuais sinistros, os danos estejam integralmente cobertos pelas apólices de seguros.</p>
-                </div>
-                <div class="servico-card-imobt">
-                    <i class="fas fa-balance-scale"></i>
-                    <h4>Consultoria Jurídica Imobiliária</h4>
-                    <p>Integração de Inteligência Artificial para análise de viabilidade e mitigação de riscos na captação de glebas e estruturação de <em>Flipping Houses</em>.</p>
-                </div>
+                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4>Aprovação e Regularização</h4><p>Documentação técnica completa, do projeto inicial ao <strong>Habite-se</strong>. Garantimos que loteamentos, fábricas e operações logísticas operem 100% dentro da lei, sem surpresas.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-search-dollar"></i><h4>Auditoria de Processos Comunicados</h4><p>Mapeamento e gestão ativa de exigências, com foco na resolução de <strong>"Comunique-se"</strong>. Resgatamos protocolos engavetados para evitar que você pague as mesmas taxas aos órgãos públicos duas vezes.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-leaf"></i><h4>Licenciamento Ambiental (IBAMA/CETESB)</h4><p>Viabilização de grandes glebas e indústrias junto aos órgãos de maior escrutínio do país. Atuamos com altíssima complexidade ambiental para evitar embargos.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-file-signature"></i><h4>Licenças de Funcionamento</h4><p>Obtenção e renovação de Alvarás de Funcionamento para comércio, indústrias e organizações religiosas. Processos tramitados com a velocidade e transparência necessárias para cada projeto, executados com velocidade para garantir a abertura ininterrupta das suas portas.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4>Conformidade, Segurança e Legalidade</h4><p>Solicitação e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>, documentos essenciais exigidos nos demais processos de licenciamento. Garantimos a total conformidade legal da sua estrutura, e garantindo que em eventuais sinistros, estes estejam cobertos pelas apólices de seguros.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-balance-scale"></i><h4>Consultoria Jurídica Imobiliária</h4><p>Integração de Inteligência Artificial para análise de viabilidade e mitigação de risks na captação de glebas e estruturação de <em>Flipping Houses</em>.</p></div>
             </div>
             <div style="text-align: center; margin-top: 20px;"><a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira com processos parados e regularizar minha operação." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.15rem;"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</a></div>
         </section>
@@ -359,9 +338,29 @@
 
     <a href="https://wa.me/5511947879779" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="document.getElementById('modal-termos').style.display='none'">&times;</span><h3>Termos e Condições</h3><p style="color:#555; line-height: 1.8;">Bem-vindo ao ecossistema da <span class="marca-destaque">TGROUP SOLUTIONS</span>.</p></div></div>
-    <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="document.getElementById('modal-privacidade').style.display='none'">&times;</span><h3>Política de Privacidade</h3><p style="color:#555; line-height: 1.8;">A <span class="marca-destaque">TGROUP SOLUTIONS</span> garante conformidade com a LGPD e regulamentações internacionais de proteção de dados.</p></div></div>
-    <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)"><div class="modal-content" style="text-align: center;"><span class="close-modal" onclick="document.getElementById('modal-contato').style.display='none'">&times;</span><h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3><p style="color:#555; line-height: 1.8; margin-bottom: 30px;">Nosso time executivo está à disposição.</p><div style="font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-envelope" style="color:var(--cor-primaria); margin-right: 10px;"></i><a href="mailto:tgroupsolutions.br@gmail.com" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">tgroupsolutions.br@gmail.com</a></div><div style="font-size: 1.2rem;"><i class="fab fa-whatsapp" style="color:var(--cor-primaria); margin-right: 10px;"></i><a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a></div><p style="margin-top: 30px; font-size: 0.9rem; color: #999;">São Paulo, SP - Brasil</p></div></div>
+    <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="fecharModal(event)">&times;</span><h3>Termos e Condições</h3><p style="color:#555; line-height: 1.8;">Bem-vindo ao ecossistema da <span class="marca-destaque">TGROUP SOLUTIONS</span>.</p></div></div>
+    <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="fecharModal(event)">&times;</span><h3>Política de Privacidade</h3><p style="color:#555; line-height: 1.8;">A <span class="marca-destaque">TGROUP SOLUTIONS</span> garante conformidade com a LGPD e regulamentações internacionais de proteção de dados.</p></div></div>
+    
+    <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-modal" onclick="fecharModal(event)">&times;</span>
+            <h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
+            
+            <p style="color:#555; line-height: 1.8; margin-bottom: 30px;">Estamos à disposição para contribuir com soluções que otimizam seu negócio.</p>
+            
+            <div style="font-size: 1.2rem; margin-bottom: 15px;">
+                <i class="fas fa-envelope" style="color:var(--cor-primaria); margin-right: 10px;"></i>
+                <a href="mailto:tgroupsolutions.br@gmail.com" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">tgroupsolutions.br@gmail.com</a>
+            </div>
+            
+            <div style="font-size: 1.2rem;">
+                <i class="fab fa-whatsapp" style="color:var(--cor-primaria); margin-right: 10px;"></i>
+                <a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.9rem; color: #999;">São Paulo, SP - Brasil</p>
+        </div>
+    </div>
 
     <script>
         const dadosEcossistema = {
@@ -442,7 +441,7 @@
         }
 
         function abrirModal(id) { document.getElementById(id).style.display = 'flex'; setTimeout(() => document.getElementById(id).style.opacity = 1, 10); }
-        function fecharModal(e) { if (e.target.classList.contains('modal-overlay')) { e.target.style.opacity = 0; setTimeout(() => e.target.style.display = 'none', 300); } }
+        function fecharModal(e) { if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-modal')) { const modal = e.target.closest('.modal-overlay'); modal.style.opacity = 0; setTimeout(() => modal.style.display = 'none', 300); } }
 
         window.onload = () => {
             const hashNaUrl = window.location.hash.replace('#', '');
