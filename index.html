@@ -34,7 +34,6 @@
         .nav-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #ffffff; margin-bottom: 25px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase; opacity: 0.8; }
         .nav-item:hover, .nav-item.active { color: var(--cor-primaria); transform: translateX(8px); opacity: 1; text-shadow: 0 0 15px rgba(0, 132, 61, 0.4); } 
 
-        /* CLASSE ESPECÍFICA PARA O MENU ECOSSISTEMA T (MAIOR E DESTACADO) */
         .nav-master-link { font-size: 1.3rem; margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
 
         .sidebar::-webkit-scrollbar { width: 6px; }
@@ -161,33 +160,34 @@
         .metric-box h5 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 5px; }
         .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* ==================== RODAPÉ COM NOVOS LINKS DE COMPLIANCE ==================== */
         .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; }
         .footer-links a { color: #777; text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
         .footer-links a:hover { color: var(--cor-primaria); }
+        
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); }
+        
+        /* MODAIS ESTRUTURA GERAL */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
-        .modal-content { background: var(--cor-fundo); width: 90%; max-width: 700px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; }
+        .modal-content { background: var(--cor-fundo); width: 90%; max-width: 750px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
         .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
         .close-modal:hover { color: var(--cor-texto); }
         .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
+        .modal-content p { color:#555; line-height: 1.8; margin-bottom: 15px; }
         
         @keyframes slideUpFade { 
             from { opacity: 0; transform: translateY(40px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
         
-        /* ==================== RESPONSIVIDADE MOBILE (AJUSTE FINO) ==================== */
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #111; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
             .sidebar-logo { margin: 0 auto 20px auto; max-width: 160px; }
             .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; } 
-            
-            /* Ajuste da fonte e bordas no celular para não "comer" letras */
             .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 10px 12px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); opacity: 1; text-align: center; white-space: normal; line-height: 1.3;}
             .nav-master-link { border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; padding-bottom: 10px; }
-            
             .nav-item:hover, .nav-item.active { transform: none; background: var(--cor-primaria); color: #fff; text-shadow: none; border-color: var(--cor-primaria); box-shadow: 0 5px 15px rgba(0, 132, 61, 0.4); }
             
             .main-content { margin-left: 0; } .hero-section { flex-direction: column; padding: 40px 20px 20px 20px; text-align: center; } .hero-text { padding-right: 0; }
@@ -195,7 +195,7 @@
             .lp-imobt, .lp-homeclubt, .lp-payt, .lp-brandt, .lp-construt { margin: 20px 20px 40px 20px; padding: 40px 20px; }
             .payt-header, .brandt-header, .construt-header { padding: 40px 20px; flex-direction: column; } .payt-body, .construt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
-            .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+            .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 5px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
             .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; }
             .imobt-auditoria-box, .homeclubt-exclusividade-box, .brandt-investment-box { padding: 30px 20px; }
         }
@@ -205,7 +205,6 @@
 
     <aside class="sidebar">
         <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS" class="sidebar-logo">
-        
         <ul class="nav-list">
             <li class="nav-item nav-master-link active" id="nav-home" onclick="carregarConteudo('home')">ECOSSISTEMA T</li>
             <li class="nav-item" id="nav-payt" onclick="carregarConteudo('payt')">PAY T</li>
@@ -332,32 +331,58 @@
 
         <footer class="footer">
             <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | Desde 1998 atuando, e em 2025 com nova estrutura para melhor atendimento. SÃO PAULO, SP.</div>
-            <div class="footer-links"><a onclick="abrirModal('modal-termos')">Termos de Uso</a><a onclick="abrirModal('modal-privacidade')">Política de Privacidade</a><a onclick="abrirModal('modal-contato')">Contato</a></div>
+            <div class="footer-links">
+                <a onclick="abrirModal('modal-termos')">Termos de Uso</a>
+                <a onclick="abrirModal('modal-privacidade')">Política de Privacidade</a>
+                <a onclick="abrirModal('modal-compliance')">Compliance</a>
+                <a onclick="abrirModal('modal-contato')">Contato</a>
+            </div>
         </footer>
     </main>
 
     <a href="https://wa.me/5511947879779" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="fecharModal(event)">&times;</span><h3>Termos e Condições</h3><p style="color:#555; line-height: 1.8;">Bem-vindo ao ecossistema da <span class="marca-destaque">TGROUP SOLUTIONS</span>.</p></div></div>
-    <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)"><div class="modal-content"><span class="close-modal" onclick="fecharModal(event)">&times;</span><h3>Política de Privacidade</h3><p style="color:#555; line-height: 1.8;">A <span class="marca-destaque">TGROUP SOLUTIONS</span> garante conformidade com a LGPD e regulamentações internacionais de proteção de dados.</p></div></div>
+    <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="fecharModal(event)">&times;</span>
+            <h3>Termos de Uso</h3>
+            <p>A utilização das plataformas e serviços do ecossistema <strong>TGROUP SOLUTIONS</strong> implica na aceitação incondicional de nossas diretrizes operacionais.</p>
+            <p>Nossas soluções SaaS, financeiras, imobiliárias e de wellness são regidas por rigorosos contratos específicos de nível de serviço (SLA), assegurando alta disponibilidade sistêmica e proteção jurídica mútua em todas as transações B2B e B2C.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="fecharModal(event)">&times;</span>
+            <h3>Política de Privacidade</h3>
+            <p>Atuamos em total conformidade com a Lei Geral de Proteção de Dados (LGPD) e demais regulamentações globais de privacidade.</p>
+            <p>A <strong>TGROUP SOLUTIONS</strong> emprega protocolos de criptografia de ponta a ponta e arquitetura de dados blindada. As informações e transações financeiras de nossos clientes, parceiros e investidores são tratadas como ativos de altíssimo sigilo, jamais sendo comercializadas ou expostas a terceiros sem consentimento expresso e auditoria legal.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-compliance" onclick="fecharModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="fecharModal(event)">&times;</span>
+            <h3>Governança e Compliance</h3>
+            <p>A <strong>TGROUP SOLUTIONS</strong> opera sob os mais rigorosos padrões globais de Governança Corporativa e Ética Empresarial.</p>
+            <p>Nosso comitê de compliance garante transparência absoluta em todas as verticais do ecossistema, estabelecendo uma política de tolerância zero contra corrupção, suborno ou fraudes operacionais. Mantemos proteção ferrenha sobre nossa propriedade intelectual, incluindo modelos de operação inéditos e marcas registradas.</p>
+            <p>Exigimos de todos os nossos parceiros, fornecedores e investidores institucionais a mesma integridade, garantindo um ambiente de negócios blindado, ético e sustentável para alocações de alto rendimento.</p>
+        </div>
+    </div>
     
     <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)">
         <div class="modal-content" style="text-align: center;">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
-            
             <p style="color:#555; line-height: 1.8; margin-bottom: 30px;">Estamos à disposição para contribuir com soluções que otimizam seu negócio.</p>
-            
             <div style="font-size: 1.2rem; margin-bottom: 15px;">
                 <i class="fas fa-envelope" style="color:var(--cor-primaria); margin-right: 10px;"></i>
                 <a href="mailto:tgroupsolutions.br@gmail.com?subject=Contato%20via%20Portal%20TGROUP" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">tgroupsolutions.br@gmail.com</a>
             </div>
-            
             <div style="font-size: 1.2rem;">
                 <i class="fab fa-whatsapp" style="color:var(--cor-primaria); margin-right: 10px;"></i>
                 <a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a>
             </div>
-            
             <p style="margin-top: 30px; font-size: 0.9rem; color: #999;">São Paulo, SP - Brasil</p>
         </div>
     </div>
