@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TGROUP SOLUTIONS - Ecossistema</title>
+  <title>TGROUP SOLUTIONS - O Ecossistema</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       1. RESET GLOBAL E PREVENÇÃO DE OVERFLOW (Correção Mobile Definitiva)
+       RESET E RESPONSIVIDADE GLOBAL (Correção de Bordas Mobile)
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -18,21 +18,18 @@
     html, body {
       width: 100%;
       max-width: 100vw;
-      overflow-x: hidden; /* A regra de ouro que impede o corte lateral nas telas */
-      background-color: #0a0a0a; /* Fundo escuro premium Big Tech */
+      overflow-x: hidden; /* Correção: Impede o corte de palavras nas laterais */
+      background-color: #000000; /* Fundo Preto - Identidade TGROUP */
       color: #ffffff;
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
     p, h1, h2, h3, h4, h5, h6, span, a, li {
-      overflow-wrap: break-word;
+      overflow-wrap: break-word; /* Correção: Força quebra de texto longo */
       word-wrap: break-word;
     }
 
-    /* ==========================================================================
-       2. ESTRUTURA BASE
-       ========================================================================== */
     .container {
       width: 100%;
       max-width: 1200px;
@@ -40,161 +37,189 @@
       padding: 0 24px; /* Margem de segurança lateral para mobile */
     }
 
-    .tgroup-section-dark {
-      padding: 80px 0;
+    /* ==========================================================================
+       ESTILOS DA SEÇÃO JORNADA
+       ========================================================================== */
+    .tgroup-section {
+      padding: 100px 0;
+      border-top: 1px solid #1a1a1a;
     }
 
     .section-header {
-      margin-bottom: 60px;
       text-align: center;
+      margin-bottom: 80px;
     }
 
     .title-primary {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 15px;
+    }
+
+    /* Detalhe em Verde Bandeira - Identidade de Conversão */
+    .highlight-green {
+      color: #009B3A; 
     }
 
     .subtitle {
       color: #a0a0a0;
-      font-size: 1.1rem;
-      margin-top: 10px;
+      font-size: 1.2rem;
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
-    /* ==========================================================================
-       3. GRID DA JORNADA E CARDS DAS STARTUPS (Ordem Oficial)
-       ========================================================================== */
     .journey-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
     }
 
     .startup-card {
-      background: #141414;
+      background: #0a0a0a;
       border: 1px solid #222;
-      border-radius: 12px;
-      padding: 30px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      border-radius: 8px; /* Borda mais reta, estética tech/corporativa */
+      padding: 40px;
+      transition: all 0.3s ease;
       position: relative;
-      display: flex;
-      flex-direction: column;
     }
 
     .startup-card:hover {
       transform: translateY(-5px);
-      border-color: #4a90e2; /* Cor de destaque tech */
+      border-color: #ffffff; /* Hover branco para contraste */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .step-number {
-      color: #333;
-      font-size: 3rem;
+      color: #1a1a1a;
+      font-size: 4rem;
       font-weight: 800;
       position: absolute;
-      top: 10px;
+      top: -10px;
       right: 20px;
-      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
     }
 
     .startup-title {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-      font-weight: 600;
-      margin-top: 10px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
     }
 
     .startup-tagline {
       display: block;
-      font-size: 0.85rem;
-      color: #4a90e2;
-      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #009B3A; /* Verde Bandeira */
+      margin-bottom: 20px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
       font-weight: 700;
     }
 
     .startup-desc {
-      color: #cccccc;
-      line-height: 1.6;
-      font-size: 0.95rem;
+      color: #b3b3b3;
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
-    /* BRAND T - Destaque final da jornada */
+    /* BRAND T - O Ápice da Jornada */
     .highlight-card {
-      border: 1px solid #4a90e2;
-      background: linear-gradient(145deg, #141414 0%, #1a2235 100%);
+      border: 1px solid #009B3A; /* Borda Verde Bandeira */
+      background: linear-gradient(180deg, #0a0a0a 0%, #05140a 100%);
+    }
+    
+    .highlight-card .startup-title {
+       color: #009B3A;
     }
 
     /* ==========================================================================
-       4. MEDIA QUERIES (Responsividade Mobile Perfeita)
+       MEDIA QUERIES (Mobile)
        ========================================================================== */
     @media (max-width: 768px) {
-      .tgroup-section-dark {
+      .tgroup-section {
         padding: 60px 0;
       }
       .title-primary {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .subtitle {
         font-size: 1rem;
       }
       .journey-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
       }
       .startup-card {
-        padding: 25px 20px;
+        padding: 30px 20px; /* Ajuste de padding interno no mobile */
+      }
+      .step-number {
+        font-size: 3rem;
+        top: 0;
       }
     }
   </style>
 </head>
 <body>
 
-  <section id="jornada-ecossistema" class="tgroup-section-dark">
+  <section id="jornada-ecossistema" class="tgroup-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="title-primary">A Jornada TGROUP SOLUTIONS</h2>
-        <p class="subtitle">Do alicerce financeiro à expansão da sua autoridade. Uma infraestrutura completa e integrada.</p>
+        <h2 class="title-primary">A Jornada <span class="highlight-green">TGROUP</span></h2>
+        <p class="subtitle">Uma infraestrutura completa e integrada. Do alicerce financeiro à expansão máxima da sua autoridade.</p>
       </div>
 
       <div class="journey-grid">
         
         <div class="startup-card" id="card-pay-t">
           <div class="step-number">01</div>
-          <h3 class="startup-title">PAY T</h3>
-          <span class="startup-tagline">O Alicerce Financeiro</span>
-          <p class="startup-desc">Gestão financeira robusta, gateway de pagamento e liquidez desenhada para dar suporte e escala a operações de alto volume.</p>
+          <div class="card-content">
+            <h3 class="startup-title">PAY T</h3>
+            <span class="startup-tagline">O Alicerce Financeiro</span>
+            <p class="startup-desc">Gestão financeira robusta, gateway de pagamento e liquidez desenhada para dar suporte e escala a operações de alto volume.</p>
+          </div>
         </div>
 
         <div class="startup-card" id="card-imob-t">
           <div class="step-number">02</div>
-          <h3 class="startup-title">IMOB T</h3>
-          <span class="startup-tagline">Segurança e Estrutura</span>
-          <p class="startup-desc">Gestão imobiliária inteligente, engenharia legal e compliance rigoroso para blindar operações contra perdas financeiras.</p>
+          <div class="card-content">
+            <h3 class="startup-title">IMOB T</h3>
+            <span class="startup-tagline">Segurança e Estrutura</span>
+            <p class="startup-desc">Gestão imobiliária inteligente, engenharia legal e compliance rigoroso para blindar operações contra perdas financeiras.</p>
+          </div>
         </div>
 
         <div class="startup-card" id="card-constru-t">
           <div class="step-number">03</div>
-          <h3 class="startup-title">CONSTRU T</h3>
-          <span class="startup-tagline">Materialização e Execução</span>
-          <p class="startup-desc">Marketplace B2B2C e distribuidora SaaS com soluções de fácil aplicação, reduzindo gargalos na indústria da construção.</p>
+          <div class="card-content">
+            <h3 class="startup-title">CONSTRU T</h3>
+            <span class="startup-tagline">Materialização e Execução</span>
+            <p class="startup-desc">Marketplace B2B2C e distribuidora SaaS com soluções de fácil aplicação, reduzindo gargalos na indústria da construção.</p>
+          </div>
         </div>
 
         <div class="startup-card" id="card-homeclub-t">
           <div class="step-number">04</div>
-          <h3 class="startup-title">HOME CLUB T</h3>
-          <span class="startup-tagline">Cuidado e Retenção</span>
-          <p class="startup-desc">Clube de assinatura B2B de bem-estar corporativo, manutenção contínua e experiências premium curadas por especialistas.</p>
+          <div class="card-content">
+            <h3 class="startup-title">HOME CLUB T</h3>
+            <span class="startup-tagline">Cuidado e Retenção</span>
+            <p class="startup-desc">Clube de assinatura B2B de bem-estar corporativo, manutenção contínua e experiências premium curadas por especialistas.</p>
+          </div>
         </div>
 
         <div class="startup-card highlight-card" id="card-brand-t">
           <div class="step-number">05</div>
-          <h3 class="startup-title">BRAND T</h3>
-          <span class="startup-tagline">O Ápice e a Expansão</span>
-          <p class="startup-desc">Gestão de carreira, modelagem de talentos via Academy T e estratégias de monetização de alto impacto e LiveShops.</p>
+          <div class="card-content">
+            <h3 class="startup-title">BRAND T</h3>
+            <span class="startup-tagline">O Ápice e a Expansão</span>
+            <p class="startup-desc">Gestão de carreira, modelagem de talentos via Academy T e estratégias de monetização de alto impacto e LiveShops.</p>
+          </div>
         </div>
 
       </div>
