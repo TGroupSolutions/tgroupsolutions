@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       1. RESET GLOBAL E PREVENÇÃO DE OVERFLOW (Correção Mobile)
+       1. RESET GLOBAL E PREVENÇÃO DE OVERFLOW (Correção Mobile Definitiva)
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -18,21 +18,20 @@
     html, body {
       width: 100%;
       max-width: 100vw;
-      overflow-x: hidden; /* Trava o vazamento horizontal em todas as telas */
-      background-color: #0a0a0a; /* Fundo escuro premium */
+      overflow-x: hidden; /* A regra de ouro que impede o corte lateral nas telas */
+      background-color: #0a0a0a; /* Fundo escuro premium Big Tech */
       color: #ffffff;
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Contenção de Texto Responsiva */
     p, h1, h2, h3, h4, h5, h6, span, a, li {
       overflow-wrap: break-word;
       word-wrap: break-word;
     }
 
     /* ==========================================================================
-       2. ESTRUTURA BASE (Containers e Seções)
+       2. ESTRUTURA BASE
        ========================================================================== */
     .container {
       width: 100%;
@@ -66,7 +65,7 @@
     }
 
     /* ==========================================================================
-       3. GRID DA JORNADA E CARDS DAS STARTUPS
+       3. GRID DA JORNADA E CARDS DAS STARTUPS (Ordem Oficial)
        ========================================================================== */
     .journey-grid {
       display: grid;
@@ -123,33 +122,29 @@
       font-size: 0.95rem;
     }
 
-    /* Destaque para a BRAND T como fechamento da jornada */
+    /* BRAND T - Destaque final da jornada */
     .highlight-card {
       border: 1px solid #4a90e2;
       background: linear-gradient(145deg, #141414 0%, #1a2235 100%);
     }
 
     /* ==========================================================================
-       4. MEDIA QUERIES (Ajustes Específicos para Telas Menores)
+       4. MEDIA QUERIES (Responsividade Mobile Perfeita)
        ========================================================================== */
     @media (max-width: 768px) {
       .tgroup-section-dark {
         padding: 60px 0;
       }
-
       .title-primary {
         font-size: 2rem;
       }
-
       .subtitle {
         font-size: 1rem;
       }
-
       .journey-grid {
-        grid-template-columns: 1fr; /* Força 1 coluna no mobile */
+        grid-template-columns: 1fr;
         gap: 20px;
       }
-      
       .startup-card {
         padding: 25px 20px;
       }
