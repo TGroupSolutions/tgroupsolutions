@@ -162,9 +162,9 @@
         .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
 
         /* ==================== RODAPÉ ==================== */
-        .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #777; }
-        .footer-links { display: flex; flex-wrap: nowrap; gap: 15px; }
-        .footer-links a { color: #777; text-decoration: none; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; flex-wrap: nowrap; }
+        .footer-links { display: flex; gap: 15px; flex-wrap: nowrap; }
+        .footer-links a { color: #777; text-decoration: none; font-weight: 500; transition: color 0.3s; cursor: pointer; white-space: nowrap; }
         .footer-links a:hover { color: var(--cor-primaria); }
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); }
@@ -192,7 +192,7 @@
             .lp-section { width: calc(100% - 30px); margin: 20px auto 40px auto; padding: 40px 20px; }
             .payt-header, .brandt-header, .construt-header { padding: 40px 20px; flex-direction: column; } .payt-body, .construt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
-            .footer { flex-direction: column; gap: 15px; text-align: center; } .footer-links { flex-wrap: wrap; justify-content: center; } .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 5px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+            .footer { flex-direction: column; gap: 15px; text-align: center; padding: 25px 20px; } .footer-links { flex-wrap: wrap; justify-content: center; } .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 5px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
             .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; }
             .imobt-auditoria-box, .homeclubt-exclusividade-box, .brandt-investment-box { padding: 30px 20px; }
         }
@@ -506,7 +506,7 @@
         </section>
 
         <footer class="footer">
-            <div>&copy; <span class="marca-destaque" style="font-size:0.75rem;">TGROUP SOLUTIONS</span> | 
+            <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | 
                 <span class="pt">Atuação desde 1998 e em 2025 com nova estrutura para atendimento ainda melhor. SÃO PAULO/SP - BRASIL.</span>
                 <span class="en">Operating since 1998, and in 2025 with a new structure for even better service. SÃO PAULO/SP - BRAZIL.</span>
                 <span class="es">Operando desde 1998, y en 2025 con nueva estructura para una atención aún mejor. SÃO PAULO/SP - BRASIL.</span>
@@ -527,9 +527,14 @@
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></h3>
-            <p class="pt">A utilização das plataformas e serviços do ecossistema <strong>TGROUP SOLUTIONS</strong> implica na aceitação incondicional de nossas diretrizes operacionais. Soluções regidas por rigorosos contratos SLA (B2B/B2C).</p>
-            <p class="en">The use of the platforms and services of the <strong>TGROUP SOLUTIONS</strong> ecosystem implies the unconditional acceptance of our operational guidelines. Solutions governed by strict SLA contracts (B2B/B2C).</p>
-            <p class="es">El uso de las plataformas y servicios del ecosistema <strong>TGROUP SOLUTIONS</strong> implica la aceptación incondicional de nuestras directrices operativas. Soluciones regidas por estrictos contratos SLA (B2B/B2C).</p>
+            <p class="pt">A utilização das plataformas e serviços do ecossistema <strong>TGROUP SOLUTIONS</strong> implica na aceitação incondicional de nossas diretrizes operacionais.</p>
+            <p class="pt">Nossas soluções SaaS, financeiras, imobiliárias e de wellness são regidas por rigorosos contratos específicos de nível de serviço (SLA), assegurando alta disponibilidade sistêmica e proteção jurídica mútua em todas as transações B2B e B2C.</p>
+            
+            <p class="en">The use of the platforms and services of the <strong>TGROUP SOLUTIONS</strong> ecosystem implies the unconditional acceptance of our operational guidelines.</p>
+            <p class="en">Our SaaS, financial, real estate, and wellness solutions are governed by strict specific Service Level Agreements (SLA), ensuring high systemic availability and mutual legal protection in all B2B and B2C transactions.</p>
+            
+            <p class="es">El uso de las plataformas y servicios del ecosistema <strong>TGROUP SOLUTIONS</strong> implica la aceptación incondicional de nuestras directrices operativas.</p>
+            <p class="es">Nuestras soluciones SaaS, financieras, inmobiliarias y de bienestar están regidas por estrictos Acuerdos de Nivel de Servicio (SLA) específicos, asegurando una alta disponibilidad sistémica y protección legal mutua en todas las transacciones B2B y B2C.</p>
         </div>
     </div>
 
@@ -537,9 +542,14 @@
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span></h3>
-            <p class="pt">Atuamos em total conformidade com as leis de proteção de dados (LGPD). Protocolos de criptografia e arquitetura de dados blindada para sigilo de investidores e parceiros.</p>
-            <p class="en">We act in full compliance with data protection laws (LGPD/GDPR). Encryption protocols and shielded data architecture for the confidentiality of investors and partners.</p>
-            <p class="es">Actuamos en total cumplimiento de las leyes de protección de datos (LGPD). Protocolos de encriptación y arquitectura de datos blindada para la confidencialidad de inversores y socios.</p>
+            <p class="pt">Atuamos em total conformidade com a Lei Geral de Proteção de Dados (LGPD) e demais regulamentações globais de privacidade.</p>
+            <p class="pt">A <strong>TGROUP SOLUTIONS</strong> emprega protocolos de criptografia de ponta a ponta e arquitetura de dados blindada. As informações e transações financeiras de nossos clientes, parceiros e investidores são tratadas como ativos de altíssimo sigilo, jamais sendo comercializadas ou expostas a terceiros sem consentimento expresso e auditoria legal.</p>
+            
+            <p class="en">We act in full compliance with the General Data Protection Law (LGPD) and other global privacy regulations.</p>
+            <p class="en"><strong>TGROUP SOLUTIONS</strong> employs end-to-end encryption protocols and shielded data architecture. The financial information and transactions of our clients, partners, and investors are treated as highly confidential assets, never being commercialized or exposed to third parties without express consent and legal audit.</p>
+            
+            <p class="es">Actuamos en total conformidad con la Ley General de Protección de Datos (LGPD) y demás normativas globales de privacidad.</p>
+            <p class="es"><strong>TGROUP SOLUTIONS</strong> emplea protocolos de encriptación de extremo a extremo y arquitectura de datos blindada. La información y transacciones financieras de nuestros clientes, socios e inversores son tratadas como activos de altísima confidencialidad, no siendo jamás comercializadas o expuestas a terceros sin consentimiento expreso y auditoría legal.</p>
         </div>
     </div>
 
@@ -547,9 +557,17 @@
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3><span class="pt">Governança e Compliance</span><span class="en">Governance and Compliance</span><span class="es">Gobernanza y Cumplimiento</span></h3>
-            <p class="pt">Padrões globais de Ética Empresarial. Tolerância zero contra fraudes. Proteção ferrenha da propriedade intelectual e modelos inéditos registrados.</p>
-            <p class="en">Global standards of Business Ethics. Zero tolerance against fraud. Fierce protection of intellectual property and registered unprecedented models.</p>
-            <p class="es">Estándares globales de Ética Empresarial. Tolerancia cero frente al fraude. Fuerte protección de la propiedad intelectual y modelos inéditos registrados.</p>
+            <p class="pt">A <strong>TGROUP SOLUTIONS</strong> opera sob os mais rigorosos padrões globais de Governança Corporativa e Ética Empresarial.</p>
+            <p class="pt">Nosso comitê de compliance garante transparência absoluta em todas as verticais do ecossistema, estabelecendo uma política de tolerância zero contra corrupção, suborno ou fraudes operacionais. Mantemos proteção ferrenha sobre nossa propriedade intelectual, incluindo modelos de operação inéditos e marcas registradas.</p>
+            <p class="pt">Exigimos de todos os nossos parceiros, fornecedores e investidores institucionais a mesma integridade, garantindo um ambiente de negócios blindado, ético e sustentável para alocações de alto rendimento.</p>
+
+            <p class="en"><strong>TGROUP SOLUTIONS</strong> operates under the most rigorous global standards of Corporate Governance and Business Ethics.</p>
+            <p class="en">Our compliance committee guarantees absolute transparency across all verticals of the ecosystem, establishing a zero-tolerance policy against corruption, bribery, or operational fraud. We maintain fierce protection over our intellectual property, including unprecedented operational models and trademarks.</p>
+            <p class="en">We demand the same integrity from all our partners, suppliers, and institutional investors, ensuring a shielded, ethical, and sustainable business environment for high-yield allocations.</p>
+
+            <p class="es"><strong>TGROUP SOLUTIONS</strong> opera bajo los más rigurosos estándares globales de Gobierno Corporativo y Ética Empresarial.</p>
+            <p class="es">Nuestro comité de cumplimiento garantiza una transparencia absoluta en todas las verticales del ecosistema, estableciendo una política de tolerancia cero contra la corrupción, el soborno o los fraudes operativos. Mantenemos una protección férrea sobre nuestra propiedad intelectual, incluyendo modelos de operación inéditos y marcas registradas.</p>
+            <p class="es">Exigimos a todos nuestros socios, proveedores e inversores institucionales la misma integridad, garantizando un entorno de negocios blindado, ético y sostenible para asignaciones de alto rendimiento.</p>
         </div>
     </div>
     
