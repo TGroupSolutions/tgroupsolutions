@@ -162,8 +162,9 @@
         .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
 
         /* ==================== RODAPÉ ==================== */
-        .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; }
-        .footer-links a { color: #777; text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #777; }
+        .footer-links { display: flex; flex-wrap: nowrap; gap: 15px; }
+        .footer-links a { color: #777; text-decoration: none; font-weight: 500; transition: color 0.3s; cursor: pointer; }
         .footer-links a:hover { color: var(--cor-primaria); }
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); }
@@ -191,7 +192,7 @@
             .lp-section { width: calc(100% - 30px); margin: 20px auto 40px auto; padding: 40px 20px; }
             .payt-header, .brandt-header, .construt-header { padding: 40px 20px; flex-direction: column; } .payt-body, .construt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
-            .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 5px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+            .footer { flex-direction: column; gap: 15px; text-align: center; } .footer-links { flex-wrap: wrap; justify-content: center; } .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 5px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
             .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; }
             .imobt-auditoria-box, .homeclubt-exclusividade-box, .brandt-investment-box { padding: 30px 20px; }
         }
@@ -505,10 +506,10 @@
         </section>
 
         <footer class="footer">
-            <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | 
-                <span class="pt">Desde 1998 atuando em múltiplos segmentos, e em 2025 com nova estrutura para melhor atendimento. SÃO PAULO/SP - BRASIL.</span>
-                <span class="en">Operating in multiple segments since 1998, and in 2025 with a new structure for better service. SÃO PAULO/SP - BRAZIL.</span>
-                <span class="es">Operando en múltiples segmentos desde 1998, y en 2025 con una nueva estructura para una mejor atención. SÃO PAULO/SP - BRASIL.</span>
+            <div>&copy; <span class="marca-destaque" style="font-size:0.75rem;">TGROUP SOLUTIONS</span> | 
+                <span class="pt">Atuação desde 1998 e em 2025 com nova estrutura para atendimento ainda melhor. SÃO PAULO/SP - BRASIL.</span>
+                <span class="en">Operating since 1998, and in 2025 with a new structure for even better service. SÃO PAULO/SP - BRAZIL.</span>
+                <span class="es">Operando desde 1998, y en 2025 con nueva estructura para una atención aún mejor. SÃO PAULO/SP - BRASIL.</span>
             </div>
             <div class="footer-links">
                 <a onclick="abrirModal('modal-termos')"><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></a>
