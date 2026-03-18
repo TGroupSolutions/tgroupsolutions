@@ -73,7 +73,27 @@
         .imagem-grid-3 img:first-child { grid-row: span 2; } 
         .imagem-grid-3 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
 
-        .btn-urgente, .btn-wellness { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); border: none; cursor: pointer; }
+        /* ==================== CORREÇÃO DOS BOTÕES ==================== */
+        .btn-urgente, .btn-wellness { 
+            display: inline-block; 
+            background-color: var(--cor-primaria); 
+            color: #ffffff; 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 800; 
+            font-size: 1.15rem; 
+            padding: 20px 50px; /* Padding restaurado */
+            border-radius: 50px; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            transition: 0.3s; 
+            box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); 
+            border: none; 
+            cursor: pointer; 
+            text-align: center;
+            max-width: 100%;
+            white-space: normal; /* Garante a quebra de texto longa */
+            line-height: 1.4;
+        }
         .btn-urgente:hover, .btn-wellness:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
@@ -83,7 +103,10 @@
         
         .lp-imobt { background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
-        .lp-imobt h2 span { color: #ff3333; }
+        
+        /* Correção de cor do SPAN (ignora os spans de idioma) */
+        .lp-imobt h2 span:not(.pt):not(.en):not(.es) { color: #ff3333; }
+        
         .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 30px; border-left: 4px solid #ff3333; padding-left: 20px; }
         .imobt-auditoria-box { background: rgba(255,255,255,0.04); padding: 40px; border-radius: 15px; margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.08); border-left: 5px solid var(--cor-primaria); }
         .imobt-auditoria-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
@@ -103,7 +126,10 @@
         .middle-hero-image img { width: 100%; max-width: 550px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .homeclubt-cards-box { background-color: #f8faf9; padding: 60px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.08); border: 1px solid #e9ecef; }
         .homeclubt-cards-box h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
-        .homeclubt-cards-box h3 span { color: var(--cor-primaria); }
+        
+        /* Correção de cor do SPAN na Home Club T */
+        .homeclubt-cards-box h3 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
+        
         .wellness-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; border-left: 4px solid var(--cor-primaria); padding-left: 20px; }
         .homeclubt-exclusividade-box { background: rgba(0, 132, 61, 0.05); padding: 40px; border-radius: 15px; margin-bottom: 40px; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); }
         .homeclubt-exclusividade-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 15px; text-transform: none; }
@@ -118,7 +144,10 @@
         .construt-header { padding: 80px 60px; text-align: left; background: #ffffff; border-bottom: 1px solid #d1d9e0; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .construt-header-text { flex: 1; }
         .construt-header-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.6rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.2; }
-        .construt-header-text h2 span { color: var(--cor-primaria); }
+        
+        /* Correção de cor do SPAN na Constru T */
+        .construt-header-text h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
+        
         .construt-alerta { font-size: 1.15rem; line-height: 1.8; color: #555; border-left: 4px solid #ff9900; padding-left: 20px; }
         .construt-body { padding: 60px; }
         .servico-card-construt { background: #ffffff; border: 1px solid #e1e5eb; padding: 40px 30px; border-radius: 15px; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
@@ -133,7 +162,10 @@
         .lp-brandt { background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
         .brandt-header { text-align: center; margin-bottom: 60px; }
         .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
-        .brandt-header h2 span { color: var(--cor-primaria); }
+        
+        /* Correção de cor do SPAN na Brand T */
+        .brandt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
+        
         .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 900px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-left: 5px solid var(--cor-primaria); }
         .brandt-investment-box { background: rgba(0, 132, 61, 0.04); padding: 40px; border-radius: 15px; max-width: 900px; margin: 40px auto 60px auto; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); text-align: left; }
         .brandt-investment-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 15px; text-transform: none; }
@@ -147,7 +179,10 @@
         .lp-payt { background-color: #050505; color: #ffffff; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; }
         .payt-header { padding: 80px 60px 40px 60px; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border-bottom: 1px solid #1a1a1a; }
         .payt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
-        .payt-header h2 span { color: var(--cor-primaria); }
+        
+        /* Correção de cor do SPAN na Pay T */
+        .payt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
+        
         .payt-header p { font-size: 1.2rem; line-height: 1.8; color: #aaaaaa; max-width: 800px; margin: 0 auto; font-weight: 300; }
         .payt-body { padding: 60px; }
         .payt-alerta { font-size: 1.15rem; line-height: 1.8; color: #eeeeee; margin-bottom: 50px; border-left: 4px solid #ff3333; padding-left: 20px; background: rgba(255, 51, 51, 0.05); padding: 20px; border-radius: 0 10px 10px 0; }
@@ -190,6 +225,10 @@
             .hero-section { flex-direction: column; padding: 40px 20px 20px 20px; text-align: center; } .hero-text { padding-right: 0; }
             .hero-image-container { justify-content: center; } .hero-image-container img { height: 300px; } .imagem-grid-4, .imagem-grid-3 { height: 350px;} 
             .lp-section { width: calc(100% - 30px); margin: 20px auto 40px auto; padding: 40px 20px; }
+            
+            /* Ajuste responsivo do botão no mobile */
+            .btn-urgente, .btn-wellness { padding: 15px 25px; font-size: 1rem; }
+
             .payt-header, .brandt-header, .construt-header { padding: 40px 20px; flex-direction: column; } .payt-body, .construt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
             .footer { flex-direction: column; gap: 15px; text-align: center; padding: 25px 20px; } .footer-links { flex-wrap: wrap; justify-content: center; } .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 5px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
@@ -275,7 +314,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 20px;">
-                <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.15rem;">
+                <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente">
                     <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
                     <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span>
                     <span class="en">REQUEST AUDIT AND SHIELD OPERATION</span>
@@ -391,7 +430,7 @@
                     </div>
                 </div>
                 <div style="text-align: center;">
-                    <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;">
+                    <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente">
                         <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
                         <span class="pt">ASSINAR PLATAFORMA E BLINDAR MINHA OBRA</span>
                         <span class="en">SUBSCRIBE TO PLATFORM AND SHIELD MY PROJECT</span>
@@ -447,7 +486,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 30px;">
-                <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;">
+                <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente">
                     <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
                     <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span>
                     <span class="en">STRUCTURE MY EMPIRE AND SCALE</span>
