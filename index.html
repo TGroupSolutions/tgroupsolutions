@@ -34,12 +34,13 @@
         body.lang-en .pt, body.lang-en .es { display: none !important; }
         body.lang-es .pt, body.lang-es .en { display: none !important; }
 
-        .lang-container { margin-bottom: 30px; }
-        .lang-label { display: flex; justify-content: center; align-items: center; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-        .lang-switcher { display: flex; justify-content: center; gap: 15px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; }
-        .lang-btn { color: #666; cursor: pointer; transition: 0.3s; }
-        .lang-btn:hover { color: #fff; }
+        .lang-container { display: flex; justify-content: center; align-items: center; gap: 5px; margin-bottom: 30px; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; color: #ffffff; }
+        .lang-container i { font-size: 0.8rem; margin-right: 2px; }
+        .lang-label { text-transform: uppercase; letter-spacing: 0.05em; margin-right: 4px; }
+        .lang-btn { color: #ffffff; cursor: pointer; transition: 0.3s; }
+        .lang-btn:hover { opacity: 0.7; }
         .lang-btn.active { color: var(--cor-primaria); text-shadow: 0 0 10px rgba(0, 132, 61, 0.4); }
+        .lang-sep { color: #ffffff; opacity: 0.4; font-weight: 400; }
 
         /* ==================== SIDEBAR DARK MODE ==================== */
         .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda-sidebar); padding: 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
@@ -201,17 +202,15 @@
     <aside class="sidebar">
         <!-- LANG SWITCHER -->
         <div class="lang-container">
-            <div class="lang-label">
-                <i class="fas fa-globe" style="margin-right: 6px;"></i>
-                <span class="pt">IDIOMA</span>
-                <span class="en">LANGUAGE</span>
-                <span class="es">IDIOMA</span>
-            </div>
-            <div class="lang-switcher">
-                <span id="btn-pt" class="lang-btn active" onclick="changeLang('pt')">PT</span> | 
-                <span id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</span> | 
-                <span id="btn-es" class="lang-btn" onclick="changeLang('es')">ES</span>
-            </div>
+            <i class="fas fa-globe"></i>
+            <span class="lang-label">
+                <span class="pt">IDIOMA:</span>
+                <span class="en">LANGUAGE:</span>
+                <span class="es">IDIOMA:</span>
+            </span>
+            <span id="btn-pt" class="lang-btn active" onclick="changeLang('pt')">PT</span> <span class="lang-sep">|</span> 
+            <span id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</span> <span class="lang-sep">|</span> 
+            <span id="btn-es" class="lang-btn" onclick="changeLang('es')">ES</span>
         </div>
 
         <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS" class="sidebar-logo">
@@ -507,9 +506,9 @@
 
         <footer class="footer">
             <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | 
-                <span class="pt">Desde 1998 atuando em diversos seguimentos de mercado. SÃO PAULO/SP - BRASIL.</span>
-                <span class="en">Operating in various market segments since 1998. SÃO PAULO/SP - BRAZIL.</span>
-                <span class="es">Operando en diversos segmentos de mercado desde 1998. SÃO PAULO/SP - BRASIL.</span>
+                <span class="pt">Desde 1998 atuando em múltiplos segmentos, e em 2025 com nova estrutura para melhor atendimento. SÃO PAULO/SP - BRASIL.</span>
+                <span class="en">Operating in multiple segments since 1998, and in 2025 with a new structure for better service. SÃO PAULO/SP - BRAZIL.</span>
+                <span class="es">Operando en múltiples segmentos desde 1998, y en 2025 con una nueva estructura para una mejor atención. SÃO PAULO/SP - BRASIL.</span>
             </div>
             <div class="footer-links">
                 <a onclick="abrirModal('modal-termos')"><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></a>
