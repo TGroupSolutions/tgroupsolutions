@@ -34,7 +34,9 @@
         body.lang-en .pt, body.lang-en .es { display: none !important; }
         body.lang-es .pt, body.lang-es .en { display: none !important; }
 
-        .lang-switcher { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; }
+        .lang-container { margin-bottom: 30px; }
+        .lang-label { display: flex; justify-content: center; align-items: center; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+        .lang-switcher { display: flex; justify-content: center; gap: 15px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; }
         .lang-btn { color: #666; cursor: pointer; transition: 0.3s; }
         .lang-btn:hover { color: #fff; }
         .lang-btn.active { color: var(--cor-primaria); text-shadow: 0 0 10px rgba(0, 132, 61, 0.4); }
@@ -198,10 +200,18 @@
 
     <aside class="sidebar">
         <!-- LANG SWITCHER -->
-        <div class="lang-switcher">
-            <span id="btn-pt" class="lang-btn active" onclick="changeLang('pt')">PT</span> | 
-            <span id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</span> | 
-            <span id="btn-es" class="lang-btn" onclick="changeLang('es')">ES</span>
+        <div class="lang-container">
+            <div class="lang-label">
+                <i class="fas fa-globe" style="margin-right: 6px;"></i>
+                <span class="pt">IDIOMA</span>
+                <span class="en">LANGUAGE</span>
+                <span class="es">IDIOMA</span>
+            </div>
+            <div class="lang-switcher">
+                <span id="btn-pt" class="lang-btn active" onclick="changeLang('pt')">PT</span> | 
+                <span id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</span> | 
+                <span id="btn-es" class="lang-btn" onclick="changeLang('es')">ES</span>
+            </div>
         </div>
 
         <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS" class="sidebar-logo">
