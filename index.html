@@ -21,25 +21,31 @@
             --cor-borda-sidebar: #1a1a1a; 
         }
         
-        /* Correção Mobile: Prevenção de Overflow e Quebra de Palavras nas Bordas */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); display: flex; min-height: 100vh; overflow-x: hidden; }
         p, h1, h2, h3, h4, h5, h6, span, a, li { overflow-wrap: break-word; word-wrap: break-word; }
         
         .marca-destaque { color: var(--cor-primaria) !important; text-transform: uppercase !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif; }
 
+        /* ==================== SISTEMA DE MULTI-IDIOMA ==================== */
+        body:not(.lang-en):not(.lang-es) .en,
+        body:not(.lang-en):not(.lang-es) .es { display: none !important; }
+        
+        body.lang-en .pt, body.lang-en .es { display: none !important; }
+        body.lang-es .pt, body.lang-es .en { display: none !important; }
+
+        .lang-switcher { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; }
+        .lang-btn { color: #666; cursor: pointer; transition: 0.3s; }
+        .lang-btn:hover { color: #fff; }
+        .lang-btn.active { color: var(--cor-primaria); text-shadow: 0 0 10px rgba(0, 132, 61, 0.4); }
+
         /* ==================== SIDEBAR DARK MODE ==================== */
-        .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda-sidebar); padding: 60px 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
-        
-        .sidebar-logo { width: 100%; max-width: 190px; height: auto; margin-bottom: 40px; display: block; border-radius: 8px; }
-        
+        .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda-sidebar); padding: 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
+        .sidebar-logo { width: 100%; max-width: 190px; height: auto; margin: 0 auto 30px auto; display: block; border-radius: 8px; }
         .nav-list { list-style: none; flex-grow: 1; }
-        
         .nav-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #ffffff; margin-bottom: 25px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase; opacity: 0.8; }
         .nav-item:hover, .nav-item.active { color: var(--cor-primaria); transform: translateX(8px); opacity: 1; text-shadow: 0 0 15px rgba(0, 132, 61, 0.4); } 
-
         .nav-master-link { font-size: 1.3rem; margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
-
         .sidebar::-webkit-scrollbar { width: 6px; }
         .sidebar::-webkit-scrollbar-track { background: #000; }
         .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
@@ -64,31 +70,28 @@
         .imagem-grid-3 img:first-child { grid-row: span 2; } 
         .imagem-grid-3 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
 
-        .btn-urgente { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 40px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); border: none; cursor: pointer; }
-        .btn-urgente:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
-
-        .btn-wellness { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 20px 50px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.3); border: none; cursor: pointer; }
-        .btn-wellness:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
+        .btn-urgente, .btn-wellness { display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); border: none; cursor: pointer; }
+        .btn-urgente:hover, .btn-wellness:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
-        /* ==================== LP IMOB T ==================== */
-        .lp-imobt { display: none; background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); animation: slideUpFade 0.6s ease; }
+        /* ==================== LP ESTILOS GERAIS ==================== */
+        .lp-section { display: none; border-radius: 20px; margin: 20px 60px 60px 60px; animation: slideUpFade 0.6s ease; overflow: hidden; }
+        
+        .lp-imobt { background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span { color: #ff3333; }
         .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 30px; border-left: 4px solid #ff3333; padding-left: 20px; }
         .imobt-auditoria-box { background: rgba(255,255,255,0.04); padding: 40px; border-radius: 15px; margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.08); border-left: 5px solid var(--cor-primaria); }
         .imobt-auditoria-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
         .imobt-auditoria-box p { font-size: 1.1rem; line-height: 1.7; color: #bbb; }
-        .imobt-auditoria-box strong { color: #fff; }
         .servico-card-imobt { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; transition: 0.3s; }
         .servico-card-imobt:hover { border-color: var(--cor-primaria); transform: translateY(-5px); background: rgba(0, 132, 61, 0.05); }
         .servico-card-imobt i { font-size: 2.2rem; color: var(--cor-primaria); margin-bottom: 20px; }
         .servico-card-imobt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; line-height: 1.3;}
         .servico-card-imobt p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
 
-        /* ==================== LP HOME CLUB T ==================== */
-        .lp-homeclubt { display: none; margin: 20px 60px 60px 60px; animation: slideUpFade 0.6s ease; }
+        .lp-homeclubt { margin: 20px 60px 60px 60px; }
         .middle-hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-bottom: 80px; }
         .middle-hero-text { flex: 1; }
         .middle-hero-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; color: var(--cor-texto); text-transform: uppercase; }
@@ -99,20 +102,16 @@
         .homeclubt-cards-box h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
         .homeclubt-cards-box h3 span { color: var(--cor-primaria); }
         .wellness-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; border-left: 4px solid var(--cor-primaria); padding-left: 20px; }
-        
         .homeclubt-exclusividade-box { background: rgba(0, 132, 61, 0.05); padding: 40px; border-radius: 15px; margin-bottom: 40px; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); }
         .homeclubt-exclusividade-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 15px; text-transform: none; }
         .homeclubt-exclusividade-box p { font-size: 1.1rem; line-height: 1.7; color: #444; }
-        .homeclubt-exclusividade-box strong { color: var(--cor-primaria); }
-
         .homeclubt-card { background: #ffffff; border: 1px solid #eef2f5; padding: 30px; border-radius: 15px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
         .homeclubt-card:hover { border-color: var(--cor-primaria); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 132, 61, 0.1); }
         .homeclubt-card i { font-size: 2rem; color: var(--cor-primaria); margin-bottom: 20px; }
         .homeclubt-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #1a1a1a; line-height: 1.3;}
         .homeclubt-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
 
-        /* ==================== LP CONSTRU T ==================== */
-        .lp-construt { display: none; background-color: #f0f2f5; color: #2c3e50; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #d1d9e0; animation: slideUpFade 0.6s ease; overflow: hidden; }
+        .lp-construt { background-color: #f0f2f5; color: #2c3e50; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #d1d9e0; }
         .construt-header { padding: 80px 60px; text-align: left; background: #ffffff; border-bottom: 1px solid #d1d9e0; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .construt-header-text { flex: 1; }
         .construt-header-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.6rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.2; }
@@ -128,26 +127,21 @@
         .construt-ecosystem h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; }
         .construt-ecosystem p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
 
-        /* ==================== LP BRAND T ==================== */
-        .lp-brandt { display: none; background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; animation: slideUpFade 0.6s ease; }
+        .lp-brandt { background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
         .brandt-header { text-align: center; margin-bottom: 60px; }
         .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
         .brandt-header h2 span { color: var(--cor-primaria); }
         .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 900px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-left: 5px solid var(--cor-primaria); }
-        
         .brandt-investment-box { background: rgba(0, 132, 61, 0.04); padding: 40px; border-radius: 15px; max-width: 900px; margin: 40px auto 60px auto; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); text-align: left; }
         .brandt-investment-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 15px; text-transform: none; }
         .brandt-investment-box p { font-size: 1.1rem; line-height: 1.7; color: #444; }
-        .brandt-investment-box strong { color: var(--cor-primaria); }
-
         .servico-card-brandt { background: #ffffff; border: 1px solid #eee; padding: 40px 30px; border-radius: 15px; transition: 0.4s; }
         .servico-card-brandt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.1); }
         .servico-card-brandt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
         .servico-card-brandt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a; text-transform: uppercase; }
         .servico-card-brandt p { font-size: 1rem; color: #666; line-height: 1.6; }
 
-        /* ==================== LP PAY T ==================== */
-        .lp-payt { display: none; background-color: #050505; color: #ffffff; border-radius: 20px; margin: 20px 60px 60px 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; animation: slideUpFade 0.6s ease; overflow: hidden; }
+        .lp-payt { background-color: #050505; color: #ffffff; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; }
         .payt-header { padding: 80px 60px 40px 60px; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border-bottom: 1px solid #1a1a1a; }
         .payt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
         .payt-header h2 span { color: var(--cor-primaria); }
@@ -164,15 +158,14 @@
         .metric-box h5 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 5px; }
         .metric-box p { font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* ==================== RODAPÉ COM NOVOS LINKS DE COMPLIANCE ==================== */
+        /* ==================== RODAPÉ ==================== */
         .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; }
         .footer-links a { color: #777; text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
         .footer-links a:hover { color: var(--cor-primaria); }
-        
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); }
         
-        /* MODAIS ESTRUTURA GERAL */
+        /* MODAIS */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
         .modal-content { background: var(--cor-fundo); width: 90%; max-width: 750px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
         .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
@@ -180,10 +173,7 @@
         .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
         .modal-content p { color:#555; line-height: 1.8; margin-bottom: 15px; }
         
-        @keyframes slideUpFade { 
-            from { opacity: 0; transform: translateY(40px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
@@ -192,14 +182,10 @@
             .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; } 
             .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 10px 12px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); opacity: 1; text-align: center; white-space: normal; line-height: 1.3;}
             .nav-master-link { border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; padding-bottom: 10px; }
-            .nav-item:hover, .nav-item.active { transform: none; background: var(--cor-primaria); color: #fff; text-shadow: none; border-color: var(--cor-primaria); box-shadow: 0 5px 15px rgba(0, 132, 61, 0.4); }
-            
             .main-content { margin-left: 0; width: 100%; } 
             .hero-section { flex-direction: column; padding: 40px 20px 20px 20px; text-align: center; } .hero-text { padding-right: 0; }
             .hero-image-container { justify-content: center; } .hero-image-container img { height: 300px; } .imagem-grid-4, .imagem-grid-3 { height: 350px;} 
-            
-            .lp-imobt, .lp-homeclubt, .lp-payt, .lp-brandt, .lp-construt { width: calc(100% - 30px); margin: 20px auto 40px auto; padding: 40px 20px; }
-            
+            .lp-section { width: calc(100% - 30px); margin: 20px auto 40px auto; padding: 40px 20px; }
             .payt-header, .brandt-header, .construt-header { padding: 40px 20px; flex-direction: column; } .payt-body, .construt-body { padding: 30px 20px; }
             .middle-hero { flex-direction: column; text-align: center; gap: 30px; } .middle-hero-image { text-align: center; } .homeclubt-cards-box { padding: 40px 20px; }
             .footer { flex-direction: column; gap: 20px; text-align: center; } .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 5px; } .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
@@ -208,12 +194,21 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-pt">
 
     <aside class="sidebar">
+        <!-- LANG SWITCHER -->
+        <div class="lang-switcher">
+            <span id="btn-pt" class="lang-btn active" onclick="changeLang('pt')">PT</span> | 
+            <span id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</span> | 
+            <span id="btn-es" class="lang-btn" onclick="changeLang('es')">ES</span>
+        </div>
+
         <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS" class="sidebar-logo">
         <ul class="nav-list">
-            <li class="nav-item nav-master-link active" id="nav-home" onclick="carregarConteudo('home')">ECOSSISTEMA T</li>
+            <li class="nav-item nav-master-link active" id="nav-home" onclick="carregarConteudo('home')">
+                <span class="pt">ECOSSISTEMA T</span><span class="en">T ECOSYSTEM</span><span class="es">ECOSISTEMA T</span>
+            </li>
             <li class="nav-item" id="nav-payt" onclick="carregarConteudo('payt')">PAY T</li>
             <li class="nav-item" id="nav-imobt" onclick="carregarConteudo('imobt')">IMOB T</li>
             <li class="nav-item" id="nav-construt" onclick="carregarConteudo('construt')">CONSTRU T</li>
@@ -224,226 +219,475 @@
 
     <main class="main-content">
         <section class="hero-section" id="hero-display">
-            </section>
-
-        <section class="lp-imobt" id="lp-imobt-section">
-            <h2>O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</h2>
-            <p class="alerta"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</p>
-            <div class="imobt-auditoria-box">
-                <h3>O Sangramento Burocrático Invisível</h3>
-                <p>Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela — afinal, o dinheiro da multa não sai do bolso de quem perdeu o prazo —, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos em andamento. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro das multas por perda de prazos de manifestação.</p>
-            </div>
-            <div class="servicos-grid">
-                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4>Aprovação e Regularização</h4><p>Documentação técnica completa, desde o projeto inicial até o <strong>Habite-se</strong>.<br><br>Elaboração e orientação minuciosa de todas as documentações necessárias para a obtenção do Alvará ou Autorização solicitada.<br><br>Garantimos que projetos de loteamentos, indústrias e operações logísticas operem 100% dentro da legislação vigente, sem surpresas.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-search-dollar"></i><h4>Auditoria de Processos Comunicados</h4><p>Mapeamento e gestão ativa de exigências, com foco na resolução de <strong>"Comunique-se"</strong>.<br><br>Resgatamos protocolos engavetados e realizamos o levantamento rigoroso das taxas já recolhidas.<br><br>Com isso, evitamos que sua empresa pague guias e impostos em duplicidade aos órgãos públicos.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-leaf"></i><h4>Licenciamento Ambiental (IBAMA/CETESB)</h4><p>Viabilização de grandes glebas e indústrias junto aos órgãos de maior escrutínio do país. Atuamos com altíssima complexidade ambiental para evitar embargos.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-file-signature"></i><h4>Licenças de Funcionamento</h4><p>Obtenção e renovação de Alvarás e Autos de Licença de Funcionamento para comércio, indústrias e organizações religiosas.<br><br>Processos tramitados com a velocidade e a transparência necessárias para cada projeto.<br><br>Tudo executado de forma estratégica para garantir a abertura ininterrupta das suas portas.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4>Conformidade, Segurança e Legalidade</h4><p>Solicitação, emissão e renovação rigorosa de <strong>AVCB</strong> e <strong>CLCB</strong>, documentos essenciais exigidos nos demais processos de licenciamento.<br><br>Garantimos a total conformidade legal da sua estrutura.<br><br>Além de evitar multas estatais, blindamos o seu ativo para assegurar que, em eventuais sinistros, os danos estejam integralmente cobertos pelas apólices de seguros.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-balance-scale"></i><h4>Consultoria Jurídica Imobiliária</h4><p>Integração de Inteligência Artificial para análise de viabilidade e mitigação de riscos na captação de glebas e estruturação de <em>Flipping Houses</em>.</p></div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;"><a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira com processos parados e regularizar minha operação." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.15rem;"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</a></div>
+            <!-- Renderizado via JS -->
         </section>
 
-        <section class="lp-homeclubt" id="lp-homeclubt-section">
+        <!-- LP IMOB T -->
+        <section class="lp-section lp-imobt" id="lp-imobt-section">
+            <h2>
+                <span class="pt">O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</span>
+                <span class="en">The Silent Risk That Can Cost Your Operation <span>Millions</span></span>
+                <span class="es">El Riesgo Silencioso Que Puede Costar <span>Millones</span> a Su Operación</span>
+            </h2>
+            <p class="alerta">
+                <span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</span>
+                <span class="en"><strong>Asset Risk Aversion:</strong> An expired Operating License or the lack of an updated AVCB doesn't just create a "bureaucratic headache." It generates daily fines and immediate embargo of your facilities.</span>
+                <span class="es"><strong>Aversión al Riesgo Patrimonial:</strong> Una Licencia de Funcionamiento vencida o la falta de un AVCB actualizado no solo genera un "dolor de cabeza burocrático". Genera multas diarias y embargo inmediato de sus instalaciones.</span>
+            </p>
+            <div class="imobt-auditoria-box">
+                <h3>
+                    <span class="pt">O Sangramento Burocrático Invisível</span>
+                    <span class="en">The Invisible Bureaucratic Bleeding</span>
+                    <span class="es">El Sangrado Burocrático Invisible</span>
+                </h3>
+                <p class="pt">Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro.</p>
+                <p class="en">In large construction and logistics operations, the silent loss lies in internal lethargy. When a public agency issues a <strong>"Communique"</strong> demanding adjustments, there is a fatal deadline. If your department delays, your company is punished with double payment of millionaire fees. <br><br><strong>IMOB T eliminates internal negligence.</strong> We conduct a meticulous audit and take over all your processes. In this sweep alone, <strong>we unlock millions in immediate revenue</strong> through accelerated approvals and stop the financial drain.</p>
+                <p class="es">En grandes constructoras y operaciones logísticas, la pérdida silenciosa radica en el letargo interno. Cuando una agencia pública emite un <strong>"Comuníquese"</strong> exigiendo ajustes, hay un plazo fatal. Si su departamento se retrasa, su empresa es castigada con el pago doble de tarifas millonarias. <br><br><strong>IMOB T elimina la negligencia interna.</strong> Realizamos una auditoría minuciosa y asumimos todos sus procesos. Solo en este barrido, <strong>desbloqueamos millones en ingresos inmediatos</strong> mediante aprobaciones aceleradas y detenemos la fuga financiera.</p>
+            </div>
+            <div class="servicos-grid">
+                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i>
+                    <h4 class="pt">Aprovação e Regularização</h4><h4 class="en">Approval & Regularization</h4><h4 class="es">Aprobación y Regularización</h4>
+                    <p class="pt">Documentação técnica completa, desde o projeto inicial até o <strong>Habite-se</strong>. Garantimos que projetos operem 100% dentro da legislação vigente.</p>
+                    <p class="en">Complete technical documentation, from initial project to <strong>Occupancy Permit</strong>. We ensure projects operate 100% within current legislation.</p>
+                    <p class="es">Documentación técnica completa, desde el proyecto inicial hasta el <strong>Permiso de Ocupación</strong>. Garantizamos que los proyectos operen 100% dentro de la legislación.</p>
+                </div>
+                <div class="servico-card-imobt"><i class="fas fa-search-dollar"></i>
+                    <h4 class="pt">Auditoria de Processos</h4><h4 class="en">Process Auditing</h4><h4 class="es">Auditoría de Procesos</h4>
+                    <p class="pt">Mapeamento e gestão ativa de exigências. Evitamos que sua empresa pague guias e impostos em duplicidade aos órgãos públicos.</p>
+                    <p class="en">Mapping and active management of requirements. We prevent your company from paying duplicate fees and taxes to public agencies.</p>
+                    <p class="es">Mapeo y gestión activa de requisitos. Evitamos que su empresa pague tasas e impuestos por duplicado a las agencias públicas.</p>
+                </div>
+                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i>
+                    <h4 class="pt">Conformidade e Segurança</h4><h4 class="en">Compliance & Security</h4><h4 class="es">Cumplimiento y Seguridad</h4>
+                    <p class="pt">Emissão e renovação de <strong>AVCB</strong> e <strong>CLCB</strong>. Blindamos o seu ativo para assegurar que os danos estejam cobertos por apólices de seguros.</p>
+                    <p class="en">Issuance and renewal of <strong>Fire Dept Licenses (AVCB/CLCB)</strong>. We shield your asset to ensure damages are covered by insurance policies.</p>
+                    <p class="es">Emisión y renovación de <strong>Licencias de Bomberos (AVCB/CLCB)</strong>. Blindamos su activo para asegurar que los daños estén cubiertos por seguros.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.15rem;">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
+                    <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span>
+                    <span class="en">REQUEST AUDIT AND SHIELD OPERATION</span>
+                    <span class="es">SOLICITAR AUDITORÍA Y BLINDAR OPERACIÓN</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- LP HOME CLUB T -->
+        <section class="lp-section lp-homeclubt" id="lp-homeclubt-section">
             <div class="middle-hero">
                 <div class="middle-hero-text">
-                    <h2>A EVOLUÇÃO DO <br><span style="color:var(--cor-primaria)">WELLNESS CORPORATIVO</span></h2>
-                    <p>A <strong>HOME CLUB T</strong> redefine o conceito de benefícios corporativos. Através de um clube de assinaturas de conveniência residencial, aumentamos a retenção de talentos e o engajamento de equipes de alta performance.</p>
+                    <h2>
+                        <span class="pt">A EVOLUÇÃO DO <br><span style="color:var(--cor-primaria)">WELLNESS CORPORATIVO</span></span>
+                        <span class="en">THE EVOLUTION OF <br><span style="color:var(--cor-primaria)">CORPORATE WELLNESS</span></span>
+                        <span class="es">LA EVOLUCIÓN DEL <br><span style="color:var(--cor-primaria)">BIENESTAR CORPORATIVO</span></span>
+                    </h2>
+                    <p class="pt">A <strong>HOME CLUB T</strong> redefine o conceito de benefícios corporativos. Através de um clube de assinaturas de conveniência residencial, aumentamos a retenção de talentos e o engajamento de equipes de alta performance.</p>
+                    <p class="en"><strong>HOME CLUB T</strong> redefines the concept of corporate benefits. Through a residential convenience subscription club, we increase talent retention and high-performance team engagement.</p>
+                    <p class="es"><strong>HOME CLUB T</strong> redefine el concepto de beneficios corporativos. A través de un club de suscripción de conveniencia residencial, aumentamos la retención de talentos y el compromiso de los equipos.</p>
                 </div>
                 <div class="middle-hero-image"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="Wellness"></div>
             </div>
             <div class="homeclubt-cards-box">
-                <h3>O Fim do Turnover: Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></h3>
-                <p class="wellness-text"><strong>O Novo Padrão de Retenção:</strong> Benefícios genéricos já não seguram os melhores talentos. A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa. Muito além de receber produtos, é pertencer à elite absoluta do bem-estar.</p>
+                <h3>
+                    <span class="pt">O Fim do Turnover: Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></span>
+                    <span class="en">The End of Turnover: Turn Your Employee's Home into the <span>Greatest Benefit</span></span>
+                    <span class="es">El Fin de la Rotación: Convierta el Hogar de su Colaborador en el <span>Mayor Beneficio</span></span>
+                </h3>
+                <p class="wellness-text">
+                    <span class="pt"><strong>O Novo Padrão de Retenção:</strong> Benefícios genéricos já não seguram os melhores talentos. A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa.</span>
+                    <span class="en"><strong>The New Retention Standard:</strong> Generic benefits no longer hold top talent. <strong>HOME CLUB T</strong> anchors your employee's well-being where their life actually happens: inside their home.</span>
+                    <span class="es"><strong>El Nuevo Estándar de Retención:</strong> Los beneficios genéricos ya no retienen a los mejores talentos. <strong>HOME CLUB T</strong> ancla el bienestar de su colaborador donde realmente sucede su vida: en casa.</span>
+                </p>
 
                 <div class="homeclubt-exclusividade-box">
-                    <h3>O Único Modelo de Operação Inédito e Registrado do Mercado</h3>
-                    <p>Não construímos apenas uma boa ideia, nós registramos a revolução. O modelo de operação sistêmica da <strong>HOME CLUB T é 100% inédito e possui registro legal ativo</strong>. Isso significa segurança absoluta para o seu RH e tolerância zero com plágios. Ao assinar a HOME CLUB T, você não contrata uma novidade passageira; você se associa à fonte original de uma estrutura de retenção inatingível pela concorrência.</p>
+                    <h3>
+                        <span class="pt">O Único Modelo de Operação Inédito e Registrado do Mercado</span>
+                        <span class="en">The Only Unprecedented and Registered Operation Model in the Market</span>
+                        <span class="es">El Único Modelo de Operación Inédito y Registrado del Mercado</span>
+                    </h3>
+                    <p class="pt">O modelo de operação sistêmica da <strong>HOME CLUB T é 100% inédito e possui registro legal ativo</strong>. Isso significa segurança absoluta para o seu RH. Você se associa à fonte original de uma estrutura de retenção inatingível pela concorrência.</p>
+                    <p class="en">The systemic operation model of <strong>HOME CLUB T is 100% unprecedented and has an active legal registration</strong>. This means absolute security for your HR. You partner with the original source of an unattainable retention structure.</p>
+                    <p class="es">El modelo de operación sistémica de <strong>HOME CLUB T es 100% inédito y tiene un registro legal activo</strong>. Esto significa seguridad absoluta para su RRHH. Se asocia a la fuente original de una estructura de retención inalcanzable.</p>
                 </div>
 
                 <div class="servicos-grid">
-                    <div class="homeclubt-card"><i class="fas fa-spa"></i><h4>Wellness Integrado</h4><p>Um clube de assinaturas sofisticado entregando cuidados pessoais, manutenção e comodidade direta na residência.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-hand-holding-heart"></i><h4>Lealdade e Retenção</h4><p>Crie uma barreira de saída emocional poderosíssima abraçando não apenas o funcionário, mas toda a sua família.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-chart-line"></i><h4>Zero Atrito para o RH</h4><p>Plataforma intuitiva, gestão automatizada e repasse direto. Implemente sem burocracia burocrática para o seu setor.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-child"></i><h4>Desenvolvimento Infantil (Neurociência)</h4><p>A tranquilidade familiar gera alta performance. Entregamos kits lúdicos e didáticos para os filhos dos talentos, com curadoria rigorosa de neurocientistas e pedagogas.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-gem"></i><h4>Box Premium de Beleza e Autocuidado</h4><p>Nossas caixas por assinatura vão além do básico. São compostas por itens de marcas premium já consolidadas no mercado global de beleza e bem-estar.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-crown"></i><h4>Privilégios VIP e Ecossistema BRAND T</h4><p>O assinante entra para a elite: acesso antecipado a pré-vendas, compras VIP nas Live Shops dos nossos parceiros e descontos em projetos completos de curadoria e decoração.</p></div>
+                    <div class="homeclubt-card"><i class="fas fa-spa"></i>
+                        <h4 class="pt">Wellness Integrado</h4><h4 class="en">Integrated Wellness</h4><h4 class="es">Bienestar Integrado</h4>
+                        <p class="pt">Cuidados pessoais, manutenção e comodidade direta na residência.</p>
+                        <p class="en">Personal care, maintenance, and convenience delivered directly to the residence.</p>
+                        <p class="es">Cuidado personal, mantenimiento y comodidad directamente en la residencia.</p>
+                    </div>
+                    <div class="homeclubt-card"><i class="fas fa-hand-holding-heart"></i>
+                        <h4 class="pt">Lealdade e Retenção</h4><h4 class="en">Loyalty & Retention</h4><h4 class="es">Lealtad y Retención</h4>
+                        <p class="pt">Crie uma barreira de saída emocional abraçando toda a família do funcionário.</p>
+                        <p class="en">Create a powerful emotional exit barrier by embracing the employee's entire family.</p>
+                        <p class="es">Cree una barrera de salida emocional abrazando a toda la familia del empleado.</p>
+                    </div>
+                    <div class="homeclubt-card"><i class="fas fa-chart-line"></i>
+                        <h4 class="pt">Zero Atrito para o RH</h4><h4 class="en">Zero Friction for HR</h4><h4 class="es">Cero Fricción para RRHH</h4>
+                        <p class="pt">Plataforma intuitiva, gestão automatizada e implementação sem burocracia.</p>
+                        <p class="en">Intuitive platform, automated management, and bureaucracy-free implementation.</p>
+                        <p class="es">Plataforma intuitiva, gestión automatizada e implementación sin burocracia.</p>
+                    </div>
                 </div>
-                <div style="text-align: center; margin-top: 20px;"><a href="http://homeclubt.com" target="_blank" class="btn-wellness"><i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> ACESSAR PORTAL HOME CLUB T</a></div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="http://homeclubt.com" target="_blank" class="btn-wellness">
+                        <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> 
+                        <span class="pt">ACESSAR PORTAL HOME CLUB T</span>
+                        <span class="en">ACCESS HOME CLUB T PORTAL</span>
+                        <span class="es">ACCEDER AL PORTAL HOME CLUB T</span>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section class="lp-construt" id="lp-construt-section">
+        <!-- LP CONSTRU T -->
+        <section class="lp-section lp-construt" id="lp-construt-section">
             <div class="construt-header">
                 <div class="construt-header-text">
-                    <h2>O Fim do Atraso e da <span>Oscilação de Preços</span> na Sua Obra.</h2>
-                    <p class="construt-alerta"><strong>A dor do mercado resolvida:</strong> O mercado pune quem depende de amadores. Oscilação absurda de valores, falta de insumos na hora "H" e mão de obra desqualificada destroem a sua margem de lucro e atrasam entregas. A <strong>CONSTRU T</strong> transforma a engenharia de suprimentos em um modelo <strong>SaaS (Assinatura Anual Diluída)</strong>, blindando sua obra contra imprevistos.</p>
+                    <h2>
+                        <span class="pt">O Fim do Atraso e da <span>Oscilação de Preços</span> na Sua Obra.</span>
+                        <span class="en">The End of Delays and <span>Price Fluctuations</span> in Your Construction.</span>
+                        <span class="es">El Fin de los Retrasos y la <span>Fluctuación de Precios</span> en su Obra.</span>
+                    </h2>
+                    <p class="construt-alerta">
+                        <span class="pt"><strong>A dor do mercado resolvida:</strong> A <strong>CONSTRU T</strong> transforma a engenharia de suprimentos em um modelo <strong>SaaS (Assinatura Anual)</strong>, blindando sua obra contra a inflação dos materiais e imprevistos.</span>
+                        <span class="en"><strong>Market pain resolved:</strong> <strong>CONSTRU T</strong> transforms supply engineering into a <strong>SaaS (Annual Subscription)</strong> model, shielding your project from material inflation and unforeseen events.</span>
+                        <span class="es"><strong>El dolor del mercado resuelto:</strong> <strong>CONSTRU T</strong> transforma la ingeniería de suministros en un modelo <strong>SaaS (Suscripción Anual)</strong>, blindando su obra contra la inflación de materiales.</span>
+                    </p>
                 </div>
             </div>
             <div class="construt-body">
                 <div class="servicos-grid">
-                    <div class="servico-card-construt"><i class="fas fa-boxes"></i><h4>SaaS de Insumos & Preço Travado</h4><p>Tenha acesso programado a insumos de ponta com anuidade diluída em 12 vezes. Elimine a inflação dos materiais do seu cronograma. Operamos direto das fábricas para garantir otimização real de custos (B2B e B2C).</p></div>
-                    <div class="servico-card-construt"><i class="fas fa-tools"></i><h4>Independência de Mão de Obra</h4><p>Acabe com o refém do "instalador especialista". Nossa linha de marca própria foi desenhada para fácil aplicação. O acabamento perfeito se torna simples, permitindo que você treine e utilize sua própria equipe com rapidez.</p></div>
-                    <div class="servico-card-construt"><i class="fas fa-truck-loading"></i><h4>Logística & Expertise Validada</h4><p>Toda a nossa linha de produtos foi desenhada com base na sólida expertise adquirida em 15 anos atuando na linha de frente da construção civil. Somado à nossa rede logística robusta, garantimos que o material exato chegue no dia planejado.</p></div>
+                    <div class="servico-card-construt"><i class="fas fa-boxes"></i>
+                        <h4 class="pt">SaaS de Insumos & Preço Travado</h4><h4 class="en">Input SaaS & Locked Price</h4><h4 class="es">SaaS de Insumos y Precio Fijo</h4>
+                        <p class="pt">Tenha acesso programado a insumos de ponta com anuidade diluída. Eliminamos a inflação dos materiais do seu cronograma (B2B e B2C).</p>
+                        <p class="en">Get programmed access to top inputs with a diluted annuity. We eliminate material inflation from your schedule (B2B and B2C).</p>
+                        <p class="es">Tenga acceso programado a insumos de primer nivel con una anualidad diluida. Eliminamos la inflación de materiales de su cronograma.</p>
+                    </div>
+                    <div class="servico-card-construt"><i class="fas fa-tools"></i>
+                        <h4 class="pt">Independência de Mão de Obra</h4><h4 class="en">Labor Independence</h4><h4 class="es">Independencia de Mano de Obra</h4>
+                        <p class="pt">Nossa linha de marca própria foi desenhada para fácil aplicação, permitindo que você treine e utilize sua própria equipe com rapidez.</p>
+                        <p class="en">Our own brand line is designed for easy application, allowing you to quickly train and use your own team.</p>
+                        <p class="es">Nuestra línea de marca propia está diseñada para una fácil aplicación, permitiéndole capacitar y utilizar su propio equipo rápidamente.</p>
+                    </div>
+                    <div class="servico-card-construt"><i class="fas fa-truck-loading"></i>
+                        <h4 class="pt">Logística & Expertise</h4><h4 class="en">Logistics & Expertise</h4><h4 class="es">Logística y Experiencia</h4>
+                        <p class="pt">Garantimos que o material exato chegue no dia planejado, com base na expertise de 15 anos atuando na construção civil.</p>
+                        <p class="en">We guarantee the exact material arrives on the planned day, based on 15 years of expertise in civil construction.</p>
+                        <p class="es">Garantizamos que el material exacto llegue el día planeado, en base a 15 años de experiencia en construcción civil.</p>
+                    </div>
                 </div>
-                <div class="construt-ecosystem">
-                    <h3>O Poder do Ecossistema TGROUP</h3>
-                    <p>Ser um assinante CONSTRU T não garante apenas o sucesso da sua obra. Nossos clientes recebem <strong>condições exclusivas e acesso VIP</strong> a todo o ecossistema: integração de pagamentos com a PAY T, regularização com a IMOB T e benefícios residenciais via HOME CLUB T.</p>
+                <div style="text-align: center;">
+                    <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;">
+                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
+                        <span class="pt">ASSINAR PLATAFORMA E BLINDAR MINHA OBRA</span>
+                        <span class="en">SUBSCRIBE TO PLATFORM AND SHIELD MY PROJECT</span>
+                        <span class="es">SUSCRIBIRSE A LA PLATAFORMA Y BLINDAR MI OBRA</span>
+                    </a>
                 </div>
-                <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Quero conhecer o modelo SaaS de assinatura da CONSTRU T para blindar o cronograma e os custos da minha obra." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> ASSINAR PLATAFORMA E BLINDAR MINHA OBRA</a></div>
             </div>
         </section>
         
-        <section class="lp-brandt" id="lp-brandt-section">
+        <!-- LP BRAND T -->
+        <section class="lp-section lp-brandt" id="lp-brandt-section">
             <div class="brandt-header">
-                <h2>Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></h2>
-                <p class="brandt-alerta"><strong>O Fim da Fadiga Digital e da Intermediação Básica:</strong> Chega de comprar "ferramentas milagrosas" ou depender de agências que apenas conectam marcas a creators. A <strong>BRAND T</strong> é a inovação mágica e definitiva na gestão de carreiras. Nós identificamos o seu talento, modelamos na nossa Academy T e entregamos toda a engenharia societária e jurídica para que o seu negócio nasça sólido e pronto para grandes palcos. Você foca em ser a autoridade; nós absorvemos 100% da operação do seu império.</p>
+                <h2>
+                    <span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span>
+                    <span class="en">You Focus on the Stage.<br>We Focus on the <span>Empire.</span></span>
+                    <span class="es">Usted se Enfoca en el Escenario.<br>Nosotros en el <span>Imperio.</span></span>
+                </h2>
+                <p class="brandt-alerta">
+                    <span class="pt"><strong>A inovação definitiva na gestão de carreiras:</strong> Nós identificamos o seu talento, modelamos na nossa Academy T e entregamos toda a engenharia societária e jurídica para que o seu negócio nasça sólido e pronto para grandes palcos.</span>
+                    <span class="en"><strong>The ultimate innovation in career management:</strong> We identify your talent, model it in our Academy T, and deliver all the corporate and legal engineering so your business is born solid and ready for big stages.</span>
+                    <span class="es"><strong>La innovación definitiva en la gestión de carreras:</strong> Identificamos su talento, lo modelamos en nuestra Academy T y entregamos toda la ingeniería corporativa y legal para que su negocio nazca sólido.</span>
+                </p>
                 
                 <div class="brandt-investment-box">
-                    <h3>Aceleração com Aporte Financeiro Garantido: O Único Modelo Registrado</h3>
-                    <p>O mercado está cheio de agências que apenas gastam o seu dinheiro. A <strong>BRAND T</strong> é a única que traz dinheiro para a mesa. Através de um modelo de operação exclusivo e legalmente registrado pela nossa matriz, nós preparamos a sua carreira e o seu negócio para <strong>receberem aportes financeiros de bolsas e investimentos garantidos</strong>. <br><br>Você não precisa descapitalizar o seu patrimônio para crescer; nós estruturamos o veículo fiscal perfeito para que o grande capital venha até você. Sua autoridade se torna um ativo blindado, financiado e altamente lucrativo.</p>
+                    <h3>
+                        <span class="pt">Aceleração com Aporte Financeiro Garantido</span>
+                        <span class="en">Acceleration with Guaranteed Financial Investment</span>
+                        <span class="es">Aceleración con Aporte Financiero Garantizado</span>
+                    </h3>
+                    <p class="pt">Através de um modelo de operação exclusivo e registrado pela matriz, nós preparamos a sua carreira para <strong>receberem aportes financeiros e investimentos garantidos</strong>. Sua autoridade se torna um ativo blindado e financiado.</p>
+                    <p class="en">Through an exclusive operation model registered by our matrix, we prepare your career to <strong>receive guaranteed financial contributions and investments</strong>. Your authority becomes a shielded and financed asset.</p>
+                    <p class="es">A través de un modelo de operación exclusivo y registrado, preparamos su carrera para <strong>recibir aportes financieros e inversiones garantizadas</strong>. Su autoridad se convierte en un activo blindado y financiado.</p>
                 </div>
             </div>
             <div class="servicos-grid">
-                <div class="servico-card-brandt"><i class="fas fa-graduation-cap"></i><h4>Academy T & Modelagem</h4><p>Não fazemos apenas a ponte. Nós identificamos, lapidamos e estruturamos o seu talento através de formações e treinamentos específicos na nossa Academy, criando autoridades inquestionáveis.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-balance-scale-right"></i><h4>Engenharia Fiscal & Jurídica</h4><p>Seu negócio nasce blindado. Oferecemos inteligência tributária, escolha estratégica do melhor CNAE e suporte total na abertura da empresa, garantindo lucro limpo e proteção patrimonial desde o dia 1.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-microphone-alt"></i><h4>Propósito & Palestras Corporativas</h4><p>Extraímos ouro da sua história de vida. Transformamos o seu propósito em um formato vendável, lapidando você como palestrante de alto nível e fazendo a conexão direta com o mercado corporativo.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-video"></i><h4>LiveShops & Produtos Físicos</h4><p>Escale suas vendas no digital com infraestrutura completa para produtos físicos. Possuímos plataforma padrão Netflix para que você apresente produtos ao vivo com interatividade e conversão explosiva.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-wallet"></i><h4>Financeiro Integrado (PAY T)</h4><p>Gestão financeira inteligente com dashboard em tempo real, controle de conta digital completa e links de pagamento diretos, sem intermediários ou bloqueios de saldo.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-hand-holding-usd"></i><h4>Aportes e Bolsas Garantidas</h4><p>Chega de tirar dinheiro do próprio bolso. Estruturamos sua carreira sob o nosso modelo de operação registrado para atrair injeções de capital e bolsas de investimento com total segurança.</p></div>
+                <div class="servico-card-brandt"><i class="fas fa-graduation-cap"></i>
+                    <h4 class="pt">Academy T & Modelagem</h4><h4 class="en">Academy T & Modeling</h4><h4 class="es">Academy T y Modelado</h4>
+                    <p class="pt">Identificamos e lapidamos o seu talento através de formações específicas, criando autoridades inquestionáveis.</p>
+                    <p class="en">We identify and polish your talent through specific training, creating unquestionable authorities.</p>
+                    <p class="es">Identificamos y pulimos su talento a través de capacitaciones específicas, creando autoridades incuestionables.</p>
+                </div>
+                <div class="servico-card-brandt"><i class="fas fa-balance-scale-right"></i>
+                    <h4 class="pt">Engenharia Fiscal & Jurídica</h4><h4 class="en">Tax & Legal Engineering</h4><h4 class="es">Ingeniería Fiscal y Legal</h4>
+                    <p class="pt">Inteligência tributária, escolha do melhor CNAE e suporte na abertura da empresa, garantindo proteção patrimonial.</p>
+                    <p class="en">Tax intelligence, choice of the best code, and support in opening the company, guaranteeing asset protection.</p>
+                    <p class="es">Inteligencia tributaria, elección del mejor código y soporte en la apertura de la empresa, garantizando protección patrimonial.</p>
+                </div>
+                <div class="servico-card-brandt"><i class="fas fa-video"></i>
+                    <h4 class="pt">LiveShops & Produtos Físicos</h4><h4 class="en">LiveShops & Physical Products</h4><h4 class="es">LiveShops y Productos Físicos</h4>
+                    <p class="pt">Escale vendas no digital com infraestrutura para apresentar produtos ao vivo com conversão explosiva.</p>
+                    <p class="en">Scale digital sales with infrastructure to present products live with explosive conversion.</p>
+                    <p class="es">Escale ventas digitales con infraestructura para presentar productos en vivo con conversión explosiva.</p>
+                </div>
             </div>
-            <div style="text-align: center; margin-top: 30px;"><a href="https://wa.me/5511947879779?text=Olá! Quero conhecer a inovação da BRAND T, modelar meu talento e estruturar meu negócio para acessar o mercado corporativo e fundos de investimento." target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> ESTRUTURAR MEU IMPÉRIO E ESCALAR</a></div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente" style="padding: 20px 50px; font-size: 1.2rem;">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
+                    <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span>
+                    <span class="en">STRUCTURE MY EMPIRE AND SCALE</span>
+                    <span class="es">ESTRUCTURAR MI IMPERIO Y ESCALAR</span>
+                </a>
+            </div>
         </section>
 
-        <section class="lp-payt" id="lp-payt-section">
+        <!-- LP PAY T -->
+        <section class="lp-section lp-payt" id="lp-payt-section">
             <div class="payt-header">
-                <h2>Pare de Deixar Milhões na Mesa com <span>Gateways Genéricos</span></h2>
-                <p>Se o seu gateway de pagamento te trata como "só mais um cliente", ele não é seu parceiro: ele é um pedágio. Descubra a engenharia financeira desenvolvida para quem não tem tempo para falsas recusas e chargebacks absurdos.</p>
+                <h2>
+                    <span class="pt">Pare de Deixar Milhões na Mesa com <span>Gateways Genéricos</span></span>
+                    <span class="en">Stop Leaving Millions on the Table with <span>Generic Gateways</span></span>
+                    <span class="es">Deje de Perder Millones con <span>Pasarelas Genéricas</span></span>
+                </h2>
+                <p class="pt">Descubra a engenharia financeira desenvolvida para quem não tem tempo para falsas recusas e chargebacks absurdos.</p>
+                <p class="en">Discover the financial engineering developed for those who have no time for false declines and absurd chargebacks.</p>
+                <p class="es">Descubra la ingeniería financiera desarrollada para quienes no tienen tiempo para falsos rechazos y contracargos absurdos.</p>
             </div>
             <div class="payt-body">
-                <p class="payt-alerta"><strong>Aversão à Perda - O Risco Oculto do seu Checkout:</strong> Cada 1% de transações legítimas recusadas pelo antifraude mal calibrado do seu gateway significa milhares de reais que saíram do seu funil e foram direto para a concorrência.</p>
+                <p class="payt-alerta">
+                    <span class="pt"><strong>Aversão à Perda:</strong> Cada 1% de transações legítimas recusadas pelo antifraude mal calibrado significa milhares de reais que foram direto para a concorrência.</span>
+                    <span class="en"><strong>Loss Aversion:</strong> Every 1% of legitimate transactions rejected by poorly calibrated anti-fraud means thousands of dollars straight to the competition.</span>
+                    <span class="es"><strong>Aversión a la Pérdida:</strong> Cada 1% de transacciones legítimas rechazadas por un antifraude mal calibrado significa miles de dólares directo a la competencia.</span>
+                </p>
                 <div class="servicos-grid">
-                    <div class="servico-card-payt"><i class="fas fa-microchip"></i><h4>Roteamento Inteligente (IA)</h4><p>Nossa IA tenta automaticamente aprovar o pagamento em múltiplos adquirentes em milissegundos. Aprovação levada ao extremo.</p></div>
-                    <div class="servico-card-payt"><i class="fas fa-shield-alt"></i><h4>Antifraude Cirúrgico</h4><p>Bloqueie fraudadores, não clientes reais. Cruzamento de dados de alto nível no ecossistema para garantir segurança.</p></div>
-                    <div class="servico-card-payt"><i class="fas fa-bolt"></i><h4>Liquidez e Fluxo de Caixa</h4><p>Planos agressivos de antecipação de recebíveis D+1 ou D+0. Seu dinheiro onde ele deve estar: na sua mão.</p></div>
+                    <div class="servico-card-payt"><i class="fas fa-microchip"></i>
+                        <h4 class="pt">Roteamento Inteligente (IA)</h4><h4 class="en">Smart Routing (AI)</h4><h4 class="es">Enrutamiento Inteligente (IA)</h4>
+                        <p class="pt">Aprovação levada ao extremo. Nossa IA aprova o pagamento em múltiplos adquirentes em milissegundos.</p>
+                        <p class="en">Approval taken to the extreme. Our AI approves payment across multiple acquirers in milliseconds.</p>
+                        <p class="es">Aprobación llevada al extremo. Nuestra IA aprueba el pago en múltiples adquirentes en milisegundos.</p>
+                    </div>
+                    <div class="servico-card-payt"><i class="fas fa-shield-alt"></i>
+                        <h4 class="pt">Antifraude Cirúrgico</h4><h4 class="en">Surgical Anti-fraud</h4><h4 class="es">Antifraude Quirúrgico</h4>
+                        <p class="pt">Bloqueie fraudadores, não clientes reais. Cruzamento de dados de alto nível para garantir segurança.</p>
+                        <p class="en">Block fraudsters, not real customers. High-level data crossing to ensure security.</p>
+                        <p class="es">Bloquee a los estafadores, no a los clientes reales. Cruce de datos de alto nivel para garantizar la seguridad.</p>
+                    </div>
+                    <div class="servico-card-payt"><i class="fas fa-bolt"></i>
+                        <h4 class="pt">Liquidez e Fluxo de Caixa</h4><h4 class="en">Liquidity & Cash Flow</h4><h4 class="es">Liquidez y Flujo de Caja</h4>
+                        <p class="pt">Planos agressivos de antecipação D+1 ou D+0. Seu dinheiro na sua mão.</p>
+                        <p class="en">Aggressive D+1 or D+0 anticipation plans. Your money in your hands.</p>
+                        <p class="es">Planes agresivos de anticipación D+1 o D+0. Su dinero en sus manos.</p>
+                    </div>
                 </div>
-                <div class="payt-metrics">
-                    <div class="metric-box"><h5>+15%</h5><p>Aumento médio em aprovações</p></div>
-                    <div class="metric-box"><h5>Zero</h5><p>Burocracia na integração API</p></div>
-                    <div class="metric-box"><h5>100%</h5><p>Dashboard White-Label (B2B)</p></div>
+                <div style="text-align: center;">
+                    <a href="https://wa.me/5511947879779" target="_blank" class="btn-urgente">
+                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
+                        <span class="pt">DESTRAVAR MINHA OPERAÇÃO AGORA</span>
+                        <span class="en">UNLOCK MY OPERATION NOW</span>
+                        <span class="es">DESBLOQUEAR MI OPERACIÓN AHORA</span>
+                    </a>
                 </div>
-                <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Sou gestor de uma operação de vendas e quero parar de deixar dinheiro na mesa. Preciso conhecer a engenharia financeira da PAY T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> DESTRAVAR MINHA OPERAÇÃO AGORA</a></div>
             </div>
         </section>
 
         <footer class="footer">
-            <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | Desde 1998 atuando, e em 2025 com nova estrutura para melhor atendimento. SÃO PAULO, SP.</div>
+            <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | 
+                <span class="pt">Desde 1998 atuando em diversos seguimentos de mercado. SÃO PAULO/SP - BRASIL.</span>
+                <span class="en">Operating in various market segments since 1998. SÃO PAULO/SP - BRAZIL.</span>
+                <span class="es">Operando en diversos segmentos de mercado desde 1998. SÃO PAULO/SP - BRASIL.</span>
+            </div>
             <div class="footer-links">
-                <a onclick="abrirModal('modal-termos')">Termos de Uso</a>
-                <a onclick="abrirModal('modal-privacidade')">Política de Privacidade</a>
+                <a onclick="abrirModal('modal-termos')"><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></a>
+                <a onclick="abrirModal('modal-privacidade')"><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span></a>
                 <a onclick="abrirModal('modal-compliance')">Compliance</a>
-                <a onclick="abrirModal('modal-contato')">Contato</a>
+                <a onclick="abrirModal('modal-contato')"><span class="pt">Contato</span><span class="en">Contact</span><span class="es">Contacto</span></a>
             </div>
         </footer>
     </main>
 
     <a href="https://wa.me/5511947879779" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+    <!-- MODAIS COM TRADUÇÃO -->
     <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3>Termos de Uso</h3>
-            <p>A utilização das plataformas e serviços do ecossistema <strong>TGROUP SOLUTIONS</strong> implica na aceitação incondicional de nossas diretrizes operacionais.</p>
-            <p>Nossas soluções SaaS, financeiras, imobiliárias e de wellness são regidas por rigorosos contratos específicos de nível de serviço (SLA), assegurando alta disponibilidade sistêmica e proteção jurídica mútua em todas as transações B2B e B2C.</p>
+            <h3><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></h3>
+            <p class="pt">A utilização das plataformas e serviços do ecossistema <strong>TGROUP SOLUTIONS</strong> implica na aceitação incondicional de nossas diretrizes operacionais. Soluções regidas por rigorosos contratos SLA (B2B/B2C).</p>
+            <p class="en">The use of the platforms and services of the <strong>TGROUP SOLUTIONS</strong> ecosystem implies the unconditional acceptance of our operational guidelines. Solutions governed by strict SLA contracts (B2B/B2C).</p>
+            <p class="es">El uso de las plataformas y servicios del ecosistema <strong>TGROUP SOLUTIONS</strong> implica la aceptación incondicional de nuestras directrices operativas. Soluciones regidas por estrictos contratos SLA (B2B/B2C).</p>
         </div>
     </div>
 
     <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3>Política de Privacidade</h3>
-            <p>Atuamos em total conformidade com a Lei Geral de Proteção de Dados (LGPD) e demais regulamentações globais de privacidade.</p>
-            <p>A <strong>TGROUP SOLUTIONS</strong> emprega protocolos de criptografia de ponta a ponta e arquitetura de dados blindada. As informações e transações financeiras de nossos clientes, parceiros e investidores são tratadas como ativos de altíssimo sigilo, jamais sendo comercializadas ou expostas a terceiros sem consentimento expresso e auditoria legal.</p>
+            <h3><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span></h3>
+            <p class="pt">Atuamos em total conformidade com as leis de proteção de dados (LGPD). Protocolos de criptografia e arquitetura de dados blindada para sigilo de investidores e parceiros.</p>
+            <p class="en">We act in full compliance with data protection laws (LGPD/GDPR). Encryption protocols and shielded data architecture for the confidentiality of investors and partners.</p>
+            <p class="es">Actuamos en total cumplimiento de las leyes de protección de datos (LGPD). Protocolos de encriptación y arquitectura de datos blindada para la confidencialidad de inversores y socios.</p>
         </div>
     </div>
 
     <div class="modal-overlay" id="modal-compliance" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3>Governança e Compliance</h3>
-            <p>A <strong>TGROUP SOLUTIONS</strong> opera sob os mais rigorosos padrões globais de Governança Corporativa e Ética Empresarial.</p>
-            <p>Nosso comitê de compliance garante transparência absoluta em todas as verticais do ecossistema, estabelecendo uma política de tolerância zero contra corrupção, suborno ou fraudes operacionais. Mantemos proteção ferrenha sobre nossa propriedade intelectual, incluindo modelos de operação inéditos e marcas registradas.</p>
-            <p>Exigimos de todos os nossos parceiros, fornecedores e investidores institucionais a mesma integridade, garantindo um ambiente de negócios blindado, ético e sustentável para alocações de alto rendimento.</p>
+            <h3><span class="pt">Governança e Compliance</span><span class="en">Governance and Compliance</span><span class="es">Gobernanza y Cumplimiento</span></h3>
+            <p class="pt">Padrões globais de Ética Empresarial. Tolerância zero contra fraudes. Proteção ferrenha da propriedade intelectual e modelos inéditos registrados.</p>
+            <p class="en">Global standards of Business Ethics. Zero tolerance against fraud. Fierce protection of intellectual property and registered unprecedented models.</p>
+            <p class="es">Estándares globales de Ética Empresarial. Tolerancia cero frente al fraude. Fuerte protección de la propiedad intelectual y modelos inéditos registrados.</p>
         </div>
     </div>
     
     <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)">
         <div class="modal-content" style="text-align: center;">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
-            <p style="color:#555; line-height: 1.8; margin-bottom: 30px;">Estamos à disposição para contribuir com soluções que otimizam seu negócio.</p>
+            <h3><span class="pt">Fale com a </span><span class="en">Speak with </span><span class="es">Hable con </span><span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
+            <p style="color:#555; margin-bottom: 30px;">
+                <span class="pt">Estamos à disposição para otimizar seu negócio.</span>
+                <span class="en">We are available to optimize your business.</span>
+                <span class="es">Estamos a su disposición para optimizar su negocio.</span>
+            </p>
             <div style="font-size: 1.2rem; margin-bottom: 15px;">
                 <i class="fas fa-envelope" style="color:var(--cor-primaria); margin-right: 10px;"></i>
-                <a href="mailto:tgroupsolutions.br@gmail.com?subject=Contato%20via%20Portal%20TGROUP" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">tgroupsolutions.br@gmail.com</a>
+                <a href="mailto:tgroupsolutions.br@gmail.com" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">tgroupsolutions.br@gmail.com</a>
             </div>
             <div style="font-size: 1.2rem;">
                 <i class="fab fa-whatsapp" style="color:var(--cor-primaria); margin-right: 10px;"></i>
                 <a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a>
             </div>
-            <p style="margin-top: 30px; font-size: 0.9rem; color: #999;">São Paulo, SP - Brasil</p>
         </div>
     </div>
 
     <script>
+        // Dicionário Dinâmico Multi-Idioma para as seções Principais (Hero)
         const dadosEcossistema = {
-            home: {
-                titulo: "Inovação e <span style='color:var(--cor-primaria)'>Gestão Integrada</span>",
-                texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.<br><br><strong style='color: var(--cor-primaria); font-size: 1.15rem;'>Acesse nossas soluções ao lado.</strong>",
-                imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+            pt: {
+                home: {
+                    titulo: "Inovação e <span style='color:var(--cor-primaria)'>Gestão Integrada</span>",
+                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.<br><br><strong style='color: var(--cor-primaria); font-size: 1.15rem;'>Acesse nossas soluções ao lado.</strong>",
+                    imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                },
+                payt: {
+                    titulo: "Matriz Financeira e <span style='color:var(--cor-primaria)'>Gateway de Pagamentos</span>",
+                    texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira do Ecossistema. Atua como a matriz financeira e API de pagamentos, gerenciando plataformas e oferecendo engenharia comercial para operações que precisam escalar.",
+                    imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+                },
+                imobt: {
+                    titulo: "Inteligência e Gestão em <span style='color:var(--cor-primaria)'>Ativos Imobiliários</span>",
+                    texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa para operações com ativos imobiliários, da implantação à regularização de altíssima complexidade.<br><br>Nosso diferencial competitivo reside na engenharia legal estratégica. Atuamos ativamente para estancar o sangramento financeiro invisível gerado pela letargia burocrática.",
+                    imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
+                },
+                construt: {
+                    titulo: "SaaS Distribuidor e <span style='color:var(--cor-primaria)'>Marketplace</span>",
+                    texto: "A <span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C focado no mercado da Construção Civil sob modelo de assinatura.<br><br>Das fundações ao acabamento de alta qualidade, oferecemos uma rede de distribuição robusta com materiais diretos de fábrica.",
+                    imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
+                },
+                homeclubt: {
+                    titulo: "Clube de Benefícios Corporativos e <span>Wellness Residencial</span>",
+                    texto: "A <span class='marca-destaque'>HOME CLUB T</span> é um clube de benefícios corporativos por assinatura focado na evolução do bem-estar. Garantimos à sua empresa que cada colaborador se mantenha motivado, engajado e altamente produtivo.<br><br><span style='display:block; padding: 15px; background: rgba(0, 132, 61, 0.05); border-left: 4px solid var(--cor-primaria); border-radius: 4px; margin: 20px 0;'><strong>Ecossistema de Distribuição:</strong> A plataforma também atua como distribuidora estratégica de produtos para o mercado de e-commerce, oferecendo vantagens exclusivas para <em>sellers</em> e afiliados.</span>",
+                    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
+                },
+                brandt: {
+                    titulo: "A Maior Gestora de <span style='color:var(--cor-primaria)'>Carreiras e Marcas</span>",
+                    texto: "A <span class='marca-destaque'>BRAND T</span> transcende a simples intermediação. Nós identificamos e estruturamos autoridades.<br><br><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Academy T & Suporte 360º:</strong> Modelagem de talento, inteligência fiscal e escolha do melhor CNAE.</span><span style='display:block; margin-bottom:25px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Propósito e Vendas:</strong> Palestras corporativas e LiveShops imersivas.</span><span style='border-left: 4px solid var(--cor-primaria); padding-left: 15px; display: block; font-weight: 500;'>Você foca no palco. Nós preparamos sua carreira para receber aportes e investimentos garantidos.</span>",
+                    imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"]
+                }
             },
-            payt: {
-                titulo: "Matriz Financeira e <span style='color:var(--cor-primaria)'>Gateway de Pagamentos</span>",
-                texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira do Ecossistema. Atua como a matriz financeira e API de pagamentos, gerenciando plataformas e oferecendo engenharia comercial para operações que precisam escalar.",
-                imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+            en: {
+                home: {
+                    titulo: "Innovation and <span style='color:var(--cor-primaria)'>Integrated Management</span>",
+                    texto: "The <span class='marca-destaque'>TGROUP SOLUTIONS</span> represents an innovative matrix integrating startups across multiple sectors.<br><br>Our expertise focuses on sustainable growth, technological innovation, and cutting-edge B2B/B2C management.<br><br><strong style='color: var(--cor-primaria); font-size: 1.15rem;'>Access our solutions on the menu.</strong>",
+                    imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                },
+                payt: {
+                    titulo: "Financial Matrix & <span style='color:var(--cor-primaria)'>Payment Gateway</span>",
+                    texto: "<span class='marca-destaque'>PAY T</span> is the Ecosystem's Financial Management Fintech. It acts as the financial matrix and payment API, offering commercial engineering for scalable operations.",
+                    imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+                },
+                imobt: {
+                    titulo: "Intelligence in <span style='color:var(--cor-primaria)'>Real Estate Assets</span>",
+                    texto: "<span class='marca-destaque'>IMOB T</span> delivers complete management for real estate operations, from implementation to highly complex regularization.<br><br>Our competitive edge lies in strategic legal engineering. We actively stop the invisible financial bleeding caused by bureaucratic lethargy.",
+                    imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
+                },
+                construt: {
+                    titulo: "Distributor SaaS & <span style='color:var(--cor-primaria)'>Marketplace</span>",
+                    texto: "<span class='marca-destaque'>CONSTRU T</span> operates as a B2B2C e-commerce focused on the Civil Construction market under a subscription model.<br><br>From foundations to high-quality finishes, we offer a robust distribution network with direct factory materials.",
+                    imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
+                },
+                homeclubt: {
+                    titulo: "Corporate Benefits & <span>Residential Wellness</span>",
+                    texto: "<span class='marca-destaque'>HOME CLUB T</span> is a subscription-based corporate benefits club. We guarantee your company that every employee stays motivated and highly productive.<br><br><span style='display:block; padding: 15px; background: rgba(0, 132, 61, 0.05); border-left: 4px solid var(--cor-primaria); border-radius: 4px; margin: 20px 0;'><strong>Distribution Ecosystem:</strong> The platform also acts as a strategic product distributor for e-commerce, offering exclusive advantages for <em>sellers</em> and affiliates.</span>",
+                    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
+                },
+                brandt: {
+                    titulo: "The Largest <span style='color:var(--cor-primaria)'>Career and Brand</span> Manager",
+                    texto: "<span class='marca-destaque'>BRAND T</span> transcends simple intermediation. We identify and structure authorities.<br><br><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Academy T & 360º Support:</strong> Talent modeling, tax intelligence, and legal shielding.</span><span style='display:block; margin-bottom:25px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Purpose & Sales:</strong> Corporate lectures and immersive LiveShops.</span><span style='border-left: 4px solid var(--cor-primaria); padding-left: 15px; display: block; font-weight: 500;'>You focus on the stage. We prepare your career to receive guaranteed investments.</span>",
+                    imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"]
+                }
             },
-            imobt: {
-                titulo: "Inteligência e Gestão em <span style='color:var(--cor-primaria)'>Ativos Imobiliários</span>",
-                texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa para operações com ativos imobiliários, da implantação à regularização de altíssima complexidade.<br><br>Nosso diferencial competitivo reside na engenharia legal estratégica, que vai muito além da blindagem patrimonial.<br><br>Atuamos ativamente para estancar o sangramento financeiro invisível: o pagamento de taxas e multas geradas pela letargia burocrática e perda de prazos.<br><br>Enquanto departamentos internos engavetam processos, nossa gestão proativa garante aprovação célere e rentabilidade intocada.",
-                imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
-            },
-            construt: {
-                titulo: "SaaS Distribuidor e <span style='color:var(--cor-primaria)'>Marketplace</span>",
-                texto: "A <span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C focado no mercado da Construção Civil sob modelo de assinatura.<br><br>Das fundações ao acabamento de alta qualidade, oferecemos uma rede de distribuição robusta com materiais diretos de fábrica.<br><br>A nossa linha de marca própria foi desenhada com a expertise de 15 anos de atuação no setor, garantindo otimização de aplicação e excelência no resultado.",
-                imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
-            },
-            homeclubt: {
-                titulo: "Clube de Benefícios Corporativos e <span>Wellness Residencial</span>",
-                texto: "A <span class='marca-destaque'>HOME CLUB T</span> é um clube de benefícios corporativos por assinatura focado na evolução do bem-estar. Garantimos à sua empresa que cada colaborador se mantenha motivado, engajado e altamente produtivo.<br><br>Provemos manutenção residencial contínua, cuidados pessoais e linha pet, transformando a casa do seu talento no maior ativo de retenção.<br><br><span style='display:block; padding: 15px; background: rgba(0, 132, 61, 0.05); border-left: 4px solid var(--cor-primaria); border-radius: 4px; margin: 20px 0;'><strong>Ecossistema de Distribuição:</strong> A plataforma também atua como distribuidora estratégica de produtos para o mercado de e-commerce, oferecendo vantagens exclusivas, margens e logística para <em>sellers</em> e afiliados inscritos no nosso programa.</span>Operamos com um modelo de negócio absolutamente inédito e com registro de operação patenteado, garantindo exclusividade total e proteção definitiva contra plágios no mercado.",
-                imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
-            },
-            brandt: {
-                titulo: "A Maior Gestora de <span style='color:var(--cor-primaria)'>Carreiras e Marcas</span>",
-                texto: "A <span class='marca-destaque'>BRAND T</span> transcende a simples intermediação. O mercado apenas conecta marcas a creators; nós identificamos e estruturamos autoridades.<br><br><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Academy T:</strong> Modelamos o seu talento através de formações exclusivas.</span><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Suporte 360º:</strong> Inteligência fiscal, jurídica e a escolha do melhor CNAE tributário para o seu negócio nascer blindado.</span><span style='display:block; margin-bottom:25px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Propósito e Vendas:</strong> Transformamos sua história em palestras corporativas e escalamos LiveShops imersivas para produtos físicos.</span><span style='border-left: 4px solid var(--cor-primaria); padding-left: 15px; display: block; font-weight: 500; color: var(--cor-texto); font-size: 1.1rem; line-height: 1.6;'>Você foca no palco. Nós assumimos a engenharia do seu império, preparando sua carreira para receber aportes e investimentos garantidos.</span>",
-                imagens: [
-                    "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", 
-                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", 
-                    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"  
-                ]
+            es: {
+                home: {
+                    titulo: "Innovación y <span style='color:var(--cor-primaria)'>Gestión Integrada</span>",
+                    texto: "La <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa una matriz innovadora que integra startups en múltiples sectores.<br><br>Nuestra experiencia se centra en el crecimiento sostenible y la gestión de vanguardia B2B/B2C.<br><br><strong style='color: var(--cor-primaria); font-size: 1.15rem;'>Acceda a nuestras soluciones en el menú.</strong>",
+                    imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                },
+                payt: {
+                    titulo: "Matriz Financiera y <span style='color:var(--cor-primaria)'>Pasarela de Pagos</span>",
+                    texto: "<span class='marca-destaque'>PAY T</span> es la Fintech de Gestión Financiera. Actúa como matriz financiera y API de pagos, ofreciendo ingeniería comercial para escalar operaciones.",
+                    imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+                },
+                imobt: {
+                    titulo: "Inteligencia en <span style='color:var(--cor-primaria)'>Activos Inmobiliarios</span>",
+                    texto: "<span class='marca-destaque'>IMOB T</span> ofrece gestión completa para operaciones inmobiliarias, desde la implementación hasta la regularización compleja.<br><br>Actuamos activamente para detener el sangrado financiero invisible generado por el letargo burocrático.",
+                    imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
+                },
+                construt: {
+                    titulo: "SaaS Distribuidor y <span style='color:var(--cor-primaria)'>Marketplace</span>",
+                    texto: "<span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C enfocado en la Construcción Civil bajo modelo de suscripción.<br><br>Ofrecemos una sólida red de distribución con materiales directos de fábrica.",
+                    imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
+                },
+                homeclubt: {
+                    titulo: "Club de Beneficios y <span>Wellness Residencial</span>",
+                    texto: "<span class='marca-destaque'>HOME CLUB T</span> es un club de beneficios por suscripción. Garantizamos a su empresa colaboradores motivados y productivos.<br><br><span style='display:block; padding: 15px; background: rgba(0, 132, 61, 0.05); border-left: 4px solid var(--cor-primaria); border-radius: 4px; margin: 20px 0;'><strong>Ecosistema de Distribución:</strong> La plataforma también actúa como distribuidora estratégica de e-commerce, ofreciendo ventajas para <em>sellers</em> y afiliados.</span>",
+                    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
+                },
+                brandt: {
+                    titulo: "La Mayor Gestora de <span style='color:var(--cor-primaria)'>Marcas y Carreras</span>",
+                    texto: "<span class='marca-destaque'>BRAND T</span> trasciende la simple intermediación. Nosotros estructuramos autoridades.<br><br><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Academy T & Soporte 360º:</strong> Modelado de talento, inteligencia fiscal y blindaje legal.</span><span style='display:block; margin-bottom:25px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Propósito y Ventas:</strong> Conferencias corporativas y LiveShops inmersivas.</span><span style='border-left: 4px solid var(--cor-primaria); padding-left: 15px; display: block; font-weight: 500;'>Usted se enfoca en el escenario. Nosotros preparamos su carrera para recibir inversiones garantizadas.</span>",
+                    imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"]
+                }
             }
         };
 
-        function carregarConteudo(chave) {
+        let currentLang = 'pt';
+        let currentTab = 'home';
+
+        function changeLang(lang) {
+            currentLang = lang;
+            document.body.className = 'lang-' + lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+
+            // Recarregar a aba atual com o novo idioma
+            carregarConteudo(currentTab, false);
+        }
+
+        function carregarConteudo(chave, pushState = true) {
+            currentTab = chave;
             const section = document.getElementById('hero-display');
             
-            const lpPayT = document.getElementById('lp-payt-section');
-            const lpImobT = document.getElementById('lp-imobt-section');
-            const lpConstruT = document.getElementById('lp-construt-section');
-            const lpHomeClubT = document.getElementById('lp-homeclubt-section');
-            const lpBrandT = document.getElementById('lp-brandt-section');
+            const lps = ['payt', 'imobt', 'construt', 'homeclubt', 'brandt'];
+            lps.forEach(lp => document.getElementById('lp-' + lp + '-section').style.display = 'none');
             
-            const dados = dadosEcossistema[chave];
+            const dados = dadosEcossistema[currentLang][chave];
 
-            window.history.pushState(null, null, '#' + chave);
+            if(pushState) window.history.pushState(null, null, '#' + chave);
             section.style.opacity = 0;
 
             setTimeout(() => {
@@ -459,13 +703,11 @@
                 section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${conteudoImagem}`;
                 section.style.opacity = 1;
                 
-                lpPayT.style.display = (chave === 'payt') ? 'block' : 'none';
-                lpImobT.style.display = (chave === 'imobt') ? 'block' : 'none';
-                lpConstruT.style.display = (chave === 'construt') ? 'block' : 'none';
-                lpHomeClubT.style.display = (chave === 'homeclubt') ? 'block' : 'none';
-                lpBrandT.style.display = (chave === 'brandt') ? 'block' : 'none';
+                if (lps.includes(chave)) {
+                    document.getElementById('lp-' + chave + '-section').style.display = 'block';
+                }
                 
-            }, 300);
+            }, 200);
 
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             const menuAtivo = document.getElementById('nav-' + chave);
@@ -477,7 +719,7 @@
 
         window.onload = () => {
             const hashNaUrl = window.location.hash.replace('#', '');
-            if (hashNaUrl && dadosEcossistema[hashNaUrl]) {
+            if (hashNaUrl && dadosEcossistema['pt'][hashNaUrl]) {
                 carregarConteudo(hashNaUrl);
             } else {
                 carregarConteudo('home');
