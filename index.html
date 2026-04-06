@@ -25,7 +25,6 @@
         
         html, body { font-family: 'Inter', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); display: flex; min-height: 100vh; overflow-x: hidden; width: 100%; max-width: 100%; position: relative; }
         
-        /* Proteção anti-vazamento global */
         p, h1, h2, h3, h4, h5, h6, span, a, li, div { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
         
         .marca-destaque { color: var(--cor-primaria) !important; text-transform: uppercase !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif; }
@@ -62,24 +61,13 @@
         .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px 60px 30px 60px; gap: 60px; animation: slideUpFade 0.8s ease; }
         .hero-text { flex: 1; max-width: 600px; }
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; color: var(--cor-texto); }
-        
         .hero-text h1 span { color: var(--cor-primaria); }
-        
         .hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; margin-bottom: 30px; }
         
         .hero-image-container { flex: 1; display: flex; justify-content: flex-end; position: relative; }
-        .hero-image-container img { width: 100%; max-width: 650px; height: 420px; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .hero-image-container img { width: 100%; height: auto; max-width: 650px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
 
-        .imagem-grid-4 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; animation: slideUpFade 0.8s ease; }
-        .imagem-grid-4 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
-        .imagem-grid-4 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
-
-        .imagem-grid-3 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; animation: slideUpFade 0.8s ease; }
-        .imagem-grid-3 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
-        .imagem-grid-3 img:first-child { grid-row: span 2; } 
-        .imagem-grid-3 img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.25); z-index: 2; }
-
-        /* ==================== CORREÇÃO DOS BOTÕES ==================== */
+        /* ==================== BOTÕES ==================== */
         .btn-urgente, .btn-wellness { 
             display: inline-block; 
             background-color: var(--cor-primaria); 
@@ -216,7 +204,6 @@
             
             .main-content { margin-left: 0; width: 100%; } 
             
-            /* Ajuste de Tipografia para não vazar nas bordas */
             .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; } 
             .hero-text { padding-right: 0; width: 100%; }
             .hero-text h1 { font-size: 2.1rem; line-height: 1.2; }
@@ -234,10 +221,8 @@
             .imagem-grid-4 img, .imagem-grid-3 img { height: 160px; }
             .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; height: auto; max-height: 200px; }
             
-            /* Remoção de margens e controle do padding interno */
             .lp-section { width: 100%; margin: 0; padding: 30px 20px; border-radius: 0; border: none; }
             
-            /* Botões Full Width Seguros */
             .btn-urgente, .btn-wellness { padding: 15px 20px; font-size: 1rem; width: 100%; display: block; box-sizing: border-box; }
 
             .payt-header, .brandt-header, .construt-header { padding: 30px 20px; flex-direction: column; } 
@@ -248,7 +233,6 @@
             
             .homeclubt-cards-box { padding: 30px 20px; border-radius: 15px; }
             
-            /* Forçar Grid 1 Coluna em Telas Pequenas para não vazar */
             .servicos-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 30px; }
             .servico-card-imobt, .homeclubt-card, .servico-card-construt, .servico-card-brandt, .servico-card-payt { padding: 25px 20px; }
             
@@ -264,7 +248,6 @@
 <body class="lang-pt">
 
     <aside class="sidebar">
-        <!-- LANG SWITCHER -->
         <div class="lang-container">
             <i class="fas fa-globe"></i>
             <span class="lang-label">
@@ -292,10 +275,8 @@
 
     <main class="main-content">
         <section class="hero-section" id="hero-display">
-            <!-- Renderizado via JS -->
-        </section>
+            </section>
 
-        <!-- LP IMOB T -->
         <section class="lp-section lp-imobt" id="lp-imobt-section">
             <h2>
                 <span class="pt">O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</span>
@@ -307,6 +288,18 @@
                 <span class="en"><strong>Asset Risk Aversion:</strong> An expired Operating License or the lack of an updated AVCB doesn't just create a "bureaucratic headache." It generates daily fines and immediate embargo of your facilities.</span>
                 <span class="es"><strong>Aversión al Riesgo Patrimonial:</strong> Una Licencia de Funcionamiento vencida o la falta de un AVCB actualizado no solo genera un "dolor de cabeza burocrático". Genera multas diarias y embargo inmediato de sus instalaciones.</span>
             </p>
+
+            <div class="imobt-auditoria-box">
+                <h3>
+                    <span class="pt">Análise de Viabilidade Técnica</span>
+                    <span class="en">Technical Feasibility Analysis</span>
+                    <span class="es">Análisis de Viabilidad Técnica</span>
+                </h3>
+                <p class="pt">Cuidamos de toda a fase de <strong>análise de viabilidade técnica de locais</strong> para implantação da infraestrutura pretendida. Nossa equipe analisa zoneamento, restrições e potencial construtivo para garantir que o seu investimento seja seguro e viável antes mesmo da implantação.</p>
+                <p class="en">We handle the entire phase of <strong>technical feasibility analysis of sites</strong> for the intended infrastructure deployment. Our team analyzes zoning, restrictions, and building potential to ensure your investment is safe and viable even before implementation.</p>
+                <p class="es">Nos encargamos de toda la fase de <strong>análisis de viabilidad técnica de los lugares</strong> para la implantación de la infraestructura pretendida. Nuestro equipo analiza zonificación, restricciones y potencial constructivo para garantizar que su inversión sea segura y viable incluso antes de la implantación.</p>
+            </div>
+
             <div class="imobt-auditoria-box">
                 <h3>
                     <span class="pt">O Sangramento Burocrático Invisível</span>
@@ -317,6 +310,18 @@
                 <p class="en">In large construction and logistics operations, the silent loss lies in internal lethargy. When a public agency issues a <strong>"Communique"</strong> demanding adjustments, there is a fatal deadline. If your department delays, your company is punished with double payment of millionaire fees. <br><br><strong>IMOB T eliminates internal negligence.</strong> We conduct a meticulous audit and take over all your processes. In this sweep alone, <strong>we unlock millions in immediate revenue</strong> through accelerated approvals and stop the financial drain.</p>
                 <p class="es">En grandes constructoras y operaciones logísticas, la pérdida silenciosa radica en el letargo interno. Cuando una agencia pública emite un <strong>"Comuníquese"</strong> exigiendo ajustes, hay un plazo fatal. Si su departamento se retrasa, su empresa es castigada con el pago doble de tarifas millonarias. <br><br><strong>IMOB T elimina la negligencia interna.</strong> Realizamos una auditoría minuciosa y asumimos todos sus procesos. Solo en este barrido, <strong>desbloqueamos millones en ingresos inmediatos</strong> mediante aprobaciones aceleradas y detenemos la fuga financiera.</p>
             </div>
+
+            <div class="imobt-auditoria-box">
+                <h3>
+                    <span class="pt">Implantação Legal e Suporte Comercial</span>
+                    <span class="en">Legal Implementation and Commercial Support</span>
+                    <span class="es">Implantación Legal y Soporte Comercial</span>
+                </h3>
+                <p class="pt">As incorporadoras podem contar com a IMOB T tanto na fase de <strong>implantação legal do projeto</strong> quanto na fase de comercialização das unidades. Atuamos de forma sinérgica, dando todo o <strong>suporte técnico comercial ao time de vendas</strong>, fornecendo materiais de marketing técnico e realizando a gestão rigorosa do controle de unidades vendidas e disponíveis.</p>
+                <p class="en">Developers can rely on IMOB T during both the <strong>legal project implementation phase</strong> and the units' commercialization phase. We act synergistically, providing full <strong>technical-commercial support to the sales team</strong>, providing technical marketing materials, and conducting rigorous management of sold and available units control.</p>
+                <p class="es">Las desarrolladoras pueden contar con IMOB T tanto en la fase de <strong>implantación legal del proyecto</strong> como en la fase de comercialización de las unidades. Actuamos de forma sinérgica, brindando todo el <strong>soporte técnico-comercial al equipo de ventas</strong>, proporcionando materiales de marketing técnico y realizando una gestión rigurosa del control de unidades vendidas y disponibles.</p>
+            </div>
+
             <div class="servicos-grid">
                 <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i>
                     <h4 class="pt">Aprovação e Regularização</h4><h4 class="en">Approval & Regularization</h4><h4 class="es">Aprobación y Regularización</h4>
@@ -347,7 +352,6 @@
             </div>
         </section>
 
-        <!-- LP HOME CLUB T -->
         <section class="lp-section lp-homeclubt" id="lp-homeclubt-section">
             <div class="middle-hero">
                 <div class="middle-hero-text">
@@ -434,7 +438,6 @@
             </div>
         </section>
 
-        <!-- LP CONSTRU T -->
         <section class="lp-section lp-construt" id="lp-construt-section">
             <div class="construt-header">
                 <div class="construt-header-text">
@@ -492,7 +495,6 @@
             </div>
         </section>
         
-        <!-- LP BRAND T -->
         <section class="lp-section lp-brandt" id="lp-brandt-section">
             <div class="brandt-header">
                 <h2>
@@ -565,7 +567,6 @@
             </div>
         </section>
 
-        <!-- LP PAY T -->
         <section class="lp-section lp-payt" id="lp-payt-section">
             <div class="payt-header">
                 <h2>
@@ -631,7 +632,6 @@
 
     <a href="https://wa.me/5511947879779" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- MODAIS COM TRADUÇÃO -->
     <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
@@ -701,7 +701,6 @@
     </div>
 
     <script>
-        // Dicionário Dinâmico Multi-Idioma para as seções Principais (Hero)
         const dadosEcossistema = {
             pt: {
                 home: {
@@ -785,7 +784,7 @@
                 },
                 construt: {
                     titulo: "SaaS Distribuidor y <span>Marketplace</span>",
-                    texto: "<span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C enfocado en la Construcción Civil bajo modelo de suscripción.<br><br>Ofrecemos una sólida red de distribución con materiales directos de fábrica.",
+                    texto: "<span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C enfocada en la Construcción Civil bajo modelo de suscripción.<br><br>Ofrecemos una sólida red de distribución con materiales directos de fábrica.",
                     imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
                 },
                 homeclubt: {
@@ -795,7 +794,7 @@
                 },
                 brandt: {
                     titulo: "La Mayor Gestora de <span>Marcas y Carreras</span>",
-                    texto: "<span class='marca-destaque'>BRAND T</span> trasciende la simple intermediación. Nosotros identificamos y estructuramos autoridades y negocios.<br><br><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Academy T & Soporte 360º:</strong> Modelado de talento, inteligencia fiscal y blindaje legal.</span><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Jornada de Ventas:</strong> Estructuramos marcas para vender en LiveShops y mentores para escalar infoproductos.</span><span style='display:block; margin-bottom:25px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Propósito y Escenarios:</strong> Transformamos historias de vida en conferencias corporativas de alto impacto.</span><span style='border-left: 4px solid var(--cor-primaria); padding-left: 15px; display: block; font-weight: 500;'>Cuidamos de toda la operación. Preparamos su marca y carrera para facturar y recibir inversiones garantizadas.</span>",
+                    texto: "<span class='marca-destaque'>BRAND T</span> trasciende la simple intermediación. Nosotros identificamos y estruturamos autoridades y negocios.<br><br><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Academy T & Soporte 360º:</strong> Modelado de talento, inteligencia fiscal y blindaje legal.</span><span style='display:block; margin-bottom:15px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Jornada de Ventas:</strong> Estructuramos marcas para vender en LiveShops y mentores para escalar infoproductos.</span><span style='display:block; margin-bottom:25px;'><i class='fas fa-check-circle' style='color:var(--cor-primaria); margin-right:10px;'></i><strong>Propósito y Escenarios:</strong> Transformamos historias de vida en conferencias corporativas de alto impacto.</span><span style='border-left: 4px solid var(--cor-primaria); padding-left: 15px; display: block; font-weight: 500;'>Cuidamos de toda la operación. Preparamos su marca y carrera para facturar y recibir inversiones garantizadas.</span>",
                     imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"]
                 }
             }
@@ -807,23 +806,17 @@
         function changeLang(lang) {
             currentLang = lang;
             document.body.className = 'lang-' + lang;
-            
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
-
-            // Recarregar a aba atual com o novo idioma
             carregarConteudo(currentTab, false);
         }
 
         function carregarConteudo(chave, pushState = true) {
             currentTab = chave;
             const section = document.getElementById('hero-display');
-            
             const lps = ['payt', 'imobt', 'construt', 'homeclubt', 'brandt'];
             lps.forEach(lp => document.getElementById('lp-' + lp + '-section').style.display = 'none');
-            
             const dados = dadosEcossistema[currentLang][chave];
-
             if(pushState) window.history.pushState(null, null, '#' + chave);
             section.style.opacity = 0;
 
@@ -839,11 +832,9 @@
 
                 section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${conteudoImagem}`;
                 section.style.opacity = 1;
-                
                 if (lps.includes(chave)) {
                     document.getElementById('lp-' + chave + '-section').style.display = 'block';
                 }
-                
             }, 200);
 
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
