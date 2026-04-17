@@ -53,7 +53,7 @@
         /* ==================== ÁREA PRINCIPAL ==================== */
         .main-content { flex: 1; margin-left: 320px; display: flex; flex-direction: column; position: relative; min-height: 100vh; width: calc(100% - 320px); max-width: 100%; }
         
-        /* CORREÇÃO DE SOBREPOSIÇÃO DESKTOP */
+        /* CORREÇÃO DE SOBREPOSIÇÃO (ESMAGAMENTO DO TEXTO) */
         .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px; gap: 60px; animation: slideUpFade 0.8s ease; flex-wrap: nowrap; }
         .hero-text { flex: 0 0 45%; min-width: 450px; }
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; color: var(--cor-texto); }
@@ -63,7 +63,6 @@
         .hero-image-container { flex: 1 1 auto; min-width: 0; display: flex; justify-content: flex-end; position: relative; }
         .hero-image-container img { width: 100%; height: auto; max-width: 700px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); object-fit: cover; }
 
-        /* BOTÕES PADRONIZADOS */
         .btn-urgente, .btn-wellness { 
             display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.15rem; padding: 20px 50px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); border: none; cursor: pointer; text-align: center; max-width: 100%; white-space: normal; line-height: 1.4;
         }
@@ -93,10 +92,15 @@
         .homeclubt-card i { font-size: 2rem; color: var(--cor-primaria); margin-bottom: 20px; }
         .homeclubt-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #1a1a1a; }
 
+        .lp-construt { background-color: #f0f2f5; color: #2c3e50; }
+        .construt-ecosystem { background: var(--cor-primaria); color: #fff; padding: 40px; border-radius: 15px; margin-bottom: 50px; }
+
         .lp-brandt { background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; }
         .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
         .brandt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
         .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 950px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; border-left: 5px solid var(--cor-primaria); }
+
+        .lp-payt { background-color: #050505; color: #ffffff; }
 
         /* ==================== RODAPÉ ==================== */
         .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; flex-wrap: nowrap; }
@@ -104,14 +108,15 @@
         .footer-links a { color: #777; text-decoration: none; font-weight: 500; transition: color 0.3s; cursor: pointer; white-space: nowrap; }
         .footer-links a:hover { color: var(--cor-primaria); }
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
         
+        /* MODAIS */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
         .modal-content { background: var(--cor-fundo); width: 90%; max-width: 750px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
+        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; }
         
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
+        /* RESPONSIVO MOBILE */
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; border-right: none; border-bottom: 1px solid #111; z-index: 1; }
@@ -122,11 +127,13 @@
             .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; gap: 30px; } 
             .hero-text { flex: 0 0 100%; min-width: 100%; width: 100%; }
             .hero-text h1 { font-size: 2.1rem; }
+            .hero-image-container { justify-content: center; width: 100%; } 
+            .hero-image-container img { height: auto; max-height: 300px; width: 100%; } 
             .lp-section { width: 100%; margin: 0; padding: 30px 20px; border-radius: 0; }
             .servicos-grid { grid-template-columns: 1fr; }
             .footer { flex-direction: column; gap: 15px; text-align: center; padding: 25px 20px; } 
             .footer-links { flex-wrap: wrap; justify-content: center; } 
-            .btn-urgente, .btn-wellness { width: 100%; padding: 15px 20px; }
+            .btn-urgente, .btn-wellness { width: 100%; padding: 15px 20px; font-size: 1rem; }
         }
     </style>
 </head>
@@ -159,91 +166,86 @@
             </section>
 
         <section class="lp-section lp-imobt" id="lp-imobt-section">
-            <h2>
-                <span class="pt">O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</span>
-                <span class="en">The Silent Risk That Can Cost Your Operation <span>Millions</span></span>
-                <span class="es">El Riesgo Silencioso Que Puede Costar <span>Millones</span> a Su Operación</span>
-            </h2>
-            <p class="alerta">
-                <span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado gera multas diárias e embargo imediato das suas instalações.</span>
-                <span class="en"><strong>Asset Risk Aversion:</strong> An expired Operating License or the lack of an updated AVCB generates daily fines and immediate embargo of your facilities.</span>
-                <span class="es"><strong>Aversión al Riesgo Patrimonial:</strong> Una Licencia de Funcionamiento vencida o la falta de un AVCB actualizado genera multas diarias y embargo inmediato de sus instalaciones.</span>
-            </p>
+            <h2><span class="pt">O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</span></h2>
+            <p class="alerta"><span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB gera multas diárias e embargo imediato.</span></p>
 
             <div class="imobt-auditoria-box">
-                <h3><span class="pt">Análise de Viabilidade Técnica</span><span class="en">Technical Feasibility Analysis</span><span class="es">Análisis de Viabilidad Técnica</span></h3>
-                <p class="pt">Cuidamos de toda a fase de <strong>análise de viabilidade técnica de locais</strong> para implantação da infraestrutura pretendida. Nossa equipe analisa zoneamento, restrições e potencial construtivo para garantir que o seu investimento seja seguro e viável antes mesmo da implantação.</p>
-                <p class="en">We handle the entire phase of technical feasibility analysis of sites for the intended infrastructure deployment. Our team analyzes zoning, restrictions, and building potential to ensure your investment is safe and viable.</p>
-                <p class="es">Nos encargamos de toda la fase de análisis de viabilidad técnica de los lugares para la implantación de infraestructura. Analizamos zonificación y restricciones para garantizar una inversión segura.</p>
+                <h3><span class="pt">Análise de Viabilidade Técnica</span></h3>
+                <p class="pt">Cuidamos de toda a fase de <strong>análise de viabilidade técnica de locais</strong> para implantação da infraestrutura pretendida. Nossa equipe analisa zoneamento e potencial construtivo para garantir que o seu investimento seja seguro e viável antes mesmo da implantação.</p>
             </div>
 
             <div class="imobt-auditoria-box">
-                <h3><span class="pt">O Sangramento Burocrático Invisível</span><span class="en">The Invisible Bureaucratic Bleeding</span><span class="es">El Sangrado Burocrático Invisible</span></h3>
-                <p class="pt">Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro.</p>
-                <p class="en">In large construction and logistics operations, the silent loss lies in internal lethargy. When a public agency issues a "Communique" demanding adjustments, there is a fatal deadline. If your department delays, your company is punished with double payment of millionaire fees. IMOB T eliminates internal negligence.</p>
-                <p class="es">En grandes constructoras y operaciones logísticas, la pérdida silenciosa radica en el letargo interno. Ante un requerimiento público, si hay retrasos, la empresa es castigada con el pago doble de tarifas millonarias. IMOB T elimina esta negligencia interna.</p>
+                <h3><span class="pt">O Sangramento Burocrático Invisível</span></h3>
+                <p class="pt">Em grandes construtoras, o prejuízo mora na letargia interna. Se o seu departamento protela um requerimento público, a empresa é punida com pagamento em dobro de taxas. <strong>A IMOB T elimina a negligência interna.</strong> Destravamos milhões em receita e estancamos o ralo financeiro.</p>
             </div>
 
             <div class="imobt-auditoria-box">
-                <h3><span class="pt">Implantação Legal e Suporte Comercial</span><span class="en">Legal Implementation and Commercial Support</span><span class="es">Implantación Legal y Soporte Comercial</span></h3>
-                <p class="pt">As incorporadoras podem contar com a IMOB T tanto na fase de <strong>implantação legal do projeto</strong> quanto na fase de comercialização das unidades. Atuamos de forma sinérgica, dando todo o <strong>suporte técnico comercial ao time de vendas</strong>, fornecendo materiais de marketing técnico e realizando a gestão rigorosa do controle de unidades vendidas e disponíveis.</p>
-                <p class="en">Developers can rely on IMOB T during both the legal project implementation phase and the units' commercialization phase. We provide full technical-commercial support to the sales team.</p>
-                <p class="es">Las desarrolladoras pueden contar con IMOB T tanto en la fase de implantación legal del proyecto como en la de comercialización. Brindamos soporte técnico comercial al equipo de ventas.</p>
+                <h3><span class="pt">Implantação Legal e Suporte Comercial</span></h3>
+                <p class="pt">Incorporadoras contam com a IMOB T na <strong>implantação legal do projeto</strong> e na <strong>comercialização das unidades</strong>. Damos todo o suporte técnico comercial ao time de vendas e gestão de unidades vendidas.</p>
             </div>
 
             <div class="servicos-grid">
-                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i>
-                    <h4 class="pt">Aprovação e Regularização</h4><h4 class="en">Approval & Regularization</h4><h4 class="es">Aprobación y Regularización</h4>
-                    <p class="pt">Documentação técnica completa até o <strong>Habite-se</strong>. Garantimos que projetos operem 100% dentro da lei.</p>
-                </div>
-                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i>
-                    <h4 class="pt">Conformidade e Segurança</h4><h4 class="en">Compliance & Security</h4><h4 class="es">Cumplimiento y Seguridad</h4>
-                    <p class="pt">Emissão e renovação de <strong>AVCB</strong> e <strong>CLCB</strong>. Blindamos o seu ativo.</p>
-                </div>
+                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4 class="pt">Aprovação</h4><p class="pt">Documentação técnica completa até o Habite-se.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4 class="pt">Segurança</h4><p class="pt">Emissão e renovação de AVCB e CLCB. Blindamos seu ativo.</p></div>
             </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira com processos parados e regularizar minha operação." target="_blank" class="btn-urgente">
-                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
-                    <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span>
-                    <span class="en">REQUEST AUDIT AND SHIELD OPERATION</span>
-                    <span class="es">SOLICITAR AUDITORÍA Y BLINDAR OPERACIÓN</span>
-                </a>
+            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span></a></div>
+        </section>
+
+        <section class="lp-section lp-homeclubt" id="lp-homeclubt-section">
+            <div class="homeclubt-cards-box">
+                <h3><span class="pt">Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></span></h3>
+                <p class="wellness-text"><span class="pt">A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa. O fim do turnover através da retenção familiar.</span></p>
+
+                <div class="homeclubt-exclusividade-box">
+                    <p class="pt">O modelo de operação sistêmica da <strong>HOME CLUB T é 100% inédito e possui registro legal ativo</strong>. Segurança absoluta para o seu RH.</p>
+                </div>
+
+                <div class="servicos-grid">
+                    <div class="homeclubt-card"><i class="fas fa-spa"></i><h4 class="pt">Wellness Integrado</h4></div>
+                    <div class="homeclubt-card"><i class="fas fa-hand-holding-heart"></i><h4 class="pt">Lealdade</h4></div>
+                    <div class="homeclubt-card"><i class="fas fa-child"></i><h4 class="pt">Desenvolvimento Infantil</h4><p class="pt">Kits lúdicos curados por neurocientistas.</p></div>
+                    <div class="homeclubt-card"><i class="fas fa-gem"></i><h4 class="pt">Box Premium</h4><p class="pt">Marcas premium globais de beleza e autocuidado.</p></div>
+                </div>
+                <div style="text-align: center;"><a href="http://homeclubt.com" target="_blank" class="btn-wellness"><i class="fas fa-external-link-alt"></i> <span class="pt">ACESSAR PORTAL HOME CLUB T</span></a></div>
             </div>
         </section>
 
+        <section class="lp-section lp-construt" id="lp-construt-section">
+            <div class="construt-body">
+                <div class="servicos-grid">
+                    <div class="servico-card-construt"><i class="fas fa-boxes"></i><h4 class="pt">SaaS de Insumos</h4><p class="pt">Preço travado e acesso programado a materiais diretos da fábrica.</p></div>
+                    <div class="servico-card-construt"><i class="fas fa-tools"></i><h4 class="pt">Mão de Obra</h4><p class="pt">Independência para treinar e usar sua própria equipe.</p></div>
+                </div>
+                <div class="construt-ecosystem"><h3><span class="pt">Poder do Ecossistema TGROUP</span></h3><p class="pt">Clientes CONSTRU T possuem acesso VIP às soluções de pagamento da PAY T e regularização da IMOB T.</p></div>
+                <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Quero conhecer o modelo SaaS da CONSTRU T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">ASSINAR PLATAFORMA E BLINDAR MINHA OBRA</span></a></div>
+            </div>
+        </section>
+        
         <section class="lp-section lp-brandt" id="lp-brandt-section">
             <div class="brandt-header">
-                <h2><span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span><span class="en">You Focus on the Stage.<br>We Focus on the <span>Empire.</span></span><span class="es">Usted se Enfoca en el Escenario.<br>Nosotros en el <span>Imperio.</span></span></h2>
-                <p class="brandt-alerta">
-                    <span class="pt"><strong>Gestão de Marcas e Carreiras:</strong> Nós identificamos o seu potencial, modelamos talentos na nossa Academy T e entregamos toda a engenharia societária e jurídica. Cuidamos de toda a jornada para que marcas escalem vendas de seus produtos e para que profissionais vendam seus conhecimentos em grandes palcos.</span>
-                    <span class="en">Ultimate innovation in brand and career management. We manage the entire journey for brands to scale product sales, and for professionals to sell their knowledge on big stages.</span>
-                    <span class="es">Innovación definitiva en gestión de marcas y carreras. Cuidamos toda la jornada para que las marcas escalen ventas y los profesionales vendan sus conocimientos en grandes escenarios.</span>
-                </p>
+                <h2><span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span></h2>
+                <p class="brandt-alerta"><span class="pt">Cuidamos da jornada para que marcas escalem vendas de produtos físicos e profissionais vendam conhecimentos em grandes palcos.</span></p>
                 
                 <div class="imobt-auditoria-box" style="background: rgba(0, 132, 61, 0.04); border-left-color: var(--cor-primaria);">
-                    <h3><span class="pt">Curadoria e Marketing Híbrido</span><span class="en">Curation and Hybrid Marketing</span><span class="es">Curaduría y Marketing Híbrido</span></h3>
-                    <p class="pt">A BRAND T realiza a <strong>curadoria estratégica para fixar a imagem</strong> da marca ou do profissional. Unimos ferramentas avançadas de marketing digital com <strong>estratégias físicas reais</strong>, como estações de divulgação e distribuição de brindes físicos de alta percepção de valor.</p>
-                    <p class="en">BRAND T conducts strategic curation to establish the image of the brand or professional. We combine digital tools with real physical strategies, such as outreach stations and high-value physical gifts.</p>
-                    <p class="es">BRAND T realiza la curaduría estratégica para consolidar la imagen. Unimos herramientas digitales con estrategias físicas reales, como estaciones de difusión y regalos físicos de alto valor.</p>
+                    <h3><span class="pt">Curadoria e Marketing Híbrido</span></h3>
+                    <p class="pt">Realizamos a <strong>curadoria estratégica para fixar a imagem</strong>. Unimos marketing digital com <strong>estratégias físicas reais</strong>, como estações de divulgação e brindes físicos de alta percepção.</p>
                 </div>
             </div>
             <div class="servicos-grid">
-                <div class="servico-card-brandt"><i class="fas fa-video"></i>
-                    <h4 class="pt">LiveShops & Produtos Físicos</h4><h4 class="en">LiveShops & Physical Products</h4><h4 class="es">LiveShops y Productos Físicos</h4>
-                    <p class="pt">Escale vendas no digital com infraestrutura para vender produtos ao vivo com conversão explosiva.</p>
-                </div>
-                <div class="servico-card-brandt"><i class="fas fa-microphone-alt"></i>
-                    <h4 class="pt">Palcos & Palestras Corporativas</h4><h4 class="en">Stages & Corporate Keynotes</h4><h4 class="es">Escenarios y Conferencias</h4>
-                    <p class="pt">Extraímos o ouro da sua história e a transformamos em grandes palestras corporativas de alto impacto.</p>
-                </div>
+                <div class="servico-card-brandt"><i class="fas fa-video"></i><h4 class="pt">LiveShops</h4></div>
+                <div class="servico-card-brandt"><i class="fas fa-microphone-alt"></i><h4 class="pt">Palcos</h4></div>
+                <div class="servico-card-brandt"><i class="fas fa-hand-holding-usd"></i><h4 class="pt">Aportes Garantidos</h4><p class="pt">Estruturamos sua carreira para receber injeções de capital.</p></div>
             </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://wa.me/5511947879779?text=Olá! Quero conhecer a inovação da BRAND T, modelar meu talento e estruturar meu negócio para escalar produtos e acessar fundos de investimento." target="_blank" class="btn-urgente">
-                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
-                    <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span>
-                    <span class="en">STRUCTURE MY EMPIRE AND SCALE</span>
-                    <span class="es">ESTRUCTURAR MI IMPERIO Y ESCALAR</span>
-                </a>
+            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Quero estruturar meu império com a BRAND T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span></a></div>
+        </section>
+
+        <section class="lp-section lp-payt" id="lp-payt-section">
+            <div style="padding: 60px; text-align: center;">
+                <h2 style="color: white;"><span class="pt">Gateway de Pagamentos Cirúrgico</span></h2>
+                <div class="servicos-grid" style="margin-top: 40px;">
+                    <div class="servico-card-imobt"><i class="fas fa-microchip"></i><h4 class="pt">Smart Routing</h4><p class="pt">Aprovação levada ao extremo via IA.</p></div>
+                </div>
+                <a href="https://wa.me/5511947879779?text=Olá! Quero destravar minha operação com a PAY T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">DESTRAVAR OPERAÇÃO AGORA</span></a>
             </div>
         </section>
 
@@ -255,19 +257,17 @@
             </div>
             <div class="footer-links">
                 <a onclick="abrirModal('modal-termos')"><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></a>
-                <a onclick="abrirModal('modal-privacidade')"><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span></a>
+                <a onclick="abrirModal('modal-privacidade')"><span class="pt">Privacidade</span><span class="en">Privacy</span><span class="es">Privacidad</span></a>
                 <a onclick="abrirModal('modal-compliance')">Compliance</a>
                 <a onclick="abrirModal('modal-contato')"><span class="pt">Contato</span><span class="en">Contact</span><span class="es">Contacto</span></a>
             </div>
         </footer>
     </main>
 
-    <a href="https://wa.me/5511947879779" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
     <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></h3>
+            <h3><span class="pt">Termos de Uso</span></h3>
             <p class="pt">A utilização das plataformas e serviços do ecossistema <strong>TGROUP SOLUTIONS</strong> implica na aceitação incondicional de nossas diretrizes operacionais.</p>
             <p class="pt">Nossas soluções SaaS, financeiras, imobiliárias e de wellness são regidas por rigorosos contratos específicos de nível de serviço (SLA), assegurando alta disponibilidade sistêmica e proteção jurídica mútua em todas as transações B2B e B2C.</p>
         </div>
@@ -276,7 +276,7 @@
     <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span></h3>
+            <h3><span class="pt">Política de Privacidade</span></h3>
             <p class="pt">Atuamos em total conformidade com a Lei Geral de Proteção de Dados (LGPD) e regulamentações globais de privacidade.</p>
             <p class="pt">A <strong>TGROUP SOLUTIONS</strong> emprega protocolos de criptografia de ponta a ponta e arquitetura de dados blindada. Informações financeiras de nossos parceiros e investidores são tratadas como ativos de altíssimo sigilo.</p>
         </div>
@@ -285,7 +285,7 @@
     <div class="modal-overlay" id="modal-compliance" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3><span class="pt">Governança e Compliance</span><span class="en">Governance and Compliance</span><span class="es">Gobernanza y Cumplimiento</span></h3>
+            <h3><span class="pt">Governança e Compliance</span></h3>
             <p class="pt">A <strong>TGROUP SOLUTIONS</strong> opera sob os mais rigorosos padrões globais de Ética Empresarial.</p>
             <p class="pt">Nosso comitê garante transparência absoluta em todas as verticais, com política de tolerância zero contra fraudes. Mantemos proteção ferrenha sobre nossa propriedade intelectual e modelos de operação inéditos.</p>
         </div>
@@ -294,7 +294,7 @@
     <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)">
         <div class="modal-content" style="text-align: center;">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3><span class="pt">Fale com a </span><span class="en">Speak with </span><span class="es">Hable con </span><span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
+            <h3><span class="pt">Contato Direto</span></h3>
             <div style="font-size: 1.2rem;"><i class="fab fa-whatsapp" style="color:var(--cor-primaria);"></i> <a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a></div>
         </div>
     </div>
@@ -304,18 +304,16 @@
             pt: {
                 home: { titulo: "Inovação e <span>Gestão Integrada</span>", texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> integra startups em diversos setores.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACESSE NOSSAS SOLUÇÕES</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" },
                 payt: { titulo: "Matriz Financeira", texto: "API de pagamentos e fintech de gestão financeira.", imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
-                imobt: { titulo: "Ativos Imobiliários", texto: "Gestão inteligente da implantação à comercialização de ativos.", imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"] },
-                construt: { titulo: "Construção Civil", texto: "SaaS distribuidor e e-commerce sob modelo de assinatura.", imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
-                homeclubt: { titulo: "Wellness <span>Residencial</span>", texto: "Clube de benefícios corporativos focado na evolução do bem-estar.", imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" },
-                brandt: { titulo: "Gestão de Marcas", texto: "Modelagem de talentos e jornada completa de vendas física e digital.", imagem: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" }
+                imobt: { titulo: "Ativos Imobiliários", texto: "Gestão completa da implantação à comercialização estratégica.", imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"] },
+                construt: { titulo: "Construção Civil", texto: "SaaS distribuidor sob modelo de assinatura anual.", imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
+                homeclubt: { titulo: "Wellness <span>Residencial</span>", texto: "Clube de benefícios corporativos focado no bem-estar total.", imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" },
+                brandt: { titulo: "Gestão de Marcas", texto: "Modelagem de autoridades e jornada de vendas física e digital.", imagem: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" }
             },
             en: {
-                home: { titulo: "Innovation and <span>Integrated Management</span>", texto: "TGROUP SOLUTIONS integrates startups across sectors.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCESS OUR SOLUTIONS</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" },
-                brandt: { titulo: "Brand Management", texto: "Authority modeling and hybrid sales journey.", imagem: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" }
+                home: { titulo: "Innovation and <span>Integrated Management</span>", texto: "TGROUP SOLUTIONS integrates startups across multiple sectors.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCESS OUR SOLUTIONS</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" }
             },
             es: {
-                home: { titulo: "Innovación y <span>Gestión Integrada</span>", texto: "TGROUP SOLUTIONS integra startups en diversos sectores.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCEDA A NUESTRAS SOLUCIONES</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" },
-                brandt: { titulo: "Gestión de Marcas", texto: "Modelado de autoridad y jornada de ventas física y digital.", imagem: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" }
+                home: { titulo: "Innovación y <span>Gestión Integrada</span>", texto: "TGROUP SOLUTIONS integra startups en diversos sectores.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCEDA A NUESTRAS SOLUCIONES</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" }
             }
         };
 
