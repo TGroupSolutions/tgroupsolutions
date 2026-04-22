@@ -59,7 +59,7 @@
         .main-content { flex: 1; margin-left: 320px; display: flex; flex-direction: column; position: relative; min-height: 100vh; width: calc(100% - 320px); max-width: 100%; }
         
         .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px 60px 30px 60px; gap: 60px; animation: slideUpFade 0.8s ease; }
-        .hero-text { flex: 1.4; min-width: 350px; } /* Impedindo o texto de ficar vertical */
+        .hero-text { flex: 1.4; min-width: 350px; }
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; color: var(--cor-texto); }
         .hero-text h1 span { color: var(--cor-primaria); }
         .hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; margin-bottom: 30px; }
@@ -67,7 +67,6 @@
         .hero-image-container { flex: 1; display: flex; justify-content: flex-end; position: relative; }
         .hero-image-container img { width: 100%; height: auto; max-width: 550px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
 
-        /* Correção de Grades para UX Perfeito */
         .imagem-grid-3, .imagem-grid-4 { flex: 1; display: grid; gap: 15px; width: 100%; max-width: 550px; }
         .imagem-grid-4 { grid-template-columns: repeat(2, 1fr); }
         .imagem-grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -281,41 +280,69 @@
             </h2>
             <p class="alerta">
                 <span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</span>
+                <span class="en"><strong>Asset Risk Aversion:</strong> An expired Operating License or lack of updated AVCB doesn't just create a "bureaucratic headache." It generates daily fines and immediate embargo of your facilities.</span>
+                <span class="es"><strong>Aversión al Riesgo Patrimonial:</strong> Una Licencia de Funcionamiento vencida o la falta de un AVCB actualizado no solo genera un "dolor de cabeza burocrático". Genera multas diarias y embargo inmediato de sus instalaciones.</span>
             </p>
 
             <div class="imobt-auditoria-box">
-                <h3><span class="pt">Análise de Viabilidade Técnica</span></h3>
+                <h3>
+                    <span class="pt">Análise de Viabilidade Técnica</span>
+                    <span class="en">Technical Feasibility Analysis</span>
+                    <span class="es">Análisis de Viabilidad Técnica</span>
+                </h3>
                 <p class="pt">Cuidamos de toda a fase de <strong>análise de viabilidade técnica de locais</strong> para implantação da infraestrutura pretendida. Nossa equipe analisa zoneamento, restrições e potencial construtivo.</p>
+                <p class="en">We handle the entire <strong>technical feasibility analysis of sites</strong> for the intended infrastructure implementation. Our team analyzes zoning, restrictions, and building potential.</p>
+                <p class="es">Nos encargamos de toda la fase de <strong>análisis de viabilidad técnica de lugares</strong> para la implantación de la infraestructura pretendida. Nuestro equipo analiza zonificación, restricciones y potencial constructivo.</p>
             </div>
 
             <div class="imobt-auditoria-box">
-                <h3><span class="pt">O Sangramento Burocrático Invisível</span></h3>
+                <h3>
+                    <span class="pt">O Sangramento Burocrático Invisível</span>
+                    <span class="en">The Invisible Bureaucratic Bleeding</span>
+                    <span class="es">El Sangrado Burocrático Invisible</span>
+                </h3>
                 <p class="pt">Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. <strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos. Estancamos o ralo financeiro e destravamos receita imediata.</p>
+                <p class="en">In large construction companies and logistics operations, silent loss lies in internal lethargy. <strong>IMOB T eliminates internal negligence.</strong> We conduct a thorough audit and take over all your processes. We stop the financial drain and unlock immediate revenue.</p>
+                <p class="es">En grandes constructoras y operaciones logísticas, la pérdida silenciosa reside en el letargo interno. <strong>IMOB T elimina la negligencia interna.</strong> Realizamos una auditoría minuciosa y asumimos todos sus procesos. Detenemos la fuga financiera y desbloqueamos ingresos inmediatos.</p>
             </div>
 
             <div class="imobt-auditoria-box">
-                <h3><span class="pt">Implantação Legal e Suporte Comercial</span></h3>
+                <h3>
+                    <span class="pt">Implantação Legal e Suporte Comercial</span>
+                    <span class="en">Legal Implementation and Commercial Support</span>
+                    <span class="es">Implantación Legal y Soporte Comercial</span>
+                </h3>
                 <p class="pt">As incorporadoras podem contar com a IMOB T tanto na fase de <strong>implantação legal do projeto</strong> quanto na comercialização. Atuamos de forma sinérgica, fornecendo suporte técnico comercial ao time de vendas e gestão de unidades.</p>
+                <p class="en">Developers can rely on IMOB T both in the <strong>legal project implementation phase</strong> and in commercialization. We act synergistically, providing technical commercial support to the sales team and unit management.</p>
+                <p class="es">Las desarrolladoras pueden contar con IMOB T tanto en la fase de <strong>implantación legal del proyecto</strong> como en la comercialización. Actuamos de forma sinérgica, brindando soporte técnico comercial al equipo de ventas y gestión de unidades.</p>
             </div>
 
             <div class="servicos-grid">
                 <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i>
-                    <h4 class="pt">Aprovação e Regularização</h4>
+                    <h4 class="pt">Aprovação e Regularização</h4><h4 class="en">Approval & Regularization</h4><h4 class="es">Aprobación y Regularización</h4>
                     <p class="pt">Documentação técnica completa, desde o projeto inicial até o <strong>Habite-se</strong>. Garantimos conformidade 100%.</p>
+                    <p class="en">Complete technical documentation, from initial project to <strong>Habite-se</strong>. We guarantee 100% compliance.</p>
+                    <p class="es">Documentación técnica completa, desde el proyecto inicial hasta el <strong>Habite-se</strong>. Garantizamos el 100% de cumplimiento.</p>
                 </div>
                 <div class="servico-card-imobt"><i class="fas fa-search-dollar"></i>
-                    <h4 class="pt">Auditoria de Processos</h4>
+                    <h4 class="pt">Auditoria de Processos</h4><h4 class="en">Process Auditing</h4><h4 class="es">Auditoría de Procesos</h4>
                     <p class="pt">Mapeamento e gestão ativa de exigências. Evitamos o pagamento de taxas em duplicidade aos órgãos públicos.</p>
+                    <p class="en">Mapping and active management of requirements. We avoid paying duplicate fees to public agencies.</p>
+                    <p class="es">Mapeo y gestión activa de requisitos. Evitamos el pago de tasas duplicadas a los organismos públicos.</p>
                 </div>
                 <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i>
-                    <h4 class="pt">Conformidade e Segurança</h4>
+                    <h4 class="pt">Conformidade e Segurança</h4><h4 class="en">Compliance & Security</h4><h4 class="es">Cumplimiento y Seguridad</h4>
                     <p class="pt">Emissão e renovação de <strong>AVCB</strong> e <strong>CLCB</strong>. Blindamos o seu ativo para assegurar cobertura de seguros.</p>
+                    <p class="en">Issuance and renewal of <strong>AVCB</strong> and <strong>CLCB</strong>. We shield your asset to ensure insurance coverage.</p>
+                    <p class="es">Emisión y renovación de <strong>AVCB</strong> y <strong>CLCB</strong>. Blindamos su activo para asegurar la cobertura de seguros.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 20px;">
                 <a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira." target="_blank" class="btn-urgente">
                     <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
                     <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span>
+                    <span class="en">REQUEST AUDIT AND SHIELD OPERATION</span>
+                    <span class="es">SOLICITAR AUDITORÍA Y BLINDAR OPERACIÓN</span>
                 </a>
             </div>
         </section>
@@ -323,27 +350,64 @@
         <section class="lp-section lp-homeclubt" id="lp-homeclubt-section">
             <div class="middle-hero">
                 <div class="middle-hero-text">
-                    <h2><span class="pt">A EVOLUÇÃO DO <br><span>WELLNESS CORPORATIVO</span></span></h2>
+                    <h2>
+                        <span class="pt">A EVOLUÇÃO DO <br><span>WELLNESS CORPORATIVO</span></span>
+                        <span class="en">THE EVOLUTION OF <br><span>CORPORATE WELLNESS</span></span>
+                        <span class="es">LA EVOLUCIÓN DEL <br><span>BIENESTAR CORPORATIVO</span></span>
+                    </h2>
                     <p class="pt">A <strong>HOME CLUB T</strong> redefine o conceito de benefícios corporativos através de um clube de assinaturas de conveniência residencial.</p>
+                    <p class="en"><strong>HOME CLUB T</strong> redefines the concept of corporate benefits through a residential convenience subscription club.</p>
+                    <p class="es"><strong>HOME CLUB T</strong> redefine el concepto de beneficios corporativos a través de un club de suscripción de conveniencia residencial.</p>
                 </div>
                 <div class="middle-hero-image"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="Wellness"></div>
             </div>
             <div class="homeclubt-cards-box">
-                <h3><span class="pt">O Fim do Turnover: Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></span></h3>
-                <p class="wellness-text">A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa.</p>
+                <h3>
+                    <span class="pt">O Fim do Turnover: Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></span>
+                    <span class="en">The End of Turnover: Turn Your Employee's Home into the <span>Greatest Benefit</span></span>
+                    <span class="es">El Fin del Turnover: Convierta el Hogar de su Colaborador en el <span>Mayor Beneficio</span></span>
+                </h3>
+                <p class="wellness-text">
+                    <span class="pt">A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa.</span>
+                    <span class="en"><strong>HOME CLUB T</strong> anchors your employee's well-being where their life really happens: at home.</span>
+                    <span class="es"><strong>HOME CLUB T</strong> ancla el bienestar de su colaborador donde realmente sucede su vida: en casa.</span>
+                </p>
                 <div class="homeclubt-exclusividade-box">
-                    <h3><span class="pt">O Único Modelo de Operação Inédito e Registrado do Mercado</span></h3>
+                    <h3>
+                        <span class="pt">O Único Modelo de Operação Inédito e Registrado do Mercado</span>
+                        <span class="en">The Only Unprecedented and Registered Market Operating Model</span>
+                        <span class="es">El Único Modelo de Operación Inédito y Registrado del Mercado</span>
+                    </h3>
                     <p class="pt">Modelo 100% inédito e possui registro legal ativo. Isso significa segurança absoluta para o seu RH.</p>
+                    <p class="en">100% unprecedented model with active legal registration. This means absolute security for your HR.</p>
+                    <p class="es">Modelo 100% inédito y cuenta con registro legal activo. Esto significa seguridad absoluta para su RRHH.</p>
                 </div>
                 <div class="servicos-grid">
-                    <div class="homeclubt-card"><i class="fas fa-spa"></i><h4 class="pt">Wellness Integrado</h4><p class="pt">Manutenção e comodidade direta na residência.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-hand-holding-heart"></i><h4 class="pt">Lealdade e Retenção</h4><p class="pt">Crie uma barreira de saída emocional abraçando a família.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-chart-line"></i><h4 class="pt">Zero Atrito</h4><p class="pt">Gestão automatizada e implementação sem burocracia.</p></div>
+                    <div class="homeclubt-card"><i class="fas fa-spa"></i>
+                        <h4 class="pt">Wellness Integrado</h4><h4 class="en">Integrated Wellness</h4><h4 class="es">Bienestar Integrado</h4>
+                        <p class="pt">Manutenção e comodidade direta na residência.</p>
+                        <p class="en">Direct home maintenance and convenience.</p>
+                        <p class="es">Mantenimiento y comodidad directa en la residencia.</p>
+                    </div>
+                    <div class="homeclubt-card"><i class="fas fa-hand-holding-heart"></i>
+                        <h4 class="pt">Lealdade e Retenção</h4><h4 class="en">Loyalty & Retention</h4><h4 class="es">Lealtad y Retención</h4>
+                        <p class="pt">Crie uma barreira de saída emocional abraçando a família.</p>
+                        <p class="en">Create an emotional exit barrier by embracing the family.</p>
+                        <p class="es">Cree una barrera de salida emocional abrazando a la familia.</p>
+                    </div>
+                    <div class="homeclubt-card"><i class="fas fa-chart-line"></i>
+                        <h4 class="pt">Zero Atrito</h4><h4 class="en">Zero Friction</h4><h4 class="es">Cero Fricción</h4>
+                        <p class="pt">Gestão automatizada e implementação sem burocracia.</p>
+                        <p class="en">Automated management and bureaucracy-free implementation.</p>
+                        <p class="es">Gestión automatizada e implementación sin burocracia.</p>
+                    </div>
                 </div>
                 <div style="text-align: center; margin-top: 20px;">
                     <a href="http://homeclubt.com" target="_blank" class="btn-wellness">
                         <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> 
                         <span class="pt">ACESSAR PORTAL HOME CLUB T</span>
+                        <span class="en">ACCESS HOME CLUB T PORTAL</span>
+                        <span class="es">ACCEDER AL PORTAL HOME CLUB T</span>
                     </a>
                 </div>
             </div>
@@ -352,23 +416,54 @@
         <section class="lp-section lp-construt" id="lp-construt-section">
             <div class="construt-header">
                 <div class="construt-header-text">
-                    <h2><span class="pt">O Fim do Atraso e da <span>Oscilação de Preços</span> na Sua Obra.</span></h2>
-                    <p class="construt-alerta">A <strong>CONSTRU T</strong> transforma a engenharia de suprimentos em um modelo <strong>SaaS (Assinatura Anual)</strong>.</p>
+                    <h2>
+                        <span class="pt">O Fim do Atraso e da <span>Oscilação de Preços</span> na Sua Obra.</span>
+                        <span class="en">The End of Delays and <span>Price Oscillation</span> in Your Construction.</span>
+                        <span class="es">El Fin de los Retrasos y la <span>Oscilación de Precios</span> en su Obra.</span>
+                    </h2>
+                    <p class="construt-alerta">
+                        <span class="pt">A <strong>CONSTRU T</strong> transforma a engenharia de suprimentos em um modelo <strong>SaaS (Assinatura Anual)</strong>.</span>
+                        <span class="en"><strong>CONSTRU T</strong> transforms supply engineering into a <strong>SaaS (Annual Subscription)</strong> model.</span>
+                        <span class="es"><strong>CONSTRU T</strong> transforma la ingeniería de suministros en un modelo <strong>SaaS (Suscripción Anual)</strong>.</span>
+                    </p>
                 </div>
             </div>
             <div class="construt-body">
                 <div class="servicos-grid">
-                    <div class="servico-card-construt"><i class="fas fa-boxes"></i><h4 class="pt">SaaS de Insumos</h4><p class="pt">Tenha acesso programado a insumos com preço travado e anuidade diluída.</p></div>
-                    <div class="servico-card-construt"><i class="fas fa-tools"></i><h4 class="pt">Independência</h4><p class="pt">Marca própria desenhada para fácil aplicação por sua própria equipe.</p></div>
-                    <div class="servico-card-construt"><i class="fas fa-truck-loading"></i><h4 class="pt">Logística</h4><p class="pt">Garantimos que o material exato chegue no dia planejado, com 15 anos de expertise.</p></div>
+                    <div class="servico-card-construt"><i class="fas fa-boxes"></i>
+                        <h4 class="pt">SaaS de Insumos</h4><h4 class="en">SaaS Supplies</h4><h4 class="es">SaaS de Insumos</h4>
+                        <p class="pt">Tenha acesso programado a insumos com preço travado e anuidade diluída.</p>
+                        <p class="en">Programmed access to supplies with locked prices and diluted annuity.</p>
+                        <p class="es">Tenga acceso programado a insumos con precio fijo y anualidad diluida.</p>
+                    </div>
+                    <div class="servico-card-construt"><i class="fas fa-tools"></i>
+                        <h4 class="pt">Independência</h4><h4 class="en">Independence</h4><h4 class="es">Independencia</h4>
+                        <p class="pt">Marca própria desenhada para fácil aplicação por sua própria equipe.</p>
+                        <p class="en">In-house brand designed for easy application by your own team.</p>
+                        <p class="es">Marca propia diseñada para una fácil aplicación por su propio equipo.</p>
+                    </div>
+                    <div class="servico-card-construt"><i class="fas fa-truck-loading"></i>
+                        <h4 class="pt">Logística</h4><h4 class="en">Logistics</h4><h4 class="es">Logística</h4>
+                        <p class="pt">Garantimos que o material exato chegue no dia planejado, com 15 anos de expertise.</p>
+                        <p class="en">We guarantee exact materials arrive on schedule, with 15 years of expertise.</p>
+                        <p class="es">Garantizamos que el material exacto llegue el día planeado, con 15 años de experiencia.</p>
+                    </div>
                 </div>
                 <div class="construt-ecosystem">
-                    <h3><span class="pt">O Poder do Ecossistema TGROUP</span></h3>
+                    <h3>
+                        <span class="pt">O Poder do Ecossistema TGROUP</span>
+                        <span class="en">The Power of the TGROUP Ecosystem</span>
+                        <span class="es">El Poder del Ecosistema TGROUP</span>
+                    </h3>
                     <p class="pt">Nossos clientes recebem condições exclusivas e acesso VIP a todo o ecossistema T.</p>
+                    <p class="en">Our clients receive exclusive conditions and VIP access to the entire T ecosystem.</p>
+                    <p class="es">Nuestros clientes reciben condiciones exclusivas y acceso VIP a todo el ecosistema T.</p>
                 </div>
                 <div style="text-align: center;">
                     <a href="https://wa.me/5511947879779?text=Olá! Quero conhecer o modelo SaaS da CONSTRU T." target="_blank" class="btn-urgente">
                         <span class="pt">ASSINAR PLATAFORMA E BLINDAR MINHA OBRA</span>
+                        <span class="en">SUBSCRIBE TO PLATFORM AND SHIELD MY PROJECT</span>
+                        <span class="es">SUSCRIBIRSE A LA PLATAFORMA Y BLINDAR MI OBRA</span>
                     </a>
                 </div>
             </div>
@@ -376,40 +471,98 @@
         
         <section class="lp-section lp-brandt" id="lp-brandt-section">
             <div class="brandt-header">
-                <h2><span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span></h2>
-                <p class="brandt-alerta">Nós identificamos o seu potencial, modelamos talentos na nossa Academy T e entregamos toda a engenharia societária e jurídica.</p>
+                <h2>
+                    <span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span>
+                    <span class="en">You Focus on the Stage.<br>We Focus on the <span>Empire.</span></span>
+                    <span class="es">Usted se Enfoca en el Escenario.<br>Nosotros en el <span>Imperio.</span></span>
+                </h2>
+                <p class="brandt-alerta">
+                    <span class="pt">Nós identificamos o seu potencial, modelamos talentos na nossa Academy T e entregamos toda a engenharia societária e jurídica.</span>
+                    <span class="en">We identify your potential, model talent in our Academy T, and deliver all corporate and legal engineering.</span>
+                    <span class="es">Identificamos su potencial, modelamos talentos en nuestra Academy T y entregamos toda la ingeniería corporativa y legal.</span>
+                </p>
                 <div class="brandt-investment-box">
-                    <h3><span class="pt">Aceleração com Aporte Financeiro Garantido</span></h3>
+                    <h3>
+                        <span class="pt">Aceleração com Aporte Financeiro Garantido</span>
+                        <span class="en">Acceleration with Guaranteed Financial Support</span>
+                        <span class="es">Aceleración con Aporte Financiero Garantizado</span>
+                    </h3>
                     <p class="pt">Estruturamos sua carreira para receber aportes financeiros e investimentos garantidos.</p>
+                    <p class="en">We structure your career to receive financial injections and guaranteed investments.</p>
+                    <p class="es">Estructuramos su carrera para recibir aportes financieros e inversiones garantizadas.</p>
                 </div>
             </div>
             <div class="servicos-grid">
-                <div class="servico-card-brandt"><i class="fas fa-graduation-cap"></i><h4 class="pt">Academy T</h4><p class="pt">Lapidamos talentos e mentores criando autoridades inquestionáveis.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-balance-scale-right"></i><h4 class="pt">Engenharia Fiscal</h4><p class="pt">Suporte na abertura com inteligência tributária e blindagem patrimonial.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-bullseye"></i><h4 class="pt">Posicionamento</h4><p class="pt">Cuidamos da jornada para que marcas escalem produtos físicos e infoprodutos.</p></div>
+                <div class="servico-card-brandt"><i class="fas fa-graduation-cap"></i>
+                    <h4 class="pt">Academy T</h4><h4 class="en">Academy T</h4><h4 class="es">Academy T</h4>
+                    <p class="pt">Lapidamos talentos e mentores criando autoridades inquestionáveis.</p>
+                    <p class="en">We polish talent and mentors, creating unquestionable authorities.</p>
+                    <p class="es">Pulimos talentos y mentores creando autoridades incuestionables.</p>
+                </div>
+                <div class="servico-card-brandt"><i class="fas fa-balance-scale-right"></i>
+                    <h4 class="pt">Engenharia Fiscal</h4><h4 class="en">Tax Engineering</h4><h4 class="es">Ingeniería Fiscal</h4>
+                    <p class="pt">Suporte na abertura com inteligência tributária e blindagem patrimonial.</p>
+                    <p class="en">Support in business formation with tax intelligence and asset shielding.</p>
+                    <p class="es">Soporte en la apertura con inteligencia tributaria y blindaje patrimonial.</p>
+                </div>
+                <div class="servico-card-brandt"><i class="fas fa-bullseye"></i>
+                    <h4 class="pt">Posicionamento</h4><h4 class="en">Positioning</h4><h4 class="es">Posicionamiento</h4>
+                    <p class="pt">Cuidamos da jornada para que marcas escalem produtos físicos e infoprodutos.</p>
+                    <p class="en">We manage the journey for brands to scale physical and digital products.</p>
+                    <p class="es">Cuidamos el proceso para que las marcas escalen productos físicos e infoproductos.</p>
+                </div>
             </div>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="https://wa.me/5511947879779?text=Olá! Quero estruturar meu império com a BRAND T." target="_blank" class="btn-urgente">
                     <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span>
+                    <span class="en">STRUCTURE MY EMPIRE AND SCALE</span>
+                    <span class="es">ESTRUCTURAR MI IMPERIO Y ESCALAR</span>
                 </a>
             </div>
         </section>
 
         <section class="lp-section lp-payt" id="lp-payt-section">
             <div class="payt-header">
-                <h2><span class="pt">Pare de Deixar Milhões na Mesa com <span>Gateways Genéricos</span></span></h2>
+                <h2>
+                    <span class="pt">Pare de Deixar Milhões na Mesa com <span>Gateways Genéricos</span></span>
+                    <span class="en">Stop Leaving Millions on the Table with <span>Generic Gateways</span></span>
+                    <span class="es">Deje de Perder Millones con <span>Gateways Genéricos</span></span>
+                </h2>
                 <p class="pt">Descubra a engenharia financeira desenvolvida para quem não tem tempo para falsas recusas.</p>
+                <p class="en">Discover financial engineering developed for those who have no time for false declines.</p>
+                <p class="es">Descubra la ingeniería financiera desarrollada para quienes no tienen tiempo para falsos rechazos.</p>
             </div>
             <div class="payt-body">
-                <p class="payt-alerta">Cada 1% de transações legítimas recusadas pelo antifraude mal calibrado significa milhares de reais perdidos.</p>
+                <p class="payt-alerta">
+                    <span class="pt">Cada 1% de transações legítimas recusadas pelo antifraude mal calibrado significa milhares de reais perdidos.</span>
+                    <span class="en">Every 1% of legitimate transactions rejected by poorly calibrated anti-fraud means thousands lost.</span>
+                    <span class="es">Cada 1% de transacciones legítimas rechazadas por un antifraude mal calibrado significa miles perdidos.</span>
+                </p>
                 <div class="servicos-grid">
-                    <div class="servico-card-payt"><i class="fas fa-microchip"></i><h4 class="pt">Roteamento IA</h4><p class="pt">Múltiplos adquirentes em milissegundos para aprovação extrema.</p></div>
-                    <div class="servico-card-payt"><i class="fas fa-shield-alt"></i><h4 class="pt">Antifraude Cirúrgico</h4><p class="pt">Bloqueie fraudadores, não clientes reais, com cruzamento de dados de alto nível.</p></div>
-                    <div class="servico-card-payt"><i class="fas fa-bolt"></i><h4 class="pt">Liquidez</h4><p class="pt">Planos agressivos de antecipação D+1 ou D+0. Seu dinheiro na sua mão.</p></div>
+                    <div class="servico-card-payt"><i class="fas fa-microchip"></i>
+                        <h4 class="pt">Roteamento IA</h4><h4 class="en">AI Routing</h4><h4 class="es">Enrutamiento IA</h4>
+                        <p class="pt">Múltiplos adquirentes em milissegundos para aprovação extrema.</p>
+                        <p class="en">Multiple acquirers in milliseconds for extreme approval.</p>
+                        <p class="es">Múltiples adquirentes en milisegundos para una aprobación extrema.</p>
+                    </div>
+                    <div class="servico-card-payt"><i class="fas fa-shield-alt"></i>
+                        <h4 class="pt">Antifraude Cirúrgico</h4><h4 class="en">Surgical Anti-fraud</h4><h4 class="es">Antifraude Quirúrgico</h4>
+                        <p class="pt">Bloqueie fraudadores, não clientes reais, com cruzamento de dados de alto nível.</p>
+                        <p class="en">Block fraudsters, not real customers, with high-level data crossing.</p>
+                        <p class="es">Bloquee estafadores, no clientes reales, con cruce de datos de alto nivel.</p>
+                    </div>
+                    <div class="servico-card-payt"><i class="fas fa-bolt"></i>
+                        <h4 class="pt">Liquidez</h4><h4 class="en">Liquidity</h4><h4 class="es">Liquidez</h4>
+                        <p class="pt">Planos agressivos de antecipação D+1 ou D+0. Seu dinheiro na sua mão.</p>
+                        <p class="en">Aggressive D+1 or D+0 anticipation plans. Your money in your hands.</p>
+                        <p class="es">Planes agresivos de anticipación D+1 o D+0. Su dinero en sus manos.</p>
+                    </div>
                 </div>
                 <div style="text-align: center;">
                     <a href="https://wa.me/5511947879779?text=Olá! Quero conhecer a engenharia financeira da PAY T." target="_blank" class="btn-urgente">
                         <span class="pt">DESTRAVAR MINHA OPERAÇÃO AGORA</span>
+                        <span class="en">UNLOCK MY OPERATION NOW</span>
+                        <span class="es">DESBLOQUEAR MI OPERACIÓN AHORA</span>
                     </a>
                 </div>
             </div>
@@ -418,12 +571,14 @@
         <footer class="footer">
             <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | 
                 <span class="pt">Atuação desde 1998 e em 2025 com nova estrutura. SÃO PAULO/SP - BRASIL.</span>
+                <span class="en">Operating since 1998 and in 2025 with a new structure. SAO PAULO/SP - BRAZIL.</span>
+                <span class="es">Operando desde 1998 y en 2025 con una nueva estructura. SÃO PAULO/SP - BRASIL.</span>
             </div>
             <div class="footer-links">
-                <a onclick="abrirModal('modal-termos')">Termos de Uso</a>
-                <a onclick="abrirModal('modal-privacidade')">Privacidade</a>
+                <a onclick="abrirModal('modal-termos')"><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></a>
+                <a onclick="abrirModal('modal-privacidade')"><span class="pt">Privacidade</span><span class="en">Privacy</span><span class="es">Privacidad</span></a>
                 <a onclick="abrirModal('modal-compliance')">Compliance</a>
-                <a onclick="abrirModal('modal-contato')">Contato</a>
+                <a onclick="abrirModal('modal-contato')"><span class="pt">Contato</span><span class="en">Contact</span><span class="es">Contacto</span></a>
             </div>
         </footer>
     </main>
@@ -433,16 +588,20 @@
     <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3>Termos de Uso</h3>
+            <h3><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></h3>
             <p class="pt">A utilização das plataformas TGROUP implica na aceitação incondicional de nossas diretrizes operacionais e contratos de SLA (Service Level Agreement).</p>
+            <p class="en">The use of TGROUP platforms implies the unconditional acceptance of our operational guidelines and SLA (Service Level Agreement) contracts.</p>
+            <p class="es">El uso de las plataformas TGROUP implica la aceptación incondicional de nuestras directrices operativas y contratos de SLA (Service Level Agreement).</p>
         </div>
     </div>
 
     <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3>Política de Privacidade</h3>
+            <h3><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span></h3>
             <p class="pt">Atuamos em total conformidade com a LGPD. Empregamos protocolos de criptografia e arquitetura de dados blindada.</p>
+            <p class="en">We act in full compliance with LGPD. We employ encryption protocols and shielded data architecture.</p>
+            <p class="es">Actuamos en total conformidad con la LGPD. Empleamos protocolos de cifrado y arquitectura de datos blindada.</p>
         </div>
     </div>
 
@@ -451,13 +610,15 @@
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3>Governança e Compliance</h3>
             <p class="pt">Operamos sob rigorosos padrões de ética empresarial com tolerância zero contra corrupção e fraudes operacionais.</p>
+            <p class="en">We operate under strict business ethics standards with zero tolerance for corruption and operational fraud.</p>
+            <p class="es">Operamos bajo estrictos estándares de ética empresarial con tolerancia cero contra la corrupción y el fraude operativo.</p>
         </div>
     </div>
     
     <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)">
         <div class="modal-content" style="text-align: center;">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
+            <h3><span class="pt">Fale com a </span><span class="en">Speak with </span><span class="es">Hable con </span><span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
             <div style="font-size: 1.2rem; margin-bottom: 15px;">
                 <i class="fas fa-envelope" style="color:var(--cor-primaria);"></i> tgroupsolutions.br@gmail.com
             </div>
@@ -503,16 +664,66 @@
             },
             en: {
                 home: {
-                    titulo: "Innovation and <span>Management</span>",
-                    texto: "The <span class='marca-destaque'>TGROUP SOLUTIONS</span> matrix integrates startups across sectors.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Access our solutions</a>",
+                    titulo: "Innovation and <span>Integrated Management</span>",
+                    texto: "The <span class='marca-destaque'>TGROUP SOLUTIONS</span> matrix represents an innovative matrix integrating startups across multiple sectors.<br><br>Our expertise focuses on sustainable growth and cutting-edge management.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Access our solutions</a>",
                     imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                },
+                payt: {
+                    titulo: "Financial Matrix and <span>Payment Gateway</span>",
+                    texto: "<span class='marca-destaque'>PAY T</span> is the Ecosystem's Financial Management Fintech, offering commercial engineering for operations that need to scale.",
+                    imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+                },
+                imobt: {
+                    titulo: "Intelligence and Management in <span>Real Estate Assets</span>",
+                    texto: "<span class='marca-destaque'>IMOB T</span> delivers complete management, from implementation to high-complexity regularization. We act actively to stop financial losses.",
+                    imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
+                },
+                construt: {
+                    titulo: "Distributor SaaS and <span>Marketplace</span>",
+                    texto: "<span class='marca-destaque'>CONSTRU T</span> operates as a B2B2C e-commerce focused on the Civil Construction market under a subscription model.",
+                    imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
+                },
+                homeclubt: {
+                    titulo: "Benefits Club and <span>Residential Wellness</span>",
+                    texto: "<span class='marca-destaque'>HOME CLUB T</span> is focused on the evolution of well-being, ensuring motivation and productivity for employees.",
+                    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
+                },
+                brandt: {
+                    titulo: "The Largest <span>Career and Brand</span> Manager",
+                    texto: "<span class='marca-destaque'>BRAND T</span> structures authorities and businesses, preparing your brand to generate revenue and receive guaranteed investments.",
+                    imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"]
                 }
             },
             es: {
                 home: {
-                    titulo: "Innovación y <span>Gestión</span>",
-                    texto: "La matriz <span class='marca-destaque'>TGROUP SOLUTIONS</span> integra startups en diversos sectores.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Acceda a nuestras soluciones</a>",
+                    titulo: "Innovación y <span>Gestión Integrada</span>",
+                    texto: "La matriz <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa una matriz innovadora que integra startups en diversos sectores.<br><br>Nuestra experiencia se centra en el crecimiento sostenible y la gestión de vanguardia.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Acceda a nuestras soluciones</a>",
                     imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                },
+                payt: {
+                    titulo: "Matriz Financiera y <span>Pasarela de Pagos</span>",
+                    texto: "<span class='marca-destaque'>PAY T</span> es la Fintech de Gestión Financiera del Ecosistema, ofreciendo ingeniería comercial para operaciones que necesitan escalar.",
+                    imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+                },
+                imobt: {
+                    titulo: "Inteligencia y Gestión en <span>Activos Inmobiliarios</span>",
+                    texto: "<span class='marca-destaque'>IMOB T</span> ofrece gestión completa, desde la implementación hasta la regularización de alta complejidad. Actuamos activamente para detener pérdidas financieras.",
+                    imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
+                },
+                construt: {
+                    titulo: "SaaS Distribuidor y <span>Marketplace</span>",
+                    texto: "<span class='marca-destaque'>CONSTRU T</span> opera como e-commerce B2B2C enfocado en el mercado de la Construcción Civil bajo un modelo de suscripción.",
+                    imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
+                },
+                homeclubt: {
+                    titulo: "Club de Beneficios y <span>Wellness Residencial</span>",
+                    texto: "<span class='marca-destaque'>HOME CLUB T</span> se enfoca en la evolución del bienestar, garantizando motivación y productividad a los colaboradores.",
+                    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
+                },
+                brandt: {
+                    titulo: "La Mayor Gestora de <span>Carreras y Marcas</span>",
+                    texto: "<span class='marca-destaque'>BRAND T</span> estructura autoridades y negocios, preparando su marca para facturar y recibir aportes garantizados.",
+                    imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"]
                 }
             }
         };
