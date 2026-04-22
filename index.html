@@ -25,22 +25,24 @@
         
         html, body { font-family: 'Inter', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); display: flex; min-height: 100vh; overflow-x: hidden; width: 100%; max-width: 100%; position: relative; }
         
-        /* Proteção anti-vazamento e quebra segura */
         p, h1, h2, h3, h4, h5, h6, span, a, li, div { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
         
         .marca-destaque { color: var(--cor-primaria) !important; text-transform: uppercase !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif; }
 
         /* ==================== SISTEMA DE MULTI-IDIOMA ==================== */
-        body:not(.lang-en):not(.lang-es) .en, body:not(.lang-en):not(.lang-es) .es { display: none !important; }
+        body:not(.lang-en):not(.lang-es) .en,
+        body:not(.lang-en):not(.lang-es) .es { display: none !important; }
+        
         body.lang-en .pt, body.lang-en .es { display: none !important; }
         body.lang-es .pt, body.lang-es .en { display: none !important; }
 
         .lang-container { display: flex; justify-content: center; align-items: center; gap: 5px; margin-bottom: 30px; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; color: #ffffff; }
+        .lang-container i { font-size: 0.8rem; margin-right: 2px; }
         .lang-btn { color: #ffffff; cursor: pointer; transition: 0.3s; }
         .lang-btn.active { color: var(--cor-primaria); text-shadow: 0 0 10px rgba(0, 132, 61, 0.4); }
         .lang-sep { color: #ffffff; opacity: 0.4; font-weight: 400; }
 
-        /* ==================== SIDEBAR DARK MODE ==================== */
+        /* ==================== SIDEBAR ==================== */
         .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda-sidebar); padding: 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
         .sidebar-logo { width: 100%; max-width: 190px; height: auto; margin: 0 auto 30px auto; display: block; border-radius: 8px; }
         .nav-list { list-style: none; flex-grow: 1; }
@@ -51,7 +53,6 @@
         /* ==================== ÁREA PRINCIPAL ==================== */
         .main-content { flex: 1; margin-left: 320px; display: flex; flex-direction: column; position: relative; min-height: 100vh; width: calc(100% - 320px); max-width: 100%; }
         
-        /* CORREÇÃO DESKTOP: Blindagem contra esmagamento de texto */
         .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px; gap: 60px; animation: slideUpFade 0.8s ease; flex-wrap: nowrap; }
         .hero-text { flex: 0 0 45%; min-width: 450px; flex-shrink: 0; } 
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; color: var(--cor-texto); }
@@ -63,7 +64,7 @@
 
         .imagem-grid-4 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; min-width: 0; }
         .imagem-grid-4 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        
+
         .imagem-grid-3 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; min-width: 0; }
         .imagem-grid-3 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; }
         .imagem-grid-3 img:first-child { grid-row: span 2; } 
@@ -76,124 +77,66 @@
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
-        /* ==================== LP ESTILOS GERAIS ==================== */
+        /* ==================== LP ESTILOS ==================== */
         .lp-section { display: none; border-radius: 20px; margin: 20px 60px 60px 60px; animation: slideUpFade 0.6s ease; overflow: hidden; width: auto; max-width: 100%; }
         
         .lp-imobt { background-color: #0a0a0a; color: #ffffff; padding: 80px 60px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.15); }
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span:not(.pt):not(.en):not(.es) { color: #ff3333; }
         .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 30px; border-left: 4px solid #ff3333; padding-left: 20px; }
+        
         .imobt-auditoria-box { background: rgba(255,255,255,0.04); padding: 40px; border-radius: 15px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.08); border-left: 5px solid var(--cor-primaria); }
         .imobt-auditoria-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
         .imobt-auditoria-box p { font-size: 1.1rem; line-height: 1.7; color: #bbb; }
-        .servico-card-imobt { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; transition: 0.3s; }
-        .servico-card-imobt:hover { border-color: var(--cor-primaria); transform: translateY(-5px); background: rgba(0, 132, 61, 0.05); }
-        .servico-card-imobt i { font-size: 2.2rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .servico-card-imobt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; line-height: 1.3;}
-        .servico-card-imobt p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
-
+        
         .lp-homeclubt { margin: 20px 60px 60px 60px; }
-        .middle-hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-bottom: 80px; }
-        .middle-hero-text { flex: 1; }
-        .middle-hero-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; color: var(--cor-texto); text-transform: uppercase; }
-        .middle-hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; }
-        .middle-hero-image { flex: 1; text-align: right; }
-        .middle-hero-image img { width: 100%; max-width: 550px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .homeclubt-cards-box { background-color: #f8faf9; padding: 60px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.08); border: 1px solid #e9ecef; }
         .homeclubt-cards-box h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
         .homeclubt-cards-box h3 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
         .wellness-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; border-left: 4px solid var(--cor-primaria); padding-left: 20px; }
-        .homeclubt-exclusividade-box { background: rgba(0, 132, 61, 0.05); padding: 40px; border-radius: 15px; margin-bottom: 40px; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); }
-        .homeclubt-exclusividade-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 15px; text-transform: none; }
-        .homeclubt-exclusividade-box p { font-size: 1.1rem; line-height: 1.7; color: #444; }
-        .homeclubt-card { background: #ffffff; border: 1px solid #eef2f5; padding: 30px; border-radius: 15px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
-        .homeclubt-card:hover { border-color: var(--cor-primaria); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 132, 61, 0.1); }
-        .homeclubt-card i { font-size: 2rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .homeclubt-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #1a1a1a; line-height: 1.3;}
-        .homeclubt-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
+        
+        .lp-construt { background-color: #f0f2f5; padding: 60px; border: 1px solid #d1d9e0; }
+        .construt-ecosystem { background: var(--cor-primaria); color: #fff; padding: 40px; border-radius: 15px; text-align: center; margin-bottom: 50px; }
 
-        .lp-construt { background-color: #f0f2f5; color: #2c3e50; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #d1d9e0; }
-        .construt-header { padding: 80px 60px; text-align: left; background: #ffffff; border-bottom: 1px solid #d1d9e0; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-        .construt-header-text { flex: 1; }
-        .construt-header-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.6rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.2; }
-        .construt-header-text h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
-        .construt-alerta { font-size: 1.15rem; line-height: 1.8; color: #555; border-left: 4px solid #ff9900; padding-left: 20px; }
-        .construt-body { padding: 60px; }
-        .servico-card-construt { background: #ffffff; border: 1px solid #e1e5eb; padding: 40px 30px; border-radius: 15px; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
-        .servico-card-construt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.1); }
-        .servico-card-construt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
-        .servico-card-construt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 15px; color: #1a1a1a; text-transform: uppercase; }
-        .servico-card-construt p { font-size: 1rem; color: #666; line-height: 1.6; }
-        .construt-ecosystem { background: var(--cor-primaria); color: #fff; padding: 40px; border-radius: 15px; text-align: center; margin-top: 20px; margin-bottom: 50px; box-shadow: 0 15px 30px rgba(0, 132, 61, 0.3); }
-        .construt-ecosystem h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; }
-        .construt-ecosystem p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
-
-        .lp-brandt { background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
-        .brandt-header { text-align: center; margin-bottom: 60px; }
-        .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
+        .lp-brandt { background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; }
+        .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
         .brandt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
-        .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 950px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-left: 5px solid var(--cor-primaria); }
-        .brandt-investment-box { background: rgba(0, 132, 61, 0.04); padding: 40px; border-radius: 15px; max-width: 950px; margin: 40px auto 60px auto; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); text-align: left; }
-        .brandt-investment-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 15px; text-transform: none; }
-        .brandt-investment-box p { font-size: 1.1rem; line-height: 1.7; color: #444; }
-        .servico-card-brandt { background: #ffffff; border: 1px solid #eee; padding: 40px 30px; border-radius: 15px; transition: 0.4s; }
-        .servico-card-brandt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.1); }
-        .servico-card-brandt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
-        .servico-card-brandt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a; text-transform: uppercase; }
-        .servico-card-brandt p { font-size: 1rem; color: #666; line-height: 1.6; }
-
-        .lp-payt { background-color: #050505; color: #ffffff; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; }
-        .payt-header { padding: 80px 60px 40px 60px; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border-bottom: 1px solid #1a1a1a; }
-        .payt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
-        .payt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
-        .payt-header p { font-size: 1.2rem; line-height: 1.8; color: #aaaaaa; max-width: 800px; margin: 0 auto; font-weight: 300; }
-        .payt-body { padding: 60px; }
-        .payt-alerta { font-size: 1.15rem; line-height: 1.8; color: #eeeeee; margin-bottom: 50px; border-left: 4px solid #ff3333; padding-left: 20px; background: rgba(255, 51, 51, 0.05); padding: 20px; border-radius: 0 10px 10px 0; }
-        .servico-card-payt { background: #0a0a0a; border: 1px solid #222; padding: 40px 30px; border-radius: 15px; transition: 0.4s; text-align: left; }
-        .servico-card-payt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.15); background: #0d0d0d; }
-        .servico-card-payt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
-        .servico-card-payt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
-        .servico-card-payt p { font-size: 1rem; color: #888; line-height: 1.6; }
+        .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 950px; margin: 0 auto 40px auto; background: #ffffff; padding: 30px; border-radius: 15px; border-left: 5px solid var(--cor-primaria); }
 
         /* ==================== RODAPÉ ==================== */
         .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; flex-wrap: nowrap; }
         .footer-links { display: flex; gap: 15px; flex-wrap: nowrap; }
         .footer-links a { color: #777; text-decoration: none; font-weight: 500; transition: color 0.3s; cursor: pointer; white-space: nowrap; }
-        .footer-links a:hover { color: var(--cor-primaria); }
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
         
-        /* MODAIS COMPLETOS */
+        /* MODAIS */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
         .modal-content { background: var(--cor-fundo); width: 90%; max-width: 750px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
-        .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
-        .modal-content p { color:#555; line-height: 1.8; margin-bottom: 15px; }
+        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; }
         
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
         /* ==================== RESPONSIVO MOBILE BLINDADO ==================== */
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
-            .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; border-right: none; border-bottom: 1px solid #111; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; border-right: none; border-bottom: 1px solid #111; z-index: 1; }
             .sidebar-logo { margin: 0 auto 20px auto; max-width: 160px; }
-            .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; } 
-            .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 10px 12px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); opacity: 1; text-align: center; white-space: normal; line-height: 1.3;}
-            .nav-master-link { border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; padding-bottom: 10px; }
-            
+            .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; } 
+            .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 10px 12px; background: rgba(255,255,255,0.08); border-radius: 8px; }
             .main-content { margin-left: 0; width: 100%; } 
-            .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; gap: 30px; } 
-            .hero-text { flex: 0 0 100%; min-width: 100%; width: 100%; padding-right: 0; }
-            .hero-text h1 { font-size: 2.1rem; line-height: 1.2; }
-            .hero-text p { font-size: 1.05rem; }
-            .hero-image-container { justify-content: center; width: 100%; } 
-            .hero-image-container img { height: auto; max-height: 300px; width: 100%; } 
-            .lp-section { width: 100%; margin: 0; padding: 30px 20px; border-radius: 0; border: none; }
-            .btn-urgente, .btn-wellness { padding: 15px 20px; font-size: 1rem; width: 100%; display: block; box-sizing: border-box; }
-            .servicos-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 30px; }
+            .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; gap: 30px; flex-wrap: wrap; } 
+            .hero-text { flex: 0 0 100%; min-width: 100%; width: 100%; }
+            .hero-text h1 { font-size: 2.1rem; }
+            
+            /* Correção de Imagem Pulante no Mobile */
+            .hero-image-container { justify-content: center; width: 100%; height: auto; min-height: 250px; } 
+            .hero-image-container img { height: auto !important; max-height: 350px; width: 100% !important; object-fit: contain !important; } 
+            
+            .lp-section { width: 100%; margin: 0; padding: 30px 20px; border-radius: 0; }
+            .servicos-grid { grid-template-columns: 1fr; }
             .footer { flex-direction: column; gap: 15px; text-align: center; padding: 25px 20px; } 
-            .footer-links { flex-wrap: wrap; justify-content: center; gap: 10px; } 
-            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+            .footer-links { flex-wrap: wrap; justify-content: center; } 
+            .btn-urgente, .btn-wellness { width: 100%; padding: 15px 20px; }
         }
     </style>
 </head>
@@ -202,11 +145,6 @@
     <aside class="sidebar">
         <div class="lang-container">
             <i class="fas fa-globe"></i>
-            <span class="lang-label">
-                <span class="pt">IDIOMA:</span>
-                <span class="en">LANGUAGE:</span>
-                <span class="es">IDIOMA:</span>
-            </span>
             <span id="btn-pt" class="lang-btn active" onclick="changeLang('pt')">PT</span> <span class="lang-sep">|</span> 
             <span id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</span> <span class="lang-sep">|</span> 
             <span id="btn-es" class="lang-btn" onclick="changeLang('es')">ES</span>
@@ -230,183 +168,55 @@
             </section>
 
         <section class="lp-section lp-imobt" id="lp-imobt-section">
-            <h2>
-                <span class="pt">O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</span>
-                <span class="en">The Silent Risk That Can Cost Your Operation <span>Millions</span></span>
-                <span class="es">El Riesgo Silencioso Que Puede Costar <span>Millones</span> a Su Operación</span>
-            </h2>
-            <p class="alerta">
-                <span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</span>
-                <span class="en"><strong>Asset Risk Aversion:</strong> An expired Operating License or the lack of an updated AVCB generates daily fines and immediate embargo of your facilities.</span>
-                <span class="es"><strong>Aversión al Riesgo Patrimonial:</strong> Una Licencia de Funcionamiento vencida o la falta de un AVCB actualizado genera multas diarias y embargo inmediato de sus instalaciones.</span>
-            </p>
+            <h2><span class="pt">O Risco Silencioso Que Pode Custar <span>Milhões</span> à Sua Operação</span></h2>
+            <p class="alerta"><span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB gera multas diárias e embargo imediato.</span></p>
 
             <div class="imobt-auditoria-box">
-                <h3>
-                    <span class="pt">Análise de Viabilidade Técnica</span>
-                    <span class="en">Technical Feasibility Analysis</span>
-                    <span class="es">Análisis de Viabilidad Técnica</span>
-                </h3>
+                <h3><span class="pt">Análise de Viabilidade Técnica</span></h3>
                 <p class="pt">Cuidamos de toda a fase de <strong>análise de viabilidade técnica de locais</strong> para implantação da infraestrutura pretendida. Nossa equipe analisa zoneamento, restrições e potencial construtivo para garantir que o seu investimento seja seguro e viável antes mesmo da implantação.</p>
-                <p class="en">We handle the entire phase of technical feasibility analysis of sites. Our team analyzes zoning, restrictions, and building potential to ensure your investment is safe and viable.</p>
-                <p class="es">Nos encargamos de toda la fase de análisis de viabilidad técnica de los lugares. Nuestro equipo analiza zonificación y restricciones para garantizar que su inversión sea segura.</p>
             </div>
 
             <div class="imobt-auditoria-box">
-                <h3>
-                    <span class="pt">O Sangramento Burocrático Invisível</span>
-                    <span class="en">The Invisible Bureaucratic Bleeding</span>
-                    <span class="es">El Sangrado Burocrático Invisible</span>
-                </h3>
-                <p class="pt">Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro.</p>
-                <p class="en">In large construction operations, the silent loss lies in internal lethargy. When a public agency issues a "Communique", there is a fatal deadline. <strong>IMOB T eliminates internal negligence.</strong> We unlock millions in immediate revenue.</p>
-                <p class="es">En grandes constructoras, la pérdida silenciosa radica en el letargo interno. Cuando una agencia pública emite un "Comuníquese", hay un plazo fatal. <strong>IMOB T elimina la negligencia interna.</strong> Desbloqueamos millones en ingresos.</p>
+                <h3><span class="pt">O Sangramento Burocrático Invisível</span></h3>
+                <p class="pt">Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um "Comunique-se", há um prazo fatal. <strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos, destravando receita imediata.</p>
             </div>
 
             <div class="imobt-auditoria-box">
-                <h3>
-                    <span class="pt">Implantação Legal e Suporte Comercial</span>
-                    <span class="en">Legal Implementation and Commercial Support</span>
-                    <span class="es">Implantación Legal y Soporte Comercial</span>
-                </h3>
-                <p class="pt">As incorporadoras podem contar com a IMOB T tanto na fase de <strong>implantação legal do projeto</strong> quanto na fase de comercialização das unidades. Atuamos de forma sinérgica, dando todo o <strong>suporte técnico comercial ao time de vendas</strong>, fornecendo materiais de marketing técnico e realizando a gestão rigorosa do controle de unidades vendidas e disponíveis.</p>
-                <p class="en">Developers can rely on IMOB T during both the legal project implementation phase and the units' commercialization phase. We provide full technical-commercial support to the sales team.</p>
-                <p class="es">Las desarrolladoras pueden contar con IMOB T tanto en la fase de implantación legal del proyecto como en la de comercialización. Brindamos soporte técnico comercial al equipo de ventas.</p>
+                <h3><span class="pt">Implantação Legal e Suporte Comercial</span></h3>
+                <p class="pt">As incorporadoras podem contar com a IMOB T tanto na fase de <strong>implantação legal do projeto</strong> quanto na comercialização das unidades. Damos suporte técnico comercial ao time de vendas, materiais de marketing e controle rigoroso de estoque de unidades.</p>
             </div>
 
             <div class="servicos-grid">
-                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i>
-                    <h4 class="pt">Aprovação e Regularização</h4><h4 class="en">Approval & Regularization</h4><h4 class="es">Aprobación y Regularización</h4>
-                    <p class="pt">Documentação técnica completa até o <strong>Habite-se</strong>. Garantimos projetos 100% dentro da lei.</p>
-                </div>
-                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i>
-                    <h4 class="pt">Conformidade e Segurança</h4><h4 class="en">Compliance & Security</h4><h4 class="es">Cumplimiento y Seguridad</h4>
-                    <p class="pt">Emissão e renovação de <strong>AVCB</strong> e <strong>CLCB</strong>. Blindamos o seu ativo e sua apólice.</p>
-                </div>
+                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4 class="pt">Aprovação Total</h4><p class="pt">Documentação técnica completa até o Habite-se.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4 class="pt">Segurança (AVCB)</h4><p class="pt">Emissão e renovação de licenças do Corpo de Bombeiros.</p></div>
             </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira com processos parados e regularizar minha operação." target="_blank" class="btn-urgente">
-                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
-                    <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span>
-                    <span class="en">REQUEST AUDIT AND SHIELD OPERATION</span>
-                    <span class="es">SOLICITAR AUDITORÍA Y BLINDAR OPERACIÓN</span>
-                </a>
-            </div>
-        </section>
-
-        <section class="lp-section lp-homeclubt" id="lp-homeclubt-section">
-            <div class="middle-hero">
-                <div class="middle-hero-text">
-                    <h2>
-                        <span class="pt">A EVOLUÇÃO DO <br><span>WELLNESS CORPORATIVO</span></span>
-                        <span class="en">THE EVOLUTION OF <br><span>CORPORATE WELLNESS</span></span>
-                        <span class="es">LA EVOLUCIÓN DEL <br><span>BIENESTAR CORPORATIVO</span></span>
-                    </h2>
-                    <p class="pt">A <strong>HOME CLUB T</strong> redefine o conceito de benefícios corporativos através de um clube de assinaturas focado na retenção familiar.</p>
-                </div>
-                <div class="middle-hero-image"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="Wellness"></div>
-            </div>
-            <div class="homeclubt-cards-box">
-                <h3>
-                    <span class="pt">O Fim do Turnover: A Casa do Seu Colaborador no <span>Maior Benefício</span></span>
-                    <span class="en">The End of Turnover: Turn Your Employee's Home into the <span>Greatest Benefit</span></span>
-                    <span class="es">El Fin de la Rotación: El Hogar de su Colaborador en el <span>Mayor Beneficio</span></span>
-                </h3>
-                <p class="wellness-text">
-                    <span class="pt">A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa.</span>
-                </p>
-
-                <div class="homeclubt-exclusividade-box">
-                    <h3>
-                        <span class="pt">Modelo Inédito e Registrado</span>
-                        <span class="en">Unprecedented & Registered Model</span>
-                        <span class="es">Modelo Inédito y Registrado</span>
-                    </h3>
-                    <p class="pt">O modelo de operação da <strong>HOME CLUB T é 100% inédito e possui registro legal ativo</strong>. Segurança absoluta para o seu RH.</p>
-                </div>
-
-                <div class="servicos-grid">
-                    <div class="homeclubt-card"><i class="fas fa-child"></i>
-                        <h4 class="pt">Desenvolvimento Infantil</h4><p class="pt">Kits lúdicos curados por neurocientistas e pedagogas para tranquilidade familiar.</p>
-                    </div>
-                    <div class="homeclubt-card"><i class="fas fa-gem"></i>
-                        <h4 class="pt">Box Premium</h4><p class="pt">Caixas de assinatura com marcas premium globais de beleza e autocuidado.</p>
-                    </div>
-                    <div class="homeclubt-card"><i class="fas fa-crown"></i>
-                        <h4 class="pt">Privilégios VIP</h4><p class="pt">Acesso VIP nas Live Shops e vantagens em todo o ecossistema TGROUP.</p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="http://homeclubt.com" target="_blank" class="btn-wellness">
-                        <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i> 
-                        <span class="pt">ACESSAR PORTAL HOME CLUB T</span>
-                        <span class="en">ACCESS HOME CLUB T PORTAL</span>
-                        <span class="es">ACCEDER AL PORTAL HOME CLUB T</span>
-                    </a>
-                </div>
-            </div>
+            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria da IMOB T para blindar minha operação." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span></a></div>
         </section>
 
         <section class="lp-section lp-brandt" id="lp-brandt-section">
             <div class="brandt-header">
-                <h2>
-                    <span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span>
-                    <span class="en">You Focus on the Stage.<br>We Focus on the <span>Empire.</span></span>
-                    <span class="es">Usted se Enfoca en el Escenario.<br>Nosotros en el <span>Imperio.</span></span>
-                </h2>
-                <p class="brandt-alerta">
-                    <span class="pt"><strong>A inovação definitiva na gestão de marcas e carreiras:</strong> Nós identificamos o seu potencial, modelamos talentos na nossa Academy T e entregamos toda a engenharia societária e jurídica. Cuidamos de toda a jornada para que marcas escalem vendas e profissionais vendam seus conhecimentos em grandes palcos.</span>
-                    <span class="en">Ultimate innovation in brand and career management. We manage the entire journey for brands to scale product sales and mentors to sell knowledge.</span>
-                    <span class="es">Innovación definitiva en gestión de marcas y carreras. Cuidamos toda la jornada para que las marcas escalen ventas y mentores vendan sus conocimientos.</span>
-                </p>
+                <h2><span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span></h2>
+                <p class="brandt-alerta"><span class="pt">A inovação definitiva na gestão de marcas e carreiras: Nós identificamos o seu potencial, modelamos talentos e entregamos toda a engenharia societária e jurídica.</span></p>
                 
-                <div class="brandt-investment-box">
-                    <h3>
-                        <span class="pt">Aceleração com Aporte Financeiro Garantido</span>
-                        <span class="en">Acceleration with Guaranteed Investment</span>
-                        <span class="es">Aceleración con Aporte Garantizado</span>
-                    </h3>
-                    <p class="pt">Preparamos a sua carreira para <strong>receberem aportes financeiros e investimentos garantidos</strong> através de modelo exclusivo e registrado.</p>
+                <div class="imobt-auditoria-box" style="background: rgba(0, 132, 61, 0.04); border-left-color: var(--cor-primaria);">
+                    <h3><span class="pt">Curadoria e Marketing Híbrido</span></h3>
+                    <p class="pt">Realizamos a <strong>curadoria estratégica para fixar a imagem</strong> da marca ou do profissional. Unimos ferramentas de marketing digital com <strong>estratégias físicas reais</strong>, como estações de divulgação e brindes personalizados de alto valor.</p>
                 </div>
             </div>
             <div class="servicos-grid">
-                <div class="servico-card-brandt"><i class="fas fa-bullhorn"></i>
-                    <h4 class="pt">Curadoria & Fixação de Imagem</h4><h4 class="en">Curation & Image Branding</h4><h4 class="es">Curaduría y Fijación de Imagen</h4>
-                    <p class="pt">Cuidamos da curadoria estratégica usando marketing digital combinado a estratégias físicas, com estações de divulgação e brindes personalizados.</p>
-                </div>
-                <div class="servico-card-brandt"><i class="fas fa-video"></i>
-                    <h4 class="pt">LiveShops & Produtos</h4><h4 class="en">LiveShops & Products</h4><h4 class="es">LiveShops y Productos</h4>
-                    <p class="pt">Plataforma padrão Netflix para marcas realizarem LiveShops e experts hospedarem seus cursos.</p>
-                </div>
-                <div class="servico-card-brandt"><i class="fas fa-hand-holding-usd"></i>
-                    <h4 class="pt">Aportes Garantidos</h4><h4 class="en">Guaranteed Contributions</h4><h4 class="es">Aportes Garantizados</h4>
-                    <p class="pt">Estruturamos sua marca para receberem injeções de capital e fundos de investimento com modelo registrado.</p>
-                </div>
+                <div class="servico-card-brandt"><i class="fas fa-video"></i><h4 class="pt">LiveShops & Vendas</h4><p class="pt">Plataforma para marcas escalarem produtos físicos ao vivo.</p></div>
+                <div class="servico-card-brandt"><i class="fas fa-microphone-alt"></i><h4 class="pt">Palcos & Autoridade</h4><p class="pt">Transformamos sua história em palestras corporativas de alto impacto.</p></div>
+                <div class="servico-card-brandt"><i class="fas fa-hand-holding-usd"></i><h4 class="pt">Aportes Garantidos</h4><p class="pt">Estruturamos seu negócio para receber aportes e investimentos.</p></div>
             </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://wa.me/5511947879779?text=Olá! Quero conhecer a inovação da BRAND T, modelar meu talento e estruturar meu negócio para escalar produtos e acessar fundos de investimento." target="_blank" class="btn-urgente">
-                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
-                    <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span>
-                    <span class="en">STRUCTURE MY EMPIRE AND SCALE</span>
-                    <span class="es">ESTRUCTURAR MI IMPERIO Y ESCALAR</span>
-                </a>
-            </div>
+            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Quero estruturar meu império com a BRAND T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span></a></div>
         </section>
 
-        <section class="lp-section lp-payt" id="lp-payt-section"></section>
-        <section class="lp-section lp-construt" id="lp-construt-section"></section>
-
         <footer class="footer">
-            <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | 
-                <span class="pt">Atuação desde 1998 e em 2025 com nova estrutura para atendimento ainda melhor. SÃO PAULO/SP - BRASIL.</span>
-                <span class="en">Operating since 1998, and in 2025 with a new structure. BRAZIL.</span>
-                <span class="es">Operando desde 1998, y en 2025 con nueva estructura. BRASIL.</span>
-            </div>
+            <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | <span class="pt">SÃO PAULO/SP - BRASIL.</span></div>
             <div class="footer-links">
-                <a onclick="abrirModal('modal-termos')"><span class="pt">Termos de Uso</span><span class="en">Terms</span><span class="es">Términos</span></a>
-                <a onclick="abrirModal('modal-privacidade')"><span class="pt">Privacidade</span><span class="en">Privacy</span><span class="es">Privacidad</span></a>
+                <a onclick="abrirModal('modal-termos')">Termos</a>
+                <a onclick="abrirModal('modal-privacidade')">Privacidade</a>
                 <a onclick="abrirModal('modal-compliance')">Compliance</a>
-                <a onclick="abrirModal('modal-contato')"><span class="pt">Contato</span><span class="en">Contact</span><span class="es">Contacto</span></a>
             </div>
         </footer>
     </main>
@@ -417,51 +227,25 @@
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3>Termos de Uso</h3>
-            <p class="pt">A utilização das plataformas TGROUP SOLUTIONS implica na aceitação incondicional de nossas diretrizes operacionais.</p>
-            <p class="pt">Nossas soluções SaaS, financeiras e imobiliárias são regidas por rigorosos contratos SLA, assegurando alta disponibilidade e proteção jurídica mútua.</p>
+            <p class="pt">A utilização das plataformas TGROUP SOLUTIONS implica na aceitação incondicional de nossas diretrizes operacionais e contratos específicos de SLA.</p>
         </div>
     </div>
 
     <script>
         const dadosEcossistema = {
             pt: {
-                home: {
-                    titulo: "Inovação e <span>Gestão Integrada</span>",
-                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACESSE NOSSAS SOLUÇÕES</a>",
-                    imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                home: { 
+                    titulo: "Inovação e <span>Gestão Integrada</span>", 
+                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACESSE NOSSAS SOLUÇÕES</a>", 
+                    imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" 
                 },
-                payt: {
-                    titulo: "Matriz Financeira e <span>Fintech</span>",
-                    texto: "A <span class='marca-destaque'>PAY T</span> gerencia gateways e APIs de pagamento para operações que precisam de escalabilidade e segurança extrema.",
-                    imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
-                },
-                imobt: {
-                    titulo: "Gestão Inteligente em <span>Ativos Imobiliários</span>",
-                    texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa, da implantação à regularização estratégica de altíssima complexidade.",
-                    imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"]
-                },
-                construt: {
-                    titulo: "SaaS Distribuidor e <span>Construção Civil</span>",
-                    texto: "A <span class='marca-destaque'>CONSTRU T</span> opera e-commerce B2B2C com modelo de assinatura e materiais diretos de fábrica.",
-                    imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
-                },
-                homeclubt: {
-                    titulo: "Wellness Residencial e <span>Benefícios</span>",
-                    texto: "A <span class='marca-destaque'>HOME CLUB T</span> é o único clube de benefícios por assinatura focado na retenção de talentos através do bem-estar familiar.",
-                    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop"
-                },
-                brandt: {
-                    titulo: "A Maior Gestora de <span>Carreiras e Marcas</span>",
-                    texto: "A <span class='marca-destaque'>BRAND T</span> identifica autoridades e estrutura impérios através de curadoria híbrida e aceleração financeira garantida.",
-                    imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"]
-                }
+                payt: { titulo: "Matriz Financeira", texto: "Fintech de gestão financeira e API de pagamentos para operações escaláveis.", imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
+                imobt: { titulo: "Ativos Imobiliários", texto: "Engenharia legal estratégica para estancar perdas burocráticas e regularizar ativos.", imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"] },
+                construt: { titulo: "Construção Civil", texto: "SaaS distribuidor com modelo de assinatura e materiais diretos de fábrica.", imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
+                homeclubt: { titulo: "Wellness <span>Residencial</span>", texto: "Clube de benefícios corporativos focado na retenção de talentos.", imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" },
+                brandt: { titulo: "Gestão de Marcas", texto: "A maior gestora de carreiras, marcas e autoridades do mercado.", imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"] }
             },
-            en: {
-                home: { titulo: "Innovation and <span>Integrated Management</span>", texto: "TGROUP SOLUTIONS integrates startups across multiple sectors.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCESS OUR SOLUTIONS</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" }
-            },
-            es: {
-                home: { titulo: "Innovación y <span>Gestión Integrada</span>", texto: "TGROUP SOLUTIONS integra startups en diversos sectores.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCEDA A NUESTRAS SOLUCIONES</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" }
-            }
+            en: { home: { titulo: "Innovation and <span>Management</span>", texto: "TGROUP SOLUTIONS integrates startups across multiple sectors.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCESS OUR SOLUTIONS</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" } }
         };
 
         let currentLang = 'pt';
@@ -470,8 +254,6 @@
         function changeLang(lang) {
             currentLang = lang;
             document.body.className = 'lang-' + lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
             carregarConteudo(currentTab, false);
         }
 
@@ -480,33 +262,26 @@
             const section = document.getElementById('hero-display');
             const lps = ['payt', 'imobt', 'construt', 'homeclubt', 'brandt'];
             lps.forEach(lp => {
-                const lpEl = document.getElementById('lp-' + lp + '-section');
-                if(lpEl) lpEl.style.display = 'none';
+                const el = document.getElementById('lp-' + lp + '-section');
+                if(el) el.style.display = 'none';
             });
-            
             const dados = dadosEcossistema[currentLang][chave] || dadosEcossistema['pt'][chave];
             if(pushState) window.history.pushState(null, null, '#' + chave);
             section.style.opacity = 0;
 
             setTimeout(() => {
-                let conteudoImagem = '';
-                if (dados.imagens && dados.imagens.length === 4) {
-                    conteudoImagem = `<div class="imagem-grid-4">${dados.imagens.map((img, i) => `<img src="${img}" alt="Img ${i+1}">`).join('')}</div>`;
-                } else if (dados.imagens && dados.imagens.length === 3) {
-                    conteudoImagem = `<div class="imagem-grid-3">${dados.imagens.map((img, i) => `<img src="${img}" alt="Img ${i+1}">`).join('')}</div>`;
-                } else {
-                    conteudoImagem = `<div class="hero-image-container"><img src="${dados.imagem}" alt="${chave}"></div>`;
-                }
+                let imgContent = '';
+                if (dados.imagens && dados.imagens.length === 4) imgContent = `<div class="imagem-grid-4">${dados.imagens.map(i => `<img src="${i}">`).join('')}</div>`;
+                else if (dados.imagens && dados.imagens.length === 3) imgContent = `<div class="imagem-grid-3">${dados.imagens.map(i => `<img src="${i}">`).join('')}</div>`;
+                else imgContent = `<div class="hero-image-container"><img src="${dados.imagem}"></div>`;
 
-                section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${conteudoImagem}`;
+                section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${imgContent}`;
                 section.style.opacity = 1;
-                
                 if (lps.includes(chave)) {
-                    const lpEl = document.getElementById('lp-' + chave + '-section');
-                    if(lpEl) lpEl.style.display = 'block';
+                    const el = document.getElementById('lp-' + chave + '-section');
+                    if(el) el.style.display = 'block';
                 }
             }, 200);
-
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             const menuAtivo = document.getElementById('nav-' + chave);
             if(menuAtivo) menuAtivo.classList.add('active');
@@ -515,11 +290,7 @@
         function abrirModal(id) { document.getElementById(id).style.display = 'flex'; setTimeout(() => document.getElementById(id).style.opacity = 1, 10); }
         function fecharModal(e) { if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-modal')) { const modal = e.target.closest('.modal-overlay'); modal.style.opacity = 0; setTimeout(() => modal.style.display = 'none', 300); } }
 
-        window.onload = () => {
-            const hashNaUrl = window.location.hash.replace('#', '');
-            if (hashNaUrl && dadosEcossistema['pt'][hashNaUrl]) carregarConteudo(hashNaUrl);
-            else carregarConteudo('home');
-        };
+        window.onload = () => carregarConteudo(window.location.hash.replace('#', '') || 'home');
     </script>
 </body>
 </html>
