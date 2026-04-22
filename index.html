@@ -25,6 +25,7 @@
         
         html, body { font-family: 'Inter', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); display: flex; min-height: 100vh; overflow-x: hidden; width: 100%; max-width: 100%; position: relative; scroll-behavior: smooth; }
         
+        /* Proteção global contra vazamento de texto */
         p, h1, h2, h3, h4, h5, h6, span, a, li, div { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
         
         .marca-destaque { color: var(--cor-primaria) !important; text-transform: uppercase !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif; }
@@ -50,6 +51,7 @@
         /* ==================== ÁREA PRINCIPAL E BLINDAGEM DESKTOP ==================== */
         .main-content { flex: 1; margin-left: 320px; display: flex; flex-direction: column; position: relative; min-height: 100vh; width: calc(100% - 320px); max-width: 100%; }
         
+        /* Ajuste Crucial: Impede que imagens esmaguem o texto */
         .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px; gap: 60px; animation: slideUpFade 0.8s ease; flex-wrap: nowrap; }
         .hero-text { flex: 0 0 45%; min-width: 450px; flex-shrink: 0; } 
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; color: var(--cor-texto); }
@@ -60,15 +62,17 @@
         .hero-image-container img { width: 100%; height: auto; max-width: 700px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); object-fit: cover; }
 
         .imagem-grid-4 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; min-width: 0; }
-        .imagem-grid-4 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        
+        .imagem-grid-4 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
+
         .imagem-grid-3 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 650px; height: 420px; min-width: 0; }
         .imagem-grid-3 img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; }
         .imagem-grid-3 img:first-child { grid-row: span 2; } 
 
+        /* ==================== BOTÕES ==================== */
         .btn-urgente, .btn-wellness { 
             display: inline-block; background-color: var(--cor-primaria); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.15rem; padding: 20px 50px; border-radius: 50px; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 132, 61, 0.4); border: none; cursor: pointer; text-align: center; max-width: 100%; white-space: normal; line-height: 1.4;
         }
+        .btn-urgente:hover, .btn-wellness:hover { background-color: #006b31; color: #ffffff; transform: scale(1.05); }
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
@@ -102,17 +106,16 @@
         .homeclubt-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #1a1a1a; line-height: 1.3;}
         .homeclubt-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
 
-        .lp-construt { background-color: #f0f2f5; color: #2c3e50; padding: 60px; border: 1px solid #d1d9e0; border-radius: 20px; }
-        .servico-card-construt { background: #ffffff; border: 1px solid #e1e5eb; padding: 40px 30px; border-radius: 15px; transition: 0.4s; }
+        .lp-construt { background-color: #f0f2f5; color: #2c3e50; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #d1d9e0; border-radius: 20px; margin: 20px 60px 60px 60px; padding: 60px; }
         .construt-ecosystem { background: var(--cor-primaria); color: #fff; padding: 40px; border-radius: 15px; text-align: center; margin-bottom: 50px; box-shadow: 0 15px 30px rgba(0, 132, 61, 0.3); }
 
         .lp-brandt { background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%); color: #1a1a1a; padding: 80px 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
         .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
         .brandt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
         .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 950px; margin: 0 auto 40px auto; background: #ffffff; padding: 30px; border-radius: 15px; border-left: 5px solid var(--cor-primaria); }
-        .servico-card-brandt { background: #ffffff; border: 1px solid #eee; padding: 40px 30px; border-radius: 15px; transition: 0.4s; }
+        .brandt-investment-box { background: rgba(0, 132, 61, 0.04); padding: 40px; border-radius: 15px; max-width: 950px; margin-bottom: 60px; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); }
 
-        .lp-payt { background-color: #050505; color: #ffffff; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; padding: 60px; }
+        .lp-payt { background-color: #050505; color: #ffffff; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid #1a1a1a; padding: 80px 60px; }
 
         /* ==================== RODAPÉ ==================== */
         .footer { margin-top: auto; background-color: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #777; flex-wrap: nowrap; }
@@ -122,30 +125,36 @@
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 10px 20px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); }
         
+        /* MODAIS */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
         .modal-content { background: var(--cor-fundo); width: 90%; max-width: 750px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; }
+        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
+        .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
+        .modal-content p { color:#555; line-height: 1.8; margin-bottom: 15px; }
         
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* RESPONSIVO MOBILE */
+        /* ==================== RESPONSIVO MOBILE BLINDADO ==================== */
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
-            .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; border-right: none; border-bottom: 1px solid #111; z-index: 1; }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; border-right: none; border-bottom: 1px solid #111; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
             .sidebar-logo { margin: 0 auto 20px auto; max-width: 160px; }
             .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; } 
-            .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 10px 12px; background: rgba(255,255,255,0.08); border-radius: 8px; }
+            .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 10px 12px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); text-align: center; white-space: normal; line-height: 1.3;}
             .main-content { margin-left: 0; width: 100%; } 
             .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; gap: 30px; flex-wrap: wrap; } 
             .hero-text { flex: 0 0 100%; min-width: 100%; width: 100%; padding-right: 0; }
             .hero-text h1 { font-size: 2.1rem; }
+            
+            /* Ajuste para imagens não pularem no Mobile */
             .hero-image-container { justify-content: center; width: 100%; height: auto; min-height: 250px; } 
             .hero-image-container img { height: auto !important; max-height: 350px; width: 100% !important; object-fit: contain !important; border-radius: 15px; } 
+            
             .lp-section { width: 100%; margin: 0; padding: 30px 20px; border-radius: 0; border: none; }
-            .servicos-grid { grid-template-columns: 1fr; }
+            .servicos-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 30px; }
             .footer { flex-direction: column; gap: 15px; text-align: center; padding: 25px 20px; } 
-            .footer-links { flex-wrap: wrap; justify-content: center; } 
-            .btn-urgente, .btn-wellness { width: 100%; padding: 15px 20px; }
+            .footer-links { flex-wrap: wrap; justify-content: center; gap: 10px; } 
+            .btn-urgente, .btn-wellness { width: 100%; padding: 15px 20px; font-size: 1rem; }
             .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
         }
     </style>
@@ -184,7 +193,7 @@
                 <span class="es">El Riesgo Silencioso Que Puede Costar <span>Millones</span> a Su Operación</span>
             </h2>
             <p class="alerta">
-                <span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado não gera apenas "dor de cabeça burocrática". Gera multas diárias e embargo imediato das suas instalações.</span>
+                <span class="pt"><strong>Aversão ao Risco Patrimonial:</strong> Um Alvará de Funcionamento vencido ou a falta de um AVCB atualizado gera multas diárias e embargo imediato das suas instalações.</span>
                 <span class="en"><strong>Asset Risk Aversion:</strong> An expired Operating License or the lack of an updated AVCB generates daily fines and immediate embargo of your facilities.</span>
                 <span class="es"><strong>Aversión al Riesgo Patrimonial:</strong> Una Licencia de Funcionamiento vencida o la falta de un AVCB actualizado genera multas diarias y embargo inmediato de sus instalaciones.</span>
             </p>
@@ -192,88 +201,98 @@
             <div class="imobt-auditoria-box">
                 <h3><span class="pt">Análise de Viabilidade Técnica</span><span class="en">Technical Feasibility Analysis</span><span class="es">Análisis de Viabilidad Técnica</span></h3>
                 <p class="pt">Cuidamos de toda a fase de <strong>análise de viabilidade técnica de locais</strong> para implantação da infraestrutura pretendida. Nossa equipe analisa zoneamento, restrições e potencial construtivo para garantir que o seu investimento seja seguro e viável antes mesmo da implantação.</p>
-                <p class="en">We handle the entire phase of technical feasibility analysis of sites for the intended infrastructure deployment. Our team analyzes zoning, restrictions, and building potential to ensure your investment is safe and viable.</p>
-                <p class="es">Nos encargamos de toda la fase de análisis de viabilidad técnica de los lugares para la implantación de la infraestructura pretendida. Nuestro equipo analiza zonificación y restricciones para garantizar una inversión segura.</p>
+                <p class="en">We handle the entire phase of technical feasibility analysis of sites for the intended infrastructure deployment. Our team analyzes zoning, restrictions, and building potential to ensure your investment is safe and viable even before implementation.</p>
+                <p class="es">Nos encargamos de toda la fase de análisis de viabilidad técnica de los lugares para la implantación de la infraestructura pretendida. Nuestro equipo analiza zonificación, restricciones y potencial constructivo para garantizar que su inversión sea segura y viable incluso antes de la implantación.</p>
             </div>
 
             <div class="imobt-auditoria-box">
                 <h3><span class="pt">O Sangramento Burocrático Invisível</span><span class="en">The Invisible Bureaucratic Bleeding</span><span class="es">El Sangrado Burocrático Invisible</span></h3>
                 <p class="pt">Em grandes construtoras e operações logísticas, o prejuízo silencioso mora na letargia interna. Quando um órgão público emite um <strong>"Comunique-se"</strong> exigindo adequações, há um prazo fatal. Se o seu departamento protela, sua empresa é punida com o pagamento em dobro de taxas milionárias ou o arquivamento do processo. <br><br><strong>A IMOB T elimina a negligência interna.</strong> Realizamos uma auditoria minuciosa e assumimos todos os seus processos. Só nessa varredura, <strong>destravamos milhões em receita imediata</strong> por aprovações aceleradas e estancamos o ralo financeiro.</p>
-                <p class="en">In large construction operations, the silent loss lies in internal lethargy. When a public agency issues a "Communique", there is a fatal deadline. <strong>IMOB T eliminates internal negligence.</strong> We unlock millions in immediate revenue and stop the financial drain.</p>
-                <p class="es">En grandes constructoras, la pérdida silenciosa radica en el letargo interno. Ante un requerimiento público, si hay retrasos, la empresa es castigada con el pago doble de tarifas millonarias. <strong>IMOB T elimina esta negligencia interna.</strong> Desbloqueamos millones en ingresos.</p>
+                <p class="en">In large construction operations, the silent loss lies in internal lethargy. When a public agency issues a "Communique" demanding adjustments, there is a fatal deadline. <strong>IMOB T eliminates internal negligence.</strong> We conduct a meticulous audit and take over all your processes, unlocking millions in immediate revenue.</p>
+                <p class="es">En grandes constructoras, la pérdida silenciosa radica en el letargo interno. Cuando una agencia pública emite un "Comuníquese", hay un plazo fatal. <strong>IMOB T elimina la negligencia interna.</strong> Realizamos una auditoría minuciosa y asumimos todos sus procesos, desbloqueando millones en ingresos inmediatos.</p>
             </div>
 
             <div class="imobt-auditoria-box">
                 <h3><span class="pt">Implantação Legal e Suporte Comercial</span><span class="en">Legal Implementation and Commercial Support</span><span class="es">Implantación Legal y Soporte Comercial</span></h3>
                 <p class="pt">As incorporadoras podem contar com a IMOB T tanto na fase de <strong>implantação legal do projeto</strong> quanto na comercialização das unidades. Atuamos de forma sinérgica, dando todo o <strong>suporte técnico comercial ao time de vendas</strong>, fornecendo materiais de marketing técnico e realizando a gestão rigorosa do controle de unidades vendidas e disponíveis.</p>
-                <p class="en">Developers can rely on IMOB T during both the legal project implementation phase and the units' commercialization phase. We provide full technical-commercial support to the sales team, including technical marketing materials and unit control.</p>
-                <p class="es">Las desarrolladoras pueden contar con IMOB T tanto en la fase de implantación legal del proyecto como en la de comercialización. Brindamos soporte técnico comercial al equipo de ventas y gestión de stock de unidades.</p>
+                <p class="en">Developers can rely on IMOB T during both the legal project implementation phase and the units' commercialization phase. We act synergistically, providing full technical-commercial support to the sales team, including technical marketing materials and unit management control.</p>
+                <p class="es">Las desarrolladoras pueden contar con IMOB T tanto en la fase de implantación legal del proyecto como en la de comercialización de las unidades. Brindamos soporte técnico comercial completo al equipo de ventas y gestión de stock de unidades.</p>
             </div>
 
             <div class="servicos-grid">
-                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4 class="pt">Aprovação Total</h4><p class="pt">Documentação técnica completa até o <strong>Habite-se</strong>. Garantimos que projetos operem 100% dentro da lei.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4 class="pt">Segurança (AVCB)</h4><p class="pt">Emissão e renovação de <strong>AVCB e CLCB</strong>. Blindamos o seu ativo para que os danos estejam cobertos por apólices.</p></div>
-                <div class="servico-card-imobt"><i class="fas fa-search-dollar"></i><h4 class="pt">Auditoria de Processos</h4><p class="pt">Mapeamento e gestão de exigências. Evitamos que sua empresa pague taxas em duplicidade aos órgãos públicos.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i><h4 class="pt">Aprovação e Regularização</h4><p class="pt">Documentação técnica completa até o <strong>Habite-se</strong>. Projetos 100% dentro da lei.</p></div>
+                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i><h4 class="pt">Segurança e AVCB</h4><p class="pt">Emissão e renovação de <strong>AVCB e CLCB</strong>. Blindamos o seu ativo.</p></div>
             </div>
-            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span><span class="en">REQUEST AUDIT AND SHIELD OPERATION</span><span class="es">SOLICITAR AUDITORÍA Y BLINDAR OPERACIÓN</span></a></div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://wa.me/5511947879779?text=Olá! Preciso de uma auditoria de engenharia legal da IMOB T para estancar a perda financeira com processos parados e regularizar minha operação." target="_blank" class="btn-urgente">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
+                    <span class="pt">SOLICITAR AUDITORIA E BLINDAR OPERAÇÃO</span>
+                </a>
+            </div>
         </section>
 
         <section class="lp-section lp-brandt" id="lp-brandt-section">
             <div class="brandt-header">
                 <h2><span class="pt">Você Foca no Palco.<br>Nós Focamos no <span>Império.</span></span><span class="en">You Focus on the Stage.<br>We Focus on the <span>Empire.</span></span><span class="es">Usted se Enfoca en el Escenario.<br>Nosotros en el <span>Imperio.</span></span></h2>
-                <p class="brandt-alerta"><span class="pt"><strong>Gestão de Marcas e Carreiras:</strong> Identificamos o seu potencial, modelamos talentos na Academy T e entregamos toda a engenharia societária e jurídica. Cuidamos de toda a jornada para que marcas escalem vendas e profissionais vendam seus conhecimentos em grandes palcos.</span><span class="en">Ultimate innovation in brand and career management: We identify your potential and manage the entire journey for brands to scale product sales and mentors to sell knowledge.</span><span class="es">Innovación definitiva en gestión de marcas y carreras: Identificamos su potencial y cuidamos toda la jornada para que las marcas escalen ventas y mentores vendan sus conocimientos.</span></p>
+                <p class="brandt-alerta">
+                    <span class="pt"><strong>Gestão de Marcas e Carreiras:</strong> Identificamos o seu potencial, modelamos talentos na Academy T e entregamos toda a engenharia societária e jurídica. Cuidamos de toda a jornada para que marcas escalem vendas de seus produtos e mentores vendam conhecimentos em grandes palcos.</span>
+                </p>
                 
                 <div class="imobt-auditoria-box" style="background: rgba(0, 132, 61, 0.04); border-left-color: var(--cor-primaria);">
                     <h3><span class="pt">Curadoria e Marketing Híbrido</span><span class="en">Curation and Hybrid Marketing</span><span class="es">Curaduría y Marketing Híbrido</span></h3>
-                    <p class="pt">A BRAND T realiza a <strong>curadoria estratégica para fixar a imagem</strong> da marca ou do profissional. Unimos ferramentas avançadas de marketing digital com <strong>estratégias físicas reais</strong>, como estações de divulgação e brindes físicos personalizados de alta percepção de valor.</p>
-                    <p class="en">BRAND T conducts strategic curation to establish the image. We combine advanced digital marketing with real physical strategies, including outreach stations and personalized physical gifts.</p>
+                    <p class="pt">A BRAND T realiza a <strong>curadoria estratégica para fixar a imagem</strong> da marca ou do profissional. Unimos ferramentas avançadas de marketing digital com <strong>estratégias físicas reais</strong>, como estações de divulgação e distribuição de brindes físicos personalizados de alta percepção de valor.</p>
+                    <p class="en">BRAND T conducts strategic curation to establish the image. We combine advanced digital marketing with real physical strategies, including outreach stations and high-value personalized gifts.</p>
                     <p class="es">BRAND T realiza la curaduría estratégica para consolidar la imagen. Combinamos marketing digital avanzado con estrategias físicas reales, como estaciones de difusión y regalos físicos de alto valor.</p>
                 </div>
             </div>
             <div class="servicos-grid">
-                <div class="servico-card-brandt"><i class="fas fa-video"></i><h4 class="pt">LiveShops & Produtos</h4><p class="pt">Plataforma padrão Netflix para marcas venderem produtos ao vivo com conversão explosiva.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-microphone-alt"></i><h4 class="pt">Palcos & Autoridade</h4><p class="pt">Transformamos sua história em palestras corporativas de alto impacto, conectando você ao mercado.</p></div>
-                <div class="servico-card-brandt"><i class="fas fa-hand-holding-usd"></i><h4 class="pt">Aportes Garantidos</h4><p class="pt">Atuamos com modelo registrado. Estruturamos sua marca para receberem injeções de capital e fundos de investimento.</p></div>
+                <div class="servico-card-brandt"><i class="fas fa-video"></i><h4 class="pt">LiveShops & Vendas</h4><p class="pt">Plataforma para marcas venderem produtos físicos ao vivo com conversão explosiva.</p></div>
+                <div class="servico-card-brandt"><i class="fas fa-microphone-alt"></i><h4 class="pt">Palcos & Autoridade</h4><p class="pt">Transformamos sua história em grandes palestras corporativas de alto impacto.</p></div>
+                <div class="servico-card-brandt"><i class="fas fa-hand-holding-usd"></i><h4 class="pt">Aportes Garantidos</h4><p class="pt">Estruturamos sua marca ou carreira para receberem injeções de capital e investimentos com modelo registrado.</p></div>
             </div>
-            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Quero estruturar meu império com a BRAND T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span></a></div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://wa.me/5511947879779?text=Olá! Quero estruturar meu império com a BRAND T, escalar produtos e acessar fundos de investimento." target="_blank" class="btn-urgente">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
+                    <span class="pt">ESTRUTURAR MEU IMPÉRIO E ESCALAR</span>
+                </a>
+            </div>
         </section>
 
         <section class="lp-section lp-homeclubt" id="lp-homeclubt-section">
             <div class="homeclubt-cards-box">
-                <h3><span class="pt">O Fim do Turnover: Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></span><span class="en">The End of Turnover: Turn Your Employee's Home into the <span>Greatest Benefit</span></span><span class="es">El Fin de la Rotación: Convierta el Hogar de su Colaborador en el <span>Mayor Beneficio</span></span></h3>
-                <p class="wellness-text"><span class="pt">A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa. Acabamos com o turnover através da retenção familiar emocional.</span></p>
+                <h3><span class="pt">Transforme a Casa do Seu Colaborador no <span>Maior Benefício</span></span><span class="en">Turn Your Employee's Home into the <span>Greatest Benefit</span></span></h3>
+                <p class="wellness-text"><span class="pt">A <strong>HOME CLUB T</strong> ancora o bem-estar do seu colaborador onde a vida dele realmente acontece: dentro de casa. Acabamos com o turnover através da retenção familiar.</span></p>
                 <div class="homeclubt-exclusividade-box">
                     <h3><span class="pt">Modelo de Operação Registrado</span></h3>
                     <p class="pt">O modelo de operação sistêmica da <strong>HOME CLUB T é 100% inédito e possui registro legal ativo</strong>. Segurança absoluta para o seu RH.</p>
                 </div>
                 <div class="servicos-grid">
                     <div class="homeclubt-card"><i class="fas fa-child"></i><h4 class="pt">Desenvolvimento Infantil</h4><p class="pt">Kits lúdicos curados por neurocientistas e pedagogas para tranquilidade da família.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-gem"></i><h4 class="pt">Box Premium de Beleza</h4><p class="pt">Assinaturas com marcas premium globais de beleza e autocuidado direto na residência.</p></div>
-                    <div class="homeclubt-card"><i class="fas fa-spa"></i><h4 class="pt">Wellness Integrado</h4><p class="pt">Cuidados pessoais e manutenção residencial automatizada para alta performance do time.</p></div>
+                    <div class="homeclubt-card"><i class="fas fa-gem"></i><h4 class="pt">Box Premium</h4><p class="pt">Caixas de assinatura com marcas premium globais de beleza e autocuidado.</p></div>
                 </div>
-                <div style="text-align: center;"><a href="http://homeclubt.com" target="_blank" class="btn-wellness"><i class="fas fa-external-link-alt"></i> <span class="pt">PORTAL HOME CLUB T</span></a></div>
+                <div style="text-align: center;"><a href="http://homeclubt.com" target="_blank" class="btn-wellness"><i class="fas fa-external-link-alt"></i> <span class="pt">ACESSAR PORTAL HOME CLUB T</span></a></div>
             </div>
         </section>
 
         <section class="lp-section lp-construt" id="lp-construt-section">
-            <h2 class="marca-destaque"><span class="pt">CONSTRUÇÃO CIVIL SOB ASSINATURA</span><span class="en">CIVIL CONSTRUCTION SUBSCRIPTION</span><span class="es">CONSTRUCCIÓN CIVIL POR SUSCRIPCIÓN</span></h2>
-            <div class="servicos-grid" style="margin-top: 40px;">
-                <div class="servico-card-construt"><i class="fas fa-boxes"></i><h4 class="pt">SaaS de Insumos</h4><p class="pt">Preço travado contra a inflação com acesso programado a materiais direto da fábrica.</p></div>
-                <div class="servico-card-construt"><i class="fas fa-tools"></i><h4 class="pt">Independência de Equipe</h4><p class="pt">Linha própria desenhada para fácil aplicação, permitindo treinar sua própria mão de obra.</p></div>
+            <div style="padding: 60px;">
+                <h2 class="marca-destaque"><span class="pt">CONSTRUÇÃO CIVIL SOB ASSINATURA</span></h2>
+                <div class="servicos-grid" style="margin-top: 40px;">
+                    <div class="servico-card-construt"><i class="fas fa-boxes"></i><h4 class="pt">SaaS de Insumos</h4><p class="pt">Materiais direto de fábrica com preço travado contra a inflação.</p></div>
+                </div>
+                <div class="construt-ecosystem"><h3><span class="pt">Poder do Ecossistema TGROUP</span></h3><p class="pt">Clientes CONSTRU T possuem acesso VIP às soluções de pagamento da PAY T e regularização estratégica da IMOB T.</p></div>
+                <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Quero conhecer o modelo SaaS da CONSTRU T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">ASSINAR PLATAFORMA E BLINDAR OBRA</span></a></div>
             </div>
-            <div class="construt-ecosystem"><h3><span class="pt">Poder do Ecossistema TGROUP</span></h3><p class="pt">Clientes CONSTRU T possuem acesso VIP às soluções de pagamento da PAY T e regularização estratégica da IMOB T.</p></div>
-            <div style="text-align: center;"><a href="https://wa.me/5511947879779?text=Olá! Quero conhecer o modelo SaaS da CONSTRU T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">ASSINAR PLATAFORMA E BLINDAR OBRA</span></a></div>
         </section>
 
         <section class="lp-section lp-payt" id="lp-payt-section">
-            <div style="text-align: center; color: white;">
-                <h2><span class="pt">Gateway de Pagamentos Cirúrgico</span><span class="en">Surgical Payment Gateway</span><span class="es">Pasarela de Pagos Quirúrgica</span></h2>
-                <p class="pt" style="margin: 20px 0;">Pare de deixar milhões na mesa por falsas recusas. Fintech com roteamento inteligente via IA.</p>
+            <div style="text-align: center; color: white; padding: 60px;">
+                <h2><span class="pt">Gateway de Pagamentos Cirúrgico</span></h2>
+                <p class="pt">Fintech de gestão financeira com roteamento inteligente via IA para aprovação máxima.</p>
                 <div class="servicos-grid" style="text-align: left; margin-top: 40px;">
-                    <div class="servico-card-imobt" style="background: #0a0a0a;"><i class="fas fa-microchip"></i><h4 class="pt">Roteamento IA</h4><p class="pt">Aprovação levada ao extremo em múltiplos adquirentes em milissegundos.</p></div>
-                    <div class="servico-card-imobt" style="background: #0a0a0a;"><i class="fas fa-bolt"></i><h4 class="pt">Liquidez D+0</h4><p class="pt">Planos agressivos de antecipação para garantir seu fluxo de caixa imediato.</p></div>
+                    <div class="servico-card-imobt" style="background: #0a0a0a;"><i class="fas fa-bolt"></i><h4 class="pt">Liquidez Total</h4><p class="pt">Planos agressivos de antecipação D+1 ou D+0.</p></div>
                 </div>
-                <a href="https://wa.me/5511947879779?text=Olá! Quero destravar minha operação financeira com a PAY T." target="_blank" class="btn-urgente" style="margin-top: 30px;"><i class="fab fa-whatsapp"></i> <span class="pt">DESTRAVAR OPERAÇÃO AGORA</span></a>
+                <a href="https://wa.me/5511947879779?text=Olá! Quero destravar minha operação financeira com a PAY T." target="_blank" class="btn-urgente"><i class="fab fa-whatsapp"></i> <span class="pt">DESTRAVAR OPERAÇÃO AGORA</span></a>
             </div>
         </section>
 
@@ -298,17 +317,17 @@
     <div class="modal-overlay" id="modal-termos" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span></h3>
+            <h3>Termos de Uso</h3>
             <p class="pt">A utilização das plataformas e serviços do ecossistema <strong>TGROUP SOLUTIONS</strong> implica na aceitação incondicional de nossas diretrizes operacionais.</p>
-            <p class="pt">Nossas soluções SaaS, financeiras, imobiliárias e de wellness são regidas por rigorosos contratos específicos de nível de serviço (SLA), assegurando alta disponibilidade sistêmica e proteção jurídica mútua em todas as transações B2B e B2C.</p>
+            <p class="pt">Soluções SaaS, financeiras, imobiliárias e de wellness são regidas por contratos específicos de SLA, assegurando alta disponibilidade e proteção jurídica mútua.</p>
         </div>
     </div>
 
     <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
-            <h3><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span></h3>
-            <p class="pt">Atuamos em total conformidade com a Lei Geral de Proteção de Dados (LGPD) e demais regulamentações globais de privacidade. A TGROUP SOLUTIONS emprega protocolos de criptografia de ponta a ponta e arquitetura de dados blindada.</p>
+            <h3>Política de Privacidade</h3>
+            <p class="pt">Atuamos em total conformidade com a LGPD. A TGROUP SOLUTIONS emprega protocolos de criptografia de ponta a ponta e arquitetura blindada. Informações financeiras são tratadas como ativos de sigilo absoluto.</p>
         </div>
     </div>
 
@@ -316,7 +335,7 @@
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3>Compliance & Governança</h3>
-            <p class="pt">A TGROUP SOLUTIONS opera sob os mais rigorosos padrões globais de Ética Empresarial e Governança Corporativa. Nosso comitê garante transparência absoluta em todas as verticais, com política de tolerância zero contra fraudes.</p>
+            <p class="pt">Operamos sob os mais rigorosos padrões globais de Ética Empresarial. Nosso comitê garante transparência absoluta e política de tolerância zero contra fraudes operacionais.</p>
         </div>
     </div>
     
@@ -325,35 +344,28 @@
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3>Fale com a <span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
             <div style="font-size: 1.2rem; margin: 20px 0;"><i class="fab fa-whatsapp" style="color:var(--cor-primaria);"></i> <a href="https://wa.me/5511947879779" target="_blank" style="color:var(--cor-texto); text-decoration:none; font-weight:600;">+55 11 94787-9779</a></div>
-            <p><span class="pt">Estamos à disposição para otimizar seu negócio.</span><span class="en">We are available to optimize your business.</span></p>
         </div>
     </div>
 
     <script>
         const dadosEcossistema = {
             pt: {
-                home: { titulo: "Inovação e <span>Gestão Integrada</span>", texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACESSE NOSSAS SOLUÇÕES</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" },
-                payt: { titulo: "Matriz Financeira e <span>Fintech</span>", texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira. API de pagamentos e engenharia comercial para operações que precisam escalar.", imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
-                imobt: { titulo: "Gestão Inteligente em <span>Ativos Imobiliários</span>", texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa, da implantação à regularização estratégica de altíssima complexidade.", imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"] },
-                construt: { titulo: "SaaS Distribuidor e <span>Construção Civil</span>", texto: "A <span class='marca-destaque'>CONSTRU T</span> opera sob modelo de assinatura para o mercado de Construção Civil com materiais direto de fábrica.", imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
-                homeclubt: { titulo: "Wellness Residencial e <span>Benefícios</span>", texto: "A <span class='marca-destaque'>HOME CLUB T</span> é o único clube de benefícios por assinatura focado na retenção de talentos através do bem-estar familiar.", imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" },
-                brandt: { titulo: "A Maior Gestora de <span>Carreiras e Marcas</span>", texto: "A <span class='marca-destaque'>BRAND T</span> identifica autoridades e escala negócios através de curadoria híbrida e engenharia societária.", imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"] }
+                home: { 
+                    titulo: "Inovação e <span>Gestão Integrada</span>", 
+                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável, inovação tecnológica e gestão de ponta para ecossistemas B2B e B2C.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACESSE NOSSAS SOLUÇÕES</a>", 
+                    imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" 
+                },
+                payt: { titulo: "Matriz Financeira e <span>Fintech</span>", texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira do Ecossistema. API de pagamentos e engenharia comercial para operações que precisam escalar.", imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
+                imobt: { titulo: "Gestão Inteligente em <span>Ativos Imobiliários</span>", texto: "A <span class='marca-destaque'>IMOB T</span> entrega gestão completa, da implantação à regularização estratégica de altíssima complexidade.<br><br>Nosso diferencial competitivo reside na engenharia legal estratégica para estancar o sangramento financeiro invisível.", imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"] },
+                construt: { titulo: "SaaS Distribuidor e <span>Construção Civil</span>", texto: "A <span class='marca-destaque'>CONSTRU T</span> opera e-commerce B2B2C com modelo de assinatura anual para o mercado de Construção Civil.", imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
+                homeclubt: { titulo: "Wellness Residencial e <span>Benefícios</span>", texto: "A <span class='marca-destaque'>HOME CLUB T</span> é o clube de benefícios corporativos focado na evolução do bem-estar familiar e retenção de talentos.", imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" },
+                brandt: { titulo: "A Maior Gestora de <span>Carreiras e Marcas</span>", texto: "A <span class='marca-destaque'>BRAND T</span> identifica autoridades e estrutura impérios através de curadoria híbrida e aceleração financeira garantida.", imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"] }
             },
             en: {
-                home: { titulo: "Innovation and <span>Integrated Management</span>", texto: "The <span class='marca-destaque'>TGROUP SOLUTIONS</span> represents an innovative matrix integrating startups across sectors.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCESS OUR SOLUTIONS</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" },
-                payt: { titulo: "Financial Matrix & <span>Fintech</span>", texto: "PAY T manages gateways and APIs for scalable operations with extreme security.", imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
-                imobt: { titulo: "Real Estate <span>Asset Management</span>", texto: "Strategic legal engineering to stop bureaucratic drain and regularize complex assets.", imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"] },
-                construt: { titulo: "SaaS Distributor & <span>Civil Construction</span>", texto: "Subscription model for high-quality building materials direct from factory.", imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
-                homeclubt: { titulo: "Residential Wellness & <span>Corporate Benefits</span>", texto: "Subscription club focused on employee retention through family well-being.", imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" },
-                brandt: { titulo: "The Largest <span>Career & Brand Manager</span>", texto: "Authority modeling and hybrid curation to structure your empire and scale sales.", imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"] }
+                home: { titulo: "Innovation & <span>Integrated Management</span>", texto: "The <span class='marca-destaque'>TGROUP SOLUTIONS</span> integrates startups across multiple sectors.<br><br>Our expertise focuses on sustainable growth and cutting-edge management.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCESS OUR SOLUTIONS</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" }
             },
             es: {
-                home: { titulo: "Innovación y <span>Gestión Integrada</span>", texto: "TGROUP SOLUTIONS representa una matriz innovadora que integra diversas startups.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCEDA A NUESTRAS SOLUCIONES</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" },
-                payt: { titulo: "Matriz Financiera y <span>Pasarela de Pagos</span>", texto: "PAY T gestiona pasarelas y APIs para operaciones que necesitan escalabilidad.", imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
-                imobt: { titulo: "Gestión en <span>Activos Inmobiliarios</span>", texto: "Ingeniería legal estratégica para detener la fuga financiera y regularizar activos.", imagens: ["ind.jpg", "lot.jpg", "cond.jpg", "com.jpg"] },
-                construt: { titulo: "SaaS Distribuidor y <span>Construcción Civil</span>", texto: "Modelo de suscripción para materiales de construcción directos de fábrica.", imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
-                homeclubt: { titulo: "Bienestar Residencial y <span>Beneficios</span>", texto: "Club de beneficios enfocado en la retención de talentos y bienestar familiar.", imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" },
-                brandt: { titulo: "Gestora de <span>Marcas y Carreras</span>", texto: "Modelado de autoridades y curaduría híbrida para estructurar su imperio.", imagens: ["https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"] }
+                home: { titulo: "Innovación y <span>Gestión Integrada</span>", texto: "TGROUP SOLUTIONS representa una matriz innovadora que integra startups en diversos sectores.<br><br>Nuestra experiencia se centra en el crecimiento sostenible.<br><br><a href='#' onclick='document.querySelector(\".sidebar\").scrollIntoView({behavior: \"smooth\"}); return false;' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: none;'>ACCEDA A NUESTRAS SOLUCIONES</a>", imagem: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" }
             }
         };
 
@@ -374,31 +386,26 @@
             const section = document.getElementById('hero-display');
             const lps = ['payt', 'imobt', 'construt', 'homeclubt', 'brandt'];
             lps.forEach(lp => {
-                const lpEl = document.getElementById('lp-' + lp + '-section');
-                if(lpEl) lpEl.style.display = 'none';
+                const el = document.getElementById('lp-' + lp + '-section');
+                if(el) el.style.display = 'none';
             });
             const dados = dadosEcossistema[currentLang][chave] || dadosEcossistema['pt'][chave];
             if(pushState) window.history.pushState(null, null, '#' + chave);
             section.style.opacity = 0;
 
             setTimeout(() => {
-                let conteudoImagem = '';
-                if (dados.imagens && dados.imagens.length === 4) {
-                    conteudoImagem = `<div class="imagem-grid-4">${dados.imagens.map(img => `<img src="${img}">`).join('')}</div>`;
-                } else if (dados.imagens && dados.imagens.length === 3) {
-                    conteudoImagem = `<div class="imagem-grid-3">${dados.imagens.map(img => `<img src="${img}">`).join('')}</div>`;
-                } else {
-                    conteudoImagem = `<div class="hero-image-container"><img src="${dados.imagem}"></div>`;
-                }
+                let imgContent = '';
+                if (dados.imagens && dados.imagens.length === 4) imgContent = `<div class="imagem-grid-4">${dados.imagens.map(i => `<img src="${i}">`).join('')}</div>`;
+                else if (dados.imagens && dados.imagens.length === 3) imgContent = `<div class="imagem-grid-3">${dados.imagens.map(i => `<img src="${i}">`).join('')}</div>`;
+                else imgContent = `<div class="hero-image-container"><img src="${dados.imagem}"></div>`;
 
-                section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${conteudoImagem}`;
+                section.innerHTML = `<div class="hero-text"><h1>${dados.titulo}</h1><p>${dados.texto}</p></div>${imgContent}`;
                 section.style.opacity = 1;
                 if (lps.includes(chave)) {
-                    const lpEl = document.getElementById('lp-' + chave + '-section');
-                    if(lpEl) lpEl.style.display = 'block';
+                    const el = document.getElementById('lp-' + chave + '-section');
+                    if(el) el.style.display = 'block';
                 }
             }, 200);
-
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             const menuAtivo = document.getElementById('nav-' + chave);
             if(menuAtivo) menuAtivo.classList.add('active');
@@ -407,11 +414,7 @@
         function abrirModal(id) { document.getElementById(id).style.display = 'flex'; setTimeout(() => document.getElementById(id).style.opacity = 1, 10); }
         function fecharModal(e) { if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-modal')) { const modal = e.target.closest('.modal-overlay'); modal.style.opacity = 0; setTimeout(() => modal.style.display = 'none', 300); } }
 
-        window.onload = () => {
-            const hashNaUrl = window.location.hash.replace('#', '');
-            if (hashNaUrl && dadosEcossistema['pt'][hashNaUrl]) carregarConteudo(hashNaUrl);
-            else carregarConteudo('home');
-        };
+        window.onload = () => carregarConteudo(window.location.hash.replace('#', '') || 'home');
     </script>
 </body>
 </html>
