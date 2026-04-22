@@ -67,6 +67,13 @@
         .hero-image-container { flex: 1; display: flex; justify-content: flex-end; position: relative; }
         .hero-image-container img { width: 100%; height: auto; max-width: 650px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
 
+        /* Correção das Grades de Imagens para Desktop */
+        .imagem-grid-3, .imagem-grid-4 { flex: 1; display: grid; gap: 20px; width: 100%; max-width: 650px; }
+        .imagem-grid-4 { grid-template-columns: repeat(2, 1fr); }
+        .imagem-grid-3 { grid-template-columns: repeat(2, 1fr); }
+        .imagem-grid-3 img:first-child { grid-column: span 2; }
+        .imagem-grid-3 img, .imagem-grid-4 img { width: 100%; height: 250px; object-fit: cover; border-radius: 24px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
         /* ==================== BOTÕES ==================== */
         .btn-urgente, .btn-wellness { 
             display: inline-block; 
@@ -217,9 +224,11 @@
 
             .hero-image-container { justify-content: center; width: 100%; } 
             .hero-image-container img { height: auto; max-height: 300px; width: 100%; } 
-            .imagem-grid-4, .imagem-grid-3 { height: auto; gap: 10px; } 
-            .imagem-grid-4 img, .imagem-grid-3 img { height: 160px; }
-            .imagem-grid-3 img:first-child { grid-row: auto; grid-column: span 2; height: auto; max-height: 200px; }
+            
+            /* Correção da Grade Responsiva */
+            .imagem-grid-4, .imagem-grid-3 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%; max-width: 100%; margin-top: 20px; }
+            .imagem-grid-4 img, .imagem-grid-3 img { width: 100%; height: 160px; object-fit: cover; border-radius: 15px; }
+            .imagem-grid-3 img:first-child { grid-column: span 2; height: 200px; }
             
             .lp-section { width: 100%; margin: 0; padding: 30px 20px; border-radius: 0; border: none; }
             
