@@ -19,6 +19,8 @@
             --cor-sidebar: #000000; 
             --cor-borda: #eeeeee; 
             --cor-borda-sidebar: #1a1a1a; 
+            --sombra-card: 0 15px 35px rgba(0,0,0,0.08);
+            --sombra-hover: 0 25px 50px rgba(0, 132, 61, 0.15);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -73,7 +75,7 @@
         .imagem-grid-3 img:first-child { grid-column: span 2; }
         .imagem-grid-3 img, .imagem-grid-4 img { width: 100%; height: 220px; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        /* ==================== BOTÕES ==================== */
+        /* ==================== CARDS FLUTUANTES E BOTÕES ==================== */
         .btn-urgente, .btn-wellness { 
             display: inline-block; 
             background-color: var(--cor-primaria); 
@@ -98,6 +100,34 @@
 
         .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
+        /* Base para cards dinâmicos */
+        .floating-card { 
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            border-radius: 15px; 
+            padding: 30px;
+        }
+        .floating-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--cor-primaria);
+            transition: 0.4s;
+            opacity: 0;
+        }
+        .floating-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: var(--sombra-hover); 
+        }
+        .floating-card:hover::before {
+            opacity: 1;
+            width: 6px;
+        }
+
         /* ==================== LP ESTILOS GERAIS ==================== */
         .lp-section { display: none; border-radius: 20px; margin: 20px 60px 60px 60px; animation: slideUpFade 0.6s ease; overflow: hidden; width: auto; max-width: 100%; }
         
@@ -105,11 +135,14 @@
         .lp-imobt h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; }
         .lp-imobt h2 span:not(.pt):not(.en):not(.es) { color: #ff3333; }
         .lp-imobt p.alerta { font-size: 1.15rem; line-height: 1.8; color: #cccccc; margin-bottom: 30px; border-left: 4px solid #ff3333; padding-left: 20px; }
-        .imobt-auditoria-box { background: rgba(255,255,255,0.04); padding: 40px; border-radius: 15px; margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.08); border-left: 5px solid var(--cor-primaria); }
+        
+        .imobt-auditoria-box { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 40px; border-radius: 15px; margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.08); position: relative; transition: all 0.4s ease; }
+        .imobt-auditoria-box:hover { background: rgba(0, 132, 61, 0.05); border-color: rgba(0, 132, 61, 0.3); transform: translateY(-5px); box-shadow: var(--sombra-hover); }
         .imobt-auditoria-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
         .imobt-auditoria-box p { font-size: 1.1rem; line-height: 1.7; color: #bbb; }
-        .servico-card-imobt { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; transition: 0.3s; }
-        .servico-card-imobt:hover { border-color: var(--cor-primaria); transform: translateY(-5px); background: rgba(0, 132, 61, 0.05); }
+        
+        .servico-card-imobt { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .servico-card-imobt:hover { border-color: var(--cor-primaria); background: rgba(0, 132, 61, 0.05); }
         .servico-card-imobt i { font-size: 2.2rem; color: var(--cor-primaria); margin-bottom: 20px; }
         .servico-card-imobt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #fff; line-height: 1.3;}
         .servico-card-imobt p { font-size: 0.95rem; color: #aaa; line-height: 1.6; }
@@ -121,16 +154,17 @@
         .middle-hero-text p { font-size: 1.15rem; line-height: 1.8; color: var(--cor-texto-secundario); font-weight: 300; }
         .middle-hero-image { flex: 1; text-align: right; }
         .middle-hero-image img { width: 100%; max-width: 550px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .homeclubt-cards-box { background-color: #f8faf9; padding: 60px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 132, 61, 0.08); border: 1px solid #e9ecef; }
+        .homeclubt-cards-box { background-color: #f8faf9; padding: 60px; border-radius: 20px; box-shadow: var(--sombra-card); border: 1px solid #e9ecef; }
         .homeclubt-cards-box h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
         .homeclubt-cards-box h3 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
         .wellness-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; border-left: 4px solid var(--cor-primaria); padding-left: 20px; }
-        .homeclubt-exclusividade-box { background: var(--cor-primaria); padding: 40px; border-radius: 15px; margin-bottom: 40px; border: none; box-shadow: 0 15px 30px rgba(0, 132, 61, 0.3); }
+        .homeclubt-exclusividade-box { background: var(--cor-primaria); padding: 40px; border-radius: 15px; margin-bottom: 40px; border: none; box-shadow: 0 15px 30px rgba(0, 132, 61, 0.3); transition: all 0.4s ease; }
+        .homeclubt-exclusividade-box:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.4); }
         .homeclubt-exclusividade-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #ffffff; margin-bottom: 15px; text-transform: none; }
         .homeclubt-exclusividade-box p { font-size: 1.1rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); }
         
-        .homeclubt-card { background: #0a0a0a; border: 1px solid #222; padding: 30px; border-radius: 15px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .homeclubt-card:hover { border-color: var(--cor-primaria); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 132, 61, 0.2); background: #111; }
+        .homeclubt-card { background: #0a0a0a; border: 1px solid #222; }
+        .homeclubt-card:hover { border-color: var(--cor-primaria); background: #111; }
         .homeclubt-card i { font-size: 2.2rem; color: var(--cor-primaria); margin-bottom: 20px; }
         .homeclubt-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: #ffffff; line-height: 1.3;}
         .homeclubt-card p { font-size: 0.95rem; color: #aaaaaa; line-height: 1.6; }
@@ -142,13 +176,15 @@
         .construt-header-text h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
         .construt-alerta { font-size: 1.15rem; line-height: 1.8; color: #555; border-left: 4px solid #ff9900; padding-left: 20px; }
         .construt-body { padding: 60px; }
-        .servico-card-construt { background: #0a0a0a; border: 1px solid #222; padding: 40px 30px; border-radius: 15px; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .servico-card-construt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.15); background: #111; }
+        
+        .servico-card-construt { background: #0a0a0a; border: 1px solid #222; padding: 40px 30px; }
+        .servico-card-construt:hover { border-color: var(--cor-primaria); background: #111; }
         .servico-card-construt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
         .servico-card-construt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 15px; color: #ffffff; text-transform: uppercase; }
         .servico-card-construt p { font-size: 1rem; color: #aaaaaa; line-height: 1.6; }
         
-        .construt-ecosystem { background: #0a0a0a; color: #fff; padding: 40px; border-radius: 15px; text-align: center; margin-top: 20px; margin-bottom: 50px; box-shadow: 0 15px 30px rgba(0,0,0,0.2); border: 1px solid #222; border-bottom: 4px solid var(--cor-primaria); }
+        .construt-ecosystem { background: #0a0a0a; color: #fff; padding: 40px; border-radius: 15px; text-align: center; margin-top: 20px; margin-bottom: 50px; box-shadow: 0 15px 30px rgba(0,0,0,0.2); border: 1px solid #222; border-bottom: 4px solid var(--cor-primaria); transition: all 0.4s ease;}
+        .construt-ecosystem:hover { transform: translateY(-5px); box-shadow: var(--sombra-hover); border-color: rgba(0, 132, 61, 0.3); }
         .construt-ecosystem h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--cor-primaria); }
         .construt-ecosystem p { font-size: 1.1rem; line-height: 1.6; color: #cccccc; }
 
@@ -156,12 +192,15 @@
         .brandt-header { text-align: center; margin-bottom: 60px; }
         .brandt-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
         .brandt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
-        .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 950px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-left: 5px solid var(--cor-primaria); }
-        .brandt-investment-box { background: rgba(0, 132, 61, 0.04); padding: 40px; border-radius: 15px; max-width: 950px; margin: 40px auto 60px auto; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); text-align: left; }
+        .brandt-alerta { font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 950px; margin: 0 auto; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; box-shadow: var(--sombra-card); border-left: 5px solid var(--cor-primaria); transition: all 0.4s ease; }
+        .brandt-alerta:hover { transform: translateY(-5px); box-shadow: var(--sombra-hover); }
+        .brandt-investment-box { background: rgba(0, 132, 61, 0.04); padding: 40px; border-radius: 15px; max-width: 950px; margin: 40px auto 60px auto; border: 1px solid rgba(0, 132, 61, 0.15); border-left: 5px solid var(--cor-primaria); text-align: left; transition: all 0.4s ease; }
+        .brandt-investment-box:hover { transform: translateY(-5px); box-shadow: var(--sombra-hover); }
         .brandt-investment-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 15px; text-transform: none; }
         .brandt-investment-box p { font-size: 1.1rem; line-height: 1.7; color: #444; }
-        .servico-card-brandt { background: #0a0a0a; border: 1px solid #222; padding: 40px 30px; border-radius: 15px; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .servico-card-brandt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.15); background: #111; }
+        
+        .servico-card-brandt { background: #0a0a0a; border: 1px solid #222; padding: 40px 30px; }
+        .servico-card-brandt:hover { border-color: var(--cor-primaria); background: #111; }
         .servico-card-brandt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
         .servico-card-brandt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #ffffff; text-transform: uppercase; }
         .servico-card-brandt p { font-size: 1rem; color: #aaaaaa; line-height: 1.6; }
@@ -172,12 +211,15 @@
         .payt-header h2 span:not(.pt):not(.en):not(.es) { color: var(--cor-primaria); }
         .payt-header p { font-size: 1.2rem; line-height: 1.8; color: #aaaaaa; max-width: 800px; margin: 0 auto; font-weight: 300; }
         .payt-body { padding: 60px; }
-        .payt-alerta { font-size: 1.15rem; line-height: 1.8; color: #eeeeee; margin-bottom: 50px; border-left: 4px solid #ff3333; padding-left: 20px; background: rgba(255, 51, 51, 0.05); padding: 20px; border-radius: 0 10px 10px 0; }
-        .servico-card-payt { background: #ffffff; border: 1px solid #eeeeee; padding: 40px 30px; border-radius: 15px; transition: 0.4s; text-align: left; }
-        .servico-card-payt:hover { border-color: var(--cor-primaria); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 132, 61, 0.15); background: #fafafa; }
+        .payt-alerta { font-size: 1.15rem; line-height: 1.8; color: #eeeeee; margin-bottom: 50px; border-left: 4px solid #ff3333; padding-left: 20px; background: rgba(255, 51, 51, 0.05); padding: 20px; border-radius: 0 10px 10px 0; transition: all 0.4s ease; }
+        .payt-alerta:hover { transform: translateX(5px); background: rgba(255, 51, 51, 0.08); }
+        
+        .servico-card-payt { background: #ffffff; border: 1px solid #eeeeee; padding: 40px 30px; text-align: left; }
+        .servico-card-payt:hover { border-color: var(--cor-primaria); background: #fafafa; }
         .servico-card-payt i { font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 25px; }
         .servico-card-payt h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a; text-transform: uppercase; }
         .servico-card-payt p { font-size: 1rem; color: #555555; line-height: 1.6; }
+        
         .payt-metrics { display: flex; justify-content: center; gap: 40px; margin-top: 50px; margin-bottom: 60px; flex-wrap: wrap; }
         .metric-box { text-align: center; }
         .metric-box h5 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cor-primaria); margin-bottom: 5px; }
@@ -201,7 +243,7 @@
         
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* ==================== RESPONSIVO MOBILE REVISADO ==================== */
+        /* ==================== RESPONSIVO MOBILE ==================== */
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; border-right: none; border-bottom: 1px solid #111; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
@@ -262,17 +304,18 @@
             <li class="nav-item nav-master-link active" id="nav-home" onclick="carregarConteudo('home')">
                 <span class="pt">ECOSSISTEMA T</span><span class="en">T ECOSYSTEM</span><span class="es">ECOSISTEMA T</span>
             </li>
-            <li class="nav-item" id="nav-payt" onclick="carregarConteudo('payt')">PAY T</li>
+            <li class="nav-item" id="nav-payt" onclick="carregarConteudo('payt')">PAYMEN.T</li>
             <li class="nav-item" id="nav-imobt" onclick="carregarConteudo('imobt')">IMOB T</li>
             <li class="nav-item" id="nav-construt" onclick="carregarConteudo('construt')">CONSTRU T</li>
             <li class="nav-item" id="nav-homeclubt" onclick="carregarConteudo('homeclubt')">HOME CLUB T</li>
-            <li class="nav-item" id="nav-brandt" onclick="carregarConteudo('brandt')">BRAND T</li>
+            <li class="nav-item" id="nav-brandt" onclick="carregarConteudo('brandt')">BRANDING T</li>
         </ul>
     </aside>
 
     <main class="main-content">
         <section class="hero-section" id="hero-display">
-            </section>
+            <!-- Conteúdo carregado via JS -->
+        </section>
 
         <section class="lp-section lp-imobt" id="lp-imobt-section">
             <h2>
@@ -297,205 +340,107 @@
                 <p class="es" style="margin-bottom: 15px;">Nos encargamos de toda la fase de <strong>análisis de viabilidad técnica de lugares</strong> para la implantación de la infraestructura pretendida. Nuestro equipo analiza zonificación, restricciones y potencial constructivo, además de gestionar con excelencia todo el alcance de emisiones, certificados y regularizaciones necesarias:</p>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-                    
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Alvará de Regularização de Imóveis</span>
-                            <span class="en">Real Estate Regularization Permit</span>
-                            <span class="es">Licencia de Regularización de Inmuebles</span>
-                        </span>
+                        <span><span class="pt">Alvará de Regularização de Imóveis</span><span class="en">Real Estate Regularization Permit</span><span class="es">Licencia de Regularización de Inmuebles</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Auto de Licença de Funcionamento</span>
-                            <span class="en">Operating License Certificate</span>
-                            <span class="es">Certificado de Licencia de Funcionamiento</span>
-                        </span>
+                        <span><span class="pt">Auto de Licença de Funcionamento</span><span class="en">Operating License Certificate</span><span class="es">Certificado de Licencia de Funcionamiento</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Alvará de Autorização</span>
-                            <span class="en">Authorization Permit</span>
-                            <span class="es">Licencia de Autorización</span>
-                        </span>
+                        <span><span class="pt">Alvará de Autorização</span><span class="en">Authorization Permit</span><span class="es">Licencia de Autorización</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">AVCB e revalidação junto ao Corpo de Bombeiros SP</span>
-                            <span class="en">AVCB and revalidation with SP Fire Department</span>
-                            <span class="es">AVCB y revalidación ante Bomberos de SP</span>
-                        </span>
+                        <span><span class="pt">AVCB e revalidação junto ao Corpo de Bombeiros SP</span><span class="en">AVCB and revalidation with SP Fire Department</span><span class="es">AVCB y revalidación ante Bomberos de SP</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Certificado de Acessibilidade</span>
-                            <span class="en">Accessibility Certificate</span>
-                            <span class="es">Certificado de Accesibilidad</span>
-                        </span>
+                        <span><span class="pt">Certificado de Acessibilidade</span><span class="en">Accessibility Certificate</span><span class="es">Certificado de Accesibilidad</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Alvará de Aprovação de Movimentação de Terra</span>
-                            <span class="en">Earthwork Approval Permit</span>
-                            <span class="es">Licencia de Aprobación de Movimiento de Tierras</span>
-                        </span>
+                        <span><span class="pt">Alvará de Aprovação de Movimentação de Terra</span><span class="en">Earthwork Approval Permit</span><span class="es">Licencia de Aprobación de Movimiento de Tierras</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Alvará para Instalação de Estande de Vendas</span>
-                            <span class="en">Sales Stand Installation Permit</span>
-                            <span class="es">Licencia para Instalación de Stand de Ventas</span>
-                        </span>
+                        <span><span class="pt">Alvará para Instalação de Estande de Vendas</span><span class="en">Sales Stand Installation Permit</span><span class="es">Licencia para Instalación de Stand de Ventas</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Revalidação do Alvará de Funcionamento</span>
-                            <span class="en">Revalidation of Operating License</span>
-                            <span class="es">Revalidación de Licencia de Funcionamiento</span>
-                        </span>
+                        <span><span class="pt">Revalidação do Alvará de Funcionamento</span><span class="en">Revalidation of Operating License</span><span class="es">Revalidación de Licencia de Funcionamiento</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Isenção de Taxas</span>
-                            <span class="en">Fee Exemption</span>
-                            <span class="es">Exención de Tasas</span>
-                        </span>
+                        <span><span class="pt">Isenção de Taxas</span><span class="en">Fee Exemption</span><span class="es">Exención de Tasas</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Imunidade de IPTU</span>
-                            <span class="en">Property Tax Immunity</span>
-                            <span class="es">Inmunidad de IPTU</span>
-                        </span>
+                        <span><span class="pt">Imunidade de IPTU</span><span class="en">Property Tax Immunity</span><span class="es">Inmunidad de IPTU</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Desmembramento e Remembramento de Terrenos</span>
-                            <span class="en">Land Subdivision and Unification</span>
-                            <span class="es">Desmembramiento y Agrupación de Terrenos</span>
-                        </span>
+                        <span><span class="pt">Desmembramento e Remembramento de Terrenos</span><span class="en">Land Subdivision and Unification</span><span class="es">Desmembramiento y Agrupación de Terrenos</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Alvará de Aprovação de Edificação Nova (HIS/HMP)</span>
-                            <span class="en">New Building Approval Permit (HIS/HMP)</span>
-                            <span class="es">Licencia de Aprobación de Edificación Nueva (HIS/HMP)</span>
-                        </span>
+                        <span><span class="pt">Alvará de Aprovação de Edificação Nova (HIS/HMP)</span><span class="en">New Building Approval Permit (HIS/HMP)</span><span class="es">Licencia de Aprobación de Edificación Nueva (HIS/HMP)</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Alvará de Aprovação e Execução de Edificação Nova (exceto HIS/HMP)</span>
-                            <span class="en">New Building Approval & Execution Permit (except HIS/HMP)</span>
-                            <span class="es">Licencia de Aprobación y Ejecución de Edificación Nueva (excepto HIS/HMP)</span>
-                        </span>
+                        <span><span class="pt">Alvará de Aprovação e Execução de Edificação Nova (exceto HIS/HMP)</span><span class="en">New Building Approval & Execution Permit (except HIS/HMP)</span><span class="es">Licencia de Aprobación y Ejecución de Edificación Nueva (excepto HIS/HMP)</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">FICAM</span>
-                            <span class="en">FICAM</span>
-                            <span class="es">FICAM</span>
-                        </span>
+                        <span><span class="pt">FICAM</span><span class="en">FICAM</span><span class="es">FICAM</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Certificado de Segurança</span>
-                            <span class="en">Security Certificate</span>
-                            <span class="es">Certificado de Seguridad</span>
-                        </span>
+                        <span><span class="pt">Certificado de Segurança</span><span class="en">Security Certificate</span><span class="es">Certificado de Seguridad</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Consulta de Zoneamento</span>
-                            <span class="en">Zoning Consultation</span>
-                            <span class="es">Consulta de Zonificación</span>
-                        </span>
+                        <span><span class="pt">Consulta de Zoneamento</span><span class="en">Zoning Consultation</span><span class="es">Consulta de Zonificación</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Certidão de Uso e Ocupação do Solo</span>
-                            <span class="en">Land Use and Occupation Certificate</span>
-                            <span class="es">Certificado de Uso y Ocupación del Suelo</span>
-                        </span>
+                        <span><span class="pt">Certidão de Uso e Ocupação do Solo</span><span class="en">Land Use and Occupation Certificate</span><span class="es">Certificado de Uso y Ocupación del Suelo</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Certidão de Tempo de Edificação (Histórico da Edificação)</span>
-                            <span class="en">Building Time Certificate (Building History)</span>
-                            <span class="es">Certificado de Tiempo de Edificación (Historial)</span>
-                        </span>
+                        <span><span class="pt">Certidão de Tempo de Edificação (Histórico da Edificação)</span><span class="en">Building Time Certificate (Building History)</span><span class="es">Certificado de Tiempo de Edificación (Historial)</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Certificado de Conclusão</span>
-                            <span class="en">Completion Certificate</span>
-                            <span class="es">Certificado de Finalización</span>
-                        </span>
+                        <span><span class="pt">Certificado de Conclusão</span><span class="en">Completion Certificate</span><span class="es">Certificado de Finalización</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Certificado de Diretrizes Urbanísticas</span>
-                            <span class="en">Urban Guidelines Certificate</span>
-                            <span class="es">Certificado de Directrices Urbanísticas</span>
-                        </span>
+                        <span><span class="pt">Certificado de Diretrizes Urbanísticas</span><span class="en">Urban Guidelines Certificate</span><span class="es">Certificado de Directrices Urbanísticas</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Apostilamento de Documentação</span>
-                            <span class="en">Documentation Apostille</span>
-                            <span class="es">Apostilla de Documentación</span>
-                        </span>
+                        <span><span class="pt">Apostilamento de Documentação</span><span class="en">Documentation Apostille</span><span class="es">Apostilla de Documentación</span></span>
                     </div>
-
                     <div style="font-size: 0.95rem; color: #bbb; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
                         <i class="fas fa-check-circle" style="color: var(--cor-primaria); margin-top: 3px; font-size: 0.9rem;"></i>
-                        <span>
-                            <span class="pt">Cadastro no Sistema Especial de Segurança</span>
-                            <span class="en">Special Security System Registration</span>
-                            <span class="es">Registro en el Sistema Especial de Seguridad</span>
-                        </span>
+                        <span><span class="pt">Cadastro no Sistema Especial de Segurança</span><span class="en">Special Security System Registration</span><span class="es">Registro en el Sistema Especial de Seguridad</span></span>
                     </div>
                 </div>
+            </div>
+
+            <!-- BLOCO IMOB T: EVENTOS -->
+            <div class="imobt-auditoria-box">
+                <h3>
+                    <span class="pt">Aprovação Técnica e Jurídica de Eventos</span>
+                    <span class="en">Technical and Legal Approval for Events</span>
+                    <span class="es">Aprobación Técnica y Legal de Eventos</span>
+                </h3>
+                <p class="pt">Cuidamos da aprovação técnica de eventos de múltiplos portes e tipos. Estruturamos a melhor estratégia jurídica para preservar a segurança dos participantes e blindar a credibilidade dos organizadores e das empresas patrocinadoras.</p>
+                <p class="en">We handle technical approvals for events of all sizes. We structure the best legal strategy to preserve participant safety and shield the credibility of organizers and sponsoring companies.</p>
+                <p class="es">Nos encargamos de la aprobación técnica de eventos de todos los tamaños. Estructuramos la mejor estrategia legal para preservar la seguridad de los participantes y blindar la credibilidad de los organizadores y patrocinadores.</p>
             </div>
 
             <div class="imobt-auditoria-box">
@@ -521,19 +466,19 @@
             </div>
 
             <div class="servicos-grid">
-                <div class="servico-card-imobt"><i class="fas fa-hard-hat"></i>
+                <div class="floating-card servico-card-imobt"><i class="fas fa-hard-hat"></i>
                     <h4 class="pt">Aprovação e Regularização</h4><h4 class="en">Approval & Regularization</h4><h4 class="es">Aprobación y Regularización</h4>
                     <p class="pt">Documentação técnica completa, desde o projeto inicial até o <strong>Habite-se</strong>. Garantimos conformidade 100%.</p>
                     <p class="en">Complete technical documentation, from initial project to <strong>Habite-se</strong>. We guarantee 100% compliance.</p>
                     <p class="es">Documentación técnica completa, desde el proyecto inicial hasta el <strong>Habite-se</strong>. Garantizamos el 100% de cumplimiento.</p>
                 </div>
-                <div class="servico-card-imobt"><i class="fas fa-search-dollar"></i>
+                <div class="floating-card servico-card-imobt"><i class="fas fa-search-dollar"></i>
                     <h4 class="pt">Auditoria de Processos</h4><h4 class="en">Process Auditing</h4><h4 class="es">Auditoría de Procesos</h4>
                     <p class="pt">Mapeamento e gestão ativa de exigências. Evitamos o pagamento de taxas em duplicidade aos órgãos públicos.</p>
                     <p class="en">Mapping and active management of requirements. We avoid paying duplicate fees to public agencies.</p>
                     <p class="es">Mapeo y gestión activa de requisitos. Evitamos el pago de tasas duplicadas a los organismos públicos.</p>
                 </div>
-                <div class="servico-card-imobt"><i class="fas fa-fire-extinguisher"></i>
+                <div class="floating-card servico-card-imobt"><i class="fas fa-fire-extinguisher"></i>
                     <h4 class="pt">Conformidade e Segurança</h4><h4 class="en">Compliance & Security</h4><h4 class="es">Cumplimiento y Seguridad</h4>
                     <p class="pt">Emissão e renovação de <strong>AVCB</strong> e <strong>CLCB</strong>. Blindamos o seu ativo para assegurar cobertura de seguros.</p>
                     <p class="en">Issuance and renewal of <strong>AVCB</strong> and <strong>CLCB</strong>. We shield your asset to ensure insurance coverage.</p>
@@ -585,20 +530,33 @@
                     <p class="en">100% unprecedented model with active legal registration. This means absolute security for your HR.</p>
                     <p class="es">Modelo 100% inédito y cuenta con registro legal activo. Esto significa seguridad absoluta para su RRHH.</p>
                 </div>
+
+                <!-- BLOCO HOME CLUB T: NR1 -->
+                <div class="homeclubt-exclusividade-box" style="background-color: #0a0a0a;">
+                    <h3>
+                        <span class="pt">Compliance com a NR1 e Benefícios Tributários</span>
+                        <span class="en">NR1 Compliance and Tax Benefits</span>
+                        <span class="es">Cumplimiento NR1 y Beneficios Fiscales</span>
+                    </h3>
+                    <p class="pt">A legislação brasileira (NR1) agora exige que toda empresa invista em ações reais para a saúde mental de seus colaboradores. Cumpra essa norma de forma ágil através do nosso clube e beneficie sua empresa com a melhor estratégia tributária, otimizando seu caixa.</p>
+                    <p class="en">Brazilian legislation (NR1) now requires companies to invest in employee mental health. Comply with this standard through our club and benefit your company with the best tax strategy, optimizing your cash flow.</p>
+                    <p class="es">La legislación brasileña (NR1) ahora exige invertir en la salud mental de los empleados. Cumpla esta norma a través de nuestro club y beneficie a su empresa con la mejor estrategia fiscal, optimizando su flujo de caja.</p>
+                </div>
+
                 <div class="servicos-grid">
-                    <div class="homeclubt-card"><i class="fas fa-spa"></i>
+                    <div class="floating-card homeclubt-card"><i class="fas fa-spa"></i>
                         <h4 class="pt">Wellness Integrado</h4><h4 class="en">Integrated Wellness</h4><h4 class="es">Bienestar Integrado</h4>
                         <p class="pt">Manutenção e comodidade direta na residência.</p>
                         <p class="en">Direct home maintenance and convenience.</p>
                         <p class="es">Mantenimiento y comodidad directa en la residencia.</p>
                     </div>
-                    <div class="homeclubt-card"><i class="fas fa-hand-holding-heart"></i>
+                    <div class="floating-card homeclubt-card"><i class="fas fa-hand-holding-heart"></i>
                         <h4 class="pt">Lealdade e Retenção</h4><h4 class="en">Loyalty & Retention</h4><h4 class="es">Lealtad y Retención</h4>
                         <p class="pt">Crie uma barreira de saída emocional abraçando a família.</p>
                         <p class="en">Create an emotional exit barrier by embracing the family.</p>
                         <p class="es">Cree una barrera de salida emocional abrazando a la familia.</p>
                     </div>
-                    <div class="homeclubt-card"><i class="fas fa-chart-line"></i>
+                    <div class="floating-card homeclubt-card"><i class="fas fa-chart-line"></i>
                         <h4 class="pt">Zero Atrito</h4><h4 class="en">Zero Friction</h4><h4 class="es">Cero Fricción</h4>
                         <p class="pt">Gestão automatizada e implementação sem burocracia.</p>
                         <p class="en">Automated management and bureaucracy-free implementation.</p>
@@ -633,19 +591,19 @@
             </div>
             <div class="construt-body">
                 <div class="servicos-grid">
-                    <div class="servico-card-construt"><i class="fas fa-boxes"></i>
+                    <div class="floating-card servico-card-construt"><i class="fas fa-boxes"></i>
                         <h4 class="pt">SaaS de Insumos</h4><h4 class="en">SaaS Supplies</h4><h4 class="es">SaaS de Insumos</h4>
                         <p class="pt">O controle de prazos na sua mão, através da compra programada. Garantia de melhores custos e prazos garantidos de entrega dos insumos, o que garante o sucesso do prazo de entrega da obra.</p>
                         <p class="en">Deadline control in your hands through scheduled purchasing. Guaranteed better costs and delivery times for supplies, ensuring the success of your project's delivery schedule.</p>
                         <p class="es">El control de plazos en sus manos a través de la compra programada. Garantía de mejores costos y plazos de entrega de insumos, asegurando el éxito del cronograma de su obra.</p>
                     </div>
-                    <div class="servico-card-construt"><i class="fas fa-tools"></i>
+                    <div class="floating-card servico-card-construt"><i class="fas fa-tools"></i>
                         <h4 class="pt">Acesso e Exclusividade</h4><h4 class="en">Access & Exclusivity</h4><h4 class="es">Acceso y Exclusividad</h4>
                         <p class="pt">Acesso direto aos melhores fabricantes nacionais e chineses, eliminando atravessadores e comprando como um dos membros do distribuidor, além de contar com produtos exclusivos de marca própria e o acesso antecipado aos lançamentos no segmento.</p>
                         <p class="en">Direct access to the best national and Chinese manufacturers, eliminating middlemen and buying as a distributor member, plus exclusive private label products and early access to new releases in the segment.</p>
                         <p class="es">Acceso directo a los mejores fabricantes nacionales y chinos, eliminando intermediarios y comprando como miembro distribuidor, además de productos exclusivos de marca propia y acceso anticipado a lanzamientos del segmento.</p>
                     </div>
-                    <div class="servico-card-construt"><i class="fas fa-truck-loading"></i>
+                    <div class="floating-card servico-card-construt"><i class="fas fa-truck-loading"></i>
                         <h4 class="pt">Logística</h4><h4 class="en">Logistics</h4><h4 class="es">Logística</h4>
                         <p class="pt">Logística integrada desde o embarque no fabricante até a entrega na obra na data programada. O controle de uma das etapas mais importantes do processo da construção civil.</p>
                         <p class="en">Integrated logistics from manufacturer shipment to delivery at the construction site on the scheduled date. Control over one of the most important stages of the civil construction process.</p>
@@ -682,9 +640,9 @@
                 </h2>
                 
                 <p class="brandt-alerta" style="margin-bottom: 20px;">
-                    <span class="pt">A <strong>BRAND T</strong> estrutura autoridades e negócios, sendo a intermediadora perfeita entre os palestrantes e criadores de conteúdo e as marcas. Uma integração que facilita ambos os lados e reduz custos drasticamente às marcas, o que resulta na possibilidade de investir em melhores pagamentos aos palestrantes e criadores de conteúdo, e ainda assim termos uma operação extremamente lucrativa.</span>
-                    <span class="en"><strong>BRAND T</strong> structures authorities and businesses, acting as the perfect intermediary between speakers, content creators, and brands. An integration that facilitates both sides and drastically reduces costs for brands, allowing investment in better payouts for speakers and creators, while maintaining a highly profitable operation.</span>
-                    <span class="es"><strong>BRAND T</strong> estructura autoridades y negocios, siendo la intermediaria perfecta entre conferencistas, creadores de contenido y marcas. Una integración que facilita a ambas partes y reduce drásticamente los costos para las marcas, permitiendo invertir en mejores pagos para los conferencistas y creadores, manteniendo una operación altamente rentable.</span>
+                    <span class="pt">A <strong>BRANDING T</strong> estrutura autoridades e negócios, sendo a intermediadora perfeita entre os palestrantes e criadores de conteúdo e as marcas. Uma integração que facilita ambos os lados e reduz custos drasticamente às marcas, o que resulta na possibilidade de investir em melhores pagamentos aos palestrantes e criadores de conteúdo, e ainda assim termos uma operação extremamente lucrativa.</span>
+                    <span class="en"><strong>BRANDING T</strong> structures authorities and businesses, acting as the perfect intermediary between speakers, content creators, and brands. An integration that facilitates both sides and drastically reduces costs for brands, allowing investment in better payouts for speakers and creators, while maintaining a highly profitable operation.</span>
+                    <span class="es"><strong>BRANDING T</strong> estructura autoridades y negocios, siendo la intermediaria perfecta entre conferencistas, creadores de contenido y marcas. Una integración que facilita a ambas partes y reduce drásticamente los costos para las marcas, permitiendo invertir en mejores pagos para los conferencistas y creadores, manteniendo una operación altamente rentable.</span>
                 </p>
 
                 <p class="brandt-alerta" style="margin-bottom: 20px;">
@@ -694,33 +652,40 @@
                 </p>
 
                 <p class="brandt-alerta">
-                    <span class="pt">Contando com time de mais de 15 anos em consultoria jurídico-financeira, a BRAND T traz toda a expertise consolidada em operações que somam dezenas de bilhões de reais ao longo desse período, agora à disposição de negócios de todos os portes.</span>
-                    <span class="en">With a team of over 15 years in legal and financial consulting, BRAND T brings consolidated expertise in operations totaling tens of billions of reais over this period, now available to businesses of all sizes.</span>
-                    <span class="es">Con un equipo de más de 15 años en consultoría jurídico-financiera, BRAND T aporta experiencia consolidada en operaciones que suman decenas de miles de millones de reales a lo largo de este período, ahora a disposición de negocios de todos los tamaños.</span>
+                    <span class="pt">Contando com time de mais de 15 anos em consultoria jurídico-financeira, a BRANDING T traz toda a expertise consolidada em operações que somam dezenas de bilhões de reais ao longo desse período, agora à disposição de negócios de todos os portes.</span>
+                    <span class="en">With a team of over 15 years in legal and financial consulting, BRANDING T brings consolidated expertise in operations totaling tens of billions of reais over this period, now available to businesses of all sizes.</span>
+                    <span class="es">Con un equipo de más de 15 años en consultoría jurídico-financiera, BRANDING T aporta experiencia consolidada en operaciones que suman decenas de miles de millones de reales a lo largo de este período, ahora a disposición de negocios de todos los tamaños.</span>
                 </p>
                 
-                
-    
-                <div class="servicos-grid">
-                    <div class="servico-card-brandt"><i class="fas fa-graduation-cap"></i>
+                <div class="servicos-grid" style="margin-top: 60px;">
+                    <div class="floating-card servico-card-brandt"><i class="fas fa-graduation-cap"></i>
                         <h4 class="pt">Academy T</h4><h4 class="en">Academy T</h4><h4 class="es">Academy T</h4>
                         <p class="pt">Lapidamos talentos e mentores criando autoridades inquestionáveis.</p>
                         <p class="en">We polish talent and mentors, creating unquestionable authorities.</p>
                         <p class="es">Pulimos talentos y mentores creando autoridades incuestionables.</p>
                     </div>
-                    <div class="servico-card-brandt"><i class="fas fa-balance-scale-right"></i>
+                    
+                    <!-- BLOCO BRANDING T: EVENTOS -->
+                    <div class="floating-card servico-card-brandt" style="border-left: 4px solid var(--cor-primaria);"><i class="fas fa-glass-cheers"></i>
+                        <h4 class="pt">Eventos e Lançamentos</h4><h4 class="en">Events and Launches</h4><h4 class="es">Eventos y Lanzamientos</h4>
+                        <p class="pt">Realizamos a organização completa de eventos corporativos e de lançamento de produtos. Entregamos uma experiência do usuário premium, combinando infraestrutura atraente e networking estratégico para maximizar seus resultados e acelerar a marca.</p>
+                        <p class="en">We carry out the complete organization of corporate events and product launches, delivering a premium user experience and attractive infrastructure to maximize results.</p>
+                        <p class="es">Realizamos la organización completa de eventos corporativos y lanzamientos de productos, brindando una experiencia premium e infraestructura atractiva para maximizar resultados.</p>
+                    </div>
+
+                    <div class="floating-card servico-card-brandt"><i class="fas fa-balance-scale-right"></i>
                         <h4 class="pt">Engenharia Fiscal</h4><h4 class="en">Tax Engineering</h4><h4 class="es">Ingeniería Fiscal</h4>
                         <p class="pt">Suporte na abertura com inteligência tributária e blindagem patrimonial.</p>
                         <p class="en">Support in business formation with tax intelligence and asset shielding.</p>
                         <p class="es">Soporte en la apertura con inteligencia tributaria y blindaje patrimonial.</p>
                     </div>
-                    <div class="servico-card-brandt"><i class="fas fa-bullseye"></i>
+                    <div class="floating-card servico-card-brandt"><i class="fas fa-bullseye"></i>
                         <h4 class="pt">Posicionamento</h4><h4 class="en">Positioning</h4><h4 class="es">Posicionamiento</h4>
                         <p class="pt">Cuidamos da jornada para que marcas escalem produtos físicos e infoprodutos.</p>
                         <p class="en">We manage the journey for brands to scale physical and digital products.</p>
                         <p class="es">Cuidamos el proceso para que las marcas escalen productos físicos e infoproductos.</p>
                     </div>
-                    <div class="servico-card-brandt"><i class="fas fa-hand-holding-usd"></i>
+                    <div class="floating-card servico-card-brandt"><i class="fas fa-hand-holding-usd"></i>
                         <h4 class="pt">Aporte Financeiro</h4><h4 class="en">Financial Support</h4><h4 class="es">Aporte Financiero</h4>
                         <p class="pt">Preparamos profissionais e empresas para receber aportes de investimentos de diversos tipos e instituições.</p>
                         <p class="en">We prepare professionals and companies to receive investments and financial injections from various types and institutions.</p>
@@ -728,7 +693,7 @@
                     </div>
                 </div>
             <div style="text-align: center; margin-top: 30px;">
-                <a href="https://wa.me/5511947879779?text=Olá! Quero iniciar minha carreira ou estruturar minha empresa com a BRAND T." target="_blank" class="btn-urgente">
+                <a href="https://wa.me/5511947879779?text=Olá! Quero iniciar minha carreira ou estruturar minha empresa com a BRANDING T." target="_blank" class="btn-urgente">
                     <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
                     <span class="pt">INICIAR MINHA CARREIRA OU EMPRESA E/OU ESTRUTURAR MEU IMPÉRIO E ESCALAR</span>
                     <span class="en">START MY CAREER OR BUSINESS AND/OR STRUCTURE MY EMPIRE AND SCALE</span>
@@ -754,27 +719,39 @@
                     <span class="en">Every 1% of legitimate transactions rejected by poorly calibrated anti-fraud means thousands lost.</span>
                     <span class="es">Cada 1% de transacciones legítimas rechazadas por un antifraude mal calibrado significa miles perdidos.</span>
                 </p>
+                
+                <!-- BLOCO PAYMEN.T: DASHBOARD -->
+                <div class="floating-card servico-card-payt" style="margin-bottom: 30px; border: 1px solid var(--cor-primaria);">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4 class="pt">Dashboard Centralizado e Saque Direto</h4>
+                    <h4 class="en">Centralized Dashboard and Direct Withdrawal</h4>
+                    <h4 class="es">Dashboard Centralizado y Retiro Directo</h4>
+                    <p class="pt">Na PAYMEN.T, a gestão do checkout fica toda concentrada em um dashboard de cliente inteligente. Os saques são feitos de forma automatizada diretamente na conta indicada, garantindo velocidade no fluxo de caixa e operando com taxas infinitamente menores que as do mercado padrão.</p>
+                    <p class="en">With PAYMEN.T, checkout management is centralized in a smart client dashboard. Withdrawals are automated directly to your indicated account, ensuring cash flow speed and operating with fees infinitely lower than the standard market.</p>
+                    <p class="es">Con PAYMEN.T, la gestión del checkout se centraliza en un dashboard inteligente. Los retiros se automatizan directamente en la cuenta indicada, asegurando velocidad en el flujo de caja y operando con tasas infinitamente menores que el mercado estándar.</p>
+                </div>
+
                 <div class="servicos-grid">
-                    <div class="servico-card-payt"><i class="fas fa-microchip"></i>
+                    <div class="floating-card servico-card-payt"><i class="fas fa-microchip"></i>
                         <h4 class="pt">Roteamento IA</h4><h4 class="en">AI Routing</h4><h4 class="es">Enrutamiento IA</h4>
                         <p class="pt">Nossa IA analisa e redireciona cada transação para a adquirente com maior chance de aprovação em milissegundos. Transforme vendas negadas por falha sistêmica em receita real no seu caixa.</p>
                         <p class="en">Our AI analyzes and redirects each transaction to the acquirer with the highest chance of approval in milliseconds. Turn sales denied by systemic failure into real revenue.</p>
                         <p class="es">Nuestra IA analiza y redirige cada transacción al adquirente con mayor probabilidad de aprobación en milisegundos. Convierta las ventas denegadas por fallas sistémicas en ingresos reales.</p>
                     </div>
-                    <div class="servico-card-payt"><i class="fas fa-shield-alt"></i>
+                    <div class="floating-card servico-card-payt"><i class="fas fa-shield-alt"></i>
                         <h4 class="pt">Antifraude Cirúrgico</h4><h4 class="en">Surgical Anti-fraud</h4><h4 class="es">Antifraude Quirúrgico</h4>
                         <p class="pt">Um sistema burro bloqueia seus melhores clientes. Nosso antifraude utiliza biometria comportamental e cruzamento de dados para blindar seu negócio, garantindo zero atrito para o comprador legítimo.</p>
                         <p class="en">A dumb system blocks your best customers. Our anti-fraud uses behavioral biometrics and high-level data crossing to shield your business, ensuring zero friction for legitimate buyers.</p>
                         <p class="es">Un sistema torpe bloquea a sus mejores clientes. Nuestro antifraude utiliza biometría conductual y cruce de datos para blindar su negocio, garantizando cero fricción para el comprador legítimo.</p>
                     </div>
-                    <div class="servico-card-payt"><i class="fas fa-bolt"></i>
+                    <div class="floating-card servico-card-payt"><i class="fas fa-bolt"></i>
                         <h4 class="pt">Liquidez e Fluxo de Caixa</h4><h4 class="en">Liquidity & Cash Flow</h4><h4 class="es">Liquidez y Flujo de Caja</h4>
                         <p class="pt">Chega de esperar 30 dias para ver a cor do seu dinheiro. Com nossos planos agressivos (D+1 ou D+0), você injeta capital imediato na operação para reinvestir em tráfego e escalar sem travas.</p>
                         <p class="en">Stop waiting 30 days to see your money. With our aggressive plans (D+1 or D+0), you inject immediate capital into your operation to reinvest and scale without locks.</p>
                         <p class="es">Deje de esperar 30 días para ver su dinero. Con nuestros agresivos planes (D+1 o D+0), inyecta capital inmediato en la operación para reinvertir y escalar sin trabas financieras.</p>
                     </div>
-                    <div style="text-align: center; margin-top: 40px;">
-                        <a href="https://wa.me/5511947879779?text=Olá! Quero conhecer a engenharia financeira da PAY T." target="_blank" class="btn-urgente">
+                    <div style="text-align: center; margin-top: 40px; grid-column: 1 / -1;">
+                        <a href="https://wa.me/5511947879779?text=Olá! Quero conhecer a engenharia financeira da PAYMEN.T." target="_blank" class="btn-urgente">
                             <i class="fab fa-whatsapp" style="margin-right: 10px;"></i>
                             <span class="pt">DESTRAVAR MINHA OPERAÇÃO AGORA</span>
                             <span class="en">UNLOCK MY OPERATION NOW</span>
@@ -831,15 +808,22 @@
         </div>
     </div>
     
+    <!-- MODAL DE CONTATO: E-MAIL E WHATSAPP AGORA SÃO CLIÁVEIS -->
     <div class="modal-overlay" id="modal-contato" onclick="fecharModal(event)">
         <div class="modal-content" style="text-align: center;">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3><span class="pt">Fale com a </span><span class="en">Speak with </span><span class="es">Hable con </span><span class="marca-destaque">TGROUP SOLUTIONS</span></h3>
-            <div style="font-size: 1.2rem; margin-bottom: 15px;">
-                <i class="fas fa-envelope" style="color:var(--cor-primaria);"></i> tgroupsolutions.br@gmail.com
+            
+            <div style="font-size: 1.2rem; margin-bottom: 20px;">
+                <a href="mailto:tgroupsolutions.br@gmail.com" style="color: var(--cor-texto); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--cor-primaria)'" onmouseout="this.style.color='var(--cor-texto)'">
+                    <i class="fas fa-envelope" style="color:var(--cor-primaria); margin-right: 8px;"></i> tgroupsolutions.br@gmail.com
+                </a>
             </div>
+            
             <div style="font-size: 1.2rem;">
-                <i class="fab fa-whatsapp" style="color:var(--cor-primaria);"></i> +55 11 94787-9779
+                <a href="https://wa.me/5511947879779?text=Olá!%20Gostaria%20de%20falar%20com%20a%20TGROUP%20SOLUTIONS." target="_blank" style="color: var(--cor-texto); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--cor-primaria)'" onmouseout="this.style.color='var(--cor-texto)'">
+                    <i class="fab fa-whatsapp" style="color:var(--cor-primaria); margin-right: 8px;"></i> +55 11 94787-9779
+                </a>
             </div>
         </div>
     </div>
@@ -849,12 +833,12 @@
             pt: {
                 home: {
                     titulo: "Inovação e <span>Gestão Integrada</span>",
-                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável e gestão de ponta.<br><br><iframe width='100%' height='450' src='https://www.youtube.com/embed/Vf1N_jecbR4?autoplay=1&mute=1' style='border-radius: 12px; margin-bottom: 20px;' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe><br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Acesse nossas soluções</a>",
+                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável e gestão de ponta.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Acesse nossas soluções</a>",
                     imagem: ""
                 },
                 payt: {
                     titulo: "Matriz Financeira e <span>Gateway de Pagamentos</span>",
-                    texto: "A <span class='marca-destaque'>PAY T</span> é a Fintech de Gestão Financeira do Ecossistema, oferecendo engenharia comercial para operações que precisam escalar.",
+                    texto: "A <span class='marca-destaque'>PAYMEN.T</span> é a Fintech de Gestão Financeira do Ecossistema, oferecendo engenharia comercial para operações que precisam escalar.",
                     imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
                 },
                 imobt: {
@@ -881,12 +865,12 @@
             en: {
                 home: {
                     titulo: "Innovation and <span>Integrated Management</span>",
-                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> represents an innovative matrix that integrates startups across various sectors.<br><br>Our expertise focuses on sustainable growth and cutting-edge management.<br><br><iframe width='100%' height='450' src='https://www.youtube.com/embed/-d3B3y7PNCU?autoplay=1&mute=1' style='border-radius: 12px; margin-bottom: 20px;' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe><br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Access our solutions</a>",
+                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> represents an innovative matrix that integrates startups across various sectors.<br><br>Our expertise focuses on sustainable growth and cutting-edge management.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Access our solutions</a>",
                     imagem: ""
                 },
                 payt: {
                     titulo: "Financial Matrix and <span>Payment Gateway</span>",
-                    texto: "",
+                    texto: "A <span class='marca-destaque'>PAYMEN.T</span> is the Ecosystem's Financial Management Fintech.",
                     imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
                 },
                 imobt: {
@@ -913,12 +897,12 @@
             es: {
                 home: {
                     titulo: "Innovación y <span>Gestión Integrada</span>",
-                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa una matriz innovadora que integra startups en diversos sectores.<br><br>Nuestra experiencia se centra en el crecimiento sostenible y la gestión de vanguardia.<br><br><iframe width='100%' height='450' src='https://www.youtube.com/embed/uG6T06gsUYQ?autoplay=1&mute=1' style='border-radius: 12px; margin-bottom: 20px;' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe><br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Acceda a nuestras soluciones</a>",
+                    texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa una matriz innovadora que integra startups en diversos sectores.<br><br>Nuestra experiencia se centra en el crecimiento sostenible y la gestión de vanguardia.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Acceda a nuestras soluciones</a>",
                     imagem: ""
                 },
                 payt: {
                     titulo: "Matriz Financiera y <span>Pasarela de Pagos</span>",
-                    texto: "<span class='marca-destaque'>PAY T</span> es la Fintech de Gestión Financiera del Ecosistema, ofreciendo ingeniería comercial para operaciones que necesitan escalar.",
+                    texto: "<span class='marca-destaque'>PAYMEN.T</span> es la Fintech de Gestión Financiera del Ecosistema, ofreciendo ingeniería comercial para operaciones que necesitan escalar.",
                     imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
                 },
                 imobt: {
@@ -974,7 +958,7 @@
                     conteudoImagem = `<div class="imagem-grid-4">${dados.imagens.map(img => `<img src="${img}">`).join('')}</div>`;
                 } else if (dados.imagens && dados.imagens.length === 3) {
                     conteudoImagem = `<div class="imagem-grid-3">${dados.imagens.map(img => `<img src="${img}">`).join('')}</div>`;
-                } else {
+                } else if (dados.imagem !== "") {
                     conteudoImagem = `<div class="hero-image-container"><img src="${dados.imagem}"></div>`;
                 }
 
