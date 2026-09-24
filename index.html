@@ -693,7 +693,7 @@
             <div>&copy; <span class="marca-destaque" style="font-size:0.85rem;">TGROUP SOLUTIONS</span> | 
                 <span class="pt">Atuação desde 1998 e em 2025 com nova estrutura. SÃO PAULO/SP - BRASIL.</span>
                 <span class="en">Operating since 1998 and in 2025 with a new structure. SAO PAULO/SP - BRAZIL.</span>
-                <span class="es">Operando desde 1998 y en 2025 con una nueva estructura. SÃO PAULO/SP - BRASIL.</span>
+                <span class="es">Operando desde 1998 y en 2025 con una nueva estrutura. SÃO PAULO/SP - BRASIL.</span>
             </div>
             <div class="footer-links">
                 <a onclick="abrirModal('modal-termos')"><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></a>
@@ -725,7 +725,7 @@
                 <span class="es">Bienvenido al Ecosistema <span class="marca-destaque">TGROUP</span></span>
             </h3>
             <p style="margin-bottom: 25px;">
-                <span class="pt">Para aceder às nossas soluções exclusivas, por favor, identifique-se abaixo.</span>
+                <span class="pt">Para acessar nossas soluções exclusivas, por favor, identifique-se abaixo.</span>
                 <span class="en">To access our exclusive solutions, please identify yourself below.</span>
                 <span class="es">Para acceder a nuestras soluciones exclusivas, por favor, identifíquese a continuación.</span>
             </p>
@@ -754,7 +754,7 @@
                 <span class="es">Campaña Recomiende y Gane</span>
             </h3>
             <p style="font-size: 1.1rem; line-height: 1.8;">
-                <span class="pt">Empresas parceiras podem utilizar a sua rede de contactos (network) para reduzir drasticamente os custos das suas próprias operações. Indique outras empresas para o nosso ecossistema e transforme a sua influência em benefícios reais para o seu fluxo de caixa.</span>
+                <span class="pt">Empresas parceiras podem utilizar sua rede de contatos (network) para reduzir drasticamente os custos das suas próprias operações. Indique outras empresas para o nosso ecossistema e transforme sua influência em benefícios reais para o seu fluxo de caixa.</span>
                 <span class="en">Partner companies can use their network to drastically reduce the costs of their own operations. Refer other companies to our ecosystem and transform your influence into real benefits for your cash flow.</span>
                 <span class="es">Las empresas socias pueden utilizar su red de contactos para reducir drásticamente los costos de sus propias operaciones. Recomiende otras empresas a nuestro ecosistema y transforme su influencia en beneficios reales para su flujo de caja.</span>
             </p>
@@ -774,14 +774,14 @@
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3><span class="pt">Termos de Uso</span><span class="en">Terms of Use</span><span class="es">Términos de Uso</span></h3>
-            <p class="pt">A utilização das plataformas TGROUP implica na aceitação incondicional das nossas diretrizes operacionais e contratos de SLA (Service Level Agreement).</p>
+            <p class="pt">A utilização das plataformas TGROUP implica na aceitação incondicional de nossas diretrizes operacionais e contratos de SLA (Service Level Agreement).</p>
         </div>
     </div>
     <div class="modal-overlay" id="modal-privacidade" onclick="fecharModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal(event)">&times;</span>
             <h3><span class="pt">Política de Privacidade</span><span class="en">Privacy Policy</span><span class="es">Política de Privacidad</span></h3>
-            <p class="pt">Atuamos em total conformidade com a LGPD. Empregamos protocolos de encriptação e arquitetura de dados blindada.</p>
+            <p class="pt">Atuamos em total conformidade com a LGPD. Empregamos protocolos de criptografia e arquitetura de dados blindada.</p>
         </div>
     </div>
     <div class="modal-overlay" id="modal-compliance" onclick="fecharModal(event)">
@@ -811,7 +811,7 @@
     <script>
         const dadosEcossistema = {
             pt: {
-                home: { titulo: "Inovação e <span>Gestão Integrada</span>", texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável e gestão de ponta.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Aceda às nossas soluções</a>", imagem: "" },
+                home: { titulo: "Inovação e <span>Gestão Integrada</span>", texto: "A <span class='marca-destaque'>TGROUP SOLUTIONS</span> representa uma matriz inovadora que integra startups em diversos setores.<br><br>Nossa expertise foca em crescimento sustentável e gestão de ponta.<br><br><a href='#sidebar-menu' style='color: var(--cor-primaria); font-size: 1.15rem; font-weight: 700; text-decoration: underline;'>Acesse nossas soluções</a>", imagem: "" },
                 payt: { titulo: "Matriz Financeira e <span>Gateway de Pagamentos</span>", texto: "A <span class='marca-destaque'>PAYMEN.T</span> é a Fintech de Gestão Financeira do Ecossistema, oferecendo engenharia comercial para operações que precisam escalar.", imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
                 imobt: { 
                     titulo: "Inteligência e Gestão em <span>Ativos Imobiliários</span>", 
@@ -930,7 +930,7 @@
             
             const btnSubmit = document.getElementById('btnSubmitLead');
             const textoOriginal = btnSubmit.innerHTML;
-            btnSubmit.innerHTML = 'A Processar...';
+            btnSubmit.innerHTML = 'Processando...';
             btnSubmit.disabled = true;
 
             const nome = document.getElementById('leadNome').value;
@@ -959,7 +959,7 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error('Erro na comunicação com a base de dados.');
+                    throw new Error('Erro na comunicação com o banco de dados.');
                 }
 
                 localStorage.setItem('tgroup_acesso_liberado', 'true');
@@ -970,7 +970,7 @@
 
             } catch (error) {
                 console.error(error);
-                alert('Ocorreu um erro ao registar o seu acesso. Por favor, tente novamente.');
+                alert('Ocorreu um erro ao registrar seu acesso. Por favor, tente novamente.');
                 btnSubmit.innerHTML = textoOriginal;
                 btnSubmit.disabled = false;
             }
