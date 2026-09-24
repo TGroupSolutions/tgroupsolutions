@@ -49,8 +49,9 @@
         /* ==================== SIDEBAR DARK MODE ==================== */
         .sidebar { width: 320px; background-color: var(--cor-sidebar); border-right: 1px solid var(--cor-borda-sidebar); padding: 40px; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 10; overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.1); }
         
-        /* LOGOTIPO REDONDO NO MENU LATERAL */
-        .sidebar-logo { width: 100%; max-width: 190px; aspect-ratio: 1/1; object-fit: cover; margin: 0 auto 30px auto; display: block; border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        /* MÁSCARA PARA CORTAR A BORDA BRANCA DO LOGO DA SIDEBAR */
+        .sidebar-logo-container { width: 100%; max-width: 170px; aspect-ratio: 1/1; margin: 0 auto 30px auto; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; background-color: #000; }
+        .sidebar-logo-container img { width: 145%; height: 145%; object-fit: cover; }
         
         .nav-list { list-style: none; flex-grow: 1; }
         .nav-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #ffffff; margin-bottom: 25px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase; opacity: 0.8; }
@@ -238,6 +239,11 @@
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
         #modal-cadastro.modal-overlay { background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); }
         .modal-content { background: var(--cor-fundo); width: 90%; max-width: 750px; padding: 50px; border-radius: 20px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+        
+        /* MÁSCARA PARA CORTAR A BORDA BRANCA DO LOGO DA CAPTAÇÃO */
+        .modal-logo-container { width: 130px; height: 130px; margin: 0 auto 20px auto; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; background-color: #000; }
+        .modal-logo-container img { width: 145%; height: 145%; object-fit: cover; }
+
         .close-modal { position: absolute; top: 25px; right: 30px; font-size: 25px; cursor: pointer; color: #999; transition: 0.3s; }
         .close-modal:hover { color: var(--cor-texto); }
         .modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--cor-texto); }
@@ -255,7 +261,7 @@
         @media (max-width: 1100px) {
             body { flex-direction: column; } 
             .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; border-right: none; border-bottom: 1px solid #111; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-            .sidebar-logo { margin: 0 auto 20px auto; max-width: 160px; }
+            .sidebar-logo-container { max-width: 140px; }
             .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; } 
             .nav-item { margin-bottom: 0; font-size: 0.85rem; padding: 10px 12px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); opacity: 1; text-align: center; white-space: normal; line-height: 1.3;}
             .nav-master-link { border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; padding-bottom: 10px; }
@@ -309,7 +315,10 @@
             <span id="btn-es" class="lang-btn" onclick="changeLang('es')">ES</span>
         </div>
 
-        <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS" class="sidebar-logo">
+        <!-- MÁSCARA APLICADA AO LOGO DA SIDEBAR -->
+        <div class="sidebar-logo-container">
+            <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS">
+        </div>
         
         <ul class="nav-list" id="sidebar-menu">
             <li class="nav-item nav-master-link active" id="nav-home" onclick="carregarConteudo('home')">
@@ -374,7 +383,6 @@
                 </div>
             </div>
 
-            <!-- BLOCO IMOB T: EVENTOS -->
             <div class="imobt-auditoria-box">
                 <h3>
                     <span class="pt">Aprovação Técnica e Jurídica de Eventos</span>
@@ -474,7 +482,6 @@
                     <p class="es">Modelo 100% inédito y cuenta con registro legal activo. Esto significa seguridad absoluta para su RRHH.</p>
                 </div>
 
-                <!-- BLOCO HOME CLUB T: NR1 -->
                 <div class="homeclubt-exclusividade-box" style="background-color: #0a0a0a;">
                     <h3>
                         <span class="pt">Compliance com a NR1 e Benefícios Tributários</span>
@@ -724,8 +731,11 @@
     <!-- MODAL CADASTRO OBRIGATÓRIO PARA O CRM (SUPABASE) -->
     <div class="modal-overlay" id="modal-cadastro">
         <div class="modal-content" style="text-align: center;">
-            <!-- LOGOTIPO AQUI TBM ESTÁ REDONDO COM FUNDO PRETO CORTADO -->
-            <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+            
+            <!-- MÁSCARA APLICADA AO LOGO DA CAPTAÇÃO -->
+            <div class="modal-logo-container">
+                <img src="TGROUP.png" alt="Logo TGROUP SOLUTIONS">
+            </div>
             
             <h3>
                 <span class="pt">Bem-vindo ao Ecossistema <span class="marca-destaque">TGROUP</span></span>
